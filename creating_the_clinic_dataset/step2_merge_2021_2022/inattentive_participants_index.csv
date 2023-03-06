@@ -1,0 +1,7 @@
+year,record_id,id,redcap_event_name,participant
+2021,264,O5769,pre_treatment_arm_1,child
+2021,264,O5769,5th_session_arm_1,child
+2021,275,M5441app,intake_arm_1,child
+2022,355,NaN,control_3month_arm_1,child
+2021,75,S3151,post_treatment_arm_1,mother
+2021,75,S3151,5th_session_arm_1,father

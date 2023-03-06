@@ -1,0 +1,12 @@
+,id,record_id,redcap_event_name,age_child_pre,age_child,opening_timestamp
+1694,S8015,60,intake_arm_1,8,8,07/08/2020
+487,L7829,406,5th_session_arm_1,53,16,
+681,S2489,461,control_5weeks_arm_1,50,15,
+702,TEST2355,471,control_5weeks_arm_1,54,,
+717,M8501,483,intake_arm_1,44,15,
+761,O9963,537,pre_treatment_arm_1,42,11,
+1055,O9397,137,intake_arm_1,43,12,31/12/2020
+1520,R9638,315,control_5weeks_arm_1,46,14,
+1746,L9526,89,control_5weeks_arm_1,35,13,29/10/2020
+1787,O9639,136,intake_arm_1,44,8,31/12/2020
+1822,R9262,190,control_5weeks_arm_1,38,16,17/02/2021
