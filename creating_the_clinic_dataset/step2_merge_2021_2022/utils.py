@@ -67,6 +67,32 @@ def fill_id(df):
     return df
 
 
+def fill_age(df):
+    """
+    This function takes a DataFrame as input, and fills out the empty 'age_child' values by matching them to the 'id' which isn't empty.
+
+    Parameters:
+        df (pandas DataFrame): The DataFrame to be cleaned.
+
+    Returns:
+        pandas DataFrame : The cleaned DataFrame.
+    """
+    df=df.copy()
+    id_map = df.dropna(subset=['age_child_pre']).groupby('id')['age_child_pre'].first()
+    id_map = {key: id_map[key] for key in id_map.keys()}
+    
+    def try_mapping(x):
+        try:
+            return id_map[x]
+        except KeyError:
+            return np.float64(np.nan)
+        
+    df['age_child_pre'] = df['id'].apply(lambda x: try_mapping(x))
+    return df
+
+
+
+
 def format_datetime_columns(df):
     df = df.copy()
     timestamps = [col for col in df.columns if 'timestamp' in col]
@@ -95,6 +121,8 @@ def delete_redundant_columns(df_2021, df_2022):
 
 def delete_negative_age(df):
     df.loc[df['age_child_pre'] < 2, 'age_child_pre'] = np.float64(np.nan)
+    if 'age_child_pre_first' in df.columns:
+        df.loc[df['age_child_pre_first'] < 2, 'age_child_pre_first'] = np.float64(np.nan)
     return df
     
 
