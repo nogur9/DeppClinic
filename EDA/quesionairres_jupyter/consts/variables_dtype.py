@@ -10,7 +10,7 @@ positive = range(0, Max)
 
 
 variables_type = {
-'c_ssrs_1': binary,
+    'c_ssrs_1': binary,
     'c_ssrs_2': binary,
     'c_ssrs_3': binary,
     'c_ssrs_4': binary,
@@ -235,3 +235,79 @@ sci_af_ca= {
 'sci_af_ca_39': range(0, 5),
 'sci_af_ca_40': range(0, 5)
 }
+
+
+
+
+scs_clin = [
+    'sci_c_1_1_clin',
+    'scs_2_1_clin',
+    'scs_2_2_clin',
+    'scs_2_3_clin',
+    'scs_2_4_clin',
+    'sci_c_3_1_clin',
+    'sci_c_3_2_clin',
+    'sci_c_3_3_clin',
+    'sci_c_3_4_clin',
+    'sci_c_4_1_clin',
+    'sci_c_4_2_clin',
+    'sci_c_4_3_clin',
+    'sci_c_4_4_clin',
+    'sci_c_5_1_clin',
+    'sci_c_5_2_clin'
+]
+
+
+scs_stu = [
+    'sci_c_1_1_stu',
+    'scs_2_1_stu',
+    'scs_2_2_stu',
+    'scs_2_3_stu',
+    'scs_2_4_stu',
+    'sci_c_3_1_stu',
+    'sci_c_3_2_stu',
+    'sci_c_3_3_stu',
+    'sci_c_3_4_stu',
+    'sci_c_4_1_stu',
+    'sci_c_4_2_stu',
+    'sci_c_4_3_stu',
+    'sci_c_4_4_stu',
+    'sci_c_5_1_stu',
+    'sci_c_5_2_stu'
+]
+
+sci_mother = [
+    'sci_p_1_m',
+    'sci_p_2_m',
+    'sci_p_3_m',
+    'sci_p_4_m',
+    'sci_p_5_m',
+    'sci_p_6_m',
+    'sci_p_7_m',
+    'sci_p_8_m',
+    'sci_p_9_m',
+    'sci_p_10_m',
+    'sci_p_11_m',
+    'sci_p_12_m',
+    'sci_p_13_m',
+    'sci_p_14_m',
+    'sci_p_15_m'
+]
+
+sci_father = [
+    'sci_p_1_f',
+    'sci_p_2_f',
+    'sci_p_3_f',
+    'sci_p_4_f',
+    'sci_p_5_f',
+    'sci_p_6_f',
+    'sci_p_7_f',
+    'sci_p_8_f',
+    'sci_p_9_f',
+    'sci_p_10_f',
+    'sci_p_11_f',
+    'sci_p_12_f',
+    'sci_p_13_f',
+    'sci_p_14_f',
+    'sci_p_15_f'
+]

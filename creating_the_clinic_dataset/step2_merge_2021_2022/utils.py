@@ -93,13 +93,25 @@ def delete_redundant_columns(df_2021, df_2022):
     df_2022 = df_2022.drop(['iat_done_no'], axis=1)
     return df_2021, df_2022
 
-
+def delete_negative_age(df):
+    df.loc[df['age_child_pre'] < 2, 'age_child_pre'] = np.float64(np.nan)
+    return df
+    
 
 def fix_age(df):
     index = pd.read_csv('invalid_age.csv')
     for id_num in index['id']:
         correct_age = index[index['id'] == id_num]['age_child'].iloc[0]
-        df.loc[df['id'] == id_num, 'age_child'] = correct_age
+        df.loc[df['id'] == id_num, 'age_child_pre'] = correct_age
+  
+    return df
+
+def fill_missing_age(df):
+    index = pd.read_csv('missing_age.csv')
+    for id_num in index['id']:
+        correct_age = index[index['id'] == id_num]['age_child_pre'].iloc[0]
+        if not np.isnan(correct_age):
+            df.loc[df['id'] == id_num, 'age_child_pre'] = correct_age
     return df
     
 def remove_test_id(df):
