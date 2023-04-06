@@ -140,6 +140,7 @@ def fill_missing_age(df):
         correct_age = index[index['id'] == id_num]['age_child_pre'].iloc[0]
         if not np.isnan(correct_age):
             df.loc[df['id'] == id_num, 'age_child_pre'] = correct_age
+            
     return df
     
 def remove_test_id(df):

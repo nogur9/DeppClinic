@@ -4,6 +4,7 @@ import numpy as np
 
 def get_max_index(df, questions_values_map):
     questions_values = df[questions_values_map.keys()] * questions_values_map.values()
+
     max_value = questions_values.max(axis=1)
     return max_value
     
