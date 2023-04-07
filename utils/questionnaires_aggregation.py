@@ -53,7 +53,7 @@ def get_max_index(df, questions_values_map):
 def sci_af_ac_aggregation(df):
     
     for key in sci_af_ac_agg_map.keys():
-        df[key] = df[sci_af_ac_agg_map[key]].sum(axis=1)
+        df[key] = df[sci_af_ac_agg_map[key]].sum(axis=1, skipna=False)
     
     params = ['sci_af_ca_Factor1', 'sci_af_ca_Factor2',
              'sci_af_ca_Factor3', 'sci_af_ca_Factor4', 
