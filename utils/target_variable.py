@@ -15,6 +15,7 @@ class TargetVariable:
             df[self.name] = (aligned_df.sum(axis=1) > 0).astype(int)
         else:
             df[self.name] = (df[self.columns].sum(axis=1) > 0).astype(int)
+        return df
 
     def create_plot(self, df, path='plots'):
         to_profile = df[[self.name]+self.columns]

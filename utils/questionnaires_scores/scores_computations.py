@@ -164,7 +164,7 @@ def compute_scs_clin_score(df, skipna = False):
 
 
 def compute_scs_mother_score(df, skipna=False):
-    df['scs_mother_score'] = df[sci_mother].mean(axis=1, skipna=skipna)
+    df['sci_mother_score'] = df[sci_mother].mean(axis=1, skipna=skipna)
 
     missing_values = df[sci_mother].isnull()
     missing_values_sum = missing_values.sum(axis=1)
@@ -208,7 +208,7 @@ def c_ssrs_roll_negative(df, c_ssrs_columns):
 
     c_ssrs_columns = list(c_ssrs_columns)
     negative_columns_condition = (df[c_ssrs_columns[0]] == 0) & (df[c_ssrs_columns[1]] == 0)
-    redundant_columns_condition = df[c_ssrs_columns[2:]].isna().all()
+    redundant_columns_condition = df[c_ssrs_columns[2:]].isna().all(axis=1)
     redundant_columns = c_ssrs_columns[2:]
 
     mask = negative_columns_condition & redundant_columns_condition

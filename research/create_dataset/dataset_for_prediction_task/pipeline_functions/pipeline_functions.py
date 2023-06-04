@@ -13,7 +13,7 @@ class Columns:
 
     info_columns = ['gender', 'redcap_event_name', 'age_child_pre']
 
-    default_columns = info_columns + demographics_m + c_ssrs_intake + c_ssrs + c_ssrs_clin + sci_af_ca + scs_clin + sci_mother + siq + sdq + mfq + scared + ATHENS + SAS + demographics_m + all_target_columns
+    default_columns = info_columns + demographics_m + c_ssrs_intake + c_ssrs + c_ssrs_clin + sci_af_ca + scs_clin + sci_mother + siq + sdq + mfq + scared + ATHENS + SAS + demographics_m
 
     def __init__(self, columns=[], id_column='id'):
         self.id_column = id_column
@@ -72,8 +72,9 @@ def split_two_measurement_times(df, columns):
     df_time2 = df[df.redcap_event_name == time2_events[0]][columns.unique_columns_with_id]
 
     for event_name in time2_events[1:]:
-        df_time21 = df[df.redcap_event_name == event_name][columns.unique_columns]
-        df_time2 = impute_events(df_time21)
+        df_new_measurement = df[df.redcap_event_name == event_name][columns.unique_columns_with_id]
+
+        df_time2 = impute_events(df_time2, df_new_measurement, columns, suffix=event_name)
 
     df_time1['measurement'] = 'time1'
     df_time2['measurement'] = 'time2'
@@ -84,7 +85,7 @@ def split_two_measurement_times(df, columns):
 def impute_events(df1, df2, columns, suffix):
     imputed_data = pd.merge(df1, df2, on=['id'], how='outer', suffixes=('', f'_{suffix}'))
 
-    for column_name in columns:
+    for column_name in columns.unique_columns:
         imputed_data = impute_from_column(imputed_data, impute_to=column_name,
                                            impute_from=f'{column_name}_{suffix}')
 
