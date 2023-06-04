@@ -240,7 +240,7 @@ SAS = [
 ]
 
 
-sci_af_ca= [
+sci_af_ca = [
     'sci_af_ca_1',
     'sci_af_ca_2',
     'sci_af_ca_3',
