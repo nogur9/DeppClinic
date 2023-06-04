@@ -50,7 +50,7 @@ sci_af_ac_factors = {
   'sci_af_ca_37',
   'sci_af_ca_38',
   'sci_af_ca_39']}
-
+sci_af_ca_new_questions = [f'sci_af_ca_{i}' for i in range(26, 41)]
 """
 SCS mother - factors
 
@@ -99,7 +99,7 @@ c_ssrs_2weeks_values_map = {
 
 C_ssrs_clinician = {
     'c_ssrs_clinician_2weeks': {
-        'name':'c_ssrs_clinician_2weeks',
+        'name': 'c_ssrs_clinician_2weeks',
         'agg_method': 'max',
         'columns': {
             'c_ssrs_t_2weeks_1_clin': 1,

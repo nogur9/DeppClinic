@@ -16,8 +16,7 @@ def impute_from_column(df, impute_to, impute_from):
     return df
 
 
-
-def simple_eda(df, columns, title, path = '', rename = None, display_additional_columns=True):
+def simple_eda(df, columns, title, path='', rename = None, display_additional_columns=True):
     if display_additional_columns:
         additional_columns = ['id', 'gender', 'redcap_event_name', 'age_child']
     else:

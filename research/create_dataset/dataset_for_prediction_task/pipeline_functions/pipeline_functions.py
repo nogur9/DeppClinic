@@ -3,6 +3,7 @@ from utils.consts.pathology_variables import all_pathology_variables
 from utils.consts.assistment_consts import imputation_questionnaires
 from utils.utils import impute_from_column
 import pandas as pd
+import pandas_profiling as pp
 
 
 class Columns:
@@ -28,11 +29,16 @@ class Columns:
         self.ordered_columns = self.columns
         self.unique_columns = set(self.columns + self.chameleon)
 
-        self.unique_columns_with_id = set(self.columns + self.chameleon + [self.id_column])
         self.ordered_columns_with_id = self.columns + [self.id_column]
+        self.unique_columns_with_id = set(self.columns + self.chameleon + [self.id_column])
 
-    def add(self):
-        pass
+    def add(self, items):
+        self.unique_columns.update(set(items))
+        self.unique_columns_with_id.update(set(items))
+
+        self.ordered_columns.extend(items)
+        self.ordered_columns_with_id.extend(items)
+
 
 
 def do_imputations(df):
@@ -95,3 +101,25 @@ def compute_questions_scores(df, questionnaires_map, variables_list):
         variables_list.add(scores_columns_names)
 
     return df, variables_list
+
+
+def save_df(df, columns, axis='patient', profile=False):
+    if axis == 'patient':
+
+        df_intake = df[df.measurement == 'time1'][columns.ordered_columns_with_id]
+        df_target = df[df.measurement == 'time2'][columns.ordered_columns_with_id]
+
+        df = pd.merge(df_intake, df_target, on='id', how='outer', suffixes=('_time1', '_time2'))
+        df = df.drop(['measurement_time1', 'measurement_time2'], axis=1)
+
+        df.to_csv("DeppClinic_patient_data.csv", index=False)
+
+    elif axis == 'time':
+        df[columns.ordered_columns_with_id].to_csv("DeppClinic_prediction_task.csv", index=False)
+        if profile:
+            to_profile = df[columns.unique_columns]
+            profile = pp.ProfileReport(to_profile, title="DeppClinic_prediction_task")
+            profile.to_file(fr"research/create_dataset/dataset_for_prediction_task/pandas_profiling/DeppClinic_prediction_task_profile_report.html")
+
+
+
