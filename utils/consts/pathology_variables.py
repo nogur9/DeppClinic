@@ -16,46 +16,35 @@ suicidal_behavior_intake = [
 
     'c_ssrs_6_life', 'mfq_34', 'mfq_36', 'c_ssrs_6_2weeks',
     'c_ssrs_6_3month'
-
 ]
 
-
 suicide_attempt_intake = [
-    'mfq_36', 'mfq_34', 'c_ssrs_t_11_life_clin',
+    'mfq_36', 'mfq_34',
+    'c_ssrs_t_11_life_clin',
     'c_ssrs_t_12_life_clin',
     'c_ssrs_t_13_life_clin',
+    'chameleon_attempt_stu',
 ]
 
 nssi_intake = [
-    'c_ssrs_t_16_life_clin', 'mfq_35', 'mfq_37',
+    'c_ssrs_t_16_life_clin', 'mfq_35', 'mfq_37', 'chameleon_nssi_stu'
 ]
 
-
 suicidal_ideation_2weeks_intake = [
-
     'c_ssrs_t_2weeks_1_clin',
     'c_ssrs_t_2weeks_2_clin',
     'c_ssrs_t_2weeks_3_clin',
     'c_ssrs_t_2weeks_4_clin',
     'c_ssrs_t_2weeks_5_clin',
 
-    'c_ssrs_1_life',
-    'c_ssrs_2_life',
-    'c_ssrs_3_life',
-    'c_ssrs_4_life',
-    'c_ssrs_5_life',
-
     'c_ssrs_1_2weeks',
     'c_ssrs_2_2weeks',
     'c_ssrs_3_2weeks',
     'c_ssrs_4_2weeks',
     'c_ssrs_5_2weeks',
-
 ]
 
-
 suicidal_ideation_life_intake = [
-
     'c_ssrs_t_life_1_clin',
     'c_ssrs_t_life_2_clin',
     'c_ssrs_t_life_3_clin',
@@ -95,13 +84,18 @@ suicidal_behavior_time2 = [
     'c_ssrs_last_visit_6',
     'chameleon_behavior_stu',
     'chameleon_attempt_stu',
-    'chameleon_suicide_er_stu',
-    'chameleon_ideation_stu'
 ]
 
+suicidal_attempt_time2 = [
+    'suicidal_behavior_last_11_clin',
+    'suicidal_behavior_last_12_clin',
+    'suicidal_behavior_last_13_clin',
+    'mfq_36',
+    'chameleon_attempt_stu',
+]
 
 nssi_time2 = [
-    'suicidal_behavior_last_16_clin', 'mfq_37',
+    'suicidal_behavior_last_16_clin', 'mfq_37', 'chameleon_nssi_stu'
 ]
 
 suicidal_ideation_time2 = [
@@ -143,6 +137,52 @@ pathology_variables_times = {
               }
 
 }
+
+
+# for irit
+
+
+suicidal_ideation_life_intake_irit = [
+
+    'c_ssrs_t_life_2_clin',
+    'c_ssrs_t_life_3_clin',
+    'c_ssrs_t_life_4_clin',
+    'c_ssrs_t_life_5_clin',
+
+    'c_ssrs_2_life',
+    'c_ssrs_3_life',
+    'c_ssrs_4_life',
+    'c_ssrs_5_life',
+
+]
+
+suicidal_ideation_life_intake_irit = [
+
+    'c_ssrs_t_2weeks_2_clin',
+    'c_ssrs_t_2weeks_3_clin',
+    'c_ssrs_t_2weeks_4_clin',
+    'c_ssrs_t_2weeks_5_clin',
+
+    'c_ssrs_2_2weeks',
+    'c_ssrs_3_2weeks',
+    'c_ssrs_4_2weeks',
+    'c_ssrs_5_2weeks',
+]
+
+
+
+# Chameleon target variables
+
+ER = ['chameleon_suicide_er_stu']
+ER_intake = ["complaint___1", "complaint___2", "complaint___3", "complaint___4", "complaint___5"]
+
+psych_ward = ['chameleon_psychiatric_stu']
+
+finished_treatment = ['treatment_end_stu']  #if 1 "yes" after intake -> mark as yes for the subject
+
+
+
+
 
 all_pathology_variables = ['suicidal_behavior_intake', 'suicide_attempt_intake', 'nssi_intake',
                 'suicidal_ideation_2weeks_intake', 'suicidal_ideation_life_intake', 'suicidal_behavior_time2',

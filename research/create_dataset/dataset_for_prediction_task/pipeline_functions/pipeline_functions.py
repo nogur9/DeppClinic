@@ -29,8 +29,8 @@ class Columns:
         self.ordered_columns = self.columns
         self.unique_columns = set(self.columns + self.chameleon)
 
-        self.ordered_columns_with_id = self.columns + [self.id_column]
-        self.unique_columns_with_id = set(self.columns + self.chameleon + [self.id_column])
+        self.ordered_columns_with_id = [self.id_column] + self.columns
+        self.unique_columns_with_id = set([self.id_column] + self.columns + self.chameleon)
 
     def add(self, items):
         self.unique_columns.update(set(items))

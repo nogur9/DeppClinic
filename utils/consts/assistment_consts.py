@@ -110,4 +110,17 @@ questionnaires = {
 
     },
 
+    {
+compute_maris_sci_sf_score
+
+
+compute_maris_soq_sf_score
+compute_mast_score
+
+compute_ari_s_score
+
+compute_ari_p_score
+    }
+
+
 }

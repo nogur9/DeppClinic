@@ -103,7 +103,9 @@ mfq = [
  'mfq_27',
  'mfq_28',
  'mfq_30',
- 'mfq_31',
+ 'mfq_31']
+
+additional_mfq = [
  'mfq_34',
  'mfq_35',
  'mfq_36',
@@ -356,7 +358,23 @@ sci_father = [
     'sci_p_15_f'
 ]
 
+ARI_S = ['ari_s_1', 'ari_s_2', 'ari_s_3', 'ari_s_4', 'ari_s_5', 'ari_s_6']
 
+ARI_P = ['ari_p_1', 'ari_p_2', 'ari_p_3', 'ari_p_4', 'ari_p_5', 'ari_p_6']
+
+
+MAST = ['MAST_1', 'MAST_5', 'MAST_6', 'MAST_13', 'MAST_18', 'MAST_19', 'MAST_25', 'MAST_28',
+        'MAST_2', 'MAST_9', 'MAST_14', 'MAST_15', 'MAST_16', 'MAST_21', 'MAST_30',
+        'MAST_8', 'MAST_17', 'MAST_22', 'MAST_23', 'MAST_26', 'MAST_27', 'MAST_29',
+        'MAST_3', 'MAST_4', 'MAST_7', 'MAST_10', 'MAST_11', 'MAST_12', 'MAST_20', 'MAST_24']
+
+
+maris_sci_sf = ['maris_sci_sf_1', 'maris_sci_sf_2', 'maris_sci_sf_3', 'maris_sci_sf_4',
+        'maris_sci_sf_5', 'maris_sci_sf_6', 'maris_sci_sf_7', 'maris_sci_sf_8',
+        'maris_sci_sf_9']
+
+maris_soq_sf = ['maris_soq_sf_1', 'maris_soq_sf_2', 'maris_soq_sf_3', 'maris_soq_sf_4',
+                    'maris_soq_sf_5', 'maris_soq_sf_6', 'maris_soq_sf_7', 'maris_soq_sf_8']
 demographics_m = [
     'parents_born_m',
     'parents_born_2_m',
@@ -371,6 +389,29 @@ demographics_m = [
     'paresnts_work_2_m',
     'together_live_m',
 ]
+#
+# swan = [
+#     "swan_1_m",
+# "swan_2_m",
+# "swan_3_m",
+# "swan_4_m"
+# swan_5_m [nan  0.  1.  3.  2.]
+# swan_6_m [nan  0.  1.  3.  2.]
+# swan_7_m [nan  1.  3.  2.  0.]
+# swan_8_m [nan  1.  2.  3.  0.]
+# swan_9_m [nan  3.  2.  1.  0.]
+# swan_10_m [nan  2.  3.  1.  0.]
+# swan_11_m [nan  3.  1.  2.  0.]
+# swan_12_m [nan  3.  1.  2.  0.]
+# swan_13_m [nan  3.  2.  1.  0.]
+# swan_14_m [nan  3.  1.  2.  0.]
+# swan_15_m [nan  3.  1.  2.  0.]
+# swan_16_m [nan  3.  1.  2.  0.]
+# swan_17_m [nan  3.  2.  1.  0.]
+# "swan_18_m"
+#
+# ]
+
 
 demographics_f = [
     'parents_born_f',
@@ -397,6 +438,7 @@ all_questionarries = siq\
                      + scared\
                      + ATHENS\
                      + SAS\
+                     + maris_sci_sf\
                      + sci_af_ca\
                      + scs_clin\
                      + sci_mother\

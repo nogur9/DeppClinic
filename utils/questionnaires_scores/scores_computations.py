@@ -1,12 +1,25 @@
-from utils.consts.subsets_of_questionnaires import sci_af_ac_factors, C_ssrs_clinician, sci_af_ca_new_questions
+from utils.consts.subsets_of_questionnaires import sci_af_ac_factors, C_ssrs_clinician, sci_af_ca_new_questions, \
+    maris_soq_sf_reverse, maris_soq_sf_normal, MAST_factors
 from utils.consts.subsets_of_questionnaires import sdq_reverse, sdq_normal, c_ssrs_life_values_map, c_ssrs_2weeks_values_map
-from utils.consts.questions_columns import mfq, siq, scared, SAS, ATHENS, c_ssrs, sci_af_ca, scs_clin, sci_mother
+from utils.consts.questions_columns import mfq, siq, scared, SAS, ATHENS, c_ssrs, sci_af_ca, scs_clin, sci_mother, \
+    maris_sci_sf, maris_soq_sf, MAST, ARI_S, ARI_P
 
 # util functions
 from utils.utils import impute_from_column
 
 
 def get_max_index(df, questions_values_map):
+    """
+    Returns the maximal index of the question with a positive answer.
+
+    Args:
+        df (pandas.DataFrame): The input DataFrame containing the questionnaire answers.
+        questions_values_map (dict): A dictionary mapping question names to their respective values.
+
+    Returns:
+        pandas.Series: A Series containing the maximal index of the question with a positive answer for each row.
+
+    """
     questions_values = df[questions_values_map.keys()] * questions_values_map.values()
     max_value = questions_values.max(axis=1)
     return max_value
@@ -14,6 +27,11 @@ def get_max_index(df, questions_values_map):
 
 # compute scores
 def compute_sdq_score(df, skipna = False):
+
+    """
+    add subscales
+    """
+
     sdq_reverse_columns = [f"{i}_reverse" for i in sdq_reverse]
 
     df[sdq_reverse_columns] = 2 - df[sdq_reverse]
@@ -25,7 +43,6 @@ def compute_sdq_score(df, skipna = False):
     df['ratio_of_missing_sdq_values'] = missing_values_sum / len(sdq_columns)
 
     df = df.drop(sdq_reverse_columns, axis=1)
-
 
     return df, ['sdq_score', 'ratio_of_missing_sdq_values']
 
@@ -105,13 +122,14 @@ def compute_sas_score(df, skipna = False):
 
 
     """
+
     df['sas_score'] = df[SAS].mean(axis=1, skipna=skipna)
 
     missing_values = df[SAS].isnull()
     missing_values_sum = missing_values.sum(axis=1)
     df['ratio_of_missing_sas_values'] = missing_values_sum / len(SAS)
 
-    return df, ['sas_score', 'ratio_of_missing_sas_values']
+    return df, ['sas_mean_score', 'ratio_of_missing_sas_values']
 
 
 def compute_athens_score(df, skipna = False):
@@ -144,6 +162,7 @@ def compute_sci_af_ac_score(df, skipna=False):
     missing_values = df[sci_af_ca].isnull()
     missing_values_sum = missing_values.sum(axis=1)
     df['ratio_of_missing_sci_af_ac_values'] = missing_values_sum / len(sci_af_ca)
+
     df['sci_af_ca_is_new_questions_missing'] = df[sci_af_ca_new_questions].isna().all(axis=1)
 
     params = list(sci_af_ac_factors.keys()) + ['sci_af_ac_score', 'ratio_of_missing_sci_af_ac_values',
@@ -173,11 +192,173 @@ def compute_scs_mother_score(df, skipna=False):
     return df, ['sci_mother_score', 'ratio_of_missing_sci_mother_values']
 
 
+def compute_mast_score(df, skipna=False):
+    """
+    *********************************************MAST*********************************************
+
+    COMPUTE MAST_AL=MEAN(MAST_1,MAST_5,MAST_6,MAST_13,MAST_18,MAST_19,MAST_25,MAST_28).
+    VARIABLE LABELS  MAST_AL 'MAST_AL'.
+    EXECUTE.
+
+    COMPUTE MAST_RL=MEAN(MAST_2,MAST_9,MAST_14,MAST_15,MAST_16,MAST_21,MAST_30).
+    VARIABLE LABELS  MAST_RL 'MAST_RL'.
+    EXECUTE.
+
+    COMPUTE MAST_AD=MEAN(MAST_8,MAST_17,MAST_22,MAST_23,MAST_26,MAST_27,MAST_29).
+    VARIABLE LABELS  MAST_AD 'MAST_AD'.
+    EXECUTE.
+
+    COMPUTE MAST_RD=MEAN(MAST_3,MAST_4,MAST_7,MAST_10,MAST_11,MAST_12,MAST_20,MAST_24).
+    VARIABLE LABELS  MAST_RD 'MAST_RD'.
+    EXECUTE.
+
+    """
+    # Compute mean for MAST_AL
+    df['MAST_AL'] = df[MAST_factors['MAST_AL']].mean(axis=1, skipna=skipna)
+
+    # Compute mean for MAST_RL
+    df['MAST_RL'] = df[MAST_factors['MAST_RL']].mean(axis=1, skipna=skipna)
+
+    # Compute mean for MAST_AD
+    df['MAST_AD'] = df[MAST_factors['MAST_AD']].mean(axis=1, skipna=skipna)
+
+    # Compute mean for MAST_RD
+    df['MAST_RD'] = df[MAST_factors['MAST_RD']].mean(axis=1, skipna=skipna)
+
+    missing_values = df[MAST].isnull()
+    missing_values_sum = missing_values.sum(axis=1)
+    df['ratio_of_missing_mast_values'] = missing_values_sum / len(MAST)
+
+    return df, ['ratio_of_missing_mast_values', 'MAST_AL', 'MAST_RL', 'MAST_AD', 'MAST_RD']
+
+#ARI-S
+
+
+def compute_ari_p_score(df, skipna=False):
+    """
+
+    COMPUTE ARI_P_SUM=SUM(ari_p_1,ari_p_2,ari_p_3,ari_p_4,ari_p_5,ari_p_6).
+    EXECUTE.
+
+    """
+
+    # Compute the sum for ARI_S_SUM
+    df['ARI_P_SUM'] = df[ARI_P].sum(axis=1, skipna=skipna)
+    df['ari_p_score'] = df[ARI_P].sum(axis=1, skipna=skipna)
+
+    missing_values = df[ARI_P].isnull()
+    missing_values_sum = missing_values.sum(axis=1)
+    df['ratio_of_missing_ari_p_values'] = missing_values_sum / len(ARI_P)
+
+    return df, ['ARI_P_SUM', 'ari_p_score', 'ratio_of_missing_ari_p_values']
+
+
+def compute_ari_s_score(df, skipna=False):
+    """
+    COMPUTE ARI_S_SUM=SUM(ari_s_1,ari_s_2,ari_s_3,ari_s_4,ari_s_5,ari_s_6).
+    EXECUTE.
+
+    """
+
+    # Compute the sum for ARI_S_SUM
+    df['ARI_S_SUM'] = df[ARI_S].sum(axis=1, skipna=skipna)
+    df['ari_s_score'] = df[ARI_S].sum(axis=1, skipna=skipna)
+
+    missing_values = df[ARI_S].isnull()
+    missing_values_sum = missing_values.sum(axis=1)
+    df['ratio_of_missing_ari_s_values'] = missing_values_sum / len(ARI_S)
+
+    return df, ['ARI_S_SUM', 'ari_s_score', 'ratio_of_missing_ari_s_values']
+
+
+# maris
+
+
+def compute_maris_sci_sf_score(df, skipna=False):
+    """
+
+
+    RECODE maris_sci_sf_1 maris_sci_sf_2 maris_sci_sf_3 maris_sci_sf_4 maris_sci_sf_5 maris_sci_sf_6 maris_sci_sf_7 maris_sci_sf_8 maris_sci_sf_9
+        (1=0) (2=1) (3=2) (4=3) (5=4).
+    EXECUTE.
+
+    COMPUTE MARIS_SCI_TOTAL=SUM(maris_sci_sf_1,maris_sci_sf_2,maris_sci_sf_3,maris_sci_sf_4,maris_sci_sf_5,maris_sci_sf_6,maris_sci_sf_7,maris_sci_sf_8,
+       maris_sci_sf_9).
+    EXECUTE.
+
+
+    """
+    df[maris_sci_sf] = df[maris_sci_sf] - 1
+
+    # Calculate MARIS_SCI_TOTAL
+    df['MARIS_SCI_TOTAL'] = df[maris_sci_sf].sum(axis=1, skipna=skipna)
+    df['maris_sci_sf_score'] = df[maris_sci_sf].sum(axis=1, skipna=skipna)
+
+    missing_values = df[maris_sci_sf].isnull()
+    missing_values_sum = missing_values.sum(axis=1)
+    df['ratio_of_missing_maris_sci_sf_values'] = missing_values_sum / len(maris_sci_sf)
+
+    return df, ['maris_sci_sf_score', 'MARIS_SCI_TOTAL', 'ratio_of_missing_maris_sci_sf_values']
+
+
+def compute_maris_soq_sf_score(df, skipna=False):
+    """
+
+RECODE maris_soq_sf_1 maris_soq_sf_2 maris_soq_sf_3 maris_soq_sf_4 maris_soq_sf_5 maris_soq_sf_6 maris_soq_sf_7 maris_soq_sf_8 (1=0) (2=1) (3=2)
+    (4=3) (5=4).
+EXECUTE.
+
+RECODE maris_soq_sf_2 maris_soq_sf_3 maris_soq_sf_5 (0=4) (1=3) (2=2) (3=1) (4=0) INTO maris_soq_sf_2R maris_soq_sf_3R maris_soq_sf_5R.
+EXECUTE.
+
+COMPUTE MARIS_SOQ_SUM=SUM(maris_soq_sf_1,maris_soq_sf_2R,maris_soq_sf_3R,maris_soq_sf_4,maris_soq_sf_5R,maris_soq_sf_6,maris_soq_sf_7,
+    maris_soq_sf_8).
+EXECUTE.
+
+    """
+    # Recode values in maris_soq_sf using a dictionary comprehension
+    df[maris_soq_sf] = df[maris_soq_sf] - 1
+
+    # Create new variables maris_soq_sf_2R, maris_soq_sf_3R, maris_soq_sf_5R by recoding values
+
+    maris_soq_sf_reverse_columns = [f"{i}_reverse" for i in maris_soq_sf_reverse]
+    df[maris_soq_sf_reverse_columns] = 2 - df[maris_soq_sf_reverse]
+
+    # Calculate MARIS_SOQ_SUM
+    df['MARIS_SOQ_SUM'] = df[maris_soq_sf_reverse_columns + maris_soq_sf_normal].sum(axis=1, skipna=skipna)
+    df['maris_soq_sf_score'] = df[maris_soq_sf_reverse_columns + maris_soq_sf_normal].sum(axis=1, skipna=skipna)
+
+    missing_values = df[maris_soq_sf].isnull()
+    missing_values_sum = missing_values.sum(axis=1)
+    df['ratio_of_missing_maris_soq_sf_values'] = missing_values_sum / len(maris_soq_sf)
+
+    return df, ['maris_soq_sf_score', 'maris_soq_sf_score', 'ratio_of_missing_maris_soq_sf_values']
+
+
 # C_SSRS questionnaire
 
-
 def calculate_c_ssrs_individual_score(df, severity):
-    
+    """
+    Calculates the C-SSRS (Columbia-Suicide Severity Rating Scale) individual scores based on the severity level.
+
+    The C-SSRS is a scale used to assess suicide risk and consists of questions with increasing severity of symptoms.
+    This function calculates the individual scores by determining the maximal question index with a positive answer.
+
+    Args:
+        df (pandas.DataFrame): The input DataFrame containing the questionnaire answers.
+        severity (str): The severity level to consider. Can be 'idea' or 'stb'.
+            - If severity is 'idea', the function excludes questions with severity levels above 5.
+            - If severity is 'stb', the function considers all questions.
+            - If severity is neither 'idea' nor 'stb', a ValueError is raised.
+
+    Returns:
+        pandas.Series: A Series containing the individual scores calculated for each row in the DataFrame.
+
+    Raises:
+        ValueError: If severity is neither 'idea' nor 'stb'.
+
+
+    """
     c_ssrs_values_map = {
     'c_ssrs_1': 1,
     'c_ssrs_2': 2,
@@ -312,3 +493,25 @@ def calculate_clinician_c_ssrs_individual_score(df, score_info, rolling_negative
     return score
 
 
+
+def calculate_swan_scores(df):
+    """
+    if all mother is missing - impute from father
+    """
+
+    missing_values = df[sci_af_ca].isnull()
+    missing_values_sum = missing_values.sum(axis=1)
+    df['ratio_of_missing_sci_af_ac_values'] = missing_values_sum / len(sci_af_ca)
+    df['sci_af_ca_is_new_questions_missing'] = df[sci_af_ca_new_questions].isna().all(axis=1)
+
+
+    for key in sci_af_ac_factors.keys():
+        # impute mean per row / subject
+        df[key] = df[sci_af_ac_factors[key]].sum(axis=1)
+
+    df['sci_af_ac_score'] = df[sci_af_ca].mean(axis=1, skipna=skipna)
+
+    params = list(sci_af_ac_factors.keys()) + ['sci_af_ac_score', 'ratio_of_missing_sci_af_ac_values',
+                                               'sci_af_ca_is_new_questions_missing']
+
+    return df, params

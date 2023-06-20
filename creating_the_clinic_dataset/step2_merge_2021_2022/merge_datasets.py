@@ -32,7 +32,7 @@ def fix_wrong_groups(df):
     #if group 3 appears with another group:
     #- take the 1/ 2
     
-    ['group___1', 'group___2', 'group___3']
+    # ['group___1', 'group___2', 'group___3']
     df.loc[(df['group___1'] == 1) & (df['group___3'] == 1), 'group___3'] = 0
     df.loc[(df['group___2'] == 1) & (df['group___3'] == 1), 'group___3'] = 0
     
@@ -110,8 +110,6 @@ def fix_group_scpecific_case(df):
         df = apply_group(df, index, group)
     
     return df
-
-
 
 
 def resolve_contradiction(row, col_2021, col_2022, function = None, col_name= ''):

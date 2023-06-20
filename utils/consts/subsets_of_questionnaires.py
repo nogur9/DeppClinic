@@ -4,6 +4,13 @@ sci_af_ac 5 factors
 sdq - reverse questions
 sdq - normal questions
 """
+from utils.consts.questions_columns import sdq, maris_soq_sf
+
+swan_factors = {
+    'attention': [f'swan_{i}m' for i in range(1, 10)],
+    'impulsivity': [f'swan_{i}m' for i in range(10, 19)]
+
+}
 
 sci_af_ac_factors = {
   'sci_af_ca_Factor1': ['sci_af_ca_5',
@@ -57,12 +64,14 @@ SCS mother - factors
 SCS clin - factors
 
 """
+
+maris_soq_sf_reverse = ['maris_soq_sf_2', 'maris_soq_sf_3', 'maris_soq_sf_5']
+maris_soq_sf_normal = [i for i in maris_soq_sf if i not in maris_soq_sf_reverse]
+
 # SDQ
 
 sdq_reverse = ['sdq_7', 'sdq_11', 'sdq_14', 'sdq_21', 'sdq_25']
-sdq_normal = ['sdq_2', 'sdq_3', 'sdq_5', 'sdq_6', 'sdq_8',
-             'sdq_10', 'sdq_12', 'sdq_13', 'sdq_15', 'sdq_16',
-             'sdq_18', 'sdq_19', 'sdq_22', 'sdq_23', 'sdq_24']
+sdq_normal = [i for i in sdq if i not in sdq_reverse]
 
 
 conduct_columns = ['SDQ_5', 'SDQ_7R', 'SDQ_12', 'SDQ_18', 'SDQ_22']
@@ -70,10 +79,32 @@ emo_columns = ['SDQ_3', 'SDQ_8', 'SDQ_13', 'SDQ_16', 'SDQ_24']
 hyper_columns = ['SDQ_2', 'SDQ_10', 'SDQ_15', 'SDQ_21', 'SDQ_25']
 peer_columns = ['SDQ_6', 'SDQ_11', 'SDQ_14', 'SDQ_19', 'SDQ_23']
 
+# Recode values in SDQ_Hyper using the recoding criteria
+recode_dict = {1: 1, 2: 1, 3: 1, 4: 1, 5: 1, 6: 1, 7: 2, 8: 2, 9: 2, 10: 2}
+df['SDQ_Hyper_CAT'] = df['SDQ_Hyper'].map(recode_dict)
+
+SDQ_factors = {
+    'conduct': conduct_columns,
+    'emo': emo_columns,
+    'hyper': hyper_columns,
+    'peer': peer_columns,
+    'Externalizing': conduct_columns + hyper_columns,
+    'Internalizing': emo_columns + peer_columns,
+
+
+}
 
 sdq_columns = ['SDQ_2', 'SDQ_3', 'SDQ_5', 'SDQ_6', 'SDQ_7', 'SDQ_8', 'SDQ_10', 'SDQ_11',
                'SDQ_12', 'SDQ_13', 'SDQ_14', 'SDQ_15', 'SDQ_16', 'SDQ_18', 'SDQ_19',
                'SDQ_21', 'SDQ_22', 'SDQ_23', 'SDQ_24', 'SDQ_25']
+
+
+MAST_factors = {
+    'MAST_AL': ['MAST_1', 'MAST_5', 'MAST_6', 'MAST_13', 'MAST_18', 'MAST_19', 'MAST_25', 'MAST_28'],
+    'MAST_RL': ['MAST_2', 'MAST_9', 'MAST_14', 'MAST_15', 'MAST_16', 'MAST_21', 'MAST_30'],
+    'MAST_AD': ['MAST_8', 'MAST_17', 'MAST_22', 'MAST_23', 'MAST_26', 'MAST_27', 'MAST_29'],
+    'MAST_RD': ['MAST_3', 'MAST_4', 'MAST_7', 'MAST_10', 'MAST_11', 'MAST_12', 'MAST_20', 'MAST_24']
+}
 
 
 # C_ssrs intake
