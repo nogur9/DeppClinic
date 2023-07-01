@@ -3,8 +3,7 @@ from utils.consts.subsets_of_questionnaires import sci_af_ac_factors, C_ssrs_cli
 from utils.consts.subsets_of_questionnaires import sdq_reverse, sdq_normal, c_ssrs_life_values_map, \
     c_ssrs_2weeks_values_map
 from utils.consts.questions_columns import c_ssrs, sci_af_ca, maris_sci_sf, maris_soq_sf, MAST
-from utils.data_manipulation.data_imputation import impute_from_column
-from utils.consts.assistment_consts import questionnaires
+from utils.consts.assistment_consts import Questionnaires
 
 
 def get_max_index(df, questions_values_map):
@@ -62,6 +61,7 @@ def compute_mfq_score(df, skipna=False):
     COMPUTE MFQ_SUM=SUM(MFQ_1,MFQ_2,MFQ_5,MFQ_7,MFQ_8,MFQ_14,MFQ_21,MFQ_23,MFQ_24,MFQ_27,MFQ_28,MFQ_30,MFQ_31).
     EXECUTE.
     """
+    questionnaires = Questionnaires().questionnaires
     mfq_columns = questionnaires['mfq']['columns']
     df['mfq_score'] = df[mfq_columns].sum(axis=1, skipna=skipna)
 
@@ -80,7 +80,7 @@ def compute_siq_score(df):
     EXECUTE.
 
     """
-    siq_columns = questionnaires['siq']['columns']
+    siq_columns = Questionnaires().questionnaires['siq']['columns']
     df['siq_score'] = df[siq_columns].sum(axis=1, skipna=False)
 
     missing_values = df[siq_columns].isnull()
@@ -98,7 +98,7 @@ def compute_scared_score(df, skipna=False):
         SCARED_35,SCARED_36,SCARED_37,SCARED_38,SCARED_39,SCARED_40,SCARED_41).
     EXECUTE.
     """
-    scared_columns = questionnaires['scared']['columns']
+    scared_columns = Questionnaires().questionnaires['scared']['columns']
     df['scared_score'] = df[scared_columns].sum(axis=1, skipna=skipna)
 
     missing_values = df[scared_columns].isnull()
@@ -122,7 +122,7 @@ def compute_sas_score(df, skipna=False):
 
 
     """
-    SAS_columns = questionnaires['SAS']['columns']
+    SAS_columns = Questionnaires().questionnaires['SAS']['columns']
     df['sas_score'] = df[SAS_columns].mean(axis=1, skipna=skipna)
 
     missing_values = df[SAS_columns].isnull()
@@ -140,7 +140,7 @@ def compute_athens_score(df, skipna=False):
     EXECUTE.
 
     """
-    ATHENS_columns = questionnaires['ATHENS']['columns']
+    ATHENS_columns = Questionnaires().questionnaires['ATHENS']['columns']
     df['athens_score'] = df[ATHENS_columns].sum(axis=1, skipna=skipna)
 
     missing_values = df[ATHENS_columns].isnull()
@@ -154,7 +154,7 @@ def compute_athens_score(df, skipna=False):
 
 
 def compute_sci_af_ac_score(df, skipna=False):
-    sci_af_ca_columns = questionnaires['sci_af_ca']['columns']
+    sci_af_ca_columns = Questionnaires().questionnaires['sci_af_ca']['columns']
 
     for key in sci_af_ac_factors.keys():
         df[key] = df[sci_af_ac_factors[key]].mean(axis=1, skipna=skipna)
@@ -175,7 +175,7 @@ def compute_sci_af_ac_score(df, skipna=False):
 
 def compute_scs_clin_score(df, skipna=False):
 
-    scs_clin_columns = questionnaires['scs_clin']['columns']
+    scs_clin_columns = Questionnaires().questionnaires['scs_clin']['columns']
     df['scs_clin_score'] = df[scs_clin_columns].mean(axis=1, skipna=skipna)
 
     missing_values = df[scs_clin_columns].isnull()
@@ -187,7 +187,7 @@ def compute_scs_clin_score(df, skipna=False):
 
 def compute_scs_mother_score(df, skipna=False):
 
-    sci_mother_columns = questionnaires['sci_mother']['columns']
+    sci_mother_columns = Questionnaires().questionnaires['sci_mother']['columns']
 
     df['sci_mother_score'] = df[sci_mother_columns].mean(axis=1, skipna=skipna)
 
@@ -249,7 +249,7 @@ def compute_ari_p_score(df, skipna=False):
 
     """
 
-    ARI_P_columns = questionnaires['ARI_P']['columns']
+    ARI_P_columns = Questionnaires().questionnaires['ARI_P']['columns']
 
     # Compute the sum for ARI_P_SUM
     df['ARI_P_SUM'] = df[ARI_P_columns].sum(axis=1, skipna=skipna)
@@ -268,7 +268,7 @@ def compute_ari_s_score(df, skipna=False):
     EXECUTE.
 
     """
-    ARI_S_columns = questionnaires['ARI_S']['columns']
+    ARI_S_columns = Questionnaires().questionnaires['ARI_S']['columns']
     # Compute the sum for ARI_S_SUM
     df['ARI_S_SUM'] = df[ARI_S_columns].sum(axis=1, skipna=skipna)
     df['ari_s_score'] = df[ARI_S_columns].sum(axis=1, skipna=skipna)
@@ -297,7 +297,7 @@ def compute_maris_sci_sf_score(df, skipna=False):
 
 
     """
-    maris_sci_sf_columns = questionnaires['maris_soq_sf']['columns']
+    maris_sci_sf_columns = Questionnaires().questionnaires['maris_soq_sf']['columns']
 
     df[maris_sci_sf_columns] = df[maris_sci_sf_columns] - 1
 
@@ -329,7 +329,7 @@ EXECUTE.
     """
     # Recode values in maris_soq_sf using a dictionary comprehension
 
-    maris_soq_sf_columns = questionnaires['maris_soq_sf']['columns']
+    maris_soq_sf_columns = Questionnaires().questionnaires['maris_soq_sf']['columns']
     df[maris_soq_sf_columns] = df[maris_soq_sf_columns] - 1
 
     # Create new variables maris_soq_sf_2R, maris_soq_sf_3R, maris_soq_sf_5R by recoding values
@@ -413,6 +413,8 @@ def c_ssrs_roll_negative(df, c_ssrs_columns):
 
 
 def calculate_c_ssrs_scores(df, prefix='', impute_question_6=True, rolling_negative=True):
+    from utils.data_manipulation.data_imputation import impute_from_column
+
     if impute_question_6:
         df = impute_from_column(df, impute_to='c_ssrs_6', impute_from='c_ssrs_last_visit_6')
 
@@ -501,10 +503,11 @@ def calculate_clinician_c_ssrs_individual_score(df, score_info, rolling_negative
     return score
 
 
-def calculate_swan_scores(df, skipna=False):
+def compute_swan_scores(df, skipna=False):
     """
     questionnaires['swan_m']['columns']
     """
+    questionnaires = Questionnaires().questionnaires
     swan_columns = questionnaires['swan_m']['columns']
     missing_values = df[swan_columns].isnull()
     missing_values_sum = missing_values.sum(axis=1)

@@ -1,8 +1,9 @@
 import numpy as np
-
+from utils.consts.assistment_consts import Questionnaires
 
 def impute_from_questionnaire(df, questionnaire_name, replacement_questionnaire):
-    from utils.consts.assistment_consts import questionnaires
+
+    questionnaires = Questionnaires().questionnaires
     questionnaire_columns = questionnaires[questionnaire_name]['columns']
     replace_columns = questionnaires[replacement_questionnaire]['columns']
 
@@ -15,8 +16,7 @@ def impute_from_questionnaire(df, questionnaire_name, replacement_questionnaire)
 
 
 def questionnaire_is_empty(df, questionnaire_name, impute_from, impute_to):
-    from utils.consts.assistment_consts import questionnaires
-
+    questionnaires = Questionnaires().questionnaires
     is_empty = df[questionnaires[questionnaire_name]['columns']].isna().all(axis=1)
     np.where(df[questionnaires[questionnaire_name]['columns']].isnull().all(axis=1), df[impute_from], df[impute_to])
     return is_empty
