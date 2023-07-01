@@ -3,7 +3,7 @@ from research.create_dataset.dataset_for_prediction_task.pipeline_functions.pipe
     do_imputations, split_two_measurement_times, compute_questions_scores, save_df
 from utils.consts.pathology_variables import all_pathology_variables, pathology_variables_times
 from utils.target_variable import TargetVariable
-from utils.consts.assistment_consts import questionnaires
+from utils.consts.assistment_consts import Questionnaires
 import os
 
 
@@ -31,6 +31,7 @@ def main():
     df = pd.concat([df_time1, df_time2])
     df = df[columns.unique_columns_with_id]
 
+    questionnaires = Questionnaires().questionnaires
     df, columns = compute_questions_scores(df, questionnaires, columns)
 
     save_df(df, columns, axis='patient', profile=False)

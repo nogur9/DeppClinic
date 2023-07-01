@@ -4,7 +4,6 @@ from utils.consts.pathology_variables import all_pathology_variables
 from utils.consts.assistment_consts import imputation_questionnaires
 from utils.util_functions import questionnaire_is_empty, impute_from_questionnaire
 from utils.data_manipulation.data_imputation import impute_from_column
-from utils.consts.assistment_consts import questionnaires
 import pandas as pd
 import pandas_profiling as pp
 
