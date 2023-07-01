@@ -156,18 +156,6 @@ suicidal_ideation_life_intake_irit = [
 
 ]
 
-suicidal_ideation_life_intake_irit = [
-
-    'c_ssrs_t_2weeks_2_clin',
-    'c_ssrs_t_2weeks_3_clin',
-    'c_ssrs_t_2weeks_4_clin',
-    'c_ssrs_t_2weeks_5_clin',
-
-    'c_ssrs_2_2weeks',
-    'c_ssrs_3_2weeks',
-    'c_ssrs_4_2weeks',
-    'c_ssrs_5_2weeks',
-]
 
 
 

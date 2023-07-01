@@ -7,8 +7,8 @@ sdq - normal questions
 from utils.consts.questions_columns import sdq, maris_soq_sf
 
 swan_factors = {
-    'attention': [f'swan_{i}m' for i in range(1, 10)],
-    'impulsivity': [f'swan_{i}m' for i in range(10, 19)]
+    'swan_attention': [f'swan_{i}m' for i in range(1, 10)],
+    'swan_impulsivity': [f'swan_{i}m' for i in range(10, 19)]
 
 }
 
@@ -81,7 +81,7 @@ peer_columns = ['SDQ_6', 'SDQ_11', 'SDQ_14', 'SDQ_19', 'SDQ_23']
 
 # Recode values in SDQ_Hyper using the recoding criteria
 recode_dict = {1: 1, 2: 1, 3: 1, 4: 1, 5: 1, 6: 1, 7: 2, 8: 2, 9: 2, 10: 2}
-df['SDQ_Hyper_CAT'] = df['SDQ_Hyper'].map(recode_dict)
+#df['SDQ_Hyper_CAT'] = df['SDQ_Hyper'].map(recode_dict)
 
 SDQ_factors = {
     'conduct': conduct_columns,
@@ -106,7 +106,6 @@ MAST_factors = {
     'MAST_RD': ['MAST_3', 'MAST_4', 'MAST_7', 'MAST_10', 'MAST_11', 'MAST_12', 'MAST_20', 'MAST_24']
 }
 
-
 # C_ssrs intake
 
 c_ssrs_life_values_map = {
@@ -124,7 +123,6 @@ c_ssrs_2weeks_values_map = {
     'c_ssrs_4_2weeks': 4,
     'c_ssrs_5_2weeks': 5,
     'c_ssrs_6_2weeks': 6}
-
 
 # C_ssrs clinician
 

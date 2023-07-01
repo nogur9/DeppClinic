@@ -1,11 +1,10 @@
 from utils.consts.subsets_of_questionnaires import sci_af_ac_factors, C_ssrs_clinician, sci_af_ca_new_questions, \
     maris_soq_sf_reverse, maris_soq_sf_normal, MAST_factors
-from utils.consts.subsets_of_questionnaires import sdq_reverse, sdq_normal, c_ssrs_life_values_map, c_ssrs_2weeks_values_map
-from utils.consts.questions_columns import mfq, siq, scared, SAS, ATHENS, c_ssrs, sci_af_ca, scs_clin, sci_mother, \
-    maris_sci_sf, maris_soq_sf, MAST, ARI_S, ARI_P
-
-# util functions
-from utils.utils import impute_from_column
+from utils.consts.subsets_of_questionnaires import sdq_reverse, sdq_normal, c_ssrs_life_values_map, \
+    c_ssrs_2weeks_values_map
+from utils.consts.questions_columns import c_ssrs, sci_af_ca, maris_sci_sf, maris_soq_sf, MAST
+from utils.data_manipulation.data_imputation import impute_from_column
+from utils.consts.assistment_consts import questionnaires
 
 
 def get_max_index(df, questions_values_map):
@@ -26,8 +25,7 @@ def get_max_index(df, questions_values_map):
 
 
 # compute scores
-def compute_sdq_score(df, skipna = False):
-
+def compute_sdq_score(df, skipna=False):
     """
     add subscales
     """
@@ -47,7 +45,7 @@ def compute_sdq_score(df, skipna = False):
     return df, ['sdq_score', 'ratio_of_missing_sdq_values']
 
 
-def compute_mfq_score(df, skipna = False):
+def compute_mfq_score(df, skipna=False):
     """
     SPSS code, I think it's wrong therefore it's doing sum of our mfq columns
 
@@ -64,11 +62,12 @@ def compute_mfq_score(df, skipna = False):
     COMPUTE MFQ_SUM=SUM(MFQ_1,MFQ_2,MFQ_5,MFQ_7,MFQ_8,MFQ_14,MFQ_21,MFQ_23,MFQ_24,MFQ_27,MFQ_28,MFQ_30,MFQ_31).
     EXECUTE.
     """
-    df['mfq_score'] = df[mfq].sum(axis=1, skipna=skipna)
+    mfq_columns = questionnaires['mfq']['columns']
+    df['mfq_score'] = df[mfq_columns].sum(axis=1, skipna=skipna)
 
-    missing_values = df[mfq].isnull()
+    missing_values = df[mfq_columns].isnull()
     missing_values_sum = missing_values.sum(axis=1)
-    df['ratio_of_missing_mfq_values'] = missing_values_sum / len(mfq)
+    df['ratio_of_missing_mfq_values'] = missing_values_sum / len(mfq_columns)
 
     return df, ['mfq_score', 'ratio_of_missing_mfq_values']
 
@@ -81,16 +80,17 @@ def compute_siq_score(df):
     EXECUTE.
 
     """
-    df['siq_score'] = df[siq].sum(axis=1, skipna=False)
+    siq_columns = questionnaires['siq']['columns']
+    df['siq_score'] = df[siq_columns].sum(axis=1, skipna=False)
 
-    missing_values = df[siq].isnull()
+    missing_values = df[siq_columns].isnull()
     missing_values_sum = missing_values.sum(axis=1)
-    df['ratio_of_missing_siq_values'] = missing_values_sum / len(siq)
+    df['ratio_of_missing_siq_values'] = missing_values_sum / len(siq_columns)
 
     return df, ['siq_score', 'ratio_of_missing_siq_values']
 
 
-def compute_scared_score(df, skipna = False):
+def compute_scared_score(df, skipna=False):
     """
     COMPUTE SCARED_SUM=SUM(SCARED_1,SCARED_2,SCARED_3,SCARED_4,SCARED_5,SCARED_6,SCARED_7,SCARED_8,SCARED_9,SCARED_10,
         SCARED_11,SCARED_12,SCARED_13,SCARED_14,SCARED_15,SCARED_16,SCARED_17,SCARED_18,SCARED_19,SCARED_20,SCARED_21,SCARED_22,
@@ -98,17 +98,17 @@ def compute_scared_score(df, skipna = False):
         SCARED_35,SCARED_36,SCARED_37,SCARED_38,SCARED_39,SCARED_40,SCARED_41).
     EXECUTE.
     """
+    scared_columns = questionnaires['scared']['columns']
+    df['scared_score'] = df[scared_columns].sum(axis=1, skipna=skipna)
 
-    df['scared_score'] = df[scared].sum(axis=1, skipna=skipna)
-
-    missing_values = df[scared].isnull()
+    missing_values = df[scared_columns].isnull()
     missing_values_sum = missing_values.sum(axis=1)
-    df['ratio_of_missing_scared_values'] = missing_values_sum / len(scared)
+    df['ratio_of_missing_scared_values'] = missing_values_sum / len(scared_columns)
 
     return df, ['scared_score', 'ratio_of_missing_scared_values']
 
 
-def compute_sas_score(df, skipna = False):
+def compute_sas_score(df, skipna=False):
     """
 
     RECODE SAS_1,SAS_2,SAS_3,SAS_4,SAS_5,SAS_6,SAS_7,SAS_8,SAS_9,SAS_10,SAS_11,SAS_12,SAS_13,SAS_14,SAS_15,SAS_16,SAS_17,
@@ -122,17 +122,17 @@ def compute_sas_score(df, skipna = False):
 
 
     """
+    SAS_columns = questionnaires['SAS']['columns']
+    df['sas_score'] = df[SAS_columns].mean(axis=1, skipna=skipna)
 
-    df['sas_score'] = df[SAS].mean(axis=1, skipna=skipna)
-
-    missing_values = df[SAS].isnull()
+    missing_values = df[SAS_columns].isnull()
     missing_values_sum = missing_values.sum(axis=1)
-    df['ratio_of_missing_sas_values'] = missing_values_sum / len(SAS)
+    df['ratio_of_missing_sas_values'] = missing_values_sum / len(SAS_columns)
 
-    return df, ['sas_mean_score', 'ratio_of_missing_sas_values']
+    return df, ['sas_score', 'ratio_of_missing_sas_values']  # sas_mean_score
 
 
-def compute_athens_score(df, skipna = False):
+def compute_athens_score(df, skipna=False):
     """
 
     COMPUTE
@@ -140,11 +140,12 @@ def compute_athens_score(df, skipna = False):
     EXECUTE.
 
     """
-    df['athens_score'] = df[ATHENS].sum(axis=1, skipna=skipna)
+    ATHENS_columns = questionnaires['ATHENS']['columns']
+    df['athens_score'] = df[ATHENS_columns].sum(axis=1, skipna=skipna)
 
-    missing_values = df[ATHENS].isnull()
+    missing_values = df[ATHENS_columns].isnull()
     missing_values_sum = missing_values.sum(axis=1)
-    df['ratio_of_missing_athens_values'] = missing_values_sum / len(ATHENS)
+    df['ratio_of_missing_athens_values'] = missing_values_sum / len(ATHENS_columns)
 
     return df, ['athens_score', 'ratio_of_missing_athens_values']
 
@@ -153,15 +154,16 @@ def compute_athens_score(df, skipna = False):
 
 
 def compute_sci_af_ac_score(df, skipna=False):
+    sci_af_ca_columns = questionnaires['sci_af_ca']['columns']
 
     for key in sci_af_ac_factors.keys():
         df[key] = df[sci_af_ac_factors[key]].mean(axis=1, skipna=skipna)
 
-    df['sci_af_ac_score'] = df[sci_af_ca].mean(axis=1, skipna=skipna)
+    df['sci_af_ac_score'] = df[sci_af_ca_columns].mean(axis=1, skipna=skipna)
 
-    missing_values = df[sci_af_ca].isnull()
+    missing_values = df[sci_af_ca_columns].isnull()
     missing_values_sum = missing_values.sum(axis=1)
-    df['ratio_of_missing_sci_af_ac_values'] = missing_values_sum / len(sci_af_ca)
+    df['ratio_of_missing_sci_af_ac_values'] = missing_values_sum / len(sci_af_ca_columns)
 
     df['sci_af_ca_is_new_questions_missing'] = df[sci_af_ca_new_questions].isna().all(axis=1)
 
@@ -171,23 +173,27 @@ def compute_sci_af_ac_score(df, skipna=False):
     return df, params
 
 
-def compute_scs_clin_score(df, skipna = False):
+def compute_scs_clin_score(df, skipna=False):
 
-    df['scs_clin_score'] = df[scs_clin].mean(axis=1, skipna=skipna)
+    scs_clin_columns = questionnaires['scs_clin']['columns']
+    df['scs_clin_score'] = df[scs_clin_columns].mean(axis=1, skipna=skipna)
 
-    missing_values = df[scs_clin].isnull()
+    missing_values = df[scs_clin_columns].isnull()
     missing_values_sum = missing_values.sum(axis=1)
-    df['ratio_of_missing_scs_clin_values'] = missing_values_sum / len(scs_clin)
+    df['ratio_of_missing_scs_clin_values'] = missing_values_sum / len(scs_clin_columns)
 
     return df, ['scs_clin_score', 'ratio_of_missing_scs_clin_values']
 
 
 def compute_scs_mother_score(df, skipna=False):
-    df['sci_mother_score'] = df[sci_mother].mean(axis=1, skipna=skipna)
 
-    missing_values = df[sci_mother].isnull()
+    sci_mother_columns = questionnaires['sci_mother']['columns']
+
+    df['sci_mother_score'] = df[sci_mother_columns].mean(axis=1, skipna=skipna)
+
+    missing_values = df[sci_mother_columns].isnull()
     missing_values_sum = missing_values.sum(axis=1)
-    df['ratio_of_missing_sci_mother_values'] = missing_values_sum / len(sci_mother)
+    df['ratio_of_missing_sci_mother_values'] = missing_values_sum / len(sci_mother_columns)
 
     return df, ['sci_mother_score', 'ratio_of_missing_sci_mother_values']
 
@@ -231,7 +237,8 @@ def compute_mast_score(df, skipna=False):
 
     return df, ['ratio_of_missing_mast_values', 'MAST_AL', 'MAST_RL', 'MAST_AD', 'MAST_RD']
 
-#ARI-S
+
+# ARI-S
 
 
 def compute_ari_p_score(df, skipna=False):
@@ -242,13 +249,15 @@ def compute_ari_p_score(df, skipna=False):
 
     """
 
-    # Compute the sum for ARI_S_SUM
-    df['ARI_P_SUM'] = df[ARI_P].sum(axis=1, skipna=skipna)
-    df['ari_p_score'] = df[ARI_P].sum(axis=1, skipna=skipna)
+    ARI_P_columns = questionnaires['ARI_P']['columns']
 
-    missing_values = df[ARI_P].isnull()
+    # Compute the sum for ARI_P_SUM
+    df['ARI_P_SUM'] = df[ARI_P_columns].sum(axis=1, skipna=skipna)
+    df['ari_p_score'] = df[ARI_P_columns].sum(axis=1, skipna=skipna)
+
+    missing_values = df[ARI_P_columns].isnull()
     missing_values_sum = missing_values.sum(axis=1)
-    df['ratio_of_missing_ari_p_values'] = missing_values_sum / len(ARI_P)
+    df['ratio_of_missing_ari_p_values'] = missing_values_sum / len(ARI_P_columns)
 
     return df, ['ARI_P_SUM', 'ari_p_score', 'ratio_of_missing_ari_p_values']
 
@@ -259,14 +268,14 @@ def compute_ari_s_score(df, skipna=False):
     EXECUTE.
 
     """
-
+    ARI_S_columns = questionnaires['ARI_S']['columns']
     # Compute the sum for ARI_S_SUM
-    df['ARI_S_SUM'] = df[ARI_S].sum(axis=1, skipna=skipna)
-    df['ari_s_score'] = df[ARI_S].sum(axis=1, skipna=skipna)
+    df['ARI_S_SUM'] = df[ARI_S_columns].sum(axis=1, skipna=skipna)
+    df['ari_s_score'] = df[ARI_S_columns].sum(axis=1, skipna=skipna)
 
-    missing_values = df[ARI_S].isnull()
+    missing_values = df[ARI_S_columns].isnull()
     missing_values_sum = missing_values.sum(axis=1)
-    df['ratio_of_missing_ari_s_values'] = missing_values_sum / len(ARI_S)
+    df['ratio_of_missing_ari_s_values'] = missing_values_sum / len(ARI_S_columns)
 
     return df, ['ARI_S_SUM', 'ari_s_score', 'ratio_of_missing_ari_s_values']
 
@@ -288,15 +297,17 @@ def compute_maris_sci_sf_score(df, skipna=False):
 
 
     """
-    df[maris_sci_sf] = df[maris_sci_sf] - 1
+    maris_sci_sf_columns = questionnaires['maris_soq_sf']['columns']
+
+    df[maris_sci_sf_columns] = df[maris_sci_sf_columns] - 1
 
     # Calculate MARIS_SCI_TOTAL
     df['MARIS_SCI_TOTAL'] = df[maris_sci_sf].sum(axis=1, skipna=skipna)
     df['maris_sci_sf_score'] = df[maris_sci_sf].sum(axis=1, skipna=skipna)
 
-    missing_values = df[maris_sci_sf].isnull()
+    missing_values = df[maris_sci_sf_columns].isnull()
     missing_values_sum = missing_values.sum(axis=1)
-    df['ratio_of_missing_maris_sci_sf_values'] = missing_values_sum / len(maris_sci_sf)
+    df['ratio_of_missing_maris_sci_sf_values'] = missing_values_sum / len(maris_sci_sf_columns)
 
     return df, ['maris_sci_sf_score', 'MARIS_SCI_TOTAL', 'ratio_of_missing_maris_sci_sf_values']
 
@@ -317,7 +328,9 @@ EXECUTE.
 
     """
     # Recode values in maris_soq_sf using a dictionary comprehension
-    df[maris_soq_sf] = df[maris_soq_sf] - 1
+
+    maris_soq_sf_columns = questionnaires['maris_soq_sf']['columns']
+    df[maris_soq_sf_columns] = df[maris_soq_sf_columns] - 1
 
     # Create new variables maris_soq_sf_2R, maris_soq_sf_3R, maris_soq_sf_5R by recoding values
 
@@ -360,15 +373,15 @@ def calculate_c_ssrs_individual_score(df, severity):
 
     """
     c_ssrs_values_map = {
-    'c_ssrs_1': 1,
-    'c_ssrs_2': 2,
-    'c_ssrs_3': 3,
-    'c_ssrs_4': 4,
-    'c_ssrs_5': 5,
-    'c_ssrs_6': 6,
-    'c_ssrs_last_visit_6': 6
+        'c_ssrs_1': 1,
+        'c_ssrs_2': 2,
+        'c_ssrs_3': 3,
+        'c_ssrs_4': 4,
+        'c_ssrs_5': 5,
+        'c_ssrs_6': 6,
+        'c_ssrs_last_visit_6': 6
     }
-    
+
     if severity == 'idea':
         stb_questions = [i for i in c_ssrs_values_map.keys() if c_ssrs_values_map[i] > 5]
         for question in stb_questions:
@@ -379,12 +392,11 @@ def calculate_c_ssrs_individual_score(df, severity):
         raise ValueError
 
     agg_score = get_max_index(df, c_ssrs_values_map)
-    
+
     return agg_score
 
 
 def c_ssrs_roll_negative(df, c_ssrs_columns):
-
     # Check if the first 2 items are 0 and the last 4 items are missing (NaN)
 
     c_ssrs_columns = list(c_ssrs_columns)
@@ -417,20 +429,19 @@ def calculate_c_ssrs_scores(df, prefix='', impute_question_6=True, rolling_negat
     return df, ['c_ssrs_idea_score', 'c_ssrs_stb_score', 'ratio_of_missing_c_ssrs_values']
 
 
-def calculate_intake_c_ssrs_individual_score(df, severity ='stb', time ='life'):
-    
+def calculate_intake_c_ssrs_individual_score(df, severity='stb', time='life'):
     if time == 'life':
         c_ssrs_values_map = c_ssrs_life_values_map
-    
+
     elif time == '2weeks':
         c_ssrs_values_map = c_ssrs_2weeks_values_map
-        
+
     elif time == 'recent':
         c_ssrs_values_map = c_ssrs_2weeks_values_map
         c_ssrs_values_map['c_ssrs_6_3month'] = 6
     else:
         raise ValueError
-        
+
     if severity == 'idea':
         stb_questions = [i for i in c_ssrs_values_map.keys() if c_ssrs_values_map[i] > 5]
         for question in stb_questions:
@@ -441,18 +452,17 @@ def calculate_intake_c_ssrs_individual_score(df, severity ='stb', time ='life'):
         raise ValueError
 
     agg_score = get_max_index(df, c_ssrs_values_map)
-    
+
     return agg_score
 
 
 def calculate_c_ssrs_scores_intake(df, rolling_negative=True):
-
     if rolling_negative:
         c_ssrs_cols = list(c_ssrs_life_values_map.keys())
         df = c_ssrs_roll_negative(df, c_ssrs_cols)
 
         c_ssrs_cols = list(c_ssrs_2weeks_values_map.keys()) + ['c_ssrs_6_3month']
-        df = c_ssrs_roll_negative(df,  c_ssrs_cols)
+        df = c_ssrs_roll_negative(df, c_ssrs_cols)
 
     columns_names = []
 
@@ -466,7 +476,6 @@ def calculate_c_ssrs_scores_intake(df, rolling_negative=True):
 
 
 def calculate_c_ssrs_scores_clinician(df, rolling_negative=True):
-
     columns_names = []
     for single_score in C_ssrs_clinician.values():
         score_name = single_score['name']
@@ -477,7 +486,6 @@ def calculate_c_ssrs_scores_clinician(df, rolling_negative=True):
 
 
 def calculate_clinician_c_ssrs_individual_score(df, score_info, rolling_negative):
-
     if score_info['agg_method'] == 'max':
         if rolling_negative:
             df = c_ssrs_roll_negative(df, score_info['columns'])
@@ -493,20 +501,20 @@ def calculate_clinician_c_ssrs_individual_score(df, score_info, rolling_negative
     return score
 
 
-
-def calculate_swan_scores(df):
+def calculate_swan_scores(df, skipna=False):
     """
-    if all mother is missing - impute from father
+    questionnaires['swan_m']['columns']
     """
-
-    missing_values = df[sci_af_ca].isnull()
+    swan_columns = questionnaires['swan_m']['columns']
+    missing_values = df[swan_columns].isnull()
     missing_values_sum = missing_values.sum(axis=1)
-    df['ratio_of_missing_sci_af_ac_values'] = missing_values_sum / len(sci_af_ca)
-    df['sci_af_ca_is_new_questions_missing'] = df[sci_af_ca_new_questions].isna().all(axis=1)
+    df['ratio_of_missing_swan_values'] = missing_values_sum / len(swan_columns)
 
-
-    for key in sci_af_ac_factors.keys():
+    for key in questionnaires['swan_m']['factors'].keys():
         # impute mean per row / subject
+
+        factor_columns = questionnaires['swan_m']['factors'][key]
+
         df[key] = df[sci_af_ac_factors[key]].sum(axis=1)
 
     df['sci_af_ac_score'] = df[sci_af_ca].mean(axis=1, skipna=skipna)
@@ -515,3 +523,4 @@ def calculate_swan_scores(df):
                                                'sci_af_ca_is_new_questions_missing']
 
     return df, params
+

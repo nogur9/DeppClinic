@@ -1,15 +1,17 @@
-from utils.consts.questions_columns import sci_af_ca, c_ssrs, sci_mother, scs_clin, siq, sdq,c_ssrs_intake, mfq, scared, ATHENS, SAS, c_ssrs_clin, demographics_m
+from utils.consts.questions_columns import sci_af_ca, c_ssrs, sci_mother, scs_clin, siq, sdq, c_ssrs_intake, mfq, \
+    scared, ATHENS, SAS, c_ssrs_clin, demographics_m
 from utils.consts.pathology_variables import all_pathology_variables
 from utils.consts.assistment_consts import imputation_questionnaires
-from utils.utils import impute_from_column
+from utils.util_functions import questionnaire_is_empty, impute_from_questionnaire
+from utils.data_manipulation.data_imputation import impute_from_column
+from utils.consts.assistment_consts import questionnaires
 import pandas as pd
 import pandas_profiling as pp
 
 
 class Columns:
-
-    chameleon = ['chameleon_behavior_stu', 'chameleon_attempt_stu', 'chameleon_suicide_er_stu',
-                 'chameleon_ideation_stu']
+    extra_columns = ['chameleon_behavior_stu', 'chameleon_attempt_stu', 'chameleon_suicide_er_stu',
+                     'chameleon_ideation_stu', 'mfq_34', 'mfq_36', 'mfq_35', 'mfq_37', 'chameleon_nssi_stu']
 
     info_columns = ['gender', 'redcap_event_name', 'age_child_pre']
 
@@ -27,10 +29,10 @@ class Columns:
 
     def define(self):
         self.ordered_columns = self.columns
-        self.unique_columns = set(self.columns + self.chameleon)
+        self.unique_columns = set(self.columns + self.extra_columns)
 
         self.ordered_columns_with_id = [self.id_column] + self.columns
-        self.unique_columns_with_id = set([self.id_column] + self.columns + self.chameleon)
+        self.unique_columns_with_id = set([self.id_column] + self.columns + self.extra_columns)
 
     def add(self, items):
         self.unique_columns.update(set(items))
@@ -40,31 +42,14 @@ class Columns:
         self.ordered_columns_with_id.extend(items)
 
 
-
 def do_imputations(df):
-
-    suffixes = {'father_2_mother': ['m', 'f'], 'stu_2_clin': ['clin', 'stu']}
-    suffixes_length = {'father_2_mother': 1, 'stu_2_clin': 4}
-    imputation_tasks = ['father_2_mother', 'stu_2_clin']
-
-    for imputation_task in imputation_tasks:
-        for questionnaire in imputation_questionnaires[imputation_task]:
-            p_columns = [i[:-suffixes_length[imputation_task]] for i in questionnaire]
-
-            for column_name in p_columns:
-                suffix_group1 = suffixes[imputation_task][0]
-                suffix_group2 = suffixes[imputation_task][1]
-
-                try:
-                    df = impute_from_column(df, impute_to=f"{column_name}{suffix_group1}", impute_from=f'{column_name}{suffix_group2}')
-                except KeyError:
-                    pass
+    for questionnaire_imputation in imputation_questionnaires:
+        impute_from_questionnaire(df, questionnaire_imputation['origin'], questionnaire_imputation['replacement'])
 
     return df
 
 
 def split_two_measurement_times(df, columns):
-
     time1_event = 'intake_arm_1'
     time2_events = ['control_5weeks_arm_1', 'pre_treatment_arm_1', 'followup_3month_arm_1']
 
@@ -87,7 +72,7 @@ def impute_events(df1, df2, columns, suffix):
 
     for column_name in columns.unique_columns:
         imputed_data = impute_from_column(imputed_data, impute_to=column_name,
-                                           impute_from=f'{column_name}_{suffix}')
+                                          impute_from=f'{column_name}_{suffix}')
 
     duplicated_columns = [i for i in imputed_data.columns if i.endswith(f'_{suffix}')]
     imputed_data = imputed_data.drop(duplicated_columns, axis=1)
@@ -96,10 +81,12 @@ def impute_events(df1, df2, columns, suffix):
 
 
 def compute_questions_scores(df, questionnaires_map, variables_list):
-
     for questionnaire in questionnaires_map.keys():
-        df, scores_columns_names = questionnaires_map[questionnaire]['scoring_function'](df)
-        variables_list.add(scores_columns_names)
+        try:
+            df, scores_columns_names = questionnaires_map[questionnaire]['scoring_function'](df)
+            variables_list.add(scores_columns_names)
+        except KeyError:
+            pass
 
     return df, variables_list
 
@@ -120,7 +107,5 @@ def save_df(df, columns, axis='patient', profile=False):
         if profile:
             to_profile = df[columns.unique_columns]
             profile = pp.ProfileReport(to_profile, title="DeppClinic_prediction_task")
-            profile.to_file(fr"research/create_dataset/dataset_for_prediction_task/pandas_profiling/DeppClinic_prediction_task_profile_report.html")
-
-
-
+            profile.to_file(
+                fr"research/create_dataset/dataset_for_prediction_task/pandas_profiling/DeppClinic_prediction_task_profile_report.html")

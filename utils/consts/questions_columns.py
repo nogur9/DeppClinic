@@ -1,5 +1,3 @@
-
-
 c_ssrs_intake = [
     'c_ssrs_1_life',
     'c_ssrs_2_life',
@@ -21,8 +19,8 @@ c_ssrs_intake = [
 c_ssrs = [
     'c_ssrs_1',
     'c_ssrs_2',
-    'c_ssrs_3', 
-    'c_ssrs_4', 
+    'c_ssrs_3',
+    'c_ssrs_4',
     'c_ssrs_5',
     'c_ssrs_6',
     'c_ssrs_last_visit_6',
@@ -30,136 +28,150 @@ c_ssrs = [
     'c_ssrs_8',
 ]
 
-
 c_ssrs_clin = [
-'c_ssrs_t_time_clin', #what's that?
-'c_ssrs_t_2weeks_1_clin',
-'c_ssrs_t_2weeks_2_clin',
-'c_ssrs_t_2weeks_3_clin',
-'c_ssrs_t_2weeks_4_clin',
-'c_ssrs_t_2weeks_5_clin',
-'c_ssrs_t_last_1_clin',
-'c_ssrs_t_last_2_clin',
-'c_ssrs_t_last_3_clin',
-'c_ssrs_t_last_4_clin',
-'c_ssrs_t_last_5_clin',
-'c_ssrs_t_life_1_clin',
-'c_ssrs_t_life_2_clin',
-'c_ssrs_t_life_3_clin',
-'c_ssrs_t_life_4_clin',
-'c_ssrs_t_life_5_clin',
-'c_ssrs_t_6_clin',
-'c_ssrs_t_7_clin',
-'c_ssrs_t_8_clin',
-'c_ssrs_t_9_clin',
-'c_ssrs_t_10_clin',
-'c_ssrs_t_6_clin_2',
-'c_ssrs_t_7_clin_2',
-'c_ssrs_t_8_clin_2',
-'c_ssrs_t_9_clin_2',
-'c_ssrs_t_10_clin_2',
-'c_ssrs_t_11_2weeks_clin',
-'c_ssrs_t_12_2weeks_clin',
-'c_ssrs_t_13_2weeks_clin',
-'c_ssrs_t_14_2weeks_clin',
-'c_ssrs_t_15_2weeks_clin',
-'c_ssrs_t_16_2weeks_clin',
-'suicidal_behavior_last_11_clin',
-'suicidal_behavior_last_12_clin',
-'suicidal_behavior_last_13_clin',
-'suicidal_behavior_last_14_clin',
-'suicidal_behavior_last_15_clin',
-'suicidal_behavior_last_16_clin',
-'suicidal_behavior_last_17_clin',
-'suicidal_behavior_last_11_clin_1',
-'suicidal_behavior_last_12_clin_1',
-'suicidal_behavior_last_13_clin_1',
-'suicidal_behavior_last_18_clin',
-'suicidal_behavior_last_19_clin',
-'c_ssrs_t_11_life_clin',
-'c_ssrs_t_12_life_clin',
-'c_ssrs_t_13_life_clin',
-'c_ssrs_t_14_life_clin',
-'c_ssrs_t_15_life_clin',
-'c_ssrs_t_16_life_clin',
-'c_ssrs_t_17_life_clin',
-'c_ssrs_t_11_life_clin_1',
-'c_ssrs_t_12_life_clin_1',
-'c_ssrs_t_13_life_clin_1',
-'c_ssrs_t_18_life_clin',
-'c_ssrs_t_19_life_clin'
+    'c_ssrs_t_time_clin',  # what's that?
+    'c_ssrs_t_2weeks_1_clin',
+    'c_ssrs_t_2weeks_2_clin',
+    'c_ssrs_t_2weeks_3_clin',
+    'c_ssrs_t_2weeks_4_clin',
+    'c_ssrs_t_2weeks_5_clin',
+    'c_ssrs_t_last_1_clin',
+    'c_ssrs_t_last_2_clin',
+    'c_ssrs_t_last_3_clin',
+    'c_ssrs_t_last_4_clin',
+    'c_ssrs_t_last_5_clin',
+    'c_ssrs_t_life_1_clin',
+    'c_ssrs_t_life_2_clin',
+    'c_ssrs_t_life_3_clin',
+    'c_ssrs_t_life_4_clin',
+    'c_ssrs_t_life_5_clin',
+    'c_ssrs_t_6_clin',
+    'c_ssrs_t_7_clin',
+    'c_ssrs_t_8_clin',
+    'c_ssrs_t_9_clin',
+    'c_ssrs_t_10_clin',
+    'c_ssrs_t_6_clin_2',
+    'c_ssrs_t_7_clin_2',
+    'c_ssrs_t_8_clin_2',
+    'c_ssrs_t_9_clin_2',
+    'c_ssrs_t_10_clin_2',
+    'c_ssrs_t_11_2weeks_clin',
+    'c_ssrs_t_12_2weeks_clin',
+    'c_ssrs_t_13_2weeks_clin',
+    'c_ssrs_t_14_2weeks_clin',
+    'c_ssrs_t_15_2weeks_clin',
+    'c_ssrs_t_16_2weeks_clin',
+    'suicidal_behavior_last_11_clin',
+    'suicidal_behavior_last_12_clin',
+    'suicidal_behavior_last_13_clin',
+    'suicidal_behavior_last_14_clin',
+    'suicidal_behavior_last_15_clin',
+    'suicidal_behavior_last_16_clin',
+    'suicidal_behavior_last_17_clin',
+    'suicidal_behavior_last_11_clin_1',
+    'suicidal_behavior_last_12_clin_1',
+    'suicidal_behavior_last_13_clin_1',
+    'suicidal_behavior_last_18_clin',
+    'suicidal_behavior_last_19_clin',
+    'c_ssrs_t_11_life_clin',
+    'c_ssrs_t_12_life_clin',
+    'c_ssrs_t_13_life_clin',
+    'c_ssrs_t_14_life_clin',
+    'c_ssrs_t_15_life_clin',
+    'c_ssrs_t_16_life_clin',
+    'c_ssrs_t_17_life_clin',
+    'c_ssrs_t_11_life_clin_1',
+    'c_ssrs_t_12_life_clin_1',
+    'c_ssrs_t_13_life_clin_1',
+    'c_ssrs_t_18_life_clin',
+    'c_ssrs_t_19_life_clin'
 ]
 
+c_ssrs_stu = ['sci_c_1_1_stu',
+              'scs_2_1_stu',
+              'scs_2_2_stu',
+              'scs_2_3_stu',
+              'scs_2_4_stu',
+              'sci_c_3_1_stu',
+              'sci_c_3_2_stu',
+              'sci_c_3_3_stu',
+              'sci_c_3_4_stu',
+              'sci_c_4_1_stu',
+              'sci_c_4_2_stu',
+              'sci_c_4_3_stu',
+              'sci_c_4_4_stu',
+              'sci_c_5_1_stu',
+              'sci_c_5_2_stu']
+
 mfq = [
- 'mfq_1',
- 'mfq_2',
- 'mfq_5',
- 'mfq_7',
- 'mfq_8',
- 'mfq_14',
- 'mfq_21',
- 'mfq_23',
- 'mfq_24',
- 'mfq_27',
- 'mfq_28',
- 'mfq_30',
- 'mfq_31']
+    'mfq_1',
+    'mfq_2',
+    'mfq_5',
+    'mfq_7',
+    'mfq_8',
+    'mfq_14',
+    'mfq_21',
+    'mfq_23',
+    'mfq_24',
+    'mfq_27',
+    'mfq_28',
+    'mfq_30',
+    'mfq_31']
 
 additional_mfq = [
- 'mfq_34',
- 'mfq_35',
- 'mfq_36',
- 'mfq_37'
+    'mfq_34',
+    'mfq_35',
+    'mfq_36',
+    'mfq_37'
 ]
 
 siq = [
- 'siq_1',
- 'siq_2',
- 'siq_3',
- 'siq_4',
- 'siq_5',
- 'siq_6',
- 'siq_7',
- 'siq_8',
- 'siq_9',
- 'siq_10',
- 'siq_11',
- 'siq_12',
- 'siq_13',
- 'siq_14',
- 'siq_15'
+    'siq_1',
+    'siq_2',
+    'siq_3',
+    'siq_4',
+    'siq_5',
+    'siq_6',
+    'siq_7',
+    'siq_8',
+    'siq_9',
+    'siq_10',
+    'siq_11',
+    'siq_12',
+    'siq_13',
+    'siq_14',
+    'siq_15'
 ]
-
 
 sdq = [
-     'sdq_1',
-     'sdq_2',
-     'sdq_3',
-     'sdq_4',
-     'sdq_5',
-     'sdq_6',
-     'sdq_7',
-     'sdq_8',
-     'sdq_9',
-     'sdq_10',
-     'sdq_11',
-     'sdq_12',
-     'sdq_13',
-     'sdq_14',
-     'sdq_15',
-     'sdq_16',
-     'sdq_17',
-     'sdq_18',
-     'sdq_19',
-     'sdq_20',
-     'sdq_21',
-     'sdq_22',
-     'sdq_23',
-     'sdq_24',
-     'sdq_25'
+    'sdq_1',
+    'sdq_2',
+    'sdq_3',
+    'sdq_4',
+    'sdq_5',
+    'sdq_6',
+    'sdq_7',
+    'sdq_8',
+    'sdq_9',
+    'sdq_10',
+    'sdq_11',
+    'sdq_12',
+    'sdq_13',
+    'sdq_14',
+    'sdq_15',
+    'sdq_16',
+    'sdq_17',
+    'sdq_18',
+    'sdq_19',
+    'sdq_20',
+    'sdq_21',
+    'sdq_22',
+    'sdq_23',
+    'sdq_24',
+    'sdq_25'
 ]
 
-scared = [    
+scared = [
     'scared_1',
     'scared_2',
     'scared_3',
@@ -200,9 +212,8 @@ scared = [
     'scared_38',
     'scared_39',
     'scared_40',
-    'scared_41' 
+    'scared_41'
 ]
-
 
 ATHENS = [
     'athens_1',
@@ -240,7 +251,6 @@ SAS = [
     'sas_22',
     'sas_23'
 ]
-
 
 sci_af_ca = [
     'sci_af_ca_1',
@@ -303,7 +313,6 @@ scs_clin = [
     'sci_c_5_2_clin'
 ]
 
-
 scs_stu = [
     'sci_c_1_1_stu',
     'scs_2_1_stu',
@@ -362,19 +371,31 @@ ARI_S = ['ari_s_1', 'ari_s_2', 'ari_s_3', 'ari_s_4', 'ari_s_5', 'ari_s_6']
 
 ARI_P = ['ari_p_1', 'ari_p_2', 'ari_p_3', 'ari_p_4', 'ari_p_5', 'ari_p_6']
 
-
 MAST = ['MAST_1', 'MAST_5', 'MAST_6', 'MAST_13', 'MAST_18', 'MAST_19', 'MAST_25', 'MAST_28',
         'MAST_2', 'MAST_9', 'MAST_14', 'MAST_15', 'MAST_16', 'MAST_21', 'MAST_30',
         'MAST_8', 'MAST_17', 'MAST_22', 'MAST_23', 'MAST_26', 'MAST_27', 'MAST_29',
         'MAST_3', 'MAST_4', 'MAST_7', 'MAST_10', 'MAST_11', 'MAST_12', 'MAST_20', 'MAST_24']
 
-
 maris_sci_sf = ['maris_sci_sf_1', 'maris_sci_sf_2', 'maris_sci_sf_3', 'maris_sci_sf_4',
-        'maris_sci_sf_5', 'maris_sci_sf_6', 'maris_sci_sf_7', 'maris_sci_sf_8',
-        'maris_sci_sf_9']
+                'maris_sci_sf_5', 'maris_sci_sf_6', 'maris_sci_sf_7', 'maris_sci_sf_8',
+                'maris_sci_sf_9']
 
 maris_soq_sf = ['maris_soq_sf_1', 'maris_soq_sf_2', 'maris_soq_sf_3', 'maris_soq_sf_4',
-                    'maris_soq_sf_5', 'maris_soq_sf_6', 'maris_soq_sf_7', 'maris_soq_sf_8']
+                'maris_soq_sf_5', 'maris_soq_sf_6', 'maris_soq_sf_7', 'maris_soq_sf_8']
+
+demographocs_f = ['parents_born_f',
+                  'parents_born_2_f',
+                  'born_child_f',
+                  'born_child_2_f',
+                  'parent_religion_f',
+                  'parent_religion_other_f',
+                  'parents_economy_f',
+                  'parents_education_f',
+                  'parents_education_other_f',
+                  'parents_work_f',
+                  'paresnts_work_2_f',
+                  'together_live_f']
+
 demographics_m = [
     'parents_born_m',
     'parents_born_2_m',
@@ -389,58 +410,61 @@ demographics_m = [
     'paresnts_work_2_m',
     'together_live_m',
 ]
-#
-# swan = [
-#     "swan_1_m",
-# "swan_2_m",
-# "swan_3_m",
-# "swan_4_m"
-# swan_5_m [nan  0.  1.  3.  2.]
-# swan_6_m [nan  0.  1.  3.  2.]
-# swan_7_m [nan  1.  3.  2.  0.]
-# swan_8_m [nan  1.  2.  3.  0.]
-# swan_9_m [nan  3.  2.  1.  0.]
-# swan_10_m [nan  2.  3.  1.  0.]
-# swan_11_m [nan  3.  1.  2.  0.]
-# swan_12_m [nan  3.  1.  2.  0.]
-# swan_13_m [nan  3.  2.  1.  0.]
-# swan_14_m [nan  3.  1.  2.  0.]
-# swan_15_m [nan  3.  1.  2.  0.]
-# swan_16_m [nan  3.  1.  2.  0.]
-# swan_17_m [nan  3.  2.  1.  0.]
-# "swan_18_m"
-#
-# ]
 
-
-demographics_f = [
-    'parents_born_f',
-    'parents_born_2_f',
-    'born_child_f',
-    'born_child_2_f',
-    'parent_religion_f',
-    'parent_religion_other_f',
-    'parents_economy_f',
-    'parents_education_f',
-    'parents_education_other_f',
-    'parents_work_f',
-    'paresnts_work_2_f',
-    'together_live_f',
+swan_m = [
+    "swan_1_m",
+    "swan_2_m",
+    "swan_3_m",
+    "swan_4_m",
+    "swan_5_m",
+    "swan_6_m",
+    "swan_7_m",
+    "swan_8_m",
+    "swan_9_m",
+    "swan_10_m",
+    "swan_11_m",
+    "swan_12_m",
+    "swan_13_m",
+    "swan_14_m",
+    "swan_15_m",
+    "swan_16_m",
+    "swan_17_m",
+    "swan_18_m"
 ]
 
+swan_f = [
+    "swan_1_f",
+    "swan_2_f",
+    "swan_3_f",
+    "swan_4_f",
+    "swan_5_f",
+    "swan_6_f",
+    "swan_7_f",
+    "swan_8_f",
+    "swan_9_f",
+    "swan_10_f",
+    "swan_11_f",
+    "swan_12_f",
+    "swan_13_f",
+    "swan_14_f",
+    "swan_15_f",
+    "swan_16_f",
+    "swan_17_f",
+    "swan_18_f"
+]
 
-
-all_questionarries = siq\
-                     + sdq\
-                     + c_ssrs_intake\
-                     + c_ssrs\
-                     + mfq\
-                     + scared\
-                     + ATHENS\
-                     + SAS\
-                     + maris_sci_sf\
-                     + sci_af_ca\
-                     + scs_clin\
-                     + sci_mother\
-                     + c_ssrs_clin\
-                     + demographics_m
+all_questionarries = siq \
+                     + sdq \
+                     + c_ssrs_intake \
+                     + c_ssrs \
+                     + mfq \
+                     + scared \
+                     + ATHENS \
+                     + SAS \
+                     + maris_sci_sf \
+                     + sci_af_ca \
+                     + scs_clin \
+                     + sci_mother \
+                     + c_ssrs_clin \
+                     + demographics_m\
+                     + swan_m
