@@ -4,6 +4,7 @@ from utils.consts.subsets_of_questionnaires import sdq_reverse, sdq_normal, c_ss
     c_ssrs_2weeks_values_map
 from utils.consts.questions_columns import c_ssrs, sci_af_ca, maris_sci_sf, maris_soq_sf, MAST
 from utils.consts.assistment_consts import Questionnaires
+from utils.data_manipulation.data_imputation import impute_mean_questionnaire_score
 
 
 def get_max_index(df, questions_values_map):
@@ -503,7 +504,7 @@ def calculate_clinician_c_ssrs_individual_score(df, score_info, rolling_negative
     return score
 
 
-def compute_swan_scores(df, skipna=False):
+def compute_swan_scores(df, impute=True):
     """
     questionnaires['swan_m']['columns']
     """
@@ -513,17 +514,19 @@ def compute_swan_scores(df, skipna=False):
     missing_values_sum = missing_values.sum(axis=1)
     df['ratio_of_missing_swan_values'] = missing_values_sum / len(swan_columns)
 
-    for key in questionnaires['swan_m']['factors'].keys():
-        # impute mean per row / subject
+    if impute:
+        df = impute_mean_questionnaire_score(df, 'swan_m')
 
+    swan_factors = list(questionnaires['swan_m']['factors'].keys())
+    for key in swan_factors:
         factor_columns = questionnaires['swan_m']['factors'][key]
 
-        df[key] = df[sci_af_ac_factors[key]].sum(axis=1)
+        df[key] = df[factor_columns].sum(axis=1)
 
-    df['sci_af_ac_score'] = df[sci_af_ca].mean(axis=1, skipna=skipna)
+    df['swan_score'] = df[swan_columns].sum(axis=1)
+    df['swan_sum'] = df[swan_columns].sum(axis=1)
 
-    params = list(sci_af_ac_factors.keys()) + ['sci_af_ac_score', 'ratio_of_missing_sci_af_ac_values',
-                                               'sci_af_ca_is_new_questions_missing']
+    params = swan_factors + ['ratio_of_missing_swan_values', 'swan_score', 'swan_sum']
 
     return df, params
 
