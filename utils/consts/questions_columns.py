@@ -467,4 +467,9 @@ all_questionarries = siq \
                      + sci_mother \
                      + c_ssrs_clin \
                      + demographics_m\
-                     + swan_m
+                     + swan_m \
+                     + ARI_S \
+                     + ARI_P \
+                     + MAST \
+                     + maris_sci_sf \
+                     + maris_soq_sf

@@ -7,8 +7,8 @@ sdq - normal questions
 from utils.consts.questions_columns import sdq, maris_soq_sf
 
 swan_factors = {
-    'swan_attention': [f'swan_{i}m' for i in range(1, 10)],
-    'swan_impulsivity': [f'swan_{i}m' for i in range(10, 19)]
+    'swan_attention': [f'swan_{i}_m' for i in range(1, 10)],
+    'swan_impulsivity': [f'swan_{i}_m' for i in range(10, 19)]
 
 }
 

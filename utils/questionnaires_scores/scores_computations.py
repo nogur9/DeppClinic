@@ -509,17 +509,17 @@ def compute_swan_scores(df, impute=True):
     questionnaires['swan_m']['columns']
     """
     questionnaires = Questionnaires().questionnaires
-    swan_columns = questionnaires['swan_m']['columns']
+    swan_columns = questionnaires['swan_mother']['columns']
     missing_values = df[swan_columns].isnull()
     missing_values_sum = missing_values.sum(axis=1)
     df['ratio_of_missing_swan_values'] = missing_values_sum / len(swan_columns)
 
     if impute:
-        df = impute_mean_questionnaire_score(df, 'swan_m')
+        df = impute_mean_questionnaire_score(df, 'swan_mother')
 
-    swan_factors = list(questionnaires['swan_m']['factors'].keys())
+    swan_factors = list(questionnaires['swan_mother']['factors'].keys())
     for key in swan_factors:
-        factor_columns = questionnaires['swan_m']['factors'][key]
+        factor_columns = questionnaires['swan_mother']['factors'][key]
 
         df[key] = df[factor_columns].sum(axis=1)
 

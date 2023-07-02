@@ -1,5 +1,5 @@
 from utils.consts.questions_columns import sci_af_ca, c_ssrs, sci_mother, scs_clin, siq, sdq, c_ssrs_intake, mfq, \
-    scared, ATHENS, SAS, c_ssrs_clin, demographics_m
+    scared, ATHENS, SAS, c_ssrs_clin, demographics_m, swan_m
 from utils.consts.pathology_variables import all_pathology_variables
 from utils.consts.assistment_consts import imputation_questionnaires
 from utils.util_functions import questionnaire_is_empty, impute_from_questionnaire
@@ -14,7 +14,8 @@ class Columns:
 
     info_columns = ['gender', 'redcap_event_name', 'age_child_pre']
 
-    default_columns = info_columns + demographics_m + c_ssrs_intake + c_ssrs + c_ssrs_clin + sci_af_ca + scs_clin + sci_mother + siq + sdq + mfq + scared + ATHENS + SAS + demographics_m
+    default_columns = info_columns + demographics_m + c_ssrs_intake + c_ssrs + c_ssrs_clin + sci_af_ca + scs_clin + \
+                      sci_mother + siq + sdq + mfq + scared + ATHENS + SAS + demographics_m + swan_m
 
     def __init__(self, columns=[], id_column='id'):
         self.id_column = id_column

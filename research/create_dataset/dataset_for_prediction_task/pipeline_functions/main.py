@@ -35,6 +35,7 @@ def main():
     df, columns = compute_questions_scores(df, questionnaires, columns)
 
     save_df(df, columns, axis='patient', profile=False)
+    save_df(df, columns, axis='time', profile=False)
 
 
 main()
