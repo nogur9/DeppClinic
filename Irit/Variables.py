@@ -32,6 +32,9 @@ info_columns = ['gender', 'age_child_pre']
 swan_m = ["swan_1_m", "swan_2_m", "swan_3_m", "swan_4_m", "swan_5_m", "swan_6_m", "swan_7_m",
           "swan_8_m", "swan_9_m", "swan_10_m", "swan_11_m", "swan_12_m", "swan_13_m",
           "swan_14_m", "swan_15_m", "swan_16_m", "swan_17_m", "swan_18_m"]
+
+
+
 idx_CBCL_anx = [14, 29, 30, 31, 32,33,35, 45, 50, 52, 71, 91, 112]
 CBCL_anx = [f"t1_p_rawscore_cbcl_{i}" for i in  idx_CBCL_anx]
 
@@ -47,7 +50,30 @@ swan_factors_ = {
 }
 
 
+CBCL_factors_ = {
+    'CBCL_Anxious/Depressed': CBCL_anx,
+    'CBCL_Withdrawn/Depressed': idx_CBCL_with
+
+}
+
 CBCL = CBCL_with + CBCL_anx
+
+cbcl_thresholds = {"cbcl_attention": {"male": {"1": 1, "2": 2, "3": 3},
+                         "female": {"1": 1, "2": 2, "3": 3}},
+                   "cbcl_impulsivity": {"male": {"1": 1, "2": 2, "3": 3},
+                         "female": {"1": 1, "2": 2, "3": 3}}}
+
+
+def get_cbcl_threshold(x, factor):
+    med_score = cbcl_thresholds[factor][x['gender']]['med']
+    high_score = cbcl_thresholds[factor][x['gender']]['high']
+
+    if x[factor] > high_score:
+        return 'high'
+    elif x[factor] > med_score:
+        return 'med'
+    else:
+        return 'low'
 
 
 def compute_swan_scores(df, impute=True):
@@ -82,24 +108,23 @@ def compute_CBCL_scores(df, impute=True):
     questionnaires['swan_m']['columns']
     """
 
-    swan_columns = swan_m
-    missing_values = df[swan_columns].isnull()
+    cbcl_columns = CBCL
+    missing_values = df[cbcl_columns].isnull()
     missing_values_sum = missing_values.sum(axis=1)
-    df['ratio_of_missing_swan_values'] = missing_values_sum / len(swan_columns)
+    df['ratio_of_missing_cbcl_values'] = missing_values_sum / len(cbcl_columns)
 
     if impute:
-        df = impute_mean_questionnaire_score(df, swan_columns)
+        df = impute_mean_questionnaire_score(df, cbcl_columns)
 
-    swan_factors = list(swan_factors_.keys())
-    for key in swan_factors:
-        factor_columns = swan_factors_[key]
+    cbcl_factors = list(CBCL_factors_.keys())
+    for key in cbcl_factors:
+        factor_columns = CBCL_factors_[key]
 
         df[key] = df[factor_columns].sum(axis=1)
 
-    df['swan_score'] = df[swan_columns].sum(axis=1)
-    df['swan_sum'] = df[swan_columns].sum(axis=1)
+    df['cbcl_int_rawscore'] = df[['CBCL_Anxious/Depressed', 'CBCL_Withdrawn/Depressed']].sum(axis=1)
 
-    params = swan_factors + ["swan_attention", "swan_impulsivity", "ratio_of_missing_swan_values", "swan_score", "swan_sum"]
+    params = cbcl_factors + ["ratio_of_missing_cbcl_values", "cbcl_int_rawscore", "cbcl_int_tscore"]
 
     return df, params
 
