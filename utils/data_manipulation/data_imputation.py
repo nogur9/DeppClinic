@@ -36,3 +36,4 @@ def impute_from_column(df, impute_to, impute_from):
     """
     df[impute_to] = np.where(df[impute_to].isnull(), df[impute_from], df[impute_to])
     return df
+
