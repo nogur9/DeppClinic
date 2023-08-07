@@ -33,14 +33,14 @@ swan_m = ["swan_1_m", "swan_2_m", "swan_3_m", "swan_4_m", "swan_5_m", "swan_6_m"
           "swan_8_m", "swan_9_m", "swan_10_m", "swan_11_m", "swan_12_m", "swan_13_m",
           "swan_14_m", "swan_15_m", "swan_16_m", "swan_17_m", "swan_18_m"]
 
+MFQ_threshold = 12
 
-
-idx_CBCL_anx = [14, 29, 30, 31, 32,33,35, 45, 50, 52, 71, 91, 112]
-CBCL_anx = [f"t1_p_rawscore_cbcl_{i}" for i in  idx_CBCL_anx]
+idx_CBCL_anx = [14, 29, 30, 31, 32, 33, 35, 45, 50, 52, 71, 91, 112]
+CBCL_anx = [f"t1_p_rawscore_cbcl_{i}" for i in idx_CBCL_anx]
 
 
 idx_CBCL_with = [5, 42, 65, 69, 75, 102, 103, 111]
-CBCL_with = [f"t1_p_rawscore_cbcl_{i}" for i in  idx_CBCL_anx]
+CBCL_with = [f"t1_p_rawscore_cbcl_{i}" for i in idx_CBCL_with]
 
 
 swan_factors_ = {
@@ -52,104 +52,43 @@ swan_factors_ = {
 
 CBCL_factors_ = {
     'CBCL_Anxious/Depressed': CBCL_anx,
-    'CBCL_Withdrawn/Depressed': idx_CBCL_with
-
+    'CBCL_Withdrawn/Depressed': CBCL_with
 }
 
 CBCL = CBCL_with + CBCL_anx
 
-cbcl_thresholds = {"cbcl_attention": {"male": {"1": 1, "2": 2, "3": 3},
-                         "female": {"1": 1, "2": 2, "3": 3}},
-                   "cbcl_impulsivity": {"male": {"1": 1, "2": 2, "3": 3},
-                         "female": {"1": 1, "2": 2, "3": 3}}}
 
+# Thresholds are based on the files in - DeppClinic\Irit\thresholds
+cbcl_thresholds = {"CBCL_Anxious/Depressed":
 
-def get_cbcl_threshold(x, factor):
-    med_score = cbcl_thresholds[factor][x['gender']]['med']
-    high_score = cbcl_thresholds[factor][x['gender']]['high']
+                       {"male":
+                         {"6-11": {"Normal": 7, "Borderline": 10, "Abnormal": 26},
+                         "12-18": {"Normal": 6, "Borderline": 9, "Abnormal": 26}},
+                        "female":
+                         {"6-11": {"Normal": 7, "Borderline": 10, "Abnormal": 26},
+                         "12-18": {"Normal": 7, "Borderline": 10, "Abnormal": 26}}
 
-    if x[factor] > high_score:
-        return 'high'
-    elif x[factor] > med_score:
-        return 'med'
-    else:
-        return 'low'
+                        },
 
+                   "CBCL_Withdrawn/Depressed": {
+                       "male":
+                           {"6-11": {"Normal": 3, "Borderline": 5, "Abnormal": 16},
+                            "12-18": {"Normal": 5, "Borderline": 7, "Abnormal": 16}},
+                       "female":
+                           {"6-11": {"Normal": 4, "Borderline": 6, "Abnormal": 16},
+                            "12-18": {"Normal": 5, "Borderline": 7, "Abnormal": 16}}
+                        }
+                   }
 
-def compute_swan_scores(df, impute=True):
-    """
-    questionnaires['swan_m']['columns']
-    """
+# Thresholds are based on the file in - DeppClinic\Irit\thresholds
+SDQ_thresholds = {
+    'SDQ_Emo_sum': {"Normal": 2, "Borderline": 3, "Abnormal": 10},
+    'SDQ_Conduct_sum': {"Normal": 2, "Borderline": 3, "Abnormal": 10},
+    'SDQ_Hyper_sum': {"Normal": 3, "Borderline": 4, "Abnormal": 10},
+    'SDQ_Peer_sum': {"Normal": 2, "Borderline": 3, "Abnormal": 10},
 
-    swan_columns = swan_m
-    missing_values = df[swan_columns].isnull()
-    missing_values_sum = missing_values.sum(axis=1)
-    df['ratio_of_missing_swan_values'] = missing_values_sum / len(swan_columns)
+ # Factors does not appear in the table
+ #   'SDQ_Externalizing_sum': {"Normal": 1, "Borderline": 2, "Abnormal": 3},
+ #   'SDQ_Internalizing_sum': {"Normal": 1, "Borderline": 2, "Abnormal": 3},
+    }
 
-    if impute:
-        df = impute_mean_questionnaire_score(df, swan_columns)
-
-    swan_factors = list(swan_factors_.keys())
-    for key in swan_factors:
-        factor_columns = swan_factors_[key]
-
-        df[key] = df[factor_columns].sum(axis=1)
-
-    df['swan_score'] = df[swan_columns].sum(axis=1)
-    df['swan_sum'] = df[swan_columns].sum(axis=1)
-
-    params = swan_factors + ["swan_attention", "swan_impulsivity", "ratio_of_missing_swan_values", "swan_score", "swan_sum"]
-
-    return df, params
-
-
-def compute_CBCL_scores(df, impute=True):
-    """
-    questionnaires['swan_m']['columns']
-    """
-
-    cbcl_columns = CBCL
-    missing_values = df[cbcl_columns].isnull()
-    missing_values_sum = missing_values.sum(axis=1)
-    df['ratio_of_missing_cbcl_values'] = missing_values_sum / len(cbcl_columns)
-
-    if impute:
-        df = impute_mean_questionnaire_score(df, cbcl_columns)
-
-    cbcl_factors = list(CBCL_factors_.keys())
-    for key in cbcl_factors:
-        factor_columns = CBCL_factors_[key]
-
-        df[key] = df[factor_columns].sum(axis=1)
-
-    df['cbcl_int_rawscore'] = df[['CBCL_Anxious/Depressed', 'CBCL_Withdrawn/Depressed']].sum(axis=1)
-
-    params = cbcl_factors + ["ratio_of_missing_cbcl_values", "cbcl_int_rawscore", "cbcl_int_tscore"]
-
-    return df, params
-
-
-def impute_mean_questionnaire_score(df, questionnaire_columns):
-
-    def impute_row_with_mean(row):
-        mean_value = row.dropna().mean()
-        row = row.fillna(mean_value)
-        return row
-
-    # Assuming 'df' is your DataFrame and 'columns_name' is the name of the questionnaire columns
-
-    df[questionnaire_columns] = df[questionnaire_columns].apply(impute_row_with_mean, axis=1)
-
-    return df
-
-
-def impute_from_column(df, impute_to, impute_from):
-    """
-    test:
-    df[(df['c_ssrs_6'].isna()) & (~df['c_ssrs_last_visit_6'].isna())][['c_ssrs_6', 'c_ssrs_last_visit_6']]
-    df = impute_from_column(df, impute_to = 'c_ssrs_6', impute_from = 'c_ssrs_last_visit_6')
-    df[(df['c_ssrs_6'].isna()) & (~df['c_ssrs_last_visit_6'].isna())][['c_ssrs_6', 'c_ssrs_last_visit_6']]
-
-    """
-    df[impute_to] = np.where(df[impute_to].isnull(), df[impute_from], df[impute_to])
-    return df

@@ -30,6 +30,8 @@ nssi_intake = [
     'c_ssrs_t_16_life_clin', 'mfq_35', 'mfq_37', 'chameleon_nssi_stu'
 ]
 
+self_harm_intake = suicide_attempt_intake + nssi_intake + suicidal_behavior_intake
+
 suicidal_ideation_2weeks_intake = [
     'c_ssrs_t_2weeks_1_clin',
     'c_ssrs_t_2weeks_2_clin',
@@ -129,7 +131,8 @@ pathology_variables_times = {
                'suicide_attempt_intake': suicide_attempt_intake,
                'nssi_intake': nssi_intake,
                'suicidal_ideation_2weeks_intake': suicidal_ideation_2weeks_intake,
-               'suicidal_ideation_life_intake': suicidal_ideation_life_intake},
+               'suicidal_ideation_life_intake': suicidal_ideation_life_intake,
+               'self_harm_intake': self_harm_intake},
 
     'time2': {'suicidal_behavior_time2': suicidal_behavior_time2,
               'nssi_time2': nssi_time2,
@@ -157,9 +160,11 @@ suicidal_ideation_life_intake_irit = [
 ]
 
 
+"""
 
+----------------------  Liat-Graphs target variables  -------------------------------
+"""
 
-# Chameleon target variables
 
 ER = ['chameleon_suicide_er_stu']
 ER_intake = ["complaint___1", "complaint___2", "complaint___3", "complaint___4", "complaint___5"]
@@ -169,9 +174,45 @@ psych_ward = ['chameleon_psychiatric_stu']
 finished_treatment = ['treatment_end_stu']  #if 1 "yes" after intake -> mark as yes for the subject
 
 
+# ideation
+# Behavior
+# attempt
+# er
+# Psychiatric
+# Nssi
+# finished_treatment
+
+Liat_Graphs_pathology_variables_times = {
+    'intake': {
+        'suicidal_ideation': suicidal_ideation_life_intake,
+        'suicidal_behavior': suicidal_behavior_intake,
+        'suicidal_attempt': suicide_attempt_intake,
+        'ER': ["complaint___1", "complaint___2", "complaint___3", "complaint___4", "complaint___5"],
+        'NSSI': nssi_intake
+
+    },
+
+    'time2': {
+        'suicidal_ideation': suicidal_ideation_time2,
+        'suicidal_behavior': suicidal_behavior_time2,
+        'suicidal_attempt': suicidal_attempt_time2,
+        'ER': ['chameleon_suicide_er_stu'],
+        'Psychiatric': psych_ward,
+        'NSSI': nssi_time2,
+        'finished_treatment': finished_treatment,
+    }
+
+}
 
 
 
-all_pathology_variables = ['suicidal_behavior_intake', 'suicide_attempt_intake', 'nssi_intake',
-                'suicidal_ideation_2weeks_intake', 'suicidal_ideation_life_intake', 'suicidal_behavior_time2',
-                'nssi_time2', 'suicidal_ideation_time2', 'suicidal_behavior_time2']
+
+
+
+
+
+
+
+# all_pathology_variables = ['suicidal_behavior_intake', 'suicide_attempt_intake', 'nssi_intake',
+#                 'suicidal_ideation_2weeks_intake', 'suicidal_ideation_life_intake', 'suicidal_behavior_time2',
+#                 'nssi_time2', 'suicidal_ideation_time2', 'suicidal_behavior_time2']

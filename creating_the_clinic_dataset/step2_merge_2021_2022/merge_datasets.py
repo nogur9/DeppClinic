@@ -74,7 +74,8 @@ def fix_scpecific_case(row, col_name, func):
             return 'take 2022'
 
     return func
-  
+
+
 def apply_group(df, index, group):
     
     df = df.copy()

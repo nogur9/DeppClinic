@@ -74,24 +74,23 @@ sdq_reverse = ['sdq_7', 'sdq_11', 'sdq_14', 'sdq_21', 'sdq_25']
 sdq_normal = [i for i in sdq if i not in sdq_reverse]
 
 
-conduct_columns = ['SDQ_5', 'SDQ_7R', 'SDQ_12', 'SDQ_18', 'SDQ_22']
-emo_columns = ['SDQ_3', 'SDQ_8', 'SDQ_13', 'SDQ_16', 'SDQ_24']
-hyper_columns = ['SDQ_2', 'SDQ_10', 'SDQ_15', 'SDQ_21', 'SDQ_25']
-peer_columns = ['SDQ_6', 'SDQ_11', 'SDQ_14', 'SDQ_19', 'SDQ_23']
+conduct_columns = ['sdq_5', 'sdq_7_reverse', 'sdq_12', 'sdq_18', 'sdq_22']
+emo_columns = ['sdq_3', 'sdq_8', 'sdq_13', 'sdq_16', 'sdq_24']
+hyper_columns = ['sdq_2', 'sdq_10', 'sdq_15', 'sdq_21_reverse', 'sdq_25_reverse']
+peer_columns = ['sdq_6', 'sdq_11_reverse', 'sdq_14_reverse', 'sdq_19', 'sdq_23']
 
 # Recode values in SDQ_Hyper using the recoding criteria
 recode_dict = {1: 1, 2: 1, 3: 1, 4: 1, 5: 1, 6: 1, 7: 2, 8: 2, 9: 2, 10: 2}
+
 #df['SDQ_Hyper_CAT'] = df['SDQ_Hyper'].map(recode_dict)
 
 SDQ_factors = {
-    'conduct': conduct_columns,
-    'emo': emo_columns,
-    'hyper': hyper_columns,
-    'peer': peer_columns,
-    'Externalizing': conduct_columns + hyper_columns,
-    'Internalizing': emo_columns + peer_columns,
-
-
+    'SDQ_Conduct': conduct_columns,
+    'SDQ_Emo': emo_columns,
+    'SDQ_Hyper': hyper_columns,
+    'SDQ_Peer': peer_columns,
+    'SDQ_Externalizing': conduct_columns + hyper_columns,
+    'SDQ_Internalizing': emo_columns + peer_columns,
 }
 
 sdq_columns = ['SDQ_2', 'SDQ_3', 'SDQ_5', 'SDQ_6', 'SDQ_7', 'SDQ_8', 'SDQ_10', 'SDQ_11',

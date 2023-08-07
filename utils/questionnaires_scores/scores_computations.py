@@ -1,5 +1,5 @@
 from utils.consts.subsets_of_questionnaires import sci_af_ac_factors, C_ssrs_clinician, sci_af_ca_new_questions, \
-    maris_soq_sf_reverse, maris_soq_sf_normal, MAST_factors
+    maris_soq_sf_reverse, maris_soq_sf_normal, MAST_factors, SDQ_factors
 from utils.consts.subsets_of_questionnaires import sdq_reverse, sdq_normal, c_ssrs_life_values_map, \
     c_ssrs_2weeks_values_map
 from utils.consts.questions_columns import c_ssrs, sci_af_ca, maris_sci_sf, maris_soq_sf, MAST
@@ -35,14 +35,17 @@ def compute_sdq_score(df, skipna=False):
     df[sdq_reverse_columns] = 2 - df[sdq_reverse]
     sdq_columns = sdq_normal + sdq_reverse_columns
     df['sdq_score'] = df[sdq_columns].sum(axis=1, skipna=skipna)
-
+    df['sdq_sum'] = df[sdq_columns].sum(axis=1, skipna=skipna)
     missing_values = df[sdq_columns].isnull()
     missing_values_sum = missing_values.sum(axis=1)
     df['ratio_of_missing_sdq_values'] = missing_values_sum / len(sdq_columns)
 
-    df = df.drop(sdq_reverse_columns, axis=1)
+    for key in SDQ_factors.keys():
+        df[f"{key}_sum"] = df[SDQ_factors[key]].sum(axis=1, skipna=skipna)
+        df = df.drop(sdq_reverse_columns, axis=1)
+    params = list(sci_af_ac_factors.keys()) + ['sdq_score', 'ratio_of_missing_sdq_values']
 
-    return df, ['sdq_score', 'ratio_of_missing_sdq_values']
+    return df, params
 
 
 def compute_mfq_score(df, skipna=False):

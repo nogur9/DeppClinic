@@ -24,7 +24,8 @@ def mark_inattentive_participants(df, year, inattentive_participants_index = 'pr
     df = df.drop('id & redcup', axis=1)
 
     return df
-    
+
+
 def fix_wrong_record_id(df, year=2022):
     """
     This function takes a DataFrame as input, and applies the following cleaning steps:

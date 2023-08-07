@@ -1,7 +1,6 @@
 import pandas as pd
-from research.create_dataset.dataset_for_prediction_task.pipeline_functions.pipeline_functions import Columns, \
-    do_imputations, split_two_measurement_times, compute_questions_scores, save_df
-from utils.consts.pathology_variables import all_pathology_variables, pathology_variables_times
+from dataset_creation.pipeline_functions import Columns, do_imputations, split_two_measurement_times, compute_questions_scores, save_df
+from utils.consts.pathology_variables import pathology_variables_times
 from utils.target_variable import TargetVariable
 from utils.consts.assistment_consts import Questionnaires
 import os
