@@ -1,5 +1,5 @@
 import numpy as np
-rename_align = {'gender': 'sex.1',
+rename_align = {'gender': 'sex',
                 'age_child_pre': 'age',
                 'parent_religion_m': 'religion',
 
@@ -25,7 +25,6 @@ rename_align = {'gender': 'sex.1',
                 "swan_attention": 't1_p_swan_sum1-9',
                 "swan_impulsivity": 't1_p_swan_sum10-18'
 }
-
 
 info_columns = ['gender', 'age_child_pre']
 
@@ -58,25 +57,26 @@ CBCL_factors_ = {
 CBCL = CBCL_with + CBCL_anx
 
 
-# Thresholds are based on the files in - DeppClinic\Irit\thresholds
+# Thresholds are based on the files in - DeppClinic\Irit\thresholds (12-18 changed to 11-18, for the purpose of
+# creating overlapping ranges)
 cbcl_thresholds = {"CBCL_Anxious/Depressed":
 
                        {"male":
                          {"6-11": {"Normal": 7, "Borderline": 10, "Abnormal": 26},
-                         "12-18": {"Normal": 6, "Borderline": 9, "Abnormal": 26}},
+                         "11-18": {"Normal": 6, "Borderline": 9, "Abnormal": 26}},
                         "female":
                          {"6-11": {"Normal": 7, "Borderline": 10, "Abnormal": 26},
-                         "12-18": {"Normal": 7, "Borderline": 10, "Abnormal": 26}}
+                         "11-18": {"Normal": 7, "Borderline": 10, "Abnormal": 26}}
 
                         },
 
                    "CBCL_Withdrawn/Depressed": {
                        "male":
                            {"6-11": {"Normal": 3, "Borderline": 5, "Abnormal": 16},
-                            "12-18": {"Normal": 5, "Borderline": 7, "Abnormal": 16}},
+                            "11-18": {"Normal": 5, "Borderline": 7, "Abnormal": 16}},
                        "female":
                            {"6-11": {"Normal": 4, "Borderline": 6, "Abnormal": 16},
-                            "12-18": {"Normal": 5, "Borderline": 7, "Abnormal": 16}}
+                            "11-18": {"Normal": 5, "Borderline": 7, "Abnormal": 16}}
                         }
                    }
 
@@ -91,4 +91,12 @@ SDQ_thresholds = {
  #   'SDQ_Externalizing_sum': {"Normal": 1, "Borderline": 2, "Abnormal": 3},
  #   'SDQ_Internalizing_sum': {"Normal": 1, "Borderline": 2, "Abnormal": 3},
     }
+
+columns_need_t_score = ['SDQ_Emo_sum', 'SDQ_Conduct_sum',
+                'SDQ_Hyper_sum', 'SDQ_Peer_sum',
+                'CBCL_Anxious/Depressed', 'CBCL_Withdrawn/Depressed',
+                'CBCL_int_raw_score']
+
+swan_columns_need_t_score = ['swan_sum', 'swan_score', 'swan_attention_sum', 'swan_impulsivity_sum']
+
 

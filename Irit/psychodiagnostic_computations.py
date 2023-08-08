@@ -21,9 +21,11 @@ def get_sdq_diagnosis(x, factor):
 def get_cbcl_diagnosis(x, factor):
 
     cbcl_age_thresholds = cbcl_thresholds[factor][x['gender']]
+    outliers_young_range = "4-6"
     young_age_range = "6-11"
-    older_age_range = "12-18"
-    if is_number_within_range(young_age_range, x['age_child_pre']):
+    older_age_range = "11-18"
+    if is_number_within_range(young_age_range, x['age_child_pre']) or \
+        is_number_within_range(outliers_young_range, x['age_child_pre']):
         normal_score = cbcl_age_thresholds[young_age_range]['Normal']
         borderline_score = cbcl_age_thresholds[young_age_range]['Borderline']
         abnormal_score = cbcl_age_thresholds[young_age_range]['Abnormal']
@@ -32,11 +34,7 @@ def get_cbcl_diagnosis(x, factor):
         borderline_score = cbcl_age_thresholds[older_age_range]['Borderline']
         abnormal_score = cbcl_age_thresholds[older_age_range]['Abnormal']
     else:
-        # raise ValueError
-        print("meow")
-        normal_score = cbcl_age_thresholds[young_age_range]['Normal']
-        borderline_score = cbcl_age_thresholds[young_age_range]['Borderline']
-        abnormal_score = cbcl_age_thresholds[young_age_range]['Abnormal']
+        raise ValueError
 
     if x[factor] <= normal_score:
         return 'Normal'
@@ -48,19 +46,15 @@ def get_cbcl_diagnosis(x, factor):
         raise ValueError
 
 
-
-def get_swan_diagnosis(x, factor):
-    """
-    אם תחליטו שצריך אז יש דרך לחשב למי יש הפרעת קשה ולמי אין
-    ציון 1/2 ב 6/9 קריטריונים בתחום קשב.
-    או ציון 1/2 ב 6/9 קריטריונים בתחום היפראקטיביות ואימפולסיביןת.
-
-    """
+def get_swan_diagnosis(x, factor, return_int=True):
 
     num_significant_questions = (x[swan_factors_[factor]] >= 1).sum()
     is_pathological = num_significant_questions >= 6
 
-    return is_pathological  # "Abnormal" if is_pathological else "Normal"
+    if return_int:
+        return is_pathological
+    else:
+        return "Abnormal" if is_pathological else "Normal"
 
 
 def compute_swan_scores(df, impute=True):
@@ -117,7 +111,7 @@ def compute_cbcl_scores(df, impute=True):
     return df, params
 
 
-def compute_sdq_cutoffs(df):
+def compute_sdq_scores(df):
 
     for key in SDQ_thresholds.keys():
         df[f"{key[:-3]}_Diagnosis"] = df.apply(get_sdq_diagnosis, args=[key])

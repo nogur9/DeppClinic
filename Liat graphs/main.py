@@ -10,7 +10,6 @@ from utils.consts.pathology_variables import Liat_Graphs_pathology_variables_tim
 from utils.target_variable import TargetVariable
 
 
-
 def fill_group(df, group):
     """
     This function takes a DataFrame as input, and fills out the empty 'id' values by matching them to the 'record_id' which isn't empty.
@@ -71,6 +70,6 @@ if __name__ == "__main__":
              'time3': ['followup_3month_arm_1', 'control_3month_arm_1', 'control_6month_arm_1']}
 
     for time in times.keys():
-        create_dataset(event_names = times[time], path = f"Liat graphs/data/{time}.csv")
+        create_dataset(event_names=times[time], path = f"Liat graphs/data/{time}.csv")
 
 

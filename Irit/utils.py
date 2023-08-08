@@ -1,4 +1,7 @@
 import numpy as np
+import warnings
+
+from Irit.Variables import columns_need_t_score
 
 
 def impute_from_column(df, impute_to, impute_from):
@@ -30,4 +33,31 @@ def is_number_within_range(target_range, number):
     lower_bound, upper_bound = map(int, target_range.split('-'))
     return lower_bound <= number <= upper_bound
 
+
+def calc_t_scores(df, columns=columns_need_t_score):
+
+    def clac_single_t_score(df, column, skipna):
+        """
+        # t-score  = (x - u) / (S / sqrtN)
+        """
+        N = df.shape[0]
+        if df[column].isna().sum() > N / 2:
+            warnings.warn(f"more than 50% missing values in column {column}", category=UserWarning)
+
+        mean = df[column].mean(skipna=skipna)
+        std = df[column].std(skipna=skipna)
+
+        t_scores = (df[column] - mean) / (std / N ** 0.5)
+
+        df[f"{column}_t_score"] = t_scores
+
+        return df, f"{column}_t_score"
+
+    t_score_columns = []
+    for column in columns:
+        if column in df.columns:
+            df, new_column_name = clac_single_t_score(df, column, skipna=True)
+            t_score_columns.append(new_column_name)
+
+    return df, t_score_columns
 
