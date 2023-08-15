@@ -1,8 +1,12 @@
+import numpy as np
+
 from Irit.Variables import SDQ_thresholds, cbcl_thresholds, swan_m, swan_factors_, CBCL, CBCL_factors_
-from Irit.utils import is_number_within_range, impute_mean_questionnaire_score
+from Irit.utils_Irit import is_number_within_range, impute_mean_questionnaire_score
 
 
 def get_sdq_diagnosis(x, factor):
+    if np.isnan(x[factor]):
+        return np.NaN
     sdq_age_thresholds = SDQ_thresholds[factor]
     normal_score = sdq_age_thresholds["Normal"]
     borderline_score = sdq_age_thresholds["Borderline"]
@@ -80,7 +84,7 @@ def compute_swan_scores(df, impute=True):
     for key in swan_factors:
         factor_columns = swan_factors_[key]
         df[f"{key}_sum"] = df[factor_columns].sum(axis=1)
-        df[f"{key}_diagnosis"] = df.apply(get_swan_diagnosis, args=[key], axis=1)
+        df[f"{key}_diagnosis"] = df[factor_columns].apply(get_swan_diagnosis, args=[key], axis=1)
         params.extend([f"{key}_sum", f"{key}_diagnosis"])
 
     return df, params
@@ -106,15 +110,16 @@ def compute_cbcl_scores(df, impute=True):
     df['CBCL_Anxious/Depressed_Diagnosis'] = df.apply(get_cbcl_diagnosis, args=['CBCL_Anxious/Depressed'], axis=1)
     df['CBCL_Withdrawn/Depressed_Diagnosis'] = df.apply(get_cbcl_diagnosis, args=['CBCL_Withdrawn/Depressed'], axis=1)
 
-    params = cbcl_factors + ["ratio_of_missing_cbcl_values", "cbcl_int_rawscore", "cbcl_int_tscore"]
+    params = cbcl_factors + ["ratio_of_missing_cbcl_values", "CBCL_int_raw_score"]
 
     return df, params
 
 
 def compute_sdq_scores(df):
-
+    params = []
     for key in SDQ_thresholds.keys():
-        df[f"{key[:-3]}_Diagnosis"] = df.apply(get_sdq_diagnosis, args=[key])
-    return df
+        df[f"{key[:-3]}_Diagnosis"] = df.apply(get_sdq_diagnosis, args=[key], axis=1)
+        params.append(f"{key[:-3]}_Diagnosis")
+    return df, params
 
 

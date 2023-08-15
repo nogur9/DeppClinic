@@ -99,4 +99,5 @@ columns_need_t_score = ['SDQ_Emo_sum', 'SDQ_Conduct_sum',
 
 swan_columns_need_t_score = ['swan_sum', 'swan_score', 'swan_attention_sum', 'swan_impulsivity_sum']
 
+Irit_columns_to_drop = ['t1_p_cbcl_anx/dep', 't1_p_cbcl_wit/dep', 't1_p_cbcl_int_tscore']
 

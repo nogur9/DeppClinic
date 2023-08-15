@@ -1,3 +1,5 @@
+basic_info_columns = ['gender', 'redcap_event_name', 'age_child_pre']
+
 c_ssrs_intake = [
     'c_ssrs_1_life',
     'c_ssrs_2_life',

@@ -7,16 +7,12 @@ N
 DeppClinic_prediction_task.csv,4\6\46f14ff60b966bf2d05dfcad4d7a990c20381961
 s
 Ccreating_the_clinic_dataset/step2_merge_2021_2022/merge_datasets.py,9\9\99babf7354c332c67a0d043f67b2510e6c65f916
-q
-AIrit/.ipynb_checkpoints/preprocessing Shira data-checkpoint.ipynb,f\a\fac740e889f87c634f499749a2aece9f37c3ee6d
 \
 ,Liat graphs/imputing_missing_group_param.csv,d\e\de98ebff6b87100a3bc9fbdd6c23aef2ea3e2fe2
 a
 1Liat graphs/data/imputing_missing_group_param.csv,8\9\899d9cbe5dd61f9ef5f5becba51e41b6ca241398
 j
 :creating_the_clinic_dataset/step2_merge_2021_2022/utils.py,9\1\91495b5aa9d539fcee1eb62bd61792e3703f5bab
-V
-&dataset_creation/pipeline_functions.py,b\3\b3ebf0d1729e8dbf7257a16bb1e40cbf27473bdb
 J
 Liat graphs/data/time2.csv,0\8\08a0790794a00d01215f33d5dc2a6e769af81207
 K
@@ -69,10 +65,6 @@ S
 #plots/intake_suicidal_behavior.html,6\0\605a0e66a84b2390d2b7555ebb6e61f27d544ae9
 P
  Liat graphs/plots/intake_ER.html,8\8\88dfb69310ad26f9d6bcd55a3f63413d4d27e852
-b
-2utils/questionnaires_scores/scores_computations.py,7\9\797008ecd9e036fdc4c1b4fc356c5da935ede171
-M
-Liat graphs/Liat graphs.ipynb,c\1\c136bb15b46ef8c46553d6c8174e57131b3e051f
 _
 /Liat graphs/plots/intake_suicidal_ideation.html,d\d\dd98362cda5d3bb8e096c21e28beb90d78110825
 _
@@ -83,8 +75,6 @@ R
 "Liat graphs/plots/intake_NSSI.html,f\d\fdcb42d042a8b4c9173452931225c877660e6c14
 X
 (Liat graphs/plots/time2_Psychiatric.html,0\0\006db9c8b7c58bc1f6e0f53c7d0c5019a776dc5f
-S
-#Irit/preprocessing Shira data.ipynb,c\6\c6b244e24c6ce2dbf58306dd87f98f1d844ae96c
 Q
 !Liat graphs/plots/time2_NSSI.html,c\4\c477106a716d24543489698818a9b99e0fddc174
 _
@@ -107,8 +97,6 @@ Q
 !Liat graphs/plots/time3_NSSI.html,5\1\5189f39460efee9f4c43a84c136d9cb3532de152
 _
 /Liat graphs/plots/time3_finished_treatment.html,f\a\faed4e003a023f6fbb201b1efde02592b1235324
-S
-#Liat graphs/Liat graphs-Copy1.ipynb,2\d\2db07ad32b0c420d32ea11ea9d5e41d96e716c15
 k
 ;Liat graphs/.ipynb_checkpoints/Liat graphs-checkpoint.ipynb,4\5\45c1a42c026b6f24241b308ed3bd66a59602bbb7
 ^
@@ -131,9 +119,13 @@ X
 (Liat graphs/data/time2_invalid_group.csv,1\0\1046748e54de42a05551b0af6d36e6b82734d4cf
 X
 (Liat graphs/data/time3_invalid_group.csv,b\7\b7f800d17381d657e4509b59b0f83d4150c0fa21
-S
-#utils/consts/pathology_variables.py,2\e\2e55718db1cadd4ec554dba314ab0776e40b2bdf
+H
+Liat graphs/Variables.py,d\8\d8831b5b0ce0208ebd5c47153a3f0a5f64a0d350
+C
+Liat graphs/main.py,5\d\5de7f592fe15dfaea8f0dd233240a9565c9127a9
+‹
+[research/create_dataset/dataset_for_prediction_task/Create_the_dataset_for_prediction.ipynb,d\1\d17c97f5df6c035e0c3972b62abea30feef86ed4
+Q
+!utils/consts/assistment_consts.py,1\1\11c5b61c67e5b47d058b8e879d8d4b8835b59974
 Y
 )utils/consts/subsets_of_questionnaires.py,7\4\742120a66163436f1c01833fb612d3bb8dca63ff
-~
-Nresearch/create_dataset/dataset_for_prediction_task/pipeline_functions/main.py,b\d\bd3972acf2ea64d4c8460d69afab870d86bec2b6

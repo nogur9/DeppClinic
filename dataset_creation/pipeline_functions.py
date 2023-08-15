@@ -1,6 +1,5 @@
 from utils.consts.questions_columns import sci_af_ca, c_ssrs, sci_mother, scs_clin, siq, sdq, c_ssrs_intake, mfq, \
     scared, ATHENS, SAS, c_ssrs_clin, demographics_m, swan_m
-# from utils.consts.pathology_variables import all_pathology_variables
 from utils.consts.assistment_consts import imputation_questionnaires
 from utils.util_functions import questionnaire_is_empty, impute_from_questionnaire
 from utils.data_manipulation.data_imputation import impute_from_column
@@ -138,3 +137,4 @@ def save_df(df, columns, axis='patient', profile=False, path=None):
             profile = pp.ProfileReport(to_profile, title="DeppClinic_prediction_task")
             profile.to_file(
                 fr"research/create_dataset/dataset_for_prediction_task/pandas_profiling/DeppClinic_prediction_task_profile_report.html")
+

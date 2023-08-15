@@ -42,7 +42,7 @@ def compute_sdq_score(df, skipna=False):
 
     for key in SDQ_factors.keys():
         df[f"{key}_sum"] = df[SDQ_factors[key]].sum(axis=1, skipna=skipna)
-        df = df.drop(sdq_reverse_columns, axis=1)
+    df = df.drop(sdq_reverse_columns, axis=1)
     params = list(sci_af_ac_factors.keys()) + ['sdq_score', 'ratio_of_missing_sdq_values']
 
     return df, params

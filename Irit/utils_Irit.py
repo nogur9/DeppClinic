@@ -40,7 +40,7 @@ def calc_t_scores(df, columns=columns_need_t_score):
         """
         # t-score  = (x - u) / (S / sqrtN)
         """
-        N = df.shape[0]
+        N = df[column].count()
         if df[column].isna().sum() > N / 2:
             warnings.warn(f"more than 50% missing values in column {column}", category=UserWarning)
 
