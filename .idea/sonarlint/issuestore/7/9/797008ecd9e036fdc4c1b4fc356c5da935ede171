@@ -1,0 +1,10 @@
+
+ypython:S117"\Rename this local variable "SAS_columns" to match the regular expression ^[_a-z][a-z0-9_]*$.(¡ºÍÈüÿÿÿÿ
+|python:S117“"_Rename this local variable "ATHENS_columns" to match the regular expression ^[_a-z][a-z0-9_]*$.( ûÁûÿÿÿÿ
+{python:S117€"^Rename this local variable "ARI_P_columns" to match the regular expression ^[_a-z][a-z0-9_]*$.(ç×ãûÿÿÿÿ
+vpython:S117“"^Rename this local variable "ARI_S_columns" to match the regular expression ^[_a-z][a-z0-9_]*$.(Û×Öî
+Apython:S108Š")Either remove or fill this block of code.(ã‘Û¾
+Fpython:S1172£".Remove the unused function parameter "prefix".(¶ƒêo
+cpython:S3457¬"EAdd replacement fields or use a normal string instead of an f-string.(¤ìíşÿÿÿÿ
+cpython:S3457­"EAdd replacement fields or use a normal string instead of an f-string.(ğà‡ûüÿÿÿÿ
+Apython:S108È")Either remove or fill this block of code.(ã‘Û¾

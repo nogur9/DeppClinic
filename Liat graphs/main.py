@@ -70,6 +70,6 @@ if __name__ == "__main__":
              'time3': ['followup_3month_arm_1', 'control_3month_arm_1', 'control_6month_arm_1']}
 
     for time in times.keys():
-        create_dataset(event_names=times[time], path = f"Liat graphs/data/{time}.csv")
+        create_dataset(event_names=times[time], path=f"Liat graphs/data/{time}.csv")
 
 
