@@ -1,3 +1,4 @@
+from utils.consts.pathology_variables import pathology_variables_times
 from utils.consts.questions_columns import sci_af_ca, c_ssrs, sci_mother, scs_clin, siq, sdq, c_ssrs_intake, mfq, \
     scared, ATHENS, SAS, c_ssrs_clin, demographics_m, swan_m
 from utils.consts.assistment_consts import imputation_questionnaires
@@ -11,9 +12,11 @@ class Columns:
 
     def __init__(self, columns=[], id_column='id'):
 
-        self.extra_columns = ['chameleon_behavior_stu', 'chameleon_attempt_stu', 'chameleon_suicide_er_stu',
-                         'chameleon_ideation_stu', 'mfq_34', 'mfq_36', 'mfq_35', 'mfq_37', 'chameleon_nssi_stu',
-                              'chameleon_psychiatric_stu', 'treatment_end_stu']
+        self.extra_columns = ['chameleon_behavior_stu', 'chameleon_attempt_stu',
+                              'chameleon_suicide_er_stu', 'chameleon_ideation_stu',
+                              'chameleon_nssi_stu', 'chameleon_psychiatric_stu',
+                              'mfq_34', 'mfq_36', 'mfq_35', 'mfq_37',
+                               'treatment_end_stu']
 
         info_columns = ['gender', 'redcap_event_name', 'age_child_pre']
 
@@ -115,7 +118,9 @@ def save_df(df, columns, axis='patient', profile=False, path=None):
     if axis == 'patient':
 
         df_intake = df[df.measurement == 'time1'][columns.ordered_columns_with_id]
+        df_intake = df_intake.drop(pathology_variables_times['time2'], axis=1)
         df_target = df[df.measurement == 'time2'][columns.ordered_columns_with_id]
+        df_target = df_target.drop(pathology_variables_times['intake'], axis=1)
 
         df = pd.merge(df_intake, df_target, on='id', how='outer', suffixes=('_time1', '_time2'))
         df = df.drop(['measurement_time1', 'measurement_time2'], axis=1)

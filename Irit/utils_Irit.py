@@ -1,7 +1,7 @@
 import numpy as np
 import warnings
-
-from Irit.Variables import columns_need_t_score
+from sklearn.preprocessing import StandardScaler
+from Irit.Variables import columns_need_normalization
 
 
 def impute_from_column(df, impute_to, impute_from):
@@ -34,30 +34,12 @@ def is_number_within_range(target_range, number):
     return lower_bound <= number <= upper_bound
 
 
-def calc_t_scores(df, columns=columns_need_t_score):
+def normalize_scores(df, columns=columns_need_normalization):
+    columns = [i for i in columns if i in df.columns]
+    scaler = StandardScaler()
+    normalized_column_names = [f"{column}_normalized" for column in columns]
+    normalized_columns = scaler.fit_transform(df[columns])
+    df[normalized_column_names] = normalized_columns
 
-    def clac_single_t_score(df, column, skipna):
-        """
-        # t-score  = (x - u) / (S / sqrtN)
-        """
-        N = df[column].count()
-        if df[column].isna().sum() > N / 2:
-            warnings.warn(f"more than 50% missing values in column {column}", category=UserWarning)
-
-        mean = df[column].mean(skipna=skipna)
-        std = df[column].std(skipna=skipna)
-
-        t_scores = (df[column] - mean) / (std / N ** 0.5)
-
-        df[f"{column}_t_score"] = t_scores
-
-        return df, f"{column}_t_score"
-
-    t_score_columns = []
-    for column in columns:
-        if column in df.columns:
-            df, new_column_name = clac_single_t_score(df, column, skipna=True)
-            t_score_columns.append(new_column_name)
-
-    return df, t_score_columns
+    return df, normalized_column_names
 

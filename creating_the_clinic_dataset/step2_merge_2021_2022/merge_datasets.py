@@ -87,7 +87,8 @@ def apply_group(df, index, group):
             df.loc[df['id'] == index, f'group___{i}'] = 0
     
     return df
-        
+
+
 def fix_group_scpecific_case(df):
     """
     S1313['group___2'] = 0  -> group 1
@@ -106,6 +107,9 @@ def fix_group_scpecific_case(df):
         'S7645': 2,
         'T9466': 3,
         'D2016': 2,
+
+        'M2228': 1,
+        'O9397': 1,
     }
     for index, group in change_groups.items():
         df = apply_group(df, index, group)

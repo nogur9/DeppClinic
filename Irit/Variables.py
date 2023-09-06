@@ -92,12 +92,12 @@ SDQ_thresholds = {
  #   'SDQ_Internalizing_sum': {"Normal": 1, "Borderline": 2, "Abnormal": 3},
     }
 
-columns_need_t_score = ['SDQ_Emo_sum', 'SDQ_Conduct_sum',
+columns_need_normalization = ['SDQ_Emo_sum', 'SDQ_Conduct_sum',
                 'SDQ_Hyper_sum', 'SDQ_Peer_sum',
                 'CBCL_Anxious/Depressed', 'CBCL_Withdrawn/Depressed',
                 'CBCL_int_raw_score']
 
-swan_columns_need_t_score = ['swan_sum', 'swan_score', 'swan_attention_sum', 'swan_impulsivity_sum']
+swan_columns_need_normalization = ['swan_sum', 'swan_score', 'swan_attention_sum', 'swan_impulsivity_sum']
 
 Irit_columns_to_drop = ['t1_p_cbcl_anx/dep', 't1_p_cbcl_wit/dep', 't1_p_cbcl_int_tscore']
 

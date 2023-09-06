@@ -1,6 +1,6 @@
 import pandas as pd
 from Irit.psychodiagnostic_computations import compute_swan_scores, compute_sdq_scores, compute_cbcl_scores
-from Irit.utils_Irit import calc_t_scores
+from Irit.utils_Irit import normalize_scores
 from Variables import rename_align, Irit_columns_to_drop
 import os
 
@@ -16,7 +16,7 @@ df, params_swan = compute_swan_scores(df)
 
 df, params_cbcl = compute_cbcl_scores(df)
 
-df, param_t_score = calc_t_scores(df)
+df, param_t_score = normalize_scores(df)
 print(909090909)
 
 

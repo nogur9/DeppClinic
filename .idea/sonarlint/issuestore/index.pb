@@ -1,18 +1,10 @@
 
 u
 ELiat graphs/.ipynb_checkpoints/missing ids and roups-checkpoint.ipynb,7\0\70158cda911a996cbe05794ddd4b1fa7ef3068e0
-K
-DeppClinic_patient_data.csv,0\5\050630c721aab407a39443e27a78f092ff0ad63e
-N
-DeppClinic_prediction_task.csv,4\6\46f14ff60b966bf2d05dfcad4d7a990c20381961
-s
-Ccreating_the_clinic_dataset/step2_merge_2021_2022/merge_datasets.py,9\9\99babf7354c332c67a0d043f67b2510e6c65f916
 \
 ,Liat graphs/imputing_missing_group_param.csv,d\e\de98ebff6b87100a3bc9fbdd6c23aef2ea3e2fe2
 a
 1Liat graphs/data/imputing_missing_group_param.csv,8\9\899d9cbe5dd61f9ef5f5becba51e41b6ca241398
-j
-:creating_the_clinic_dataset/step2_merge_2021_2022/utils.py,9\1\91495b5aa9d539fcee1eb62bd61792e3703f5bab
 J
 Liat graphs/data/time2.csv,0\8\08a0790794a00d01215f33d5dc2a6e769af81207
 K
@@ -113,20 +105,12 @@ X
 [research/create_dataset/dataset_for_prediction_task/Create_the_dataset_for_prediction.ipynb,d\1\d17c97f5df6c035e0c3972b62abea30feef86ed4
 Y
 )utils/consts/subsets_of_questionnaires.py,7\4\742120a66163436f1c01833fb612d3bb8dca63ff
-Q
-!utils/consts/assistment_consts.py,1\1\11c5b61c67e5b47d058b8e879d8d4b8835b59974
-S
-#utils/consts/pathology_variables.py,2\e\2e55718db1cadd4ec554dba314ab0776e40b2bdf
-l
-<creating_the_clinic_dataset/step2_merge_2021_2022/main.ipynb,6\7\67b1f3fd8e7dbb7b25b19afb6679afc1673008d7
 p
 @Irit/.ipynb_checkpoints/preprocessing Irit data-checkpoint.ipynb,2\9\292fd4b84de6d9ca775a93db5ebe63c298c091a6
 q
 AIrit/.ipynb_checkpoints/preprocessing Shira data-checkpoint.ipynb,f\a\fac740e889f87c634f499749a2aece9f37c3ee6d
 ™
 iresearch/create_dataset/data_for_CFA/.ipynb_checkpoints/create_data_for_CFA-both parents-checkpoint.ipynb,5\4\54f27dd27b0219161a8591e6420f638b1a2c3658
-V
-&dataset_creation/pipeline_functions.py,b\3\b3ebf0d1729e8dbf7257a16bb1e40cbf27473bdb
 n
 >Liat graphs/.ipynb_checkpoints/tmp liat-Copy1-checkpoint.ipynb,2\e\2ece17bb991ce2e800f5f084d9dba66404df2261
 ~
@@ -135,30 +119,18 @@ NIrit/.ipynb_checkpoints/preprocessing Irit data-with markdown-checkpoint.ipynb
 0Irit/preprocessing Irit data-with markdown.ipynb,e\f\efa90db5757417527fb0868de84bd031c9aecc47
 ^
 .Irit/.ipynb_checkpoints/merge-checkpoint.ipynb,6\9\69bb15f2bc0751c467c89170963a2bd911a482f1
-O
-Irit/data/preprocessed/data.csv,e\0\e016d17ff7c9659660cffcb87a2d3aa35e232b62
-@
-Irit/merge.ipynb,2\3\231c25b88ef4d23e21e3300bb06432bc18d94309
 Œ
 \research/create_dataset/data_for_CFA/.ipynb_checkpoints/create_data_for_CFA-checkpoint.ipynb,8\7\872ad1cfa5b84dec9096a7f96e2fdacd34cb97db
 P
  Liat graphs/tmp liat-Copy1.ipynb,c\4\c408d1cc19bd87f1667430e1842a7732ff3a3252
 S
 #Liat graphs/display chameleon.ipynb,8\9\8942b42a846b760950f24bce6a458c9f10e8fb01
-Q
-!utils/consts/questions_columns.py,5\0\5014c63199c7090d679d93c45f4821f69ee8562b
 M
 Liat graphs/Liat graphs.ipynb,c\1\c136bb15b46ef8c46553d6c8174e57131b3e051f
 q
 ALiat graphs/.ipynb_checkpoints/display chameleon-checkpoint.ipynb,9\4\94a75374e564fffbdd4f9e8c16d94a0138fe0850
-U
-%Irit/data/preprocessed/DeppClinic.csv,1\5\15da31d20c885ac47ed999ab52f3aa0dd12bf939
-R
-"Irit/preprocessing Irit data.ipynb,f\b\fb9dbb14860d44231bb3b0cf7e091368968795f6
 R
 "Irit/data/tests/processed_ADHD.csv,d\2\d25f5408c35de602f4aa9195c3d9721bb51deb63
-S
-#Irit/preprocessing Shira data.ipynb,c\6\c6b244e24c6ce2dbf58306dd87f98f1d844ae96c
 W
 'utils/questionnaires_scores/__init__.py,4\1\41c060cf702ad2faa88dc25c8fa241ee512a7d83
 S
@@ -166,30 +138,104 @@ S
 A
 utils/__init__.py,c\b\cb19cfbf0eac792d9353415a9a0072a9219f871e
 H
-utils/target_variable.py,5\6\56bbde7868d98feb8302bd6615772b61db16a0d7
-=
-Irit/debug.py,f\9\f9bf92a068856991863ea559f117644fa691b58c
-H
 utils/consts/__init__.py,d\7\d7e869b2f8053031548d03269846adba1d74ccdb
 {
 KIrit/.ipynb_checkpoints/preprocessing Shira data-markdowns-checkpoint.ipynb,5\0\50d79cfeca616991cd1a490065cd4578f105705f
 {
 Kresearch/create_dataset/data_for_CFA/create_data_for_CFA-both parents.ipynb,e\5\e576e31e31cd5954d99d9fcd63c559c3b48bb2fd
-O
-Irit/data/preprocessed/ADHD.csv,3\7\37519b8ab76bb37693b07c4a46236107d76cffba
 n
 >research/create_dataset/data_for_CFA/create_data_for_CFA.ipynb,6\e\6e79c8661f2723a86eaa1485e33d6e8992117646
 ]
 -Irit/preprocessing Shira data-markdowns.ipynb,a\4\a41d461b2227c27794bc08c0b480f61c87965573
-~
-Nresearch/create_dataset/dataset_for_prediction_task/pipeline_functions/main.py,b\d\bd3972acf2ea64d4c8460d69afab870d86bec2b6
 >
 Irit/debug2.py,a\4\a4dcab42f7d7b25f3cdbb6fb814f61594f9ffe5d
 U
 %Irit/psychodiagnostic_computations.py,9\5\953d875db30e34489a8fff70dc092e0b09e7a796
-A
-Irit/Variables.py,9\4\94b9718276b348c78c13c96be8c4e02f04cf64b4
-B
-Irit/utils_Irit.py,b\8\b8425a82ef8637ebd60e9f7debe59236020ec6d8
 b
 2utils/questionnaires_scores/scores_computations.py,7\9\797008ecd9e036fdc4c1b4fc356c5da935ede171
+I
+Liat graphs/McNemar.ipynb,7\9\792a85b03ffe4a1352bb458afa95d08a4a5202cd
+g
+7Liat graphs/.ipynb_checkpoints/McNemar-checkpoint.ipynb,e\d\ed395e72c700ef79cec13bc5de237c3d107e1e75
+T
+$Liat graphs/data/time3_processed.csv,f\e\fe3e06f51d1a49a88433e08931c31ed486b72324
+U
+%Liat graphs/data/intake_processed.csv,e\2\e2a1e06e943da5bc842a2334993715f2c0f2ea74
+{
+KLiat graphs/.ipynb_checkpoints/Create Datasets For Graphs -checkpoint.ipynb,a\8\a88dc5c7d0204c316de993e0a89c374737158bd3
+T
+$Liat graphs/data/time2_processed.csv,2\0\2005f67b0073c93079b3a304c4c7b5c63dc593bd
+]
+-Liat graphs/Create Datasets For Graphs .ipynb,f\1\f1761bd261932d32141c590519493ee2ded3e735
+m
+=Liat graphs/.ipynb_checkpoints/reform groups-checkpoint.ipynb,b\d\bd8f00c3491881a57e3549d0daf1211b91b4fa04
+O
+Liat graphs/reform groups.ipynb,2\7\2732c8eefc5a8ff2d7a55651a44d1e3a8b163e7a
+|
+LLiat graphs/data/chi_square_data/intake/suicidal_behavior - pval = 0.826.csv,4\2\420bf6b37c31e836fb5f4205da196952ac4d3037
+|
+LLiat graphs/data/chi_square_data/intake/suicidal_ideation - pval = 0.046.csv,8\c\8cd523c16982b8f9902767bbe99ec52597c26b28
+n
+>Liat graphs/data/chi_square_data/intake/NSSI - pval = 0.98.csv,2\7\27025a52e8120127032c08352637c37736d8529b
+{
+KLiat graphs/data/chi_square_data/intake/suicidal_attempt - pval = 0.845.csv,7\6\7635b5e94edf2306e804d8148bc7dcfcceaa5608
+{
+KLiat graphs/data/chi_square_data/time3/suicidal_ideation - pval = 0.101.csv,1\a\1ad7eb0227c6c3cab44fab8f4805913260e4b6dd
+m
+=Liat graphs/data/chi_square_data/intake/ER - pval = 0.059.csv,6\8\680a0aae1a91162e3ed62edbea4a9f57e1429e2f
+z
+JLiat graphs/data/chi_square_data/time3/suicidal_attempt - pval = 0.944.csv,7\a\7ae5e529690b859a26f3dad64c57cb3c1e36e28f
+{
+KLiat graphs/data/chi_square_data/time3/suicidal_behavior - pval = 0.977.csv,4\a\4a59cc81d99f139d0dd39fc0f8ba9a3492a9fc94
+n
+>Liat graphs/data/chi_square_data/time3/NSSI - pval = 0.068.csv,7\f\7fb129c6887b795eaf40e9a702d2da3c06900497
+u
+ELiat graphs/data/chi_square_data/time3/Psychiatric - pval = 0.781.csv,7\0\704b22697a2c182a486076cfaf32ea41fc8464e0
+l
+<Liat graphs/data/chi_square_data/time3/ER - pval = 0.553.csv,1\d\1d0dc9006fd94668d8e1b7d3ae8117bb24982e4d
+J
+Liat graphs/tmp liat.ipynb,a\3\a33b5c5d501965adb2a86e86d6548cd9980ec6d9
+z
+JLiat graphs/data/chi_square_data/time3/finished_treatment - pval = 0.0.csv,9\6\967702a2ab940b44e5ce597773e43ad169845882
+{
+KLiat graphs/data/chi_square_data/time2/suicidal_behavior - pval = 0.788.csv,5\e\5edf677a2afe256e239362d0c012ee9e73943c91
+{
+KLiat graphs/data/chi_square_data/time2/suicidal_ideation - pval = 0.525.csv,8\e\8e26b3864ada3a31f520b4adda6d7a184b2096d9
+u
+ELiat graphs/data/chi_square_data/time2/Psychiatric - pval = 0.833.csv,c\7\c754e2f3cdbb00142872f85287e66a36f6563c8a
+z
+JLiat graphs/data/chi_square_data/time2/suicidal_attempt - pval = 0.665.csv,6\4\64d52620850a94ab1793a535c134edb583cfca3a
+z
+JLiat graphs/data/chi_square_data/time2/finished_treatment - pval = 0.0.csv,8\f\8f039ef94060e72ee3f7eb380314a598b62d16f1
+n
+>Liat graphs/data/chi_square_data/time2/NSSI - pval = 0.236.csv,e\d\ed8f5304ae5b320c5f5d985fe033cdc4ddf774ae
+W
+'Liat graphs/missing ids and roups.ipynb,a\a\aa9e38c92d6a11a000732262638b680142e11ab4
+l
+<Liat graphs/data/chi_square_data/time2/ER - pval = 0.431.csv,1\3\13e6cb06fa175e1a0455e5ec3b81b1dbc8da1566
+}
+MLiat graphs/data/mcnemar_data/short_time/suicidal_behavior - pval = 0.337.csv,4\9\497c28763a68128fb40ef61fe10b40ec265a795a
+{
+KLiat graphs/data/mcnemar_data/short_time/suicidal_ideation - pval = 0.0.csv,a\9\a9550c4c4d1894987fff055a173b345ef518fce6
+o
+?Liat graphs/data/mcnemar_data/short_time/NSSI - pval = 0.01.csv,c\b\cb4952799dfc0126fbb6ce80452b6a626d914f02
+|
+LLiat graphs/data/mcnemar_data/short_time/suicidal_attempt - pval = 0.012.csv,c\9\c9c7f158518d71a9f64e72e6abe6b0911a4efc34
+z
+JLiat graphs/data/mcnemar_data/long_time/suicidal_ideation - pval = 0.0.csv,6\1\6130578d48812fb0dda3d52ca35390f1523fcf87
+n
+>Liat graphs/data/mcnemar_data/short_time/ER - pval = 0.727.csv,f\d\fd24d34f66ce029fd7afdc1536e23b8e48f7798b
+{
+KLiat graphs/data/mcnemar_data/long_time/suicidal_attempt - pval = 0.001.csv,7\c\7cb63e29d264b6b2c1a47a3b52e93b1c08a0c85e
+{
+KLiat graphs/data/mcnemar_data/long_time/suicidal_behavior - pval = 0.09.csv,0\d\0dc1d80e3a21138fda820b4309a3c406e3e992bb
+m
+=Liat graphs/data/mcnemar_data/long_time/ER - pval = 0.727.csv,d\5\d5b9de0f637aa27d736470fa7810ef028a94d9bf
+o
+?Liat graphs/data/mcnemar_data/long_time/NSSI - pval = 0.006.csv,f\f\ff42ec52c406f9231e3315a4a79211acf31e8154
+C
+Liat graphs/main.py,5\d\5de7f592fe15dfaea8f0dd233240a9565c9127a9
+H
+Liat graphs/Variables.py,d\8\d8831b5b0ce0208ebd5c47153a3f0a5f64a0d350
+Ÿ
+ocreating_the_clinic_dataset/step1_fill_missing_2021_clin_stu/completing_missing_clinician_questionnaire_2021.py,4\6\462d35e177fe7a3b9f11bf4371e42c04535a9a0f
