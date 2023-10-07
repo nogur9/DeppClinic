@@ -3,7 +3,7 @@ import pandas as pd
 # df = pd.read_csv('all_columns_list.csv').rename({'0': 'name'},axis=1)
 
 df = pd.read_csv('intersection_columns_list.csv').rename({'0': 'name'},axis=1)
-df_redundent = pd.read_csv('duplicated_cols.csv').rename({'0': 'name'},axis=1)
+df_redundant = pd.read_csv('helper_docs/columns_to_apply_default_merge_solution.csv')
 
 binary_1_2 = ['opening_psychothe', 'opening_medicine', 'chameleon_follow_stu', 'treatment_end_stu', 'chameleon_behavior_stu', 'chameleon_attempt_stu', 'chameleon_nssi_stu', 'chameleon_suicide_er_stu', 'chameleon_psychiatric_stu']
 
@@ -21,10 +21,8 @@ columns_dict = {
     'chameleon_all': ['chameleon_timestamp', 'chameleon_follow_stu', 'treatment_end_stu', 'treatment_end_2_stu', 'visit_date_stu', 'chameleon_ideation_stu', 'chameleon_behavior_stu', 'chameleon_attempt_stu', 'chameleon_nssi_stu', 'chameleon_suicide_er_stu', 'chameleon_suicide_er_date_stu', 'chameleon_suicide_er_date_2_stu', 'chameleon_suicide_er_date_3_stu', 'chameleon_psychiatric_stu', 'chameleon_psychiatric_date_stu', 'chameleon_psychiatric_date_2_stu', 'chameleon_psychiatric_date_3_stu', 'emergency_stu', 'chameleon_psychotherapy_stu', 'chameleon_psychotherapy_2_stu___1', 'chameleon_psychotherapy_2_stu___2', 'chameleon_psychotherapy_2_stu___3', 'chameleon_psychotherapy_2_stu___4', 'chameleon_psychotherapy_2_stu___5', 'chameleon_psychotherapy_2_stu___6', 'chameleon_psychotherapy_2_stu___7', 'chameleon_psychotherapy_other_stu', 'chameleon_medicine_stu', 'chameleon_medicine_2_stu___1', 'chameleon_medicine_2_stu___2', 'chameleon_medicine_2_stu___3', 'chameleon_medicine_2_stu___4', 'chameleon_medicine_2_stu___5', 'chameleon_medicine_other_stu', 'chameleon_notes_stu'],
 
     'chameleon_binary_0_1': ['chameleon_psychotherapy_2_stu___1', 'chameleon_psychotherapy_2_stu___2', 'chameleon_psychotherapy_2_stu___3', 'chameleon_psychotherapy_2_stu___4', 'chameleon_psychotherapy_2_stu___6', 'chameleon_psychotherapy_2_stu___7', 'chameleon_medicine_2_stu___1', 'chameleon_medicine_2_stu___2', 'chameleon_medicine_2_stu___4', 'chameleon_medicine_2_stu___5'],
-    #problems - chameleon_psychotherapy_stu, chameleon_psychotherapy_2_stu___5, chameleon_medicine_stu, chameleon_medicine_2_stu___3 
 
     'chameleon_binary_1_2': ['chameleon_follow_stu', 'treatment_end_stu', 'chameleon_behavior_stu', 'chameleon_attempt_stu', 'chameleon_nssi_stu', 'chameleon_suicide_er_stu', 'chameleon_psychiatric_stu'],
-    #chameleon_ideation_stu, emergency_stu, chameleon_psychotherapy_stu, chameleon_medicine_stu, , 'treatment_end_stu', 'emergency_stu','treatment_end_stu'
 
     'chameleon_others':['chameleon_timestamp', 'treatment_end_2_stu', 'visit_date_stu', 'chameleon_suicide_er_date_stu', 'chameleon_suicide_er_date_2_stu', 'chameleon_suicide_er_date_3_stu', 'chameleon_psychiatric_date_stu', 'chameleon_psychiatric_date_2_stu', 'chameleon_psychiatric_date_3_stu', 'chameleon_psychotherapy_other_stu', 'chameleon_medicine_other_stu', 'chameleon_notes_stu'],
 
@@ -39,13 +37,12 @@ columns_dict = {
     'with_who_m': ['with_who_m___1', 'with_who_m___2', 'with_who_m___3', 'with_who_m___4', 'with_who_m___5', 'with_who_m___6', 'with_who_m___7'],
     
     'with_who_f': ['with_who_f___1', 'with_who_f___2', 'with_who_f___3', 'with_who_f___4', 'with_who_f___5', 'with_who_f___6', 'with_who_f___7'],
-    # range 0-2?????
 
     
     'groups': ['group___1', 'group___2', 'group___3'],
     'record_id': ['record_id'],
     'age_child_pre': ['age_child_pre'],
-    'duplicated_cols': list(df_redundent['name']),
+    'duplicated_cols': list(df_redundant['column_name']),
     'visit_date_stu': ['visit_date_stu']
 }
 

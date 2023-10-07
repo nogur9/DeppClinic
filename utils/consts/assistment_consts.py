@@ -43,7 +43,7 @@ class Questionnaires:
 
             "c_ssrs_clin": {
                 "columns": c_ssrs_clin,
-                "scoring_function": calculate_c_ssrs_scores,
+                "scoring_function": calculate_c_ssrs_scores_clinician,
                 "group": "C_SSRS",
                 "text": c_ssrs_text
 

@@ -16,7 +16,8 @@ class Columns:
                               'chameleon_suicide_er_stu', 'chameleon_ideation_stu',
                               'chameleon_nssi_stu', 'chameleon_psychiatric_stu',
                               'mfq_34', 'mfq_36', 'mfq_35', 'mfq_37',
-                               'treatment_end_stu']
+                               'treatment_end_stu', 'complaint___1', 'complaint___2',
+                              'complaint___3', 'complaint___4', 'complaint___5']
 
         info_columns = ['gender', 'redcap_event_name', 'age_child_pre']
 
@@ -72,6 +73,30 @@ def create_single_event_name(df, columns, event_names):
     return df_event_name
 
 
+def split_to_multiple_measurement_times(df, columns, times):
+    all_events_datasets_collection = []
+    intake_data = None
+    for time in times.keys():
+        events = times[time]
+
+        event_dataset = df[df.redcap_event_name == events[0]][columns.unique_columns_with_id]
+
+        if len(events) > 1:
+
+            for event_name in events[1:]:
+                df_new_measurement = df[df.redcap_event_name == event_name][columns.unique_columns_with_id]
+                event_dataset = impute_events(event_dataset, df_new_measurement, columns, suffix=event_name)
+
+        event_dataset['measurement'] = time
+
+        if (time == 'intake') or (time == 'Time 1'):
+            intake_data = event_dataset
+        else:
+            all_events_datasets_collection.append(event_dataset)
+
+    return intake_data, pd.concat(all_events_datasets_collection)
+
+
 def split_two_measurement_times(df, columns):
     time1_event = 'intake_arm_1'
     time2_events = ['control_5weeks_arm_1', 'pre_treatment_arm_1', 'followup_3month_arm_1']
@@ -114,7 +139,7 @@ def compute_questions_scores(df, questionnaires_map, variables_list):
     return df, variables_list
 
 
-def save_df(df, columns, axis='patient', profile=False, path=None):
+def save_df(df, columns, axis='patient', profile=False, directory_path=None):
     if axis == 'patient':
 
         df_intake = df[df.measurement == 'time1'][columns.ordered_columns_with_id]
@@ -125,17 +150,17 @@ def save_df(df, columns, axis='patient', profile=False, path=None):
         df = pd.merge(df_intake, df_target, on='id', how='outer', suffixes=('_time1', '_time2'))
         df = df.drop(['measurement_time1', 'measurement_time2'], axis=1)
 
-        if path is None:
+        if directory_path is None:
             df.to_csv("DeppClinic_patient_data.csv", index=False)
         else:
-            df.to_csv(path, index=False)
+            df.to_csv(rf"{directory_path}\DeppClinic_patient_data.csv", index=False)
 
     elif axis == 'time':
         df = df[columns.ordered_columns_with_id]
-        if path is None:
+        if directory_path is None:
             df.to_csv("DeppClinic_prediction_task.csv", index=False)
         else:
-            df.to_csv(path, index=False)
+            df.to_csv(rf"{directory_path}\DeppClinic_patient_data.csv", index=False)
 
         if profile:
             to_profile = df[columns.unique_columns]

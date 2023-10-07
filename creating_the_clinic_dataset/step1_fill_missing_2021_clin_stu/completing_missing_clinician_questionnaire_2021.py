@@ -14,14 +14,14 @@ def fill_id(df):
     Returns:
         pandas DataFrame : The cleaned DataFrame.
     """
-    df=df.copy()
+    df = df.copy()
     id_map = df.dropna(subset=['id']).groupby('record_id')['id'].first()
     id_map = {key: id_map[key] for key in id_map.keys()}
     df['id'] = df['record_id'].apply(lambda x: id_map[x])
     return df
 
 
-def IsClinician (row):
+def IsClinician(row):
     """
     Determine if data in row belongs to either student or clinician.
     default - student
@@ -51,7 +51,7 @@ def IsClinician (row):
         questionnaire_operator = 'clinician'
         return questionnaire_operator
     
-    
+
 def map_additional_column_name_to_2021_student_column_name(column_name, target_columns_names):
     if column_name == 'cgi_s':
         return 'cgi_s_base_stu', True

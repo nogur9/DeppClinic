@@ -1,0 +1,6 @@
+
+bpython:S1192G"JDefine a constant instead of duplicating this literal 'take 2022' 3 times.(¥ßÌÊ
+epython:S1192"MDefine a constant instead of duplicating this literal 'id & redcup' 13 times.(Ã…£’
+Lpython:S1066I"/Merge this if statement with the enclosing one.(Õ·Åûÿÿÿÿ
+Ipython:S1172.",Remove the unused function parameter "year".(âğœşÿÿÿÿ
+Ipython:S5806ƒ"+Rename this variable; it shadows a builtin.(°Äî–ıÿÿÿÿ

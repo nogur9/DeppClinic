@@ -72,7 +72,7 @@ suicidal_ideation_life_intake = [
     'c_ssrs_5_2weeks',
 ]
 
-
+ER_intake = ["complaint___1", "complaint___2", "complaint___3", "complaint___4", "complaint___5", 'chameleon_suicide_er_stu']
 # time 2
 
 suicidal_behavior_time2 = [
@@ -123,6 +123,12 @@ suicidal_ideation_time2 = [
     'chameleon_ideation_stu'
 ]
 
+ER_time2 = ['chameleon_suicide_er_stu']
+
+# Independent pathology variables
+
+psych_ward = ['chameleon_psychiatric_stu']
+
 
 # grouping
 
@@ -132,11 +138,16 @@ pathology_variables_times = {
                'nssi_intake': nssi_intake,
                'suicidal_ideation_2weeks_intake': suicidal_ideation_2weeks_intake,
                'suicidal_ideation_life_intake': suicidal_ideation_life_intake,
-               'self_harm_intake': self_harm_intake},
+               'self_harm_intake': self_harm_intake,
+               'ER_intake': ER_intake,
+               'Psychiatric_hospitalization_intake': psych_ward},
 
     'time2': {'suicidal_behavior_time2': suicidal_behavior_time2,
               'nssi_time2': nssi_time2,
               'suicidal_ideation_time2': suicidal_ideation_time2,
+              'ER_time2': ER_time2,
+              'Psychiatric_hospitalization_time2': psych_ward,
+              'suicidal_attempt_time2': suicidal_attempt_time2
               }
 
 }
@@ -164,12 +175,6 @@ suicidal_ideation_life_intake_irit = [
 
 ----------------------  Liat-Graphs target variables  -------------------------------
 """
-
-
-ER = ['chameleon_suicide_er_stu']
-ER_intake = ["complaint___1", "complaint___2", "complaint___3", "complaint___4", "complaint___5"]
-
-psych_ward = ['chameleon_psychiatric_stu']
 
 finished_treatment = ['treatment_end_stu']  #if 1 "yes" after intake -> mark as yes for the subject
 
