@@ -488,19 +488,6 @@ VALUES('sci_father',
 
 
 
-INSERT INTO auxiliary_questionnaires_data.questionnaires_columns_names (questionnaire_name, column_names)
-VALUES('ARI_S',
-	ARRAY[
-		'aris_timestamp',
-		'ari_s_1',
-		'ari_s_2',
-		'ari_s_3',
-		'ari_s_4',
-		'ari_s_5',
-		'ari_s_6',
-		'ari_s_7'
-	]
-);
 
 
 
@@ -602,6 +589,22 @@ VALUES('ARI_P',
 
 
 INSERT INTO auxiliary_questionnaires_data.questionnaires_columns_names (questionnaire_name, column_names)
+VALUES('ARI_S',
+	ARRAY[
+		'aris_timestamp',
+		'ari_s_1',
+		'ari_s_2',
+		'ari_s_3',
+		'ari_s_4',
+		'ari_s_5',
+		'ari_s_6',
+		'ari_s_7'
+	]
+);
+
+
+
+INSERT INTO auxiliary_questionnaires_data.questionnaires_columns_names (questionnaire_name, column_names)
 VALUES('demographics_f',
 	ARRAY[
 		'demographic_parents_f_timestamp',
@@ -635,7 +638,7 @@ VALUES('demographics_f',
 
 
 INSERT INTO auxiliary_questionnaires_data.questionnaires_columns_names (questionnaire_name, column_names)
-VALUES('demographics_f',
+VALUES('demographics_m',
 	ARRAY[
 		'demographic_parents_m_timestamp',
 		'parents_who_m',
