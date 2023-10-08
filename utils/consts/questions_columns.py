@@ -18,6 +18,8 @@ c_ssrs_intake = [
     'c_ssrs_8_intake'
 ]
 
+
+
 c_ssrs = [
     'c_ssrs_1',
     'c_ssrs_2',
@@ -88,21 +90,64 @@ c_ssrs_clin = [ #'c_ssrs_t_time_clin',  # what's that?
     'c_ssrs_t_19_life_clin'
 ]
 
-c_ssrs_stu = ['sci_c_1_1_stu',
-              'scs_2_1_stu',
-              'scs_2_2_stu',
-              'scs_2_3_stu',
-              'scs_2_4_stu',
-              'sci_c_3_1_stu',
-              'sci_c_3_2_stu',
-              'sci_c_3_3_stu',
-              'sci_c_3_4_stu',
-              'sci_c_4_1_stu',
-              'sci_c_4_2_stu',
-              'sci_c_4_3_stu',
-              'sci_c_4_4_stu',
-              'sci_c_5_1_stu',
-              'sci_c_5_2_stu']
+c_ssrs_stu = [
+'cssrs_t_stu_timestamp',
+    'c_ssrs_t_time_stu',
+    'c_ssrs_t_2weeks_1_stu',
+    'c_ssrs_t_2weeks_2_stu',
+    'c_ssrs_t_2weeks_3_stu',
+    'c_ssrs_t_2weeks_4_stu',
+    'c_ssrs_t_2weeks_5_stu',
+    'c_ssrs_t_last_1_stu',
+    'c_ssrs_t_last_2_stu',
+    'c_ssrs_t_last_3_stu',
+    'c_ssrs_t_last_4_stu',
+    'c_ssrs_t_last_5_stu',
+    'c_ssrs_t_life_1_stu',
+    'c_ssrs_t_life_2_stu',
+    'c_ssrs_t_life_3_stu',
+    'c_ssrs_t_life_4_stu',
+    'c_ssrs_t_life_5_stu',
+    'c_ssrs_t_6_stu',
+    'c_ssrs_t_7_stu',
+    'c_ssrs_t_8_stu',
+    'c_ssrs_t_9_stu',
+    'c_ssrs_t_10_stu',
+    'c_ssrs_t_6_stu_2',
+    'c_ssrs_t_7_stu_2',
+    'c_ssrs_t_8_stu_2',
+    'c_ssrs_t_9_stu_2',
+    'c_ssrs_t_10_stu_2',
+    'c_ssrs_t_11_2weeks_stu',
+    'c_ssrs_t_12_2weeks_stu',
+    'c_ssrs_t_13_2weeks_stu',
+    'c_ssrs_t_14_2weeks_stu',
+    'c_ssrs_t_15_2weeks_stu',
+    'c_ssrs_t_16_2weeks_stu',
+    'suicidal_behavior_last_11_stu',
+    'suicidal_behavior_last_12_stu',
+    'suicidal_behavior_last_13_stu',
+    'suicidal_behavior_last_14_stu',
+    'suicidal_behavior_last_15_stu',
+    'suicidal_behavior_last_16_stu',
+    'suicidal_behavior_last_17_stu',
+    'suicidal_behavior_last_11_stu_1',
+    'suicidal_behavior_last_12_stu_1',
+    'suicidal_behavior_last_13_stu_1',
+    'suicidal_behavior_last_18_stu',
+    'suicidal_behavior_last_19_stu',
+    'c_ssrs_t_11_life_stu',
+    'c_ssrs_t_12_life_stu',
+    'c_ssrs_t_13_life_stu',
+    'c_ssrs_t_14_life_stu',
+    'c_ssrs_t_15_life_stu',
+    'c_ssrs_t_16_life_stu',
+    'c_ssrs_t_17_life_stu',
+    'c_ssrs_t_11_life_stu_1',
+    'c_ssrs_t_12_life_stu_1',
+    'c_ssrs_t_13_life_stu_1',
+    'c_ssrs_t_18_life_stu',
+    'c_ssrs_t_19_life_stu']
 
 mfq = [
     'mfq_1',
@@ -297,6 +342,7 @@ sci_af_ca = [
 ]
 
 scs_clin = [
+    'sci_c_clin_timestamp',
     'sci_c_1_1_clin',
     'scs_2_1_clin',
     'scs_2_2_clin',
@@ -384,7 +430,7 @@ maris_sci_sf = ['maris_sci_sf_1', 'maris_sci_sf_2', 'maris_sci_sf_3', 'maris_sci
 maris_soq_sf = ['maris_soq_sf_1', 'maris_soq_sf_2', 'maris_soq_sf_3', 'maris_soq_sf_4',
                 'maris_soq_sf_5', 'maris_soq_sf_6', 'maris_soq_sf_7', 'maris_soq_sf_8']
 
-demographocs_f = ['parents_born_f',
+demographics_f = ['parents_born_f',
                   'parents_born_2_f',
                   'born_child_f',
                   'born_child_2_f',

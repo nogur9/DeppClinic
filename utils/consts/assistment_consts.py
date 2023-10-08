@@ -1,5 +1,5 @@
 from utils.consts.questions_columns import demographics_m, sci_mother, scs_clin, c_ssrs_clin, c_ssrs_intake, c_ssrs, \
-    mfq, siq, sdq, scared, ATHENS, SAS, sci_af_ca, demographocs_f, sci_father, scs_stu, c_ssrs_stu, swan_f, swan_m
+    mfq, siq, sdq, scared, ATHENS, SAS, sci_af_ca, demographics_f, sci_father, scs_stu, c_ssrs_stu, swan_f, swan_m
 
 from utils.consts.questions_text import intake_c_ssrs_text, c_ssrs_text, mfq_text, siq_text, sdq_text, scared_text, \
     ATHENS_text, SAS_text, sci_af_ca_text, sci_mother_text, scs_clin_text
@@ -21,7 +21,7 @@ class Questionnaires:
             },
 
             "demographics_f": {
-                "columns": demographocs_f,
+                "columns": demographics_f,
                 "group": "demographics",
             },
 

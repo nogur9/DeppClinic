@@ -237,8 +237,6 @@ S
 bcreating_the_clinic_dataset/original_data/previous_redcap/ImmiRiskIPT2022_DATA_2022-12-12_1719.csv,8\f\8f643d6e8d3b7a9eaac5ec67e5204722eeaecae4
 =
 Irit/debug.py,f\9\f9bf92a068856991863ea559f117644fa691b58c
-‚
-Rcreating_the_clinic_dataset/original_data/ImmiRiskIPT2022_DATA_2023-09-03_1503.csv,1\c\1cda38818b38a4e1cf9e293bb1d16fc305e5aabe
 x
 Hcreating_the_clinic_dataset/step2_merge_2021_2022/missing_age_part_2.csv,6\a\6a512f67d5ddd6d83b17d10ad9b3f54efc189c3a
 O
@@ -249,16 +247,12 @@ aLiat graphs/.ipynb_checkpoints/continue reseach for the missing data from maste
 Nresearch/create_dataset/dataset_for_prediction_task/pipeline_functions/main.py,b\d\bd3972acf2ea64d4c8460d69afab870d86bec2b6
 H
 utils/target_variable.py,5\6\56bbde7868d98feb8302bd6615772b61db16a0d7
-Q
-!utils/consts/questions_columns.py,5\0\5014c63199c7090d679d93c45f4821f69ee8562b
 C
 Liat graphs/main.py,5\d\5de7f592fe15dfaea8f0dd233240a9565c9127a9
 W
 'Liat graphs/missing ids and roups.ipynb,a\a\aa9e38c92d6a11a000732262638b680142e11ab4
 M
 Liat graphs/Liat graphs.ipynb,c\1\c136bb15b46ef8c46553d6c8174e57131b3e051f
-Q
-!utils/consts/assistment_consts.py,1\1\11c5b61c67e5b47d058b8e879d8d4b8835b59974
 ~
 Ncreating_the_clinic_dataset/step2_merge_2021_2022/columns_index_for_merging.py,b\a\ba9bac8fe6c38d780b632d012d606e77e7b8d15e
 b
@@ -271,8 +265,6 @@ Q
 !dataset_creation/handle_groups.py,8\6\86220520fb00f8c7d0c03651223b011420a49a72
 S
 #utils/consts/pathology_variables.py,2\e\2e55718db1cadd4ec554dba314ab0776e40b2bdf
-H
-dataset_creation/main.py,b\e\be9a6d0be3547a50abdfc1d5b1cf44d7c5e28a6b
 M
 tests/test_data_imputation.py,3\4\343a8eece07f68b322372a6ab4de22c95c31fe8a
 w
