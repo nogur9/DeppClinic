@@ -18,8 +18,6 @@ c_ssrs_intake = [
     'c_ssrs_8_intake'
 ]
 
-
-
 c_ssrs = [
     'c_ssrs_1',
     'c_ssrs_2',
@@ -32,7 +30,7 @@ c_ssrs = [
     'c_ssrs_8',
 ]
 
-c_ssrs_clin = [ #'c_ssrs_t_time_clin',  # what's that?
+c_ssrs_clin = [  # 'c_ssrs_t_time_clin',  # what's that?
     'c_ssrs_t_2weeks_1_clin',
     'c_ssrs_t_2weeks_2_clin',
     'c_ssrs_t_2weeks_3_clin',
@@ -91,7 +89,7 @@ c_ssrs_clin = [ #'c_ssrs_t_time_clin',  # what's that?
 ]
 
 c_ssrs_stu = [
-'cssrs_t_stu_timestamp',
+    'cssrs_t_stu_timestamp',
     'c_ssrs_t_time_stu',
     'c_ssrs_t_2weeks_1_stu',
     'c_ssrs_t_2weeks_2_stu',
@@ -480,7 +478,7 @@ swan_m = [
 ]
 
 swan_f = [
-    "swan_1_f",
+    "s-wan_1_f",
     "swan_2_f",
     "swan_3_f",
     "swan_4_f",
@@ -500,6 +498,150 @@ swan_f = [
     "swan_18_f"
 ]
 
+dass_f = [
+    'dass_1_f',
+    'dass_2_f',
+    'dass_3_f',
+    'dass_4_f',
+    'dass_5_f',
+    'dass_6_f',
+    'dass_7_f',
+    'dass_8_f',
+    'dass_9_f',
+    'dass_10_f',
+    'dass_11_f',
+    'dass_12_f',
+    'dass_13_f',
+    'dass_14_f',
+    'dass_15_f',
+    'dass_16_f',
+    'dass_17_f',
+    'dass_18_f',
+    'dass_19_f',
+    'dass_20_f',
+    'dass_21_f'
+]
+
+ecr_f = [
+    'ecr_1_f',
+    'ecr_2_f',
+    'ecr_3_f',
+    'ecr_4_f',
+    'ecr_5_f',
+    'ecr_6_f',
+    'ecr_7_f',
+    'ecr_8_f',
+    'ecr_9_f',
+    'ecr_10_f',
+    'ecr_11_f',
+    'ecr_12_f',
+    'ecr_13_f',
+    'ecr_14_f',
+    'ecr_15_f',
+    'ecr_16_f',
+    'ecr_17_f',
+    'ecr_18_f',
+    'ecr_19_f',
+    'ecr_20_f',
+    'ecr_21_f',
+    'ecr_22_f',
+    'ecr_23_f',
+    'ecr_24_f',
+    'ecr_25_f',
+    'ecr_26_f',
+    'ecr_27_f',
+    'ecr_28_f',
+    'ecr_29_f',
+    'ecr_30_f',
+    'ecr_31_f',
+    'ecr_32_f',
+    'ecr_33_f',
+    'ecr_34_f',
+    'ecr_35_f',
+    'ecr_36_f']
+
+trq_sf_maris_clin = [
+    'trq_sf_maris_1_clin',
+    'trq_sf_maris_2_clin',
+    'trq_sf_maris_3_clin',
+    'trq_sf_maris_4_clin',
+    'trq_sf_maris_5_clin',
+    'trq_sf_maris_6_clin',
+    'trq_sf_maris_7_clin',
+    'trq_sf_maris_8_clin',
+    'trq_sf_maris_9_clin',
+    'trq_sf_maris_10_clin',
+    'trq_sf_maris_11_clin',
+    'trq_sf_maris_12_clin',
+    'trq_sf_maris_13_clin',
+    'trq_sf_maris_14_clin'
+]
+
+screening_form = [
+    'screen_1',
+    'screen_2',
+    'screen_3',
+    'screen_10',
+    'screen_11',
+    'screen_12',
+    'screen_13',
+    'screen_14',
+    'screen_15',
+    'screen_16',
+    'screen_17',
+    'screen_18',
+    'screen_23',
+    'screen_24',
+    'screen_25',
+    'screen_26',
+    'screen_27',
+    'screen_28',
+    'screen_29',
+    'screen_30',
+    'screen_31',
+    'screen_32',
+    'screen_33',
+    'screen_35',
+    'screen_35_1',
+    'screen_36',
+    'screen_36_1',
+    'screen_37',
+    'screen_37_1',
+    'screen_38',
+    'screen_38_1',
+    'screen_39',
+    'screen_39_1'
+]
+
+c_ssrs_fu_maya = [
+    'c_ssrs_fu_thought_1_clin',
+    'c_ssrs_fu_thought_2_clin',
+    'c_ssrs_fu_thought_3_clin',
+    'c_ssrs_fu_thought_4_clin',
+    'c_ssrs_fu_thought_5_clin',
+    'c_ssrs_fu_intensity_clin',
+    'c_ssrs_fu_frequ_clin',
+    'c_ssrs_fu_lengh_clin',
+    'c_ssrs_fu_control_clin',
+    'c_ssrs_fu_deter_clin',
+    'c_ssrs_fu_reason_clin',
+    'c_ssrs_fu_attemp_clin',
+    'c_ssrs_fu_attemp_2_3_clin',
+    'c_ssrs_fu_attemp_3_clin',
+    'c_ssrs_fu_attemp_4_clin',
+    'c_ssrs_fu_attemp_4_2_clin',
+    'c_ssrs_fu_attemp_4_3_clin',
+    'c_ssrs_fu_attemp_5_clin',
+    'c_ssrs_fu_attemp_5_2_clin',
+    'c_ssrs_fu_attemp_5_3_clin',
+    'c_ssrs_fu_attemp_6_clin',
+    'c_ssrs_fu_attemp_6_2_clin',
+    'c_ssrs_fu_attemp_7_clin',
+    'c_ssrs_fu_attemp_8_clin',
+    'c_ssrs_fu_done_clin',
+    'c_ssrs_fu_done_2_clin'
+]
+
 all_questionarries = siq \
                      + sdq \
                      + c_ssrs_intake \
@@ -513,7 +655,7 @@ all_questionarries = siq \
                      + scs_clin \
                      + sci_mother \
                      + c_ssrs_clin \
-                     + demographics_m\
+                     + demographics_m \
                      + swan_m \
                      + ARI_S \
                      + ARI_P \

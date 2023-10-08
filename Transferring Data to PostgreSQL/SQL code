@@ -600,3 +600,299 @@ VALUES('ARI_P',
 	]
 );
 
+
+INSERT INTO auxiliary_questionnaires_data.questionnaires_columns_names (questionnaire_name, column_names)
+VALUES('demographics_f',
+	ARRAY[
+		'demographic_parents_f_timestamp',
+		'parents_who_f',
+		'parent_who_other_f',
+		'parents_age_f',
+		'parents_born_f',
+		'parents_born_2_f',
+		'born_child_f',
+		'born_child_2_f',
+		'parent_religion_f',
+		'parent_religion_other_f',
+		'parents_economy_f',
+		'parents_education_f',
+		'parents_education_other_f',
+		'parents_work_f	paresnts_work_2_f',
+		'together_live_f',
+		'with_who_f___1',
+		'with_who_f___2',
+		'with_who_f___3',
+		'with_who_f___4',
+		'with_who_f___5',
+		'with_who_f___6',
+		'with_who_f___7',
+		'with_who_other_f',
+	]
+);
+
+
+
+
+
+INSERT INTO auxiliary_questionnaires_data.questionnaires_columns_names (questionnaire_name, column_names)
+VALUES('demographics_f',
+	ARRAY[
+		'demographic_parents_m_timestamp',
+		'parents_who_m',
+		'parent_who_other_m',
+		'parents_age_m',
+		'parents_born_m',
+		'parents_born_2_m',
+		'born_child_m',
+		'born_child_2_m',
+		'parent_religion_m',
+		'parent_religion_other_m',
+		'parents_economy_m',
+		'parents_education_m',
+		'parents_education_other_m',
+		'parents_work_m	paresnts_work_2_m',
+		'together_live_m',
+		'with_who_m___1',
+		'with_who_m___2',
+		'with_who_m___3',
+		'with_who_m___4',
+		'with_who_m___5',
+		'with_who_m___6',
+		'with_who_m___7',
+		'with_who_other_m']
+);
+
+
+
+
+INSERT INTO auxiliary_questionnaires_data.questionnaires_columns_names (questionnaire_name, column_names)
+VALUES('swan_m',
+	ARRAY[
+	'swan_m_timestamp',
+    'swan_1_m',
+    'swan_2_m',
+    'swan_3_m',
+    'swan_4_m',
+    'swan_5_m',
+    'swan_6_m',
+    'swan_7_m',
+    'swan_8_m',
+    'swan_9_m',
+    'swan_10_m',
+    'swan_11_m',
+    'swan_12_m',
+    'swan_13_m',
+    'swan_14_m',
+    'swan_15_m',
+    'swan_16_m',
+    'swan_17_m',
+    'swan_18_m'
+	]
+);
+
+
+
+
+INSERT INTO auxiliary_questionnaires_data.questionnaires_columns_names (questionnaire_name, column_names)
+VALUES('swan_f',
+	ARRAY[
+	'swan_f_timestamp',
+	's-wan_1_f',
+    'swan_2_f',
+    'swan_3_f',
+    'swan_4_f',
+    'swan_5_f',
+    'swan_6_f',
+    'swan_7_f',
+    'swan_8_f',
+    'swan_9_f',
+    'swan_10_f',
+    'swan_11_f',
+    'swan_12_f',
+    'swan_13_f',
+    'swan_14_f',
+    'swan_15_f',
+    'swan_16_f',
+    'swan_17_f',
+    'swan_18_f'
+	]
+);
+
+
+
+INSERT INTO auxiliary_questionnaires_data.questionnaires_columns_names (questionnaire_name, column_names)
+VALUES('dass_f',
+	ARRAY[
+		'dass_f_timestamp',
+		'dass_1_f',
+		'dass_2_f',
+		'dass_3_f',
+		'dass_4_f',
+		'dass_5_f',
+		'dass_6_f',
+		'dass_7_f',
+		'dass_8_f',
+		'dass_9_f',
+		'dass_10_f',
+		'dass_11_f',
+		'dass_12_f',
+		'dass_13_f',
+		'dass_14_f',
+		'dass_15_f',
+		'dass_16_f',
+		'dass_17_f',
+		'dass_18_f',
+		'dass_19_f',
+		'dass_20_f',
+		'dass_21_f'
+	]
+);
+
+
+
+INSERT INTO auxiliary_questionnaires_data.questionnaires_columns_names (questionnaire_name, column_names)
+VALUES('ecr_f',
+	ARRAY[
+		'ecr_f_timestamp',
+		'ecr_1_f',
+		'ecr_2_f',
+		'ecr_3_f',
+		'ecr_4_f',
+		'ecr_5_f',
+		'ecr_6_f',
+		'ecr_7_f',
+		'ecr_8_f',
+		'ecr_9_f',
+		'ecr_10_f',
+		'ecr_11_f',
+		'ecr_12_f',
+		'ecr_13_f',
+		'ecr_14_f',
+		'ecr_15_f',
+		'ecr_16_f',
+		'ecr_17_f',
+		'ecr_18_f',
+		'ecr_19_f',
+		'ecr_20_f',
+		'ecr_21_f',
+		'ecr_22_f',
+		'ecr_23_f',
+		'ecr_24_f',
+		'ecr_25_f',
+		'ecr_26_f',
+		'ecr_27_f',
+		'ecr_28_f',
+		'ecr_29_f',
+		'ecr_30_f',
+		'ecr_31_f',
+		'ecr_32_f',
+		'ecr_33_f',
+		'ecr_34_f',
+		'ecr_35_f',
+		'ecr_36_f'
+	]
+);
+
+
+
+
+INSERT INTO auxiliary_questionnaires_data.questionnaires_columns_names (questionnaire_name, column_names)
+VALUES('trq_sf_maris_clin',
+	ARRAY[
+		'trqsfmarisclin_timestamp',
+		'trq_sf_maris_1_clin',
+		'trq_sf_maris_2_clin',
+		'trq_sf_maris_3_clin',
+		'trq_sf_maris_4_clin',
+		'trq_sf_maris_5_clin',
+		'trq_sf_maris_6_clin',
+		'trq_sf_maris_7_clin',
+		'trq_sf_maris_8_clin',
+		'trq_sf_maris_9_clin',
+		'trq_sf_maris_10_clin',
+		'trq_sf_maris_11_clin',
+		'trq_sf_maris_12_clin',
+		'trq_sf_maris_13_clin',
+		'trq_sf_maris_14_clin'
+	]
+);
+
+
+
+
+
+INSERT INTO auxiliary_questionnaires_data.questionnaires_columns_names (questionnaire_name, column_names)
+VALUES('screening_form',
+	ARRAY[
+		'screening_form_timestamp',
+		'screen_1',
+		'screen_2',
+		'screen_3',
+		'screen_10',
+		'screen_11',
+		'screen_12',
+		'screen_13',
+		'screen_14',
+		'screen_15',
+		'screen_16',
+		'screen_17',
+		'screen_18',
+		'screen_23',
+		'screen_24',
+		'screen_25',
+		'screen_26',
+		'screen_27',
+		'screen_28',
+		'screen_29',
+		'screen_30',
+		'screen_31',
+		'screen_32',
+		'screen_33',
+		'screen_35',
+		'screen_35_1',
+		'screen_36',
+		'screen_36_1',
+		'screen_37',
+		'screen_37_1',
+		'screen_38',
+		'screen_38_1',
+		'screen_39',
+		'screen_39_1'
+	]
+);
+
+
+
+INSERT INTO auxiliary_questionnaires_data.questionnaires_columns_names (questionnaire_name, column_names)
+VALUES('c_ssrs_fu_maya',
+	ARRAY[
+		'cssrs_fw_maya_timestamp',
+		'c_ssrs_fu_thought_1_clin',
+		'c_ssrs_fu_thought_2_clin',
+		'c_ssrs_fu_thought_3_clin',
+		'c_ssrs_fu_thought_4_clin',
+		'c_ssrs_fu_thought_5_clin',
+		'c_ssrs_fu_intensity_clin',
+		'c_ssrs_fu_frequ_clin',
+		'c_ssrs_fu_lengh_clin',
+		'c_ssrs_fu_control_clin',
+		'c_ssrs_fu_deter_clin',
+		'c_ssrs_fu_reason_clin',
+		'c_ssrs_fu_attemp_clin',
+		'c_ssrs_fu_attemp_2_3_clin',
+		'c_ssrs_fu_attemp_3_clin',
+		'c_ssrs_fu_attemp_4_clin',
+		'c_ssrs_fu_attemp_4_2_clin',
+		'c_ssrs_fu_attemp_4_3_clin',
+		'c_ssrs_fu_attemp_5_clin',
+		'c_ssrs_fu_attemp_5_2_clin',
+		'c_ssrs_fu_attemp_5_3_clin',
+		'c_ssrs_fu_attemp_6_clin',
+		'c_ssrs_fu_attemp_6_2_clin',
+		'c_ssrs_fu_attemp_7_clin',
+		'c_ssrs_fu_attemp_8_clin',
+		'c_ssrs_fu_done_clin',
+		'c_ssrs_fu_done_2_clin'
+	]
+);
+
