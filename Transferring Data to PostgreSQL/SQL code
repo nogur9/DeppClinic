@@ -1068,3 +1068,71 @@ VALUES('erq_ca',
 		'erq_ca_10'
 	]
 );
+
+
+
+
+INSERT INTO auxiliary_questionnaires_data.questionnaires_columns_names (questionnaire_name, column_names)
+VALUES('ders',
+	ARRAY[
+		'ders_timestamp'
+		'ders_1',
+		'ders_2',
+		'ders_3',
+		'ders_4',
+		'ders_5',
+		'ders_6',
+		'ders_7',
+		'ders_8',
+		'ders_9',
+		'ders_10',
+		'ders_11',
+		'ders_12',
+		'ders_13',
+		'ders_14',
+		'ders_15',
+		'ders_16',
+		'ders_17',
+		'ders_18',
+		'ders_19',
+		'ders_20',
+		'ders_21',
+		'ders_22',
+		'ders_23',
+		'ders_24',
+		'ders_25',
+		'ders_26',
+		'ders_27',
+		'ders_28',
+		'ders_29',
+		'ders_30',
+		'ders_31',
+		'ders_32',
+		'ders_33',
+		'ders_34',
+		'ders_35',
+		'ders_36'
+	]
+);
+
+
+
+
+INSERT INTO auxiliary_questionnaires_data.questionnaires_columns_names (questionnaire_name, column_names)
+VALUES('wai',
+	ARRAY[
+		'wai_timestamp',
+		'wai_1'
+		'wai_2',
+		'wai_3',
+		'wai_4',
+		'wai_5',
+		'wai_6',
+		'wai_7',
+		'wai_8',
+		'wai_9',
+		'wai_10',
+		'wai_11',
+		'wai_12'
+	]
+);
