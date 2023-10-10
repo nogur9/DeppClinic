@@ -1832,3 +1832,102 @@ VALUES('chameleon',
 		'chameleon_notes_stu'
 ]
 );
+
+
+
+
+
+INSERT INTO auxiliary_questionnaires_data.questionnaires_columns_names (questionnaire_name, column_names)
+VALUES('erq_m',
+	ARRAY[
+		'erq_m_timestamp',
+		'erq_1_m',
+		'erq_2_m',
+		'erq_3_m',
+		'erq_4_m',
+		'erq_5_m',
+		'erq_6_m',
+		'erq_7_m',
+		'erq_8_m',
+		'erq_9_m',
+		'erq_10_m'
+
+]
+);
+
+
+
+
+
+INSERT INTO auxiliary_questionnaires_data.questionnaires_columns_names (questionnaire_name, column_names)
+VALUES('cts_m',
+	ARRAY[
+		'cts_m_timestamp',
+		'cts_p_1_m',
+		'cts_p_2_m',
+		'cts_p_3_m',
+		'cts_p_4_m',
+		'cts_p_4_1_m'
+]
+);
+
+
+
+
+
+INSERT INTO auxiliary_questionnaires_data.questionnaires_columns_names (questionnaire_name, column_names)
+VALUES('moas_m',
+	ARRAY[
+'moas_m_timestamp',
+		'moas_0_m',
+		'moas_1_m',
+		'moas_2_m',
+		'moas_3_m',
+		'moas_4_m',
+		'moas_5_m',
+		'moas_6_m',
+		'moas_7_m',
+		'moas_8_m',
+		'moas_9_m',
+		'moas_10_m',
+		'moas_11_m',
+		'moas_12_m',
+		'moas_13_m',
+		'moas_14_m',
+		'moas_15_m',
+		'moas_16_m',
+		'moas_17_m',
+		'moas_18_m',
+		'moas_19_m',
+		'moas_20_m'
+]
+);
+
+
+
+
+
+
+INSERT INTO auxiliary_questionnaires_data.questionnaires_columns_names (questionnaire_name, column_names)
+VALUES('ending_parent_m',
+	ARRAY[
+		'ending_parent_m_timestamp',
+		'therapy_child_2_m',
+		'ending_childparent_m'
+]
+);
+
+
+
+
+
+
+INSERT INTO auxiliary_questionnaires_data.questionnaires_columns_names (questionnaire_name, column_names)
+VALUES('opening_parents_f',
+	ARRAY[
+		'opening_parents_f_timestamp',
+		'who_fills_out_f',
+		'who_fills_out_2_f'
+]
+);
+
