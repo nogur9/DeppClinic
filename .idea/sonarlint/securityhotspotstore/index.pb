@@ -287,5 +287,3 @@ Q
 !utils/consts/assistment_consts.py,1\1\11c5b61c67e5b47d058b8e879d8d4b8835b59974
 ‚
 Rcreating_the_clinic_dataset/original_data/ImmiRiskIPT2022_DATA_2023-09-03_1503.csv,1\c\1cda38818b38a4e1cf9e293bb1d16fc305e5aabe
-Q
-!utils/consts/questions_columns.py,5\0\5014c63199c7090d679d93c45f4821f69ee8562b

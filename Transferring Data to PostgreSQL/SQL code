@@ -1136,3 +1136,699 @@ VALUES('wai',
 		'wai_12'
 	]
 );
+
+
+
+
+
+
+
+INSERT INTO auxiliary_questionnaires_data.questionnaires_columns_names (questionnaire_name, column_names)
+VALUES('cshq_m',
+	ARRAY[
+		'cshq_m_timestamp',
+		'age_cshq_m',
+		'bedtime_1_m',
+		'bedtime_2_m',
+		'bedtime_3_m',
+		'dtime_4_m',
+		'dtime_5_m',
+		'bedtime_6_m',
+		'bedtime_7_m',
+		'bedtime_8_m',
+		'bedtime_9_m',
+		'bedtime_10_m',
+		'duration_1_m',
+		'duration_2_m',
+		'duration_3_m',
+		'duration_4_m',
+		'duration_5_m',
+		'duration_6_m',
+		'duration_7_m',
+		'duration_8_m',
+		'duration_9_m',
+		'duration_10_m',
+		'duration_11_m',
+		'duration_12_m',
+		'duration_13_m',
+		'duration_14_m',
+		'duration_15_m',
+		'night_wake_1_m',
+		'night_wake_2_m',
+		'night_wake_3_m',
+		'day_wake_1_m',
+		'day_wake_2_m',
+		'day_wake_3_m',
+		'day_wake_4_m',
+		'day_wake_5_m',
+		'day_wake_6_m',
+		'sleepiness_1_m',
+		'sleepiness_2_m',
+		'daytime_sleepiness_3_m'
+
+	]
+);
+
+
+
+
+
+
+INSERT INTO auxiliary_questionnaires_data.questionnaires_columns_names (questionnaire_name, column_names)
+VALUES('sdq_parents_m',
+	ARRAY[
+		'sdq_parents_m_timestamp',
+		'sdq_1_parents_m',
+		'sdq_2_parents_m',
+		'sdq_3_parents_m',
+		'sdq_4_parents_m',
+		'sdq_5_parents_m',
+		'sdq_6_parents_m',
+		'sdq_7_parents_m',
+		'sdq_8_parents_m',
+		'sdq_9_parents_m',
+		'sdq_10_parents_m',
+		'sdq_11_parents_m',
+		'sdq_12_parents_m',
+		'sdq_13_parents_m',
+		'sdq_14_parents_m',
+		'sdq_15_parents_m',
+		'sdq_16_parents_m',
+		'sdq_17_parents_m',
+		'sdq_18_parents_m',
+		'sdq_19_parents_m',
+		'sdq_20_parents_m',
+		'sdq_21_parents_m',
+		'sdq_22_parents_m',
+		'sdq_23_parents_m',
+		'sdq_24_parents_m',
+		'sdq_25_parents_m',
+		'sdq_26_parents_m',
+		'sdq_27_parents_m',
+		'sdq_28_parents_m',
+		'sdq_29_parents_1_m',
+		'sdq_29_parents_2_m',
+		'sdq_29_parents_3_m',
+		'sdq_29_parents_4_m',
+		'sdq_30_parents_m'
+	]
+);
+
+
+
+
+
+INSERT INTO auxiliary_questionnaires_data.questionnaires_columns_names (questionnaire_name, column_names)
+VALUES('dass_m',
+	ARRAY[
+		'dass_m_timestamp',
+		'dass_1_m',
+		'dass_2_m',
+		'dass_3_m',
+		'dass_4_m',
+		'dass_5_m',
+		'dass_6_m',
+		'dass_7_m',
+		'dass_8_m',
+		'dass_9_m',
+		'dass_10_m',
+		'dass_11_m',
+		'dass_12_m',
+		'dass_13_m',
+		'dass_14_m',
+		'dass_15_m',
+		'dass_16_m',
+		'dass_17_m',
+		'dass_18_m',
+		'dass_19_m',
+		'dass_20_m',
+		'dass_21_m'
+
+	]
+);
+
+
+
+
+
+INSERT INTO auxiliary_questionnaires_data.questionnaires_columns_names (questionnaire_name, column_names)
+VALUES('ders_p_m',
+	ARRAY[
+		'ders_p_m_timestamp',
+		'ders_1_p_m',
+		'ders_2_p_m',
+		'ders_3_p_m',
+		'ders_4_p_m',
+		'ders_5_p_m',
+		'ders_6_p_m',
+		'ders_7_p_m',
+		'ders_8_p_m',
+		'ders_9_p_m',
+		'ders_10_p_m',
+		'ders_11_p_m',
+		'ders_12_p_m',
+		'ders_13_p_m',
+		'ders_14_p_m',
+		'ders_15_p_m',
+		'ders_16_p_m',
+		'ders_17_p_m',
+		'ders_18_p_m',
+		'ders_19_p_m',
+		'ders_20_p_m',
+		'ders_21_p_m',
+		'ders_22_p_m',
+		'ders_23_p_m',
+		'ders_24_p_m',
+		'ders_25_p_m',
+		'ders_26_p_m',
+		'ders_27_p_m',
+		'ders_28_p_m',
+		'ders_29_p_m',
+		'ders_30_p_m',
+		'ders_31_p_m',
+		'ders_32_p_m',
+		'ders_33_p_m',
+		'ders_34_p_m',
+		'ders_35_p_m',
+		'ders_36_p_m'
+	]
+);
+
+
+
+
+
+INSERT INTO auxiliary_questionnaires_data.questionnaires_columns_names (questionnaire_name, column_names)
+VALUES('ecr_m',
+	ARRAY[
+	'ecr_m_timestamp',
+		'ecr_1_m',
+		'ecr_2_m',
+		'ecr_3_m',
+		'ecr_4_m',
+		'ecr_5_m',
+		'ecr_6_m',
+		'ecr_7_m',
+		'ecr_8_m',
+		'ecr_9_m',
+		'ecr_10_m',
+		'ecr_11_m',
+		'ecr_12_m',
+		'ecr_13_m',
+		'ecr_14_m',
+		'ecr_15_m',
+		'ecr_16_m',
+		'ecr_17_m',
+		'ecr_18_m',
+		'ecr_19_m',
+		'ecr_20_m',
+		'ecr_21_m',
+		'ecr_22_m',
+		'ecr_23_m',
+		'ecr_24_m',
+		'ecr_25_m',
+		'ecr_26_m',
+		'ecr_27_m',
+		'ecr_28_m',
+		'ecr_29_m',
+		'ecr_30_m',
+		'ecr_31_m',
+		'ecr_32_m',
+		'ecr_33_m',
+		'ecr_34_m',
+		'ecr_35_m',
+		'ecr_36_m'
+
+	]
+);
+
+
+
+
+
+INSERT INTO auxiliary_questionnaires_data.questionnaires_columns_names (questionnaire_name, column_names)
+VALUES('cshq_f',
+	ARRAY[
+		'cshq_f_timestamp',
+		'age_cshq_f',
+		'bedtime_1_f',
+		'bedtime_2_f',
+		'bedtime_3_f',
+		'bedtime_4_f',
+		'bedtime_5_f',
+		'bedtime_6_f',
+		'bedtime_7_f',
+		'bedtime_8_f',
+		'bedtime_9_f',
+		'bedtime_10_f',
+		'duration_1_f',
+		'duration_2_f',
+		'duration_3_f',
+		'duration_4_f',
+		'duration_5_f',
+		'duration_6_f',
+		'duration_7_f',
+		'duration_8_f',
+		'duration_9_f',
+		'duration_10_f',
+		'duration_11_f',
+		'duration_12_f',
+		'duration_13_f',
+		'duration_14_f',
+		'duration_15_f',
+		'night_wake_1_f',
+		'night_wake_2_f',
+		'night_wake_3_f',
+		'day_wake_1_f',
+		'day_wake_2_f',
+		'day_wake_3_f',
+		'day_wake_4_f',
+		'day_wake_5_f',
+		'day_wake_6_f',
+		'sleepiness_1_f',
+		'sleepiness_2_f',
+		'daytime_sleepiness_3_f'
+	]
+);
+
+
+
+
+
+
+INSERT INTO auxiliary_questionnaires_data.questionnaires_columns_names (questionnaire_name, column_names)
+VALUES('erq_f',
+	ARRAY[
+		'erq_f_timestamp',
+		'erq_1_f',
+		'erq_2_f',
+		'erq_3_f',
+		'erq_4_f',
+		'erq_5_f',
+		'erq_6_f',
+		'erq_7_f',
+		'erq_8_f',
+		'erq_9_f',
+		'erq_10_f'
+	]
+);
+
+
+
+
+
+
+
+INSERT INTO auxiliary_questionnaires_data.questionnaires_columns_names (questionnaire_name, column_names)
+VALUES('ARI_P_F',
+	ARRAY[
+		'arippps_f_timestamp',
+		'ari_p_1_f',
+		'ari_p_2_f',
+		'ari_p_3_f',
+		'ari_p_4_f',
+		'ari_p_5_f',
+		'ari_p_6_f',
+		'ari_p_7_f',
+		'pps_1_f',
+		'pps_2_f'
+	]
+);
+
+
+
+
+INSERT INTO auxiliary_questionnaires_data.questionnaires_columns_names (questionnaire_name, column_names)
+VALUES('opening_clinicians_timestamp',
+	ARRAY[
+		'opening_clinicians_timestamp',
+		'who_clin',
+		'who_other_clin',
+		'name_clin'
+	]
+);
+
+
+
+
+INSERT INTO auxiliary_questionnaires_data.questionnaires_columns_names (questionnaire_name, column_names)
+VALUES('wai_immirisk_clin',
+	ARRAY[
+		'wai_immirisk_clin_timestamp',
+		'wai_t_immi_1_clin',
+		'wai_t_immi_2_clin',
+		'wai_t_immi_3_clin',
+		'wai_t_immi_4_clin',
+		'wai_t_immi_5_clin',
+		'wai_t_immi_6_clin',
+		'wai_t_immi_7_clin',
+		'wai_t_immi_8_clin',
+		'wai_t_immi_9_clin',
+		'wai_t_immi_10_clin',
+		'wai_t_immi_11_clin',
+		'wai_t_immi_12_clin'
+	]
+);
+
+
+
+
+INSERT INTO auxiliary_questionnaires_data.questionnaires_columns_names (questionnaire_name, column_names)
+VALUES('remote_clin',
+	ARRAY[
+		'remote_clin_timestamp',
+		'remote_1_clin'
+	]
+);
+
+
+
+
+INSERT INTO auxiliary_questionnaires_data.questionnaires_columns_names (questionnaire_name, column_names)
+VALUES('er_questionnaire_clin',
+	ARRAY[
+		'er_questionnaire_clin_timestamp',
+		'er_id',
+		'er_name_clin',
+		'er_date_of_birth_clin',
+		'er_id_clin',
+		'er_arrival_clin',
+		'er_reason_clin',
+		'er_attemp_time_clin',
+		'er_planned_clin',
+		'er_regret_clin',
+		'er_cut_first_clin',
+		'er_thoughts_clin',
+		'er_worst_thoughts_clin',
+		'er_thoughts_now_clin',
+		'er_medicine_clin',
+		'er_medicine_what_clin',
+		'er_medicine_mg_clin'
+
+	]
+);
+
+
+
+
+INSERT INTO auxiliary_questionnaires_data.questionnaires_columns_names (questionnaire_name, column_names)
+VALUES('suicide_form_clin',
+	ARRAY[
+		'suicide_form_clin_timestamp',
+		'suiciform_time_clin',
+		'medhis_1_clin',
+		'medhis_1_1_clin',
+		'medhis_2_clin',
+		'medhis_2_1_clin',
+		'medhis_3_clin',
+		'medhis_3_1_clin',
+		'medhis_4_clin',
+		'medhis_4_1_clin',
+		'medhis_5_clin',
+		'medhis_5_1_clin',
+		'medhis_6_clin',
+		'medhis_6_1_clin',
+		'medhis_7_clin',
+		'medhis_7_1_clin',
+		'medhis_8_clin',
+		'medhis_8_1_clin',
+		'medhis_9_clin',
+		'medhis_9_1_clin',
+		'medhis_10_clin',
+		'medhis_10_1_clin',
+		'medhis_11_clin',
+		'medhis_11_1_clin',
+		'medhis_12_clin',
+		'medhis_12_1_clin',
+		'medhis_13_clin',
+		'medhis_13_1_clin',
+		'medhis_details_clin',
+		'diet_1_clin',
+		'diet_1_1_clin',
+		'diet_2_clin',
+		'diet_2_1_clin',
+		'diet_3_clin',
+		'diet_3_1_clin',
+		'diet_4_clin',
+		'diet_4_1_clin',
+		'diet_5_clin',
+		'diet_5_1_clin',
+		'medhis_clin',
+		'inclusion_1_clin',
+		'inclusion_2_clin',
+		'exclusion_1_clin',
+		'exclusion_2_clin',
+		'exclusion_3_clin',
+		'exclusion_4_clin',
+		'exclusion_5_clin',
+		'exclusion_6_clin',
+		'week_1_clin',
+		'week_1_1_clin',
+		'week_2_clin',
+		'week_2_1_clin',
+		'week_3_clin',
+		'week_medic_clin',
+		'three_mon_1_clin',
+		'three_mon_1_1_clin',
+		'three_mon_2_clin',
+		'three_mon_2_1_clin',
+		'three_mon_3_clin',
+		'three_mon_medic_clin',
+		'six_mon_1_clin',
+		'six_mon_1_1_clin',
+		'six_mon_2_clin',
+		'six_mon_2_1_clin',
+		'six_mon_3_clin',
+		'six_mon_medic_clin',
+		'twelve_mon_1_clin',
+		'twelve_mon_1_1_clin',
+		'twelve_mon_2_clin',
+		'twelve_mon_2_1_clin',
+		'twelve_mon_3_clin',
+		'twelve_mon_medic_clin'
+]
+);
+
+
+
+
+
+INSERT INTO auxiliary_questionnaires_data.questionnaires_columns_names (questionnaire_name, column_names)
+VALUES('mini_kid_sum_clin',
+	ARRAY[
+		'mini_kid_sum_clin_timestamp',
+		'mini_class_clin',
+		'mini_date_clin',
+		'mini_interviewer_clin',
+		'mini_date_interview_clin',
+		'mini_medication_clin___1',
+		'mini_medication_clin___2',
+		'mini_medication_clin___3',
+		'mini_medication_clin___4',
+		'mini_medication_clin___5',
+		'mini_medicine_other_clin',
+		'mini_start_time_clin',
+		'mini_end_time_clin',
+		'mini_total_time_clin',
+		'depres_clin___1',
+		'depres_clin___2',
+		'depres_clin___3',
+		'suicide_clin___1',
+		'suicide_clin___2',
+		'suicide_risk_clin',
+		'dysthemia_clin___1',
+		'manic_clin___1',
+		'manic_clin___2',
+		'hypomania_clin___1',
+		'hypomania_clin___2',
+		'bipolar_i_clin___1',
+		'bipolar_i_clin___2',
+		'bipolar_ii_clin___1',
+		'bipolar_ii_clin___2',
+		'bipolar_unclassified_clin___1',
+		'bipolar_unclassified_clin___2',
+		'panic_clin___1',
+		'panic_clin___2',
+		'agoraphobia_clin___1',
+		'separation_anxiety_clin___1',
+		'social_anxiety_clin___1',
+		'social_anxiety_clin___2',
+		'social_anxiety_clin___3',
+		'phobia_clin___1',
+		'ocd_clin___1',
+		'ptsd_clin___1',
+		'alcohol_depend_clin___1',
+		'alcohol_use_clin___1',
+		'drug_depend_clin___1',
+		'drug_use_clin___1',
+		'tourette_clin___1',
+		'motor_tics_clin___1',
+		'vocal_tics_clin___1',
+		'transient_tics_clin___1',
+		'adhd_mix_clin___1',
+		'adhd_attention_clin___1',
+		'adhd_hyper_clin___1',
+		'conduct_clin___1',
+		'odd_clin___1',
+		'psychotic_clin___1',
+		'psychotic_clin___2',
+		'affect_psychotic_clin___1',
+		'affect_psychotic_clin___2',
+		'anorexia_clin___1',
+		'bulimia_clin___1',
+		'anorexia_bulmus_clin___1',
+		'gad_clin___1',
+		'adjustment_clin___1',
+		'organic_clin',
+		'development_clin___1',
+		'main_dianose_clin'
+]
+);
+
+
+
+
+
+
+INSERT INTO auxiliary_questionnaires_data.questionnaires_columns_names (questionnaire_name, column_names)
+VALUES('trq_sf_maris_stu',
+	ARRAY[
+	'trqsfmaris_stu_timestamp',
+		'trq_sf_maris_1_stu',
+		'trq_sf_maris_2_stu',
+		'trq_sf_maris_3_stu',
+		'trq_sf_maris_4_stu',
+		'trq_sf_maris_5_stu',
+		'trq_sf_maris_6_stu',
+		'trq_sf_maris_7_stu',
+		'trq_sf_maris_8_stu',
+		'trq_sf_maris_9_stu',
+		'trq_sf_maris_10_stu',
+		'trq_sf_maris_11_stu',
+		'trq_sf_maris_12_stu',
+		'trq_sf_maris_13_stu',
+		'trq_sf_maris_14_stu'
+]
+);
+
+
+
+
+
+
+
+INSERT INTO auxiliary_questionnaires_data.questionnaires_columns_names (questionnaire_name, column_names)
+VALUES('mini_kid_sum_stu',
+	ARRAY[
+		'mini_kid_sum_stu_timestamp',
+		'mini_class_stu	mini_date_stu',
+		'mini_interviewer_stu',
+		'mini_date_interview_stu',
+		'mini_medication_stu___1',
+		'mini_medication_stu___2',
+		'mini_medication_stu___3',
+		'mini_medication_stu___4',
+		'mini_medication_stu___5',
+		'mini_medicine_other_stu',
+		'mini_start_time_stu',
+		'mini_end_time_stu',
+		'mini_total_time_stu',
+		'depres_stu___1',
+		'depres_stu___2',
+		'depres_stu___3',
+		'suicide_stu___1',
+		'suicide_stu___2',
+		'suicide_risk_stu',
+		'dysthemia_stu___1',
+		'manic_stu___1',
+		'manic_stu___2',
+		'hypomania_stu___1',
+		'hypomania_stu___2',
+		'bipolar_i_stu___1',
+		'bipolar_i_stu___2',
+		'bipolar_ii_stu___1',
+		'bipolar_ii_stu___2',
+		'bipolar_unclassified_stu___1',
+		'bipolar_unclassified_stu___2',
+		'panic_stu___1',
+		'panic_stu___2',
+		'agoraphobia_stu___1',
+		'separation_anxiety_stu___1',
+		'social_anxiety_stu___1',
+		'social_anxiety_stu___2',
+		'social_anxiety_stu___3',
+		'phobia_stu___1',
+		'ocd_stu___1',
+		'ptsd_stu___1',
+		'alcohol_depend_stu___1',
+		'alcohol_use_stu___1',
+		'drug_depend_stu___1',
+		'drug_use_stu___1',
+		'tourette_stu___1',
+		'motor_tics_stu___1',
+		'vocal_tics_stu___1',
+		'transient_tics_stu___1',
+		'adhd_mix_stu___1',
+		'adhd_attention_stu___1',
+		'adhd_hyper_stu___1',
+		'conduct_stu___1',
+		'odd_stu___1',
+		'psychotic_stu___1',
+		'psychotic_stu___2',
+		'affect_psychotic_stu___1',
+		'affect_psychotic_stu___2',
+		'anorexia_stu___1',
+		'bulimia_stu___1',
+		'anorexia_bulmus_stu___1',
+		'gad_stu___1',
+		'adjustment_stu___1',
+		'organic_stu',
+		'development_stu___1',
+		'main_dianose_stu'
+
+]
+);
+
+
+
+
+
+INSERT INTO auxiliary_questionnaires_data.questionnaires_columns_names (questionnaire_name, column_names)
+VALUES('chameleon',
+	ARRAY[
+	'chameleon_timestamp',
+		'chameleon_follow_stu',
+		'treatment_end_stu',
+		'treatment_end_2_stu',
+		'visit_date_stu	chameleon_ideation_stu',
+		'chameleon_behavior_stu',
+		'chameleon_attempt_stu',
+		'chameleon_nssi_stu',
+		'chameleon_suicide_er_stu',
+		'chameleon_suicide_er_date_stu',
+		'chameleon_suicide_er_date_2_stu',
+		'chameleon_suicide_er_date_3_stu',
+		'chameleon_psychiatric_stu',
+		'chameleon_psychiatric_date_stu',
+		'chameleon_psychiatric_date_2_stu',
+		'chameleon_psychiatric_date_3_stu',
+		'emergency_stu',
+		'chameleon_psychotherapy_stu',
+		'chameleon_psychotherapy_2_stu___1',
+		'chameleon_psychotherapy_2_stu___2',
+		'chameleon_psychotherapy_2_stu___3',
+		'chameleon_psychotherapy_2_stu___4',
+		'chameleon_psychotherapy_2_stu___5',
+		'chameleon_psychotherapy_2_stu___6',
+		'chameleon_psychotherapy_2_stu___7',
+		'chameleon_psychotherapy_other_stu',
+		'chameleon_medicine_stu',
+		'chameleon_medicine_2_stu___1',
+		'chameleon_medicine_2_stu___2',
+		'chameleon_medicine_2_stu___3',
+		'chameleon_medicine_2_stu___4',
+		'chameleon_medicine_2_stu___5',
+		'chameleon_medicine_other_stu',
+		'chameleon_notes_stu'
+]
+);
