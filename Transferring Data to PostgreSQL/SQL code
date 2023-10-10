@@ -899,3 +899,172 @@ VALUES('c_ssrs_fu_maya',
 	]
 );
 
+
+
+INSERT INTO auxiliary_questionnaires_data.questionnaires_columns_names (questionnaire_name, column_names)
+VALUES('opening',
+	ARRAY[
+		'opening_timestamp',
+		'id',
+		'er_num',
+		'complaint___1',
+		'complaint___2',
+		'complaint___3',
+		'complaint___4',
+		'complaint___5',
+		'complaint___6',
+		'complaint_other',
+		'complaint_date',
+		'diagnosis___1',
+		'diagnosis___2',
+		'diagnosis___3',
+		'diagnosis___4',
+		'diagnosis___5',
+		'diagnosis___6',
+		'diagnosis___7',
+		'diagnosis___8',
+		'diagnosis___9',
+		'diagnosis___10',
+		'diagnosis___11',
+		'diagnosis___12',
+		'diagnosis___13',
+		'diagnosis___14',
+		'diagnosis_other',
+		'opening_psychothe',
+		'opening_psychothe_2___1',
+		'opening_psychothe_2___2',
+		'opening_psychothe_2___3',
+		'opening_psychothe_2___4',
+		'opening_psychothe_2___5',
+		'opening_psychothe_2___6',
+		'opening_psychothe_2___7',
+		'opening_psychothe_3',
+		'opening_medicine',
+		'opening_medicine_2___1',
+		'opening_medicine_2___2',
+		'opening_medicine_2___3',
+		'opening_medicine_2___4',
+		'opening_medicine_2___5',
+		'opening_medicine_3',
+		'group___1',
+		'group___2',
+		'group___3',
+		'consent',
+		'consent_no'
+	]
+);
+
+
+
+
+INSERT INTO auxiliary_questionnaires_data.questionnaires_columns_names (questionnaire_name, column_names)
+VALUES('covid19',
+	ARRAY[
+		'covid19_timestamp',
+		'covid_1___1',
+		'covid_1___2',
+		'covid_1___3',
+		'covid_1___4',
+		'covid_2',
+		'covid_3___1',
+		'covid_3___2',
+		'covid_3___3',
+		'covid_3___4',
+		'covid_3___5',
+		'covid_3___6',
+		'covid_3___7',
+		'covid_3___8',
+		'covid_4',
+		'covid_5',
+		'covid_6',
+		'covid_7',
+		'covid_8'
+	]
+);
+
+
+
+
+INSERT INTO auxiliary_questionnaires_data.questionnaires_columns_names (questionnaire_name, column_names)
+VALUES('opening_child_pre',
+	ARRAY[
+		'opening_child_pre_timestamp',
+		'age_child_pre',
+		'gender'
+	]
+);
+
+
+
+
+INSERT INTO auxiliary_questionnaires_data.questionnaires_columns_names (questionnaire_name, column_names)
+VALUES('erc_rc',
+	ARRAY[
+		'ecrrc_timestamp',
+		'erc_rc_1',
+		'erc_rc_2',
+		'erc_rc_3',
+		'erc_rc_4',
+		'erc_rc_5',
+		'erc_rc_6',
+		'erc_rc_7',
+		'erc_rc_8',
+		'erc_rc_9',
+		'erc_rc_10',
+		'erc_rc_11',
+		'erc_rc_12'
+	]
+);
+
+
+
+
+
+INSERT INTO auxiliary_questionnaires_data.questionnaires_columns_names (questionnaire_name, column_names)
+VALUES('piu_cyberbulling',
+	ARRAY[
+		'piu_cyberbulling_timestamp',
+		'piu_1',
+		'piu_2',
+		'piu_3',
+		'piu_4',
+		'piu_5',
+		'piu_6',
+		'cyberbulling_1',
+		'cyberbulling_2',
+		'cyberbulling_3',
+		'cyberbulling_4',
+		'cyberbulling_5',
+		'cyberbulling_6',
+		'cyberbulling_7',
+		'cyberbulling_8',
+		'cyberbulling_9',
+		'cyberbulling_10',
+		'cyberbulling_11',
+		'bullied_1',
+		'bullied_2',
+		'bullied_3',
+		'bullied_4'
+	]
+);
+
+
+
+
+INSERT INTO auxiliary_questionnaires_data.questionnaires_columns_names (questionnaire_name, column_names)
+VALUES('erq_ca',
+	ARRAY[
+
+		'erqca_timestamp',
+		'erq_ca_1',
+		'erq_ca_2',
+		'erq_ca_3',
+		'erq_ca_4',
+		'erq_ca_5',
+		'erq_ca_6',
+		'erq_ca_7',
+		'erq_ca_8',
+		'erq_ca_9',
+		'erq_ca_10'
+	]
+);
