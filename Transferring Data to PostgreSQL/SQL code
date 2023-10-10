@@ -1931,3 +1931,142 @@ VALUES('opening_parents_f',
 ]
 );
 
+
+
+
+
+
+
+INSERT INTO auxiliary_questionnaires_data.questionnaires_columns_names (questionnaire_name, column_names)
+VALUES('sdq_parents_f',
+	ARRAY[
+		'sdq_parents_f_timestamp',
+		'sdq_1_parents_f',
+		'sdq_2_parents_f',
+		'sdq_3_parents_f',
+		'sdq_4_parents_f',
+		'sdq_5_parents_f',
+		'sdq_6_parents_f',
+		'sdq_7_parents_f',
+		'sdq_8_parents_f',
+		'sdq_9_parents_f',
+		'sdq_10_parents_f',
+		'sdq_11_parents_f',
+		'sdq_12_parents_f',
+		'sdq_13_parents_f',
+		'sdq_14_parents_f',
+		'sdq_15_parents_f',
+		'sdq_16_parents_f',
+		'sdq_17_parents_f',
+		'sdq_18_parents_f',
+		'sdq_19_parents_f',
+		'sdq_20_parents_f',
+		'sdq_21_parents_f',
+		'sdq_22_parents_f',
+		'sdq_23_parents_f',
+		'sdq_24_parents_f',
+		'sdq_25_parents_f',
+		'sdq_26_parents_f',
+		'sdq_27_parents_f',
+		'sdq_28_parents_f',
+		'sdq_29_parents_1_f',
+		'sdq_29_parents_2_f',
+		'sdq_29_parents_3_f',
+		'sdq_29_parents_4_f',
+		'sdq_30_parents_f'
+]
+);
+
+
+
+
+
+
+INSERT INTO auxiliary_questionnaires_data.questionnaires_columns_names (questionnaire_name, column_names)
+VALUES('ders_p_f',
+	ARRAY[
+	'ders_p_f_timestamp',
+		'ders_1_p_f',
+		'ders_2_p_f',
+		'ders_3_p_f',
+		'ders_4_p_f',
+		'ders_5_p_f',
+		'ders_6_p_f',
+		'ders_7_p_f',
+		'ders_8_p_f',
+		'ders_9_p_f',
+		'ders_10_p_f',
+		'ders_11_p_f',
+		'ders_12_p_f',
+		'ders_13_p_f',
+		'ders_14_p_f',
+		'ders_15_p_f',
+		'ders_16_p_f',
+		'ders_17_p_f',
+		'ders_18_p_f',
+		'ders_19_p_f',
+		'ders_20_p_f',
+		'ders_21_p_f',
+		'ders_22_p_f',
+		'ders_23_p_f',
+		'ders_24_p_f',
+		'ders_25_p_f',
+		'ders_26_p_f',
+		'ders_27_p_f',
+		'ders_28_p_f',
+		'ders_29_p_f',
+		'ders_30_p_f',
+		'ders_31_p_f',
+		'ders_32_p_f',
+		'ders_33_p_f',
+		'ders_34_p_f',
+		'ders_35_p_f',
+		'ders_36_p_f'
+	]
+);
+
+
+
+
+
+INSERT INTO auxiliary_questionnaires_data.questionnaires_columns_names (questionnaire_name, column_names)
+VALUES('cdrsr_clin',
+	ARRAY[
+'cdrsr_clin_timestamp',
+		'cdrs_impaired_schoolwork_clin',
+		'cdrs_difficulty_having_fun_clin',
+		'sdrs_social_withdrawal_clin',
+		'cdrs_sleep_disturbance_clin',
+		'cdrs_sleep_disturbance_2_clin',
+		'cdrs_appetite_disturbance_clin',
+		'cdrs_appetite_disturbance_2_clin',
+		'cdrs_excessive_fatigue_clin',
+		'cdrs_physical_complaints_clin',
+		'sdrs_irritability_clin',
+		'cdrs_excessive_guilt_clin',
+		'cdrs_low_self_esteem_clin',
+		'cdrs_depressed_feelings_clin',
+		'cdrs_morbid_ideation_clin',
+		'cdrs_suicidal_ideation_clin',
+		'cdrs_excessive_weeping_clin',
+		'cdrs_depressed_facial_affect_clin',
+		'cdrs_listless_speech_clin',
+		'cdrs_hypoactivity_clin',
+		'cdrs_sum_clin'
+	]
+);
+
+
+
+
+
+
+
+INSERT INTO auxiliary_questionnaires_data.questionnaires_columns_names (questionnaire_name, column_names)
+VALUES('ffq',
+	ARRAY[
+		'ffq_sum_timestamp',
+		'ffq_sum'
+	]
+);
+
