@@ -2070,3 +2070,183 @@ VALUES('ffq',
 	]
 );
 
+
+
+
+
+
+
+INSERT INTO auxiliary_questionnaires_data.questionnaires_columns_names (questionnaire_name, column_names)
+VALUES('opening_students',
+	ARRAY[
+		'opening_students_timestamp',
+		'who_stu',
+		'who_other_stu',
+		'name_stu'
+	]
+);
+
+
+
+
+
+
+INSERT INTO auxiliary_questionnaires_data.questionnaires_columns_names (questionnaire_name, column_names)
+VALUES('cgi_s_stu',
+	ARRAY[
+		'cgi_s_base_stu',
+		'cgi_s_stu_complete'
+	]
+);
+
+
+
+
+
+INSERT INTO auxiliary_questionnaires_data.questionnaires_columns_names (questionnaire_name, column_names)
+VALUES('remote_stu',
+	ARRAY[
+		'remote_stu_timestamp',
+		'remote_1_stu'
+	]
+);
+
+
+
+
+
+
+INSERT INTO auxiliary_questionnaires_data.questionnaires_columns_names (questionnaire_name, column_names)
+VALUES('cps_stu',
+	ARRAY[
+		'cps_stu_timestamp',
+		'cps_1_stu',
+		'cps_2_stu'
+	]
+);
+
+
+
+
+
+
+INSERT INTO auxiliary_questionnaires_data.questionnaires_columns_names (questionnaire_name, column_names)
+VALUES('cps_clin',
+	ARRAY[
+		'cps_clin_timestamp',
+		'cps_1_clin',
+		'cps_2_clin'
+	]
+);
+
+
+
+
+
+
+INSERT INTO auxiliary_questionnaires_data.questionnaires_columns_names (questionnaire_name, column_names)
+VALUES('cgi_s_clin',
+	ARRAY[
+		'cgi_s_clin_timestamp',
+		'cgi_s_base_clin'
+	]
+);
+
+
+
+
+
+
+
+
+
+INSERT INTO auxiliary_questionnaires_data.questionnaires_columns_names (questionnaire_name, column_names)
+VALUES('opening_therapist_battery',
+	ARRAY[
+		'opening_therapist_battery_timestamp',
+		'time_clin',
+		'parents_safety_plan_clin',
+		'safety_plan_clin',
+		'safety_plan_changed_clin',
+		'cgi_s_clin',
+		'cgi_i_clin',
+		'wai_t_1_clin',
+		'wai_t_2_clin',
+		'wai_t_3_clin',
+		'wai_t_4_clin',
+		'wai_t_5_clin',
+		'wai_t_6_clin',
+		'wai_t_7_clin',
+		'wai_t_8_clin',
+		'wai_t_9_clin',
+		'wai_t_10_clin',
+		'wai_t_11_clin',
+		'wai_t_12_clin'
+	]
+);
+
+
+
+
+
+INSERT INTO auxiliary_questionnaires_data.questionnaires_columns_names (questionnaire_name, column_names)
+VALUES('maris_y_scars_clin',
+	ARRAY[
+		'marisyscars_clin_timestamp',
+		'maris_y_scars_1_clin',
+		'maris_y_scars_2_clin',
+		'maris_y_scars_3_clin',
+		'maris_y_scars_4_clin',
+		'maris_y_scars_5_clin',
+		'maris_y_scars_6_clin',
+		'maris_y_scars_7_clin',
+		'maris_y_scars_8_clin'
+	]
+);
+
+
+
+
+
+
+INSERT INTO auxiliary_questionnaires_data.questionnaires_columns_names (questionnaire_name, column_names)
+VALUES('ending_parent_f',
+	ARRAY[
+		'ending_parent_f_timestamp',
+		'therapy_child_2_f',
+		'ending_childparent_f'
+	]
+);
+
+
+
+
+
+
+INSERT INTO auxiliary_questionnaires_data.questionnaires_columns_names (questionnaire_name, column_names)
+VALUES('moas_f',
+	ARRAY[
+		'moas_f_timestamp',
+		'moas_0_f',
+		'moas_1_f',
+		'moas_2_f',
+		'moas_3_f',
+		'moas_4_f',
+		'moas_5_f',
+		'moas_6_f',
+		'moas_7_f',
+		'moas_8_f',
+		'moas_9_f',
+		'moas_10_f',
+		'moas_11_f',
+		'moas_12_f',
+		'moas_13_f',
+		'moas_14_f',
+		'moas_15_f',
+		'moas_16_f',
+		'moas_17_f',
+		'moas_18_f',
+		'moas_19_f',
+		'moas_20_f'
+	]
+);
