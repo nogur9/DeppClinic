@@ -2250,3 +2250,75 @@ VALUES('moas_f',
 		'moas_20_f'
 	]
 );
+
+
+
+
+
+
+INSERT INTO auxiliary_questionnaires_data.questionnaires_columns_names (questionnaire_name, column_names)
+VALUES('cts_f',
+	ARRAY[
+		'cts_f_timestamp',
+		'cts_p_1_f',
+		'cts_p_2_f',
+		'cts_p_3_f',
+		'cts_p_4_f',
+		'cts_p_4_1_f'
+	]
+);
+
+
+
+
+
+
+INSERT INTO auxiliary_questionnaires_data.questionnaires_columns_names (questionnaire_name, column_names)
+VALUES('cts_c',
+	ARRAY[
+		'cts_c_timestamp',
+		'cts_c_1',
+		'cts_c_2',
+		'cts_c_3',
+		'cts_c_4',
+		'cts_c_4_1'
+	]
+);
+
+
+
+
+
+
+INSERT INTO auxiliary_questionnaires_data.questionnaires_columns_names (questionnaire_name, column_names)
+VALUES('dshi_pre',
+	ARRAY[
+		'dshi_pre_timestamp',
+		'dshi_pre_1',
+		'dshi_pre_2',
+		'dshi_pre_3',
+		'dshi_pre_4',
+		'dshi_pre_5',
+		'dshi_pre_6'
+
+	]
+);
+
+
+
+
+
+
+INSERT INTO auxiliary_questionnaires_data.questionnaires_columns_names (questionnaire_name, column_names)
+VALUES('dshi_post',
+	ARRAY[
+		'dshi_post_timestamp',
+		'dshi_post_1',
+		'dshi_post_2',
+		'dshi_post_3',
+		'dshi_post_4',
+		'dshi_post_5',
+		'dshi_post_6'
+	]
+);
+
