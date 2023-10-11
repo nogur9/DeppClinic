@@ -2322,3 +2322,86 @@ VALUES('dshi_post',
 	]
 );
 
+
+
+
+
+
+INSERT INTO auxiliary_questionnaires_data.questionnaires_columns_names (questionnaire_name, column_names)
+VALUES('inq',
+	ARRAY[
+'inq_timestamp',
+		'inq_1',
+		'inq_2',
+		'inq_3',
+		'inq_4',
+		'inq_5',
+		'inq_6',
+		'inq_7',
+		'inq_8',
+		'inq_9',
+		'inq_10',
+		'inq_11',
+		'inq_12',
+		'inq_13',
+		'inq_14',
+		'inq_15'
+	]
+);
+
+
+
+
+
+INSERT INTO auxiliary_questionnaires_data.questionnaires_columns_names (questionnaire_name, column_names)
+VALUES('ending',
+	ARRAY[
+		'ending_timestamp',
+		'therapy_child',
+		'ending_child'
+
+	]
+);
+
+
+
+
+
+
+INSERT INTO auxiliary_questionnaires_data.questionnaires_columns_names (questionnaire_name, column_names)
+VALUES('opening_parents_m',
+	ARRAY[
+		'opening_parents_m_timestamp',
+		'who_fills_out_m',
+		'who_fills_out_2_m'
+	]
+);
+
+
+
+
+
+
+INSERT INTO auxiliary_questionnaires_data.questionnaires_columns_names (questionnaire_name, column_names)
+VALUES('estimation_and_satisfaction',
+	ARRAY[
+		'estimation_and_satisfaction_timestamp',
+		'satis_1',
+		'satis_2',
+		'satis_3',
+		'satis_4'
+	]
+);
+
+
+
+
+
+INSERT INTO auxiliary_questionnaires_data.questionnaires_columns_names (questionnaire_name, column_names)
+VALUES('intro',
+	ARRAY[
+		'record_id',
+		'redcap_event_name',
+		'redcap_survey_identifier'
+	]
+);
