@@ -197,8 +197,6 @@ Ocreating_the_clinic_dataset/step4_cut_from_the_dataset/create_intake_data.ipynb
 -.idea/sonarlint/securityhotspotstore/index.pb,8\8\88a9255124c95bdc913197c120a8d560edc59c8e
 ï
 ecreating_the_clinic_dataset/step1_fill_missing_2021_clin_stu/.ipynb_checkpoints/main-checkpoint.ipynb,6\d\6d7a30d3335f8a49da2556fdec8df63bf42803e9
-j
-:creating_the_clinic_dataset/step2_merge_2021_2022/utils.py,9\1\91495b5aa9d539fcee1eb62bd61792e3703f5bab
 ¡
 êcreating_the_clinic_dataset/step4_cut_from_the_dataset/.ipynb_checkpoints/create_intake_data with imputation from pre-treatment-checkpoint.ipynb,4\9\49dea9d97cff0e7f9e049f8a36b43b7fafb20955
 v
@@ -257,8 +255,6 @@ M
 Ncreating_the_clinic_dataset/step2_merge_2021_2022/columns_index_for_merging.py,b\a\ba9bac8fe6c38d780b632d012d606e77e7b8d15e
 b
 2utils/questionnaires_scores/scores_computations.py,7\9\797008ecd9e036fdc4c1b4fc356c5da935ede171
-i
-9creating_the_clinic_dataset/step2_merge_2021_2022/main.py,c\3\c3815a6c1834b0f37f29542dc03e5b098a19e54e
 V
 &dataset_creation/pipeline_functions.py,b\3\b3ebf0d1729e8dbf7257a16bb1e40cbf27473bdb
 Q
@@ -267,8 +263,6 @@ S
 #utils/consts/pathology_variables.py,2\e\2e55718db1cadd4ec554dba314ab0776e40b2bdf
 M
 tests/test_data_imputation.py,3\4\343a8eece07f68b322372a6ab4de22c95c31fe8a
-w
-Gcreating_the_clinic_dataset/step1_fill_missing_2021_clin_stu/main.ipynb,a\2\a2ba720ad61c5f613ef82dc81867acae9e01b745
 c
 3raw_data_preprocessing/basic_preprocessing_utils.py,b\a\ba5a2a4c922c2565d35749936b770d6216986d3a
 n
