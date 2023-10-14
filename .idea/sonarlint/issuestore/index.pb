@@ -281,3 +281,21 @@ Q
 !utils/consts/assistment_consts.py,1\1\11c5b61c67e5b47d058b8e879d8d4b8835b59974
 ‚
 Rcreating_the_clinic_dataset/original_data/ImmiRiskIPT2022_DATA_2023-09-03_1503.csv,1\c\1cda38818b38a4e1cf9e293bb1d16fc305e5aabe
+h
+8OriginalDataset/ImmiRiskIPT2022_DATA_2023-09-03_1503.csv,6\b\6b278efe3b447fdd1b45a084cba0b809b534f718
+h
+8OriginalDataset/Schneider Depression Clinic Database.csv,6\3\6323fa1bd99fd0aebac57213da08bddca86d8e67
+X
+(snorkel_exercise/snorkel-attempt 1.ipynb,7\d\7d294193f3218c32d3d7909506d5d5227eeb837f
+t
+DTransferring_Data_to_PostgreSQL/insert_original_data/redcap_data.csv,d\3\d3d4c646b9805dbc879de2c331d8689c408283ce
+­
+}Transferring_Data_to_PostgreSQL/insert_original_data/.ipynb_checkpoints/creating primary key for redcap data-checkpoint.ipynb,f\7\f700c0ca0efebb33560cf30e82f5fb70af147a8d
+X
+(Transferring_Data_to_PostgreSQL/SQL code,6\d\6d0a039474b4aec0f2c7a4998138747f6d28954e
+q
+Asnorkel_exercise/.ipynb_checkpoints/display text-checkpoint.ipynb,8\b\8b1da0d9b19ba62b22f75f405fe560d7f4825e51
+S
+#snorkel_exercise/display text.ipynb,6\9\69bae5316c8522d4ba764eedb585ac394929bbee
+v
+Fsnorkel_exercise/.ipynb_checkpoints/snorkel-attempt 1-checkpoint.ipynb,f\8\f89f8d492c37cf84afb6102ea67600b7943a0943
