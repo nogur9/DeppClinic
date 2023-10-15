@@ -1803,7 +1803,8 @@ VALUES('chameleon',
 		'chameleon_follow_stu',
 		'treatment_end_stu',
 		'treatment_end_2_stu',
-		'visit_date_stu	chameleon_ideation_stu',
+		'visit_date_stu',
+        'chameleon_ideation_stu',
 		'chameleon_behavior_stu',
 		'chameleon_attempt_stu',
 		'chameleon_nssi_stu',
@@ -3902,3 +3903,696 @@ trq_sf_maris_11_stu VARCHAR (50),
 trq_sf_maris_12_stu VARCHAR (50),
 trq_sf_maris_13_stu VARCHAR (50),
 trq_sf_maris_14_stu VARCHAR (50));
+
+
+
+
+CREATE TABLE redcap_data.erq_m(
+    primary_key VARCHAR (20) PRIMARY KEY,
+    erq_m_timestamp VARCHAR (50),
+erq_1_m VARCHAR (50),
+erq_2_m VARCHAR (50),
+erq_3_m VARCHAR (50),
+erq_4_m VARCHAR (50),
+erq_5_m VARCHAR (50),
+erq_6_m VARCHAR (50),
+erq_7_m VARCHAR (50),
+erq_8_m VARCHAR (50),
+erq_9_m VARCHAR (50),
+erq_10_m VARCHAR (50));
+
+
+
+
+CREATE TABLE redcap_data.cts_m(
+    primary_key VARCHAR (20) PRIMARY KEY,
+    cts_m_timestamp VARCHAR (50),
+cts_p_1_m VARCHAR (50),
+cts_p_2_m VARCHAR (50),
+cts_p_3_m VARCHAR (50),
+cts_p_4_m VARCHAR (50),
+cts_p_4_1_m VARCHAR (50));
+
+
+
+
+CREATE TABLE redcap_data.moas_m(
+    primary_key VARCHAR (20) PRIMARY KEY,
+    moas_m_timestamp VARCHAR (50),
+moas_0_m VARCHAR (50),
+moas_1_m VARCHAR (50),
+moas_2_m VARCHAR (50),
+moas_3_m VARCHAR (50),
+moas_4_m VARCHAR (50),
+moas_5_m VARCHAR (50),
+moas_6_m VARCHAR (50),
+moas_7_m VARCHAR (50),
+moas_8_m VARCHAR (50),
+moas_9_m VARCHAR (50),
+moas_10_m VARCHAR (50),
+moas_11_m VARCHAR (50),
+moas_12_m VARCHAR (50),
+moas_13_m VARCHAR (50),
+moas_14_m VARCHAR (50),
+moas_15_m VARCHAR (50),
+moas_16_m VARCHAR (50),
+moas_17_m VARCHAR (50),
+moas_18_m VARCHAR (50),
+moas_19_m VARCHAR (50),
+moas_20_m VARCHAR (50));
+
+
+
+
+CREATE TABLE redcap_data.ending_parent_m(
+    primary_key VARCHAR (20) PRIMARY KEY,
+    ending_parent_m_timestamp VARCHAR (50),
+therapy_child_2_m VARCHAR (50),
+ending_childparent_m VARCHAR (50));
+
+
+
+
+CREATE TABLE redcap_data.opening_parents_f(
+    primary_key VARCHAR (20) PRIMARY KEY,
+    opening_parents_f_timestamp VARCHAR (50),
+who_fills_out_f VARCHAR (50),
+who_fills_out_2_f VARCHAR (50));
+
+
+
+
+CREATE TABLE redcap_data.sdq_parents_f(
+    primary_key VARCHAR (20) PRIMARY KEY,
+    sdq_parents_f_timestamp VARCHAR (50),
+sdq_1_parents_f VARCHAR (50),
+sdq_2_parents_f VARCHAR (50),
+sdq_3_parents_f VARCHAR (50),
+sdq_4_parents_f VARCHAR (50),
+sdq_5_parents_f VARCHAR (50),
+sdq_6_parents_f VARCHAR (50),
+sdq_7_parents_f VARCHAR (50),
+sdq_8_parents_f VARCHAR (50),
+sdq_9_parents_f VARCHAR (50),
+sdq_10_parents_f VARCHAR (50),
+sdq_11_parents_f VARCHAR (50),
+sdq_12_parents_f VARCHAR (50),
+sdq_13_parents_f VARCHAR (50),
+sdq_14_parents_f VARCHAR (50),
+sdq_15_parents_f VARCHAR (50),
+sdq_16_parents_f VARCHAR (50),
+sdq_17_parents_f VARCHAR (50),
+sdq_18_parents_f VARCHAR (50),
+sdq_19_parents_f VARCHAR (50),
+sdq_20_parents_f VARCHAR (50),
+sdq_21_parents_f VARCHAR (50),
+sdq_22_parents_f VARCHAR (50),
+sdq_23_parents_f VARCHAR (50),
+sdq_24_parents_f VARCHAR (50),
+sdq_25_parents_f VARCHAR (50),
+sdq_26_parents_f VARCHAR (50),
+sdq_27_parents_f VARCHAR (50),
+sdq_28_parents_f VARCHAR (50),
+sdq_29_parents_1_f VARCHAR (50),
+sdq_29_parents_2_f VARCHAR (50),
+sdq_29_parents_3_f VARCHAR (50),
+sdq_29_parents_4_f VARCHAR (50),
+sdq_30_parents_f VARCHAR (50));
+
+
+
+
+CREATE TABLE redcap_data.ders_p_f(
+    primary_key VARCHAR (20) PRIMARY KEY,
+    ders_p_f_timestamp VARCHAR (50),
+ders_1_p_f VARCHAR (50),
+ders_2_p_f VARCHAR (50),
+ders_3_p_f VARCHAR (50),
+ders_4_p_f VARCHAR (50),
+ders_5_p_f VARCHAR (50),
+ders_6_p_f VARCHAR (50),
+ders_7_p_f VARCHAR (50),
+ders_8_p_f VARCHAR (50),
+ders_9_p_f VARCHAR (50),
+ders_10_p_f VARCHAR (50),
+ders_11_p_f VARCHAR (50),
+ders_12_p_f VARCHAR (50),
+ders_13_p_f VARCHAR (50),
+ders_14_p_f VARCHAR (50),
+ders_15_p_f VARCHAR (50),
+ders_16_p_f VARCHAR (50),
+ders_17_p_f VARCHAR (50),
+ders_18_p_f VARCHAR (50),
+ders_19_p_f VARCHAR (50),
+ders_20_p_f VARCHAR (50),
+ders_21_p_f VARCHAR (50),
+ders_22_p_f VARCHAR (50),
+ders_23_p_f VARCHAR (50),
+ders_24_p_f VARCHAR (50),
+ders_25_p_f VARCHAR (50),
+ders_26_p_f VARCHAR (50),
+ders_27_p_f VARCHAR (50),
+ders_28_p_f VARCHAR (50),
+ders_29_p_f VARCHAR (50),
+ders_30_p_f VARCHAR (50),
+ders_31_p_f VARCHAR (50),
+ders_32_p_f VARCHAR (50),
+ders_33_p_f VARCHAR (50),
+ders_34_p_f VARCHAR (50),
+ders_35_p_f VARCHAR (50),
+ders_36_p_f VARCHAR (50));
+
+
+
+
+CREATE TABLE redcap_data.cdrsr_clin(
+    primary_key VARCHAR (20) PRIMARY KEY,
+    cdrsr_clin_timestamp VARCHAR (50),
+cdrs_impaired_schoolwork_clin VARCHAR (50),
+cdrs_difficulty_having_fun_clin VARCHAR (50),
+sdrs_social_withdrawal_clin VARCHAR (50),
+cdrs_sleep_disturbance_clin VARCHAR (50),
+cdrs_sleep_disturbance_2_clin VARCHAR (50),
+cdrs_appetite_disturbance_clin VARCHAR (50),
+cdrs_appetite_disturbance_2_clin VARCHAR (50),
+cdrs_excessive_fatigue_clin VARCHAR (50),
+cdrs_physical_complaints_clin VARCHAR (50),
+sdrs_irritability_clin VARCHAR (50),
+cdrs_excessive_guilt_clin VARCHAR (50),
+cdrs_low_self_esteem_clin VARCHAR (50),
+cdrs_depressed_feelings_clin VARCHAR (50),
+cdrs_morbid_ideation_clin VARCHAR (50),
+cdrs_suicidal_ideation_clin VARCHAR (50),
+cdrs_excessive_weeping_clin VARCHAR (50),
+cdrs_depressed_facial_affect_clin VARCHAR (50),
+cdrs_listless_speech_clin VARCHAR (50),
+cdrs_hypoactivity_clin VARCHAR (50),
+cdrs_sum_clin VARCHAR (50));
+
+
+
+
+CREATE TABLE redcap_data.ffq(
+    primary_key VARCHAR (20) PRIMARY KEY,
+    ffq_sum_timestamp VARCHAR (50),
+ffq_sum VARCHAR (50));
+
+
+
+
+CREATE TABLE redcap_data.opening_students(
+    primary_key VARCHAR (20) PRIMARY KEY,
+    opening_students_timestamp VARCHAR (50),
+who_stu VARCHAR (50),
+who_other_stu VARCHAR (50),
+name_stu VARCHAR (50));
+
+
+
+
+CREATE TABLE redcap_data.cgi_s_stu(
+    primary_key VARCHAR (20) PRIMARY KEY,
+    cgi_s_base_stu VARCHAR (50),
+cgi_s_stu_complete VARCHAR (50));
+
+
+
+
+CREATE TABLE redcap_data.remote_stu(
+    primary_key VARCHAR (20) PRIMARY KEY,
+    remote_stu_timestamp VARCHAR (50),
+remote_1_stu VARCHAR (50));
+
+
+
+
+CREATE TABLE redcap_data.cps_stu(
+    primary_key VARCHAR (20) PRIMARY KEY,
+    cps_stu_timestamp VARCHAR (50),
+cps_1_stu VARCHAR (50),
+cps_2_stu VARCHAR (50));
+
+
+
+
+CREATE TABLE redcap_data.cps_clin(
+    primary_key VARCHAR (20) PRIMARY KEY,
+    cps_clin_timestamp VARCHAR (50),
+cps_1_clin VARCHAR (50),
+cps_2_clin VARCHAR (50));
+
+
+
+
+CREATE TABLE redcap_data.cgi_s_clin(
+    primary_key VARCHAR (20) PRIMARY KEY,
+    cgi_s_clin_timestamp VARCHAR (50),
+cgi_s_base_clin VARCHAR (50));
+
+
+
+
+CREATE TABLE redcap_data.opening_therapist_battery(
+    primary_key VARCHAR (20) PRIMARY KEY,
+    opening_therapist_battery_timestamp VARCHAR (50),
+time_clin VARCHAR (50),
+parents_safety_plan_clin VARCHAR (50),
+safety_plan_clin VARCHAR (50),
+safety_plan_changed_clin VARCHAR (50),
+cgi_s_clin VARCHAR (50),
+cgi_i_clin VARCHAR (50),
+wai_t_1_clin VARCHAR (50),
+wai_t_2_clin VARCHAR (50),
+wai_t_3_clin VARCHAR (50),
+wai_t_4_clin VARCHAR (50),
+wai_t_5_clin VARCHAR (50),
+wai_t_6_clin VARCHAR (50),
+wai_t_7_clin VARCHAR (50),
+wai_t_8_clin VARCHAR (50),
+wai_t_9_clin VARCHAR (50),
+wai_t_10_clin VARCHAR (50),
+wai_t_11_clin VARCHAR (50),
+wai_t_12_clin VARCHAR (50));
+
+
+
+
+CREATE TABLE redcap_data.maris_y_scars_clin(
+    primary_key VARCHAR (20) PRIMARY KEY,
+    marisyscars_clin_timestamp VARCHAR (50),
+maris_y_scars_1_clin VARCHAR (50),
+maris_y_scars_2_clin VARCHAR (50),
+maris_y_scars_3_clin VARCHAR (50),
+maris_y_scars_4_clin VARCHAR (50),
+maris_y_scars_5_clin VARCHAR (50),
+maris_y_scars_6_clin VARCHAR (50),
+maris_y_scars_7_clin VARCHAR (50),
+maris_y_scars_8_clin VARCHAR (50));
+
+
+
+
+CREATE TABLE redcap_data.ending_parent_f(
+    primary_key VARCHAR (20) PRIMARY KEY,
+    ending_parent_f_timestamp VARCHAR (50),
+therapy_child_2_f VARCHAR (50),
+ending_childparent_f VARCHAR (50));
+
+
+
+
+CREATE TABLE redcap_data.moas_f(
+    primary_key VARCHAR (20) PRIMARY KEY,
+    moas_f_timestamp VARCHAR (50),
+moas_0_f VARCHAR (50),
+moas_1_f VARCHAR (50),
+moas_2_f VARCHAR (50),
+moas_3_f VARCHAR (50),
+moas_4_f VARCHAR (50),
+moas_5_f VARCHAR (50),
+moas_6_f VARCHAR (50),
+moas_7_f VARCHAR (50),
+moas_8_f VARCHAR (50),
+moas_9_f VARCHAR (50),
+moas_10_f VARCHAR (50),
+moas_11_f VARCHAR (50),
+moas_12_f VARCHAR (50),
+moas_13_f VARCHAR (50),
+moas_14_f VARCHAR (50),
+moas_15_f VARCHAR (50),
+moas_16_f VARCHAR (50),
+moas_17_f VARCHAR (50),
+moas_18_f VARCHAR (50),
+moas_19_f VARCHAR (50),
+moas_20_f VARCHAR (50));
+
+
+
+
+CREATE TABLE redcap_data.cts_f(
+    primary_key VARCHAR (20) PRIMARY KEY,
+    cts_f_timestamp VARCHAR (50),
+cts_p_1_f VARCHAR (50),
+cts_p_2_f VARCHAR (50),
+cts_p_3_f VARCHAR (50),
+cts_p_4_f VARCHAR (50),
+cts_p_4_1_f VARCHAR (50));
+
+
+
+
+CREATE TABLE redcap_data.cts_c(
+    primary_key VARCHAR (20) PRIMARY KEY,
+    cts_c_timestamp VARCHAR (50),
+cts_c_1 VARCHAR (50),
+cts_c_2 VARCHAR (50),
+cts_c_3 VARCHAR (50),
+cts_c_4 VARCHAR (50),
+cts_c_4_1 VARCHAR (50));
+
+
+
+
+CREATE TABLE redcap_data.dshi_pre(
+    primary_key VARCHAR (20) PRIMARY KEY,
+    dshi_pre_timestamp VARCHAR (50),
+dshi_pre_1 VARCHAR (50),
+dshi_pre_2 VARCHAR (50),
+dshi_pre_3 VARCHAR (50),
+dshi_pre_4 VARCHAR (50),
+dshi_pre_5 VARCHAR (50),
+dshi_pre_6 VARCHAR (50));
+
+
+
+
+CREATE TABLE redcap_data.dshi_post(
+    primary_key VARCHAR (20) PRIMARY KEY,
+    dshi_post_timestamp VARCHAR (50),
+dshi_post_1 VARCHAR (50),
+dshi_post_2 VARCHAR (50),
+dshi_post_3 VARCHAR (50),
+dshi_post_4 VARCHAR (50),
+dshi_post_5 VARCHAR (50),
+dshi_post_6 VARCHAR (50));
+
+
+
+
+CREATE TABLE redcap_data.ending(
+    primary_key VARCHAR (20) PRIMARY KEY,
+    ending_timestamp VARCHAR (50),
+therapy_child VARCHAR (50),
+ending_child VARCHAR (50));
+
+
+
+
+CREATE TABLE redcap_data.opening_parents_m(
+    primary_key VARCHAR (20) PRIMARY KEY,
+    opening_parents_m_timestamp VARCHAR (50),
+who_fills_out_m VARCHAR (50),
+who_fills_out_2_m VARCHAR (50));
+
+
+
+
+CREATE TABLE redcap_data.estimation_and_satisfaction(
+    primary_key VARCHAR (20) PRIMARY KEY,
+    estimation_and_satisfaction_timestamp VARCHAR (50),
+satis_1 VARCHAR (50),
+satis_2 VARCHAR (50),
+satis_3 VARCHAR (50),
+satis_4 VARCHAR (50));
+
+
+
+
+CREATE TABLE redcap_data.intro(
+    primary_key VARCHAR (20) PRIMARY KEY,
+    record_id VARCHAR (50),
+redcap_event_name VARCHAR (50),
+redcap_survey_identifier VARCHAR (50));
+
+
+
+
+CREATE TABLE redcap_data.dass_m(
+    primary_key VARCHAR (20) PRIMARY KEY,
+    dass_m_timestamp VARCHAR (50),
+dass_1_m VARCHAR (50),
+dass_2_m VARCHAR (50),
+dass_3_m VARCHAR (50),
+dass_4_m VARCHAR (50),
+dass_5_m VARCHAR (50),
+dass_6_m VARCHAR (50),
+dass_7_m VARCHAR (50),
+dass_8_m VARCHAR (50),
+dass_9_m VARCHAR (50),
+dass_10_m VARCHAR (50),
+dass_11_m VARCHAR (50),
+dass_12_m VARCHAR (50),
+dass_13_m VARCHAR (50),
+dass_14_m VARCHAR (50),
+dass_15_m VARCHAR (50),
+dass_16_m VARCHAR (50),
+dass_17_m VARCHAR (50),
+dass_18_m VARCHAR (50),
+dass_19_m VARCHAR (50),
+dass_20_m VARCHAR (50),
+dass_21_m VARCHAR (50));
+
+
+
+
+CREATE TABLE redcap_data.opening_clinicians(
+    primary_key VARCHAR (20) PRIMARY KEY,
+    opening_clinicians_timestamp VARCHAR (50),
+who_clin VARCHAR (50),
+who_other_clin VARCHAR (50),
+name_clin VARCHAR (50));
+
+
+
+
+CREATE TABLE redcap_data.inq(
+    primary_key VARCHAR (20) PRIMARY KEY,
+    inq_timestamp VARCHAR (50),
+inq_1 VARCHAR (50),
+inq_2 VARCHAR (50),
+inq_3 VARCHAR (50),
+inq_4 VARCHAR (50),
+inq_5 VARCHAR (50),
+inq_6 VARCHAR (50),
+inq_7 VARCHAR (50),
+inq_8 VARCHAR (50),
+inq_9 VARCHAR (50),
+inq_10 VARCHAR (50),
+inq_11 VARCHAR (50),
+inq_12 VARCHAR (50),
+inq_13 VARCHAR (50),
+inq_14 VARCHAR (50),
+inq_15 VARCHAR (50));
+
+
+
+
+CREATE TABLE redcap_data.swan_f(
+    primary_key VARCHAR (20) PRIMARY KEY,
+    swan_f_timestamp VARCHAR (50),
+swan_1_f VARCHAR (50),
+swan_2_f VARCHAR (50),
+swan_3_f VARCHAR (50),
+swan_4_f VARCHAR (50),
+swan_5_f VARCHAR (50),
+swan_6_f VARCHAR (50),
+swan_7_f VARCHAR (50),
+swan_8_f VARCHAR (50),
+swan_9_f VARCHAR (50),
+swan_10_f VARCHAR (50),
+swan_11_f VARCHAR (50),
+swan_12_f VARCHAR (50),
+swan_13_f VARCHAR (50),
+swan_14_f VARCHAR (50),
+swan_15_f VARCHAR (50),
+swan_16_f VARCHAR (50),
+swan_17_f VARCHAR (50),
+swan_18_f VARCHAR (50));
+
+
+
+
+CREATE TABLE redcap_data.demographics_f(
+    primary_key VARCHAR (20) PRIMARY KEY,
+    demographic_parents_f_timestamp VARCHAR (50),
+parents_who_f VARCHAR (50),
+parent_who_other_f VARCHAR (50),
+parents_age_f VARCHAR (50),
+parents_born_f VARCHAR (50),
+parents_born_2_f VARCHAR (50),
+born_child_f VARCHAR (50),
+born_child_2_f VARCHAR (50),
+parent_religion_f VARCHAR (50),
+parent_religion_other_f VARCHAR (50),
+parents_economy_f VARCHAR (50),
+parents_education_f VARCHAR (50),
+parents_education_other_f VARCHAR (50),
+parents_work_f VARCHAR (50),
+paresnts_work_2_f VARCHAR (50),
+together_live_f VARCHAR (50),
+with_who_f___1 VARCHAR (50),
+with_who_f___2 VARCHAR (50),
+with_who_f___3 VARCHAR (50),
+with_who_f___4 VARCHAR (50),
+with_who_f___5 VARCHAR (50),
+with_who_f___6 VARCHAR (50),
+with_who_f___7 VARCHAR (50),
+with_who_other_f VARCHAR (50));
+
+CREATE TABLE redcap_data.demographics_m(
+    primary_key VARCHAR (20) PRIMARY KEY,
+    demographic_parents_m_timestamp VARCHAR (50),
+parents_who_m VARCHAR (50),
+parent_who_other_m VARCHAR (50),
+parents_age_m VARCHAR (50),
+parents_born_m VARCHAR (50),
+parents_born_2_m VARCHAR (50),
+born_child_m VARCHAR (50),
+born_child_2_m VARCHAR (50),
+parent_religion_m VARCHAR (50),
+parent_religion_other_m VARCHAR (50),
+parents_economy_m VARCHAR (50),
+parents_education_m VARCHAR (50),
+parents_education_other_m VARCHAR (50),
+parents_work_m VARCHAR (50),
+paresnts_work_2_m VARCHAR (50),
+together_live_m VARCHAR (50),
+with_who_m___1 VARCHAR (50),
+with_who_m___2 VARCHAR (50),
+with_who_m___3 VARCHAR (50),
+with_who_m___4 VARCHAR (50),
+with_who_m___5 VARCHAR (50),
+with_who_m___6 VARCHAR (50),
+with_who_m___7 VARCHAR (50),
+with_who_other_m VARCHAR (50));
+
+
+
+
+CREATE TABLE redcap_data.mini_kid_sum_stu(
+    primary_key VARCHAR (20) PRIMARY KEY,
+    mini_kid_sum_stu_timestamp VARCHAR (50),
+mini_class_stu VARCHAR (50),
+mini_date_stu VARCHAR (50),
+mini_interviewer_stu VARCHAR (50),
+mini_date_interview_stu VARCHAR (50),
+mini_medication_stu___1 VARCHAR (50),
+mini_medication_stu___2 VARCHAR (50),
+mini_medication_stu___3 VARCHAR (50),
+mini_medication_stu___4 VARCHAR (50),
+mini_medication_stu___5 VARCHAR (50),
+mini_medicine_other_stu VARCHAR (50),
+mini_start_time_stu VARCHAR (50),
+mini_end_time_stu VARCHAR (50),
+mini_total_time_stu VARCHAR (50),
+depres_stu___1 VARCHAR (50),
+depres_stu___2 VARCHAR (50),
+depres_stu___3 VARCHAR (50),
+suicide_stu___1 VARCHAR (50),
+suicide_stu___2 VARCHAR (50),
+suicide_risk_stu VARCHAR (50),
+dysthemia_stu___1 VARCHAR (50),
+manic_stu___1 VARCHAR (50),
+manic_stu___2 VARCHAR (50),
+hypomania_stu___1 VARCHAR (50),
+hypomania_stu___2 VARCHAR (50),
+bipolar_i_stu___1 VARCHAR (50),
+bipolar_i_stu___2 VARCHAR (50),
+bipolar_ii_stu___1 VARCHAR (50),
+bipolar_ii_stu___2 VARCHAR (50),
+bipolar_unclassified_stu___1 VARCHAR (50),
+bipolar_unclassified_stu___2 VARCHAR (50),
+panic_stu___1 VARCHAR (50),
+panic_stu___2 VARCHAR (50),
+agoraphobia_stu___1 VARCHAR (50),
+separation_anxiety_stu___1 VARCHAR (50),
+social_anxiety_stu___1 VARCHAR (50),
+social_anxiety_stu___2 VARCHAR (50),
+social_anxiety_stu___3 VARCHAR (50),
+phobia_stu___1 VARCHAR (50),
+ocd_stu___1 VARCHAR (50),
+ptsd_stu___1 VARCHAR (50),
+alcohol_depend_stu___1 VARCHAR (50),
+alcohol_use_stu___1 VARCHAR (50),
+drug_depend_stu___1 VARCHAR (50),
+drug_use_stu___1 VARCHAR (50),
+tourette_stu___1 VARCHAR (50),
+motor_tics_stu___1 VARCHAR (50),
+vocal_tics_stu___1 VARCHAR (50),
+transient_tics_stu___1 VARCHAR (50),
+adhd_mix_stu___1 VARCHAR (50),
+adhd_attention_stu___1 VARCHAR (50),
+adhd_hyper_stu___1 VARCHAR (50),
+conduct_stu___1 VARCHAR (50),
+odd_stu___1 VARCHAR (50),
+psychotic_stu___1 VARCHAR (50),
+psychotic_stu___2 VARCHAR (50),
+affect_psychotic_stu___1 VARCHAR (50),
+affect_psychotic_stu___2 VARCHAR (50),
+anorexia_stu___1 VARCHAR (50),
+bulimia_stu___1 VARCHAR (50),
+anorexia_bulmus_stu___1 VARCHAR (50),
+gad_stu___1 VARCHAR (50),
+adjustment_stu___1 VARCHAR (50),
+organic_stu VARCHAR (50),
+development_stu___1 VARCHAR (50),
+main_dianose_stu VARCHAR (50));
+
+
+
+
+CREATE TABLE redcap_data.chameleon(
+    primary_key VARCHAR (20) PRIMARY KEY,
+    chameleon_timestamp VARCHAR (50),
+chameleon_follow_stu VARCHAR (50),
+treatment_end_stu VARCHAR (50),
+treatment_end_2_stu VARCHAR (50),
+visit_date_stu VARCHAR (50),
+chameleon_ideation_stu VARCHAR (50),
+chameleon_behavior_stu VARCHAR (50),
+chameleon_attempt_stu VARCHAR (50),
+chameleon_nssi_stu VARCHAR (50),
+chameleon_suicide_er_stu VARCHAR (50),
+chameleon_suicide_er_date_stu VARCHAR (50),
+chameleon_suicide_er_date_2_stu VARCHAR (50),
+chameleon_suicide_er_date_3_stu VARCHAR (50),
+chameleon_psychiatric_stu VARCHAR (50),
+chameleon_psychiatric_date_stu VARCHAR (50),
+chameleon_psychiatric_date_2_stu VARCHAR (50),
+chameleon_psychiatric_date_3_stu VARCHAR (50),
+emergency_stu VARCHAR (50),
+chameleon_psychotherapy_stu VARCHAR (50),
+chameleon_psychotherapy_2_stu___1 VARCHAR (50),
+chameleon_psychotherapy_2_stu___2 VARCHAR (50),
+chameleon_psychotherapy_2_stu___3 VARCHAR (50),
+chameleon_psychotherapy_2_stu___4 VARCHAR (50),
+chameleon_psychotherapy_2_stu___5 VARCHAR (50),
+chameleon_psychotherapy_2_stu___6 VARCHAR (50),
+chameleon_psychotherapy_2_stu___7 VARCHAR (50),
+chameleon_psychotherapy_other_stu VARCHAR (50),
+chameleon_medicine_stu VARCHAR (50),
+chameleon_medicine_2_stu___1 VARCHAR (50),
+chameleon_medicine_2_stu___2 VARCHAR (50),
+chameleon_medicine_2_stu___3 VARCHAR (50),
+chameleon_medicine_2_stu___4 VARCHAR (50),
+chameleon_medicine_2_stu___5 VARCHAR (50),
+chameleon_medicine_other_stu VARCHAR (50),
+chameleon_notes_stu VARCHAR (50));
+
+
+CREATE TABLE redcap_data.demographics_f(
+    primary_key VARCHAR (20) PRIMARY KEY,
+    demographic_parents_f_timestamp VARCHAR (50),
+parents_who_f VARCHAR (50),
+parent_who_other_f VARCHAR (50),
+parents_age_f VARCHAR (50),
+parents_born_f VARCHAR (50),
+parents_born_2_f VARCHAR (50),
+born_child_f VARCHAR (50),
+born_child_2_f VARCHAR (50),
+parent_religion_f VARCHAR (50),
+parent_religion_other_f VARCHAR (50),
+parents_economy_f VARCHAR (50),
+parents_education_f VARCHAR (50),
+parents_education_other_f VARCHAR (50),
+parents_work_f VARCHAR (50),
+paresnts_work_2_f VARCHAR (50),
+together_live_f VARCHAR (50),
+with_who_f___1 VARCHAR (50),
+with_who_f___2 VARCHAR (50),
+with_who_f___3 VARCHAR (50),
+with_who_f___4 VARCHAR (50),
+with_who_f___5 VARCHAR (50),
+with_who_f___6 VARCHAR (50),
+with_who_f___7 VARCHAR (50),
+with_who_other_f VARCHAR (50));
