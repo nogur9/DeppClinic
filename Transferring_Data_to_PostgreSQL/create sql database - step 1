@@ -1,0 +1,48 @@
+CREATE SCHEMA auxiliary_questionnaires_data;
+
+
+CREATE SCHEMA data_errors;
+
+
+CREATE SCHEMA data_imputations;
+
+
+CREATE SCHEMA redcap_data;
+
+
+CREATE SCHEMA support_data;
+
+
+CREATE TABLE data_imputations.group_imputations (
+ 	patient_id VARCHAR (50),
+	group_name VARCHAR (50)
+);
+
+CREATE TABLE support_data.columns_to_apply_default_merge_solution (
+ 	column_name VARCHAR (255)
+);
+
+CREATE TABLE support_data.ids_of_app_users (
+ 	patient_id VARCHAR (50)
+);
+
+
+
+COPY support_data.ids_of_app_users (patient_id)
+FROM '/postgres_db/helper_docs/APP_patient_ids.csv'
+DELIMITER ','
+CSV HEADER;
+
+
+
+COPY support_data.columns_to_apply_default_merge_solution
+FROM '/postgres_db/helper_docs/columns_to_apply_default_merge_solution.csv'
+DELIMITER ','
+CSV HEADER;
+
+
+
+COPY data_imputations.group_imputations
+FROM '/postgres_db/helper_docs/group_imputations.csv'
+DELIMITER ','
+CSV HEADER;

@@ -252,7 +252,7 @@ def compute_ari_p_score(df, skipna=False):
     EXECUTE.
 
     """
-
+    # ToDo: Fix computation - wrong columns
     ARI_P_columns = Questionnaires().questionnaires['ARI_P']['columns']
 
     # Compute the sum for ARI_P_SUM
