@@ -1,6 +1,7 @@
 import pandas as pd
 import numpy as np
 import re
+import psycopg2
 
 
 
@@ -131,7 +132,7 @@ def map_additional_column_name_to_2021_clinician_column_name(column_name, target
             return new_column_name, success
         
         
-def remove_from_stu_columns(string):
+def should_remove_from_stu_columns(string):
       
     terms = ['wai_t', 'maris_y_scars', 'er','sdrs','cdrs','medhis','diet',
          'inclusion','exclusion','week', 'three_mon','six_mon','twelve_mon','c_ssrs_f', 'cssrs_f',
@@ -142,9 +143,61 @@ def remove_from_stu_columns(string):
             return True
     col_names = ['opening_clinicians_complete', 'opening_therapist_battery_timestamp', 'time',
                 'parents_safety_plan', 'safety_plan', 'safety_plan_changed', 'opening_therapist_battery_complete',
-                'suicide_form_timestamp', 'suiciform_time', 'suicide_form_complete']
-    
-    for col in col_names:
-        if string == col:
-            return True 
+                'suicide_form_timestamp', 'suiciform_time', 'suicide_form_complete', 'cgi_i']
+
+
+    imputation_data_mini_columns = ['mini_kid_sum_timestamp', 'mini_class', 'mini_date', 'mini_interviewer',
+                                    'mini_date_interview', 'mini_medication___1', 'mini_medication___2',
+                                    'mini_medication___3', 'mini_medication___4', 'mini_medication___5',
+                                    'mini_medicine_other', 'mini_start_time', 'mini_end_time', 'mini_total_time',
+                                    'depres___1', 'depres___2', 'depres___3', 'suicide___1', 'suicide___2',
+                                    'suicide_risk', 'dysthemia___1', 'manic___1', 'manic___2', 'hypomania___1',
+                                    'hypomania___2', 'bipolar_i___1', 'bipolar_i___2', 'bipolar_ii___1',
+                                    'bipolar_ii___2', 'bipolar_unclassified___1', 'bipolar_unclassified___2',
+                                    'panic___1', 'panic___2', 'agoraphobia___1', 'separation_anxiety___1',
+                                    'social_anxiety___1', 'social_anxiety___2', 'social_anxiety___3', 'phobia___1',
+                                    'ocd___1', 'ptsd___1', 'alcohol_depend___1', 'alcohol_use___1', 'drug_depend___1',
+                                    'drug_use___1', 'tourette___1', 'motor_tics___1', 'vocal_tics___1',
+                                    'transient_tics___1', 'adhd_mix___1', 'adhd_attention___1', 'adhd_hyper___1',
+                                    'conduct___1', 'odd___1', 'psychotic___1', 'psychotic___2', 'affect_psychotic___1',
+                                    'affect_psychotic___2', 'anorexia___1', 'bulimia___1', 'anorexia_bulmus___1',
+                                    'gad___1', 'adjustment___1', 'organic', 'development___1', 'main_dianose',
+                                    'mini_kid_sum_complete']
+
+    if string in  col_names + imputation_data_mini_columns:
+            return True
+
     return False
+
+
+def upload_to_old_data_column_names_map(conn_str, questionnaire, old_2_redcap_map):
+
+    conn = psycopg2.connect(conn_str)
+    cur = conn.cursor()
+
+    cur.execute("""UPDATE  auxiliary_questionnaires_data.questionnaires_columns_names
+    SET old_data_column_names_map = '{0}'
+    WHERE questionnaire_name = {1};""".format(repr(old_2_redcap_map).replace("'", "\""), questionnaire))
+
+    # Make the changes to the database persistent
+    conn.commit()
+
+    # Close cursor and communication with the database
+    cur.close()
+    conn.close()
+
+
+def upload_to_imputation_data_to_old_data_map(conn_str, questionnaire, imputation_2_old_map):
+    conn = psycopg2.connect(conn_str, questionnaire)
+    cur = conn.cursor()
+
+    cur.execute("""UPDATE  auxiliary_questionnaires_data.questionnaires_columns_names
+    SET imputation_data_to_old_data_map = '{0}'
+    WHERE questionnaire_name = {1};""".format(repr(imputation_2_old_map).replace("'", "\""), questionnaire))
+
+    # Make the changes to the database persistent
+    conn.commit()
+
+    # Close cursor and communication with the database
+    cur.close()
+    conn.close()

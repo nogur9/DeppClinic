@@ -1,8 +1,8 @@
 CREATE TABLE auxiliary_questionnaires_data.questionnaires_columns_names (
   questionnaire_name text NOT NULL,
   column_names text[], -- this is an array column
-  old_data_column_names jsonb, -- this is a jsonb column
-  imputation_data_column_names jsonb, -- this is a jsonb column
+  old_data_column_names_map jsonb, -- this is a jsonb column
+  imputation_data_to_old_data_map jsonb, -- this is a jsonb column
   reverse_questions text[] -- this is an array column
 
 );
@@ -107,7 +107,7 @@ VALUES('c_ssrs_clin',
 INSERT INTO auxiliary_questionnaires_data.questionnaires_columns_names (questionnaire_name, column_names)
 VALUES('c_ssrs_stu',
 	ARRAY[
-'cssrs_t_stu_timestamp',
+    'cssrs_t_stu_timestamp',
     'c_ssrs_t_time_stu',
     'c_ssrs_t_2weeks_1_stu',
     'c_ssrs_t_2weeks_2_stu',
@@ -416,6 +416,7 @@ VALUES('scs_clin',
 INSERT INTO auxiliary_questionnaires_data.questionnaires_columns_names (questionnaire_name, column_names)
 VALUES('scs_stu',
 	ARRAY[
+	'sci_c_stu_timestamp',
     'sci_c_1_1_stu',
     'scs_2_1_stu',
     'scs_2_2_stu',
@@ -2093,8 +2094,8 @@ VALUES('opening_students',
 INSERT INTO auxiliary_questionnaires_data.questionnaires_columns_names (questionnaire_name, column_names)
 VALUES('cgi_s_stu',
 	ARRAY[
-		'cgi_s_base_stu',
-		'cgi_s_stu_complete'
+	    'cgi_s_stu_timestamp',
+		'cgi_s_base_stu'
 	]
 );
 
