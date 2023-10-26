@@ -393,6 +393,7 @@ VALUES('sci_af_ca',
 INSERT INTO auxiliary_questionnaires_data.questionnaires_columns_names (questionnaire_name, column_names)
 VALUES('scs_clin',
 	ARRAY[
+	'sci_c_clin_timestamp',
 	'sci_c_1_1_clin',
     'scs_2_1_clin',
     'scs_2_2_clin',

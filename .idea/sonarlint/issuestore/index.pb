@@ -563,3 +563,33 @@ l
 KTransferring_Data_to_PostgreSQL/create sql database - step 3, redcap tables,e\8\e8ada032a5074a000803841967649c7dcf96a5fc
 m
 =Transferring_Data_to_PostgreSQL/create_sql/docker-compose.yml,d\d\ddceecb9f9c9eb4a86d1ba52c5276d3bb5ccd126
+d
+4Data/Transferring_Data_to_PostgreSQL/redcap_data.csv,6\e\6e927839463de42ab14aecb1b23f10f9d739db4f
+m
+=Data/OriginalDataset/Schneider Depression Clinic Database.csv,6\5\658fc2bc55d48ffa9c5609592640a7d1c28d311d
+Ç
+RTransferring_Data_to_PostgreSQL/step 3 - creating SQL tables for RedCap data.ipynb,8\b\8b75051f0ad9a1d0a062d7fa44b8e14b39bf888b
+{
+Kcreating_the_clinic_dataset/step1_fill_missing_2021_clin_stu/new main.ipynb,c\5\c55ef54a3f112cafbc44c9673ab1e5d8e007620d
+ô
+icreating_the_clinic_dataset/step1_fill_missing_2021_clin_stu/.ipynb_checkpoints/new main-checkpoint.ipynb,6\3\63600c50933caba7b514522e9d67a9cb47bb9abf
+†
+pTransferring_Data_to_PostgreSQL/.ipynb_checkpoints/step 3 - creating SQL tables for RedCap data-checkpoint.ipynb,5\4\54f0dcf899355372e17ebac381bb97438a0b651b
+m
+=Data/OriginalDataset/ImmiRiskIPT2022_DATA_2023-09-03_1503.csv,5\7\571cc9ca09abe25c5e4b9d9395b3da1921db71f9
+{
+Kcreating_the_clinic_dataset/step1_fill_missing_2021_clin_stu/renaming.ipynb,4\7\47fed53b9fb991e61cf326d3f56c16731151d25e
+ô
+icreating_the_clinic_dataset/step1_fill_missing_2021_clin_stu/.ipynb_checkpoints/renaming-checkpoint.ipynb,e\8\e8e61a56856e4366a8b2c9c21e24a6c6f772c652
+w
+Gcreating_the_clinic_dataset/step1_fill_missing_2021_clin_stu/main.ipynb,a\2\a2ba720ad61c5f613ef82dc81867acae9e01b745
+¢
+rcreating_the_clinic_dataset/step1_fill_missing_2021_clin_stu/.ipynb_checkpoints/renaming-with sql-checkpoint.ipynb,9\f\9fa74ab518a5da02f6e31ae708c564c8c29088b6
+≠
+}Transferring_Data_to_PostgreSQL/insert_original_data/.ipynb_checkpoints/creating primary key for redcap data-checkpoint.ipynb,f\7\f700c0ca0efebb33560cf30e82f5fb70af147a8d
+è
+_Transferring_Data_to_PostgreSQL/insert_original_data/creating primary key for redcap data.ipynb,9\c\9c55f490ebbde13b38a04ae278beca62b984f604
+Ñ
+Tcreating_the_clinic_dataset/step1_fill_missing_2021_clin_stu/renaming-with sql.ipynb,a\2\a291cf50b20a6e9321193d160181483bc449f9e7
+`
+0Data/helper_docs/Student_Clinician_data_2021.csv,1\d\1d53141c423a396ecaae422a39289ebb08822b76

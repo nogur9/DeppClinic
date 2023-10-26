@@ -1,0 +1,979 @@
+CREATE TABLE auxiliary_questionnaires_data.old_data_questionnaires_columns_names (
+  questionnaire_name text NOT NULL,
+  column_names text[], -- this is an array column
+  imputation_data_to_old_data_map jsonb, -- this is a jsonb column
+);
+
+
+
+INSERT INTO auxiliary_questionnaires_data.questionnaires_columns_names (questionnaire_name, column_names)
+VALUES('c_ssrs_intake',
+	ARRAY['cssrs_intake_timestamp',
+
+]
+);
+
+INSERT INTO auxiliary_questionnaires_data.questionnaires_columns_names (questionnaire_name, column_names)
+VALUES('c_ssrs',
+	ARRAY['cssrs_timestamp',
+
+]
+);
+
+INSERT INTO auxiliary_questionnaires_data.questionnaires_columns_names (questionnaire_name, column_names)
+VALUES('c_ssrs_clin',
+	ARRAY[
+'cssrs_t_clin_timestamp', 'c_ssrs_t_time_clin', 'c_ssrs_t_2weeks_2_clin', 'c_ssrs_t_2weeks_3_clin', 'c_ssrs_t_2weeks_4_clin', 'c_ssrs_t_2weeks_5_clin', 'c_ssrs_t_last_1_clin', 'c_ssrs_t_last_2_clin', 'c_ssrs_t_last_3_clin', 'c_ssrs_t_last_4_clin', 'c_ssrs_t_last_5_clin', 'c_ssrs_t_life_1_clin', 'c_ssrs_t_life_2_clin', 'c_ssrs_t_life_3_clin', 'c_ssrs_t_life_4_clin', 'c_ssrs_t_life_5_clin', 'c_ssrs_t_6_clin', 'c_ssrs_t_7_clin', 'c_ssrs_t_8_clin', 'c_ssrs_t_9_clin', 'c_ssrs_t_10_clin', 'c_ssrs_t_11_2weeks_clin', 'c_ssrs_t_12_2weeks_clin', 'c_ssrs_t_13_2weeks_clin', 'c_ssrs_t_14_2weeks_clin', 'c_ssrs_t_15_2weeks_clin', 'c_ssrs_t_16_2weeks_clin', 'suicidal_behavior_last_11_clin', 'suicidal_behavior_last_12_clin', 'suicidal_behavior_last_13_clin', 'suicidal_behavior_last_14_clin', 'suicidal_behavior_last_15_clin', 'suicidal_behavior_last_16_clin', 'c_ssrs_t_11_life_clin', 'c_ssrs_t_12_life_clin', 'c_ssrs_t_13_life_clin', 'c_ssrs_t_14_life_clin', 'c_ssrs_t_15_life_clin', 'c_ssrs_t_16_life_clin'
+]
+);
+
+INSERT INTO auxiliary_questionnaires_data.questionnaires_columns_names (questionnaire_name, column_names)
+VALUES('c_ssrs_stu',
+	ARRAY[
+'cssrs_t_stu_timestamp', 'c_ssrs_t_time_stu', 'c_ssrs_t_2weeks_1_stu', 'c_ssrs_t_2weeks_2_stu', 'c_ssrs_t_2weeks_3_stu', 'c_ssrs_t_2weeks_4_stu', 'c_ssrs_t_2weeks_5_stu', 'c_ssrs_t_last_1_stu', 'c_ssrs_t_last_2_stu', 'c_ssrs_t_last_3_stu', 'c_ssrs_t_last_4_stu', 'c_ssrs_t_last_5_stu', 'c_ssrs_t_life_1_stu', 'c_ssrs_t_life_2_stu', 'c_ssrs_t_life_3_stu', 'c_ssrs_t_life_4_stu', 'c_ssrs_t_life_5_stu', 'c_ssrs_t_6_stu', 'c_ssrs_t_7_stu', 'c_ssrs_t_8_stu', 'c_ssrs_t_9_stu', 'c_ssrs_t_10_stu', 'c_ssrs_t_11_2weeks_stu', 'c_ssrs_t_12_2weeks_stu', 'c_ssrs_t_13_2weeks_stu', 'c_ssrs_t_14_2weeks_stu', 'c_ssrs_t_15_2weeks_stu', 'c_ssrs_t_16_2weeks_stu', 'suicidal_behavior_last_11_stu', 'suicidal_behavior_last_12_stu', 'suicidal_behavior_last_13_stu', 'suicidal_behavior_last_14_stu', 'suicidal_behavior_last_15_stu', 'suicidal_behavior_last_16_stu', 'c_ssrs_t_11_life_stu', 'c_ssrs_t_12_life_stu', 'c_ssrs_t_13_life_stu', 'c_ssrs_t_14_life_stu', 'c_ssrs_t_15_life_stu', 'c_ssrs_t_16_life_stu'
+]
+);
+
+
+INSERT INTO auxiliary_questionnaires_data.questionnaires_columns_names (questionnaire_name, column_names)
+VALUES('mfq',
+	ARRAY[
+	'mfq_short_timestamp',
+
+	]
+);
+
+
+
+INSERT INTO auxiliary_questionnaires_data.questionnaires_columns_names (questionnaire_name, column_names)
+VALUES('siq',
+	ARRAY[
+	'siq_timestamp',
+
+	]
+);
+
+INSERT INTO auxiliary_questionnaires_data.questionnaires_columns_names (questionnaire_name, column_names)
+VALUES('sdq',
+	ARRAY[
+	'sdq_timestamp',
+
+]
+);
+
+
+INSERT INTO auxiliary_questionnaires_data.questionnaires_columns_names (questionnaire_name, column_names)
+VALUES('scared',
+	ARRAY[
+	'scared_timestamp',
+
+]
+);
+
+
+INSERT INTO auxiliary_questionnaires_data.questionnaires_columns_names (questionnaire_name, column_names)
+VALUES('ATHENS',
+	ARRAY[
+    'athens_1',
+
+	]
+);
+
+
+INSERT INTO auxiliary_questionnaires_data.questionnaires_columns_names (questionnaire_name, column_names)
+VALUES('SAS',
+	ARRAY[
+	'sas_timestamp',
+
+    	]
+);
+
+
+INSERT INTO auxiliary_questionnaires_data.questionnaires_columns_names (questionnaire_name, column_names)
+VALUES('sci_af_ca',
+	ARRAY[
+	'sciafca_timestamp',
+
+    ]
+);
+
+
+INSERT INTO auxiliary_questionnaires_data.questionnaires_columns_names (questionnaire_name, column_names)
+VALUES('scs_clin',
+	ARRAY[
+    'sci_c_clin_timestamp', 'sci_c_1_1_clin', 'scs_2_1_clin', 'scs_2_2_clin', 'scs_2_3_clin', 'scs_2_4_clin', 'sci_c_3_1_clin', 'sci_c_3_2_clin', 'sci_c_3_3_clin', 'sci_c_3_4_clin', 'sci_c_4_1_clin', 'sci_c_4_2_clin', 'sci_c_4_3_clin', 'sci_c_4_4_clin', 'sci_c_5_1_clin', 'sci_c_5_2_clin'
+	]
+);
+
+
+INSERT INTO auxiliary_questionnaires_data.questionnaires_columns_names (questionnaire_name, column_names)
+VALUES('scs_stu',
+	ARRAY[
+'sci_c_stu_timestamp', ''sci_c_1_1_stu', 'scs_2_1_stu', 'scs_2_2_stu', 'scs_2_3_stu', 'scs_2_4_stu', 'sci_c_3_1_stu', 'sci_c_3_2_stu', 'sci_c_3_3_stu', 'sci_c_3_4_stu', 'sci_c_4_1_stu', 'sci_c_4_2_stu', 'sci_c_4_3_stu', 'sci_c_4_4_stu', 'sci_c_5_1_stu', 'sci_c_5_2_stu'
+    ]
+);
+
+
+INSERT INTO auxiliary_questionnaires_data.questionnaires_columns_names (questionnaire_name, column_names)
+VALUES('sci_mother',
+	ARRAY[
+	'scip_m_timestamp',
+
+    ]
+);
+
+
+
+INSERT INTO auxiliary_questionnaires_data.questionnaires_columns_names (questionnaire_name, column_names)
+VALUES('sci_father',
+	ARRAY[
+	'scip_f_timestamp',
+
+    ]
+);
+
+
+
+
+
+
+
+INSERT INTO auxiliary_questionnaires_data.questionnaires_columns_names (questionnaire_name, column_names)
+VALUES('mast',
+	ARRAY[
+		'immirisk_adolescents_mast_athens_timestamp',
+		'age',
+		'mast_1',
+
+	]
+);
+
+
+
+
+INSERT INTO auxiliary_questionnaires_data.questionnaires_columns_names (questionnaire_name, column_names)
+VALUES('maris_sci_sf',
+	ARRAY[
+		'marisscisf_timestamp',
+		'age_child',
+		'maris_sci_sf_1',
+
+	]
+);
+
+
+
+
+INSERT INTO auxiliary_questionnaires_data.questionnaires_columns_names (questionnaire_name, column_names)
+VALUES('maris_soq_sf',
+	ARRAY[
+		'marissoqsf_timestamp',
+
+	]
+);
+
+
+
+INSERT INTO auxiliary_questionnaires_data.questionnaires_columns_names (questionnaire_name, column_names)
+VALUES('ARI_P_M',
+	ARRAY[
+		'arippps_m_timestamp',
+
+		'pps_2_m'
+
+	]
+);
+
+
+INSERT INTO auxiliary_questionnaires_data.questionnaires_columns_names (questionnaire_name, column_names)
+VALUES('ARI_S',
+	ARRAY[
+		'aris_timestamp',
+
+	]
+);
+
+
+
+INSERT INTO auxiliary_questionnaires_data.questionnaires_columns_names (questionnaire_name, column_names)
+VALUES('demographics_f',
+	ARRAY[
+		'demographic_parents_f_timestamp',
+
+		'with_who_other_f'
+	]
+);
+
+
+
+
+
+INSERT INTO auxiliary_questionnaires_data.questionnaires_columns_names (questionnaire_name, column_names)
+VALUES('demographics_m',
+	ARRAY[
+		'demographic_parents_m_timestamp',
+
+		'with_who_other_m']
+);
+
+
+
+
+INSERT INTO auxiliary_questionnaires_data.questionnaires_columns_names (questionnaire_name, column_names)
+VALUES('swan_m',
+	ARRAY[
+	'swan_m_timestamp',
+
+    ]
+);
+
+
+
+
+INSERT INTO auxiliary_questionnaires_data.questionnaires_columns_names (questionnaire_name, column_names)
+VALUES('swan_f',
+	ARRAY[
+	'swan_f_timestamp',
+
+	]
+);
+
+
+
+INSERT INTO auxiliary_questionnaires_data.questionnaires_columns_names (questionnaire_name, column_names)
+VALUES('dass_f',
+	ARRAY[
+		'dass_f_timestamp',
+
+	]
+);
+
+
+
+INSERT INTO auxiliary_questionnaires_data.questionnaires_columns_names (questionnaire_name, column_names)
+VALUES('ecr_f',
+	ARRAY[
+		'ecr_f_timestamp',
+
+	]
+);
+
+
+
+
+INSERT INTO auxiliary_questionnaires_data.questionnaires_columns_names (questionnaire_name, column_names)
+VALUES('trq_sf_maris_clin',
+	ARRAY[
+'trqsfmarisclin_timestamp', 'trq_sf_maris_1_clin', 'trq_sf_maris_2_clin', 'trq_sf_maris_3_clin', 'trq_sf_maris_4_clin', 'trq_sf_maris_5_clin', 'trq_sf_maris_6_clin', 'trq_sf_maris_7_clin', 'trq_sf_maris_8_clin', 'trq_sf_maris_9_clin', 'trq_sf_maris_10_clin', 'trq_sf_maris_11_clin', 'trq_sf_maris_12_clin', 'trq_sf_maris_13_clin', 'trq_sf_maris_14_clin'
+	]
+);
+
+
+
+
+
+INSERT INTO auxiliary_questionnaires_data.questionnaires_columns_names (questionnaire_name, column_names)
+VALUES('screening_form',
+	ARRAY[
+# Empty
+
+	]
+);
+
+
+
+INSERT INTO auxiliary_questionnaires_data.questionnaires_columns_names (questionnaire_name, column_names)
+VALUES('c_ssrs_fu_maya',
+	ARRAY[
+		'cssrs_fw_maya_timestamp',
+
+		'c_ssrs_fu_done_2_clin'
+	]
+);
+
+
+
+INSERT INTO auxiliary_questionnaires_data.questionnaires_columns_names (questionnaire_name, column_names)
+VALUES('opening',
+	ARRAY[
+		'opening_timestamp',
+
+	]
+);
+
+
+
+
+INSERT INTO auxiliary_questionnaires_data.questionnaires_columns_names (questionnaire_name, column_names)
+VALUES('covid19',
+	ARRAY[
+		'covid19_timestamp',
+
+	]
+);
+
+
+
+
+INSERT INTO auxiliary_questionnaires_data.questionnaires_columns_names (questionnaire_name, column_names)
+VALUES('opening_child_pre',
+	ARRAY[
+		'opening_child_pre_timestamp',
+		'age_child_pre',
+		'gender'
+	]
+);
+
+
+
+
+INSERT INTO auxiliary_questionnaires_data.questionnaires_columns_names (questionnaire_name, column_names)
+VALUES('erc_rc',
+	ARRAY[
+		'ecrrc_timestamp',
+
+	]
+);
+
+
+
+
+
+INSERT INTO auxiliary_questionnaires_data.questionnaires_columns_names (questionnaire_name, column_names)
+VALUES('piu_cyberbulling',
+	ARRAY[
+		'piu_cyberbulling_timestamp',
+
+	]
+);
+
+
+
+
+INSERT INTO auxiliary_questionnaires_data.questionnaires_columns_names (questionnaire_name, column_names)
+VALUES('erq_ca',
+	ARRAY[
+
+		'erqca_timestamp',
+
+	]
+);
+
+
+
+
+INSERT INTO auxiliary_questionnaires_data.questionnaires_columns_names (questionnaire_name, column_names)
+VALUES('ders',
+	ARRAY[
+		'ders_timestamp',
+
+	]
+);
+
+
+
+
+INSERT INTO auxiliary_questionnaires_data.questionnaires_columns_names (questionnaire_name, column_names)
+VALUES('wai',
+	ARRAY[
+		'wai_timestamp',
+
+	]
+);
+
+
+
+
+
+
+
+INSERT INTO auxiliary_questionnaires_data.questionnaires_columns_names (questionnaire_name, column_names)
+VALUES('cshq_m',
+	ARRAY[
+		'cshq_m_timestamp',
+
+	]
+);
+
+
+
+
+
+
+INSERT INTO auxiliary_questionnaires_data.questionnaires_columns_names (questionnaire_name, column_names)
+VALUES('sdq_parents_m',
+	ARRAY[
+		'sdq_parents_m_timestamp',
+
+	]
+);
+
+
+
+
+
+INSERT INTO auxiliary_questionnaires_data.questionnaires_columns_names (questionnaire_name, column_names)
+VALUES('dass_m',
+	ARRAY[
+		'dass_m_timestamp',
+
+	]
+);
+
+
+
+
+
+INSERT INTO auxiliary_questionnaires_data.questionnaires_columns_names (questionnaire_name, column_names)
+VALUES('ders_p_m',
+	ARRAY[
+		'ders_p_m_timestamp',
+
+	]
+);
+
+
+
+
+
+INSERT INTO auxiliary_questionnaires_data.questionnaires_columns_names (questionnaire_name, column_names)
+VALUES('ecr_m',
+	ARRAY[
+	'ecr_m_timestamp',
+
+	]
+);
+
+
+
+
+
+INSERT INTO auxiliary_questionnaires_data.questionnaires_columns_names (questionnaire_name, column_names)
+VALUES('cshq_f',
+	ARRAY[
+		'cshq_f_timestamp',
+
+	]
+);
+
+
+
+
+
+
+INSERT INTO auxiliary_questionnaires_data.questionnaires_columns_names (questionnaire_name, column_names)
+VALUES('erq_f',
+	ARRAY[
+		'erq_f_timestamp',
+
+	]
+);
+
+
+
+
+
+
+
+INSERT INTO auxiliary_questionnaires_data.questionnaires_columns_names (questionnaire_name, column_names)
+VALUES('ARI_P_F',
+	ARRAY[
+		'arippps_f_timestamp',
+
+		'pps_2_f'
+	]
+);
+
+
+
+
+INSERT INTO auxiliary_questionnaires_data.questionnaires_columns_names (questionnaire_name, column_names)
+VALUES('opening_clinicians',
+	ARRAY[
+		'opening_clinicians_timestamp',
+		'who_clin',
+		'who_other_clin',
+		'name_clin'
+	]
+);
+
+
+
+
+INSERT INTO auxiliary_questionnaires_data.questionnaires_columns_names (questionnaire_name, column_names)
+VALUES('wai_immirisk_clin',
+	ARRAY[
+'wai_immirisk_clin_timestamp', 'wai_t_immi_1_clin', 'wai_t_immi_2_clin', 'wai_t_immi_3_clin', 'wai_t_immi_4_clin', 'wai_t_immi_5_clin', 'wai_t_immi_6_clin', 'wai_t_immi_7_clin', 'wai_t_immi_8_clin', 'wai_t_immi_9_clin', 'wai_t_immi_10_clin', 'wai_t_immi_11_clin', 'wai_t_immi_12_clin'
+	]
+);
+
+
+
+
+INSERT INTO auxiliary_questionnaires_data.questionnaires_columns_names (questionnaire_name, column_names)
+VALUES('remote_clin',
+	ARRAY[
+'remote_clin_timestamp', 'remote_1_clin'
+	]
+);
+
+
+
+
+INSERT INTO auxiliary_questionnaires_data.questionnaires_columns_names (questionnaire_name, column_names)
+VALUES('er_questionnaire_clin',
+	ARRAY[
+'er_questionnaire_clin_timestamp', 'er_name_clin', 'er_date_of_birth_clin', 'er_id_clin', 'er_arrival_clin', 'er_reason_clin', 'er_attemp_time_clin', 'er_planned_clin', 'er_regret_clin', 'er_cut_first_clin', 'er_thoughts_clin', 'er_worst_thoughts_clin', 'er_thoughts_now_clin', 'er_medicine_clin', 'er_medicine_what_clin', 'er_medicine_mg_clin'
+	]
+);
+
+
+
+
+INSERT INTO auxiliary_questionnaires_data.questionnaires_columns_names (questionnaire_name, column_names)
+VALUES('suicide_form_clin',
+	ARRAY[
+'suicide_form_clin_timestamp', 'suiciform_time_clin', 'medhis_1_clin', 'medhis_1_1_clin', 'medhis_2_clin', 'medhis_2_1_clin', 'medhis_3_clin', 'medhis_3_1_clin', 'medhis_4_clin', 'medhis_4_1_clin', 'medhis_5_clin', 'medhis_5_1_clin', 'medhis_6_clin', 'medhis_6_1_clin', 'medhis_7_clin', 'medhis_7_1_clin', 'medhis_8_clin', 'medhis_8_1_clin', 'medhis_9_clin', 'medhis_9_1_clin', 'medhis_10_clin', 'medhis_10_1_clin', 'medhis_11_clin', 'medhis_11_1_clin', 'medhis_12_clin', 'medhis_12_1_clin', 'medhis_13_clin', 'medhis_13_1_clin', 'medhis_details_clin', 'diet_1_clin', 'diet_1_1_clin', 'diet_2_clin', 'diet_2_1_clin', 'diet_3_clin', 'diet_3_1_clin', 'diet_4_clin', 'diet_4_1_clin', 'diet_5_clin', 'diet_5_1_clin', 'medhis_clin', 'inclusion_1_clin', 'inclusion_2_clin', 'exclusion_1_clin', 'exclusion_2_clin', 'exclusion_3_clin', 'exclusion_4_clin', 'exclusion_5_clin', 'exclusion_6_clin', 'week_1_clin', 'week_1_1_clin', 'week_2_clin', 'week_2_1_clin', 'week_3_clin', 'week_medic_clin', 'three_mon_1_clin', 'three_mon_1_1_clin', 'three_mon_2_clin', 'three_mon_2_1_clin', 'three_mon_3_clin', 'three_mon_medic_clin', 'six_mon_1_clin', 'six_mon_1_1_clin', 'six_mon_2_clin', 'six_mon_2_1_clin', 'six_mon_3_clin', 'six_mon_medic_clin', 'twelve_mon_1_clin', 'twelve_mon_1_1_clin', 'twelve_mon_2_clin', 'twelve_mon_2_1_clin', 'twelve_mon_3_clin', 'twelve_mon_medic_clin'
+]
+);
+
+
+
+
+
+INSERT INTO auxiliary_questionnaires_data.questionnaires_columns_names (questionnaire_name, column_names)
+VALUES('mini_kid_sum_clin',
+	ARRAY[
+'mini_kid_sum_clin_timestamp', 'mini_class_clin', 'mini_date_clin', 'mini_interviewer_clin', 'mini_date_interview_clin', 'mini_medication_clin___1', 'mini_medication_clin___2', 'mini_medication_clin___3', 'mini_medication_clin___4', 'mini_medication_clin___5', 'mini_medicine_other_clin', 'mini_start_time_clin', 'mini_end_time_clin', 'mini_total_time_clin', 'depres_clin___1', 'depres_clin___2', 'depres_clin___3', 'suicide_clin___1', 'suicide_clin___2', 'suicide_risk_clin', 'dysthemia_clin___1', 'manic_clin___1', 'manic_clin___2', 'hypomania_clin___1', 'hypomania_clin___2', 'bipolar_i_clin___1', 'bipolar_i_clin___2', 'bipolar_ii_clin___1', 'bipolar_ii_clin___2', 'bipolar_unclassified_clin___1', 'bipolar_unclassified_clin___2', 'panic_clin___1', 'panic_clin___2', 'agoraphobia_clin___1', 'separation_anxiety_clin___1', 'social_anxiety_clin___1', 'social_anxiety_clin___2', 'social_anxiety_clin___3', 'phobia_clin___1', 'ocd_clin___1', 'ptsd_clin___1', 'alcohol_depend_clin___1', 'alcohol_use_clin___1', 'drug_depend_clin___1', 'drug_use_clin___1', 'tourette_clin___1', 'motor_tics_clin___1', 'vocal_tics_clin___1', 'transient_tics_clin___1', 'adhd_mix_clin___1', 'adhd_attention_clin___1', 'adhd_hyper_clin___1', 'conduct_clin___1', 'odd_clin___1', 'psychotic_clin___1', 'psychotic_clin___2', 'affect_psychotic_clin___1', 'affect_psychotic_clin___2', 'anorexia_clin___1', 'bulimia_clin___1', 'anorexia_bulmus_clin___1', 'gad_clin___1', 'adjustment_clin___1', 'organic_clin', 'development_clin___1', 'main_dianose_clin'
+]
+);
+
+
+
+
+
+
+INSERT INTO auxiliary_questionnaires_data.questionnaires_columns_names (questionnaire_name, column_names)
+VALUES('trq_sf_maris_stu',
+	ARRAY[
+'trqsfmaris_stu_timestamp', 'trq_sf_maris_1_stu', 'trq_sf_maris_2_stu', 'trq_sf_maris_3_stu', 'trq_sf_maris_4_stu', 'trq_sf_maris_5_stu', 'trq_sf_maris_6_stu', 'trq_sf_maris_7_stu', 'trq_sf_maris_8_stu', 'trq_sf_maris_9_stu', 'trq_sf_maris_10_stu', 'trq_sf_maris_11_stu', 'trq_sf_maris_12_stu', 'trq_sf_maris_13_stu', 'trq_sf_maris_14_stu'
+]
+);
+
+
+
+
+
+
+
+INSERT INTO auxiliary_questionnaires_data.questionnaires_columns_names (questionnaire_name, column_names)
+VALUES('mini_kid_sum_stu',
+	ARRAY[
+'mini_kid_sum_stu_timestamp', 'mini_class_stu', 'mini_date_stu', 'mini_interviewer_stu', 'mini_date_interview_stu', 'mini_medication_stu___1', 'mini_medication_stu___2', 'mini_medication_stu___3', 'mini_medication_stu___4', 'mini_medication_stu___5', 'mini_medicine_other_stu', 'mini_start_time_stu', 'mini_end_time_stu', 'mini_total_time_stu', 'depres_stu___1', 'depres_stu___2', 'depres_stu___3', 'suicide_stu___1', 'suicide_stu___2', 'suicide_risk_stu', 'dysthemia_stu___1', 'manic_stu___1', 'manic_stu___2', 'hypomania_stu___1', 'hypomania_stu___2', 'bipolar_i_stu___1', 'bipolar_i_stu___2', 'bipolar_ii_stu___1', 'bipolar_ii_stu___2', 'bipolar_unclassified_stu___1', 'bipolar_unclassified_stu___2', 'panic_stu___1', 'panic_stu___2', 'agoraphobia_stu___1', 'separation_anxiety_stu___1', 'social_anxiety_stu___1', 'social_anxiety_stu___2', 'social_anxiety_stu___3', 'phobia_stu___1', 'ocd_stu___1', 'ptsd_stu___1', 'alcohol_depend_stu___1', 'alcohol_use_stu___1', 'drug_depend_stu___1', 'drug_use_stu___1', 'tourette_stu___1', 'motor_tics_stu___1', 'vocal_tics_stu___1', 'transient_tics_stu___1', 'adhd_mix_stu___1', 'adhd_attention_stu___1', 'adhd_hyper_stu___1', 'conduct_stu___1', 'odd_stu___1', 'psychotic_stu___1', 'psychotic_stu___2', 'affect_psychotic_stu___1', 'affect_psychotic_stu___2', 'anorexia_stu___1', 'bulimia_stu___1', 'anorexia_bulmus_stu___1', 'gad_stu___1', 'adjustment_stu___1', 'organic_stu', 'development_stu___1', 'main_dianose_stu'
+]
+);
+
+
+
+
+
+INSERT INTO auxiliary_questionnaires_data.questionnaires_columns_names (questionnaire_name, column_names)
+VALUES('chameleon',
+	ARRAY[
+	'chameleon_timestamp',
+'chameleon_follow_stu',
+ 'treatment_end_stu',
+ 'treatment_end_2_stu',
+ 'visit_date_stu',
+ 'chameleon_ideation_stu',
+ 'chameleon_behavior_stu',
+ 'chameleon_attempt_stu',
+ 'chameleon_nssi_stu',
+ 'chameleon_suicide_er_stu',
+ 'chameleon_suicide_er_date_stu',
+ 'chameleon_suicide_er_date_2_stu',
+ 'chameleon_suicide_er_date_3_stu',
+ 'chameleon_psychiatric_stu',
+ 'chameleon_psychiatric_date_stu',
+ 'chameleon_psychiatric_date_2_stu',
+ 'chameleon_psychiatric_date_3_stu',
+ 'emergency_stu',
+ 'chameleon_psychotherapy_stu',
+ 'chameleon_psychotherapy_2_stu___1',
+ 'chameleon_psychotherapy_2_stu___2',
+ 'chameleon_psychotherapy_2_stu___3',
+ 'chameleon_psychotherapy_2_stu___4',
+ 'chameleon_psychotherapy_2_stu___5',
+ 'chameleon_psychotherapy_2_stu___6',
+ 'chameleon_psychotherapy_2_stu___7',
+ 'chameleon_psychotherapy_other_stu',
+ 'chameleon_medicine_stu',
+ 'chameleon_medicine_2_stu___1',
+ 'chameleon_medicine_2_stu___2',
+ 'chameleon_medicine_2_stu___3',
+ 'chameleon_medicine_2_stu___4',
+ 'chameleon_medicine_2_stu___5',
+ 'chameleon_medicine_other_stu',
+ 'chameleon_notes_stu'
+]
+);
+
+
+
+
+
+INSERT INTO auxiliary_questionnaires_data.questionnaires_columns_names (questionnaire_name, column_names)
+VALUES('erq_m',
+	ARRAY[
+		'erq_m_timestamp',
+
+]
+);
+
+
+
+
+
+INSERT INTO auxiliary_questionnaires_data.questionnaires_columns_names (questionnaire_name, column_names)
+VALUES('cts_m',
+	ARRAY[
+		'cts_m_timestamp',
+
+]
+);
+
+
+
+
+
+INSERT INTO auxiliary_questionnaires_data.questionnaires_columns_names (questionnaire_name, column_names)
+VALUES('moas_m',
+	ARRAY[
+'moas_m_timestamp',
+
+]
+);
+
+
+
+
+
+
+INSERT INTO auxiliary_questionnaires_data.questionnaires_columns_names (questionnaire_name, column_names)
+VALUES('ending_parent_m',
+	ARRAY[
+		'ending_parent_m_timestamp',
+		'therapy_child_2_m',
+		'ending_childparent_m'
+]
+);
+
+
+
+
+
+
+INSERT INTO auxiliary_questionnaires_data.questionnaires_columns_names (questionnaire_name, column_names)
+VALUES('opening_parents_f',
+	ARRAY[
+		'opening_parents_f_timestamp',
+		'who_fills_out_f',
+		'who_fills_out_2_f'
+]
+);
+
+
+
+
+
+
+
+INSERT INTO auxiliary_questionnaires_data.questionnaires_columns_names (questionnaire_name, column_names)
+VALUES('sdq_parents_f',
+	ARRAY[
+		'sdq_parents_f_timestamp',
+
+]
+);
+
+
+
+
+
+
+INSERT INTO auxiliary_questionnaires_data.questionnaires_columns_names (questionnaire_name, column_names)
+VALUES('ders_p_f',
+	ARRAY[
+	'ders_p_f_timestamp',
+
+	]
+);
+
+
+
+
+
+INSERT INTO auxiliary_questionnaires_data.questionnaires_columns_names (questionnaire_name, column_names)
+VALUES('cdrsr_clin',
+	ARRAY[
+'cdrsr_clin_timestamp', 'cdrs_impaired_schoolwork_clin', 'cdrs_difficulty_having_fun_clin', 'sdrs_social_withdrawal_clin', 'cdrs_sleep_disturbance_clin', 'cdrs_sleep_disturbance_2_clin', 'cdrs_appetite_disturbance_clin', 'cdrs_appetite_disturbance_2_clin', 'cdrs_excessive_fatigue_clin', 'cdrs_physical_complaints_clin', 'sdrs_irritability_clin', 'cdrs_excessive_guilt_clin', 'cdrs_low_self_esteem_clin', 'cdrs_depressed_feelings_clin', 'cdrs_morbid_ideation_clin', 'cdrs_suicidal_ideation_clin', 'cdrs_excessive_weeping_clin', 'cdrs_depressed_facial_affect_clin', 'cdrs_listless_speech_clin', 'cdrs_hypoactivity_clin', 'cdrs_sum_clin'
+	]
+);
+
+
+
+
+
+
+
+INSERT INTO auxiliary_questionnaires_data.questionnaires_columns_names (questionnaire_name, column_names)
+VALUES('ffq',
+	ARRAY[
+	# Empty
+]
+);
+
+
+
+
+
+
+
+INSERT INTO auxiliary_questionnaires_data.questionnaires_columns_names (questionnaire_name, column_names)
+VALUES('opening_students',
+	ARRAY[
+        'opening_students_timestamp', 'who_stu', 'who_other_stu', 'name_stu'
+	]
+);
+
+
+
+
+
+
+INSERT INTO auxiliary_questionnaires_data.questionnaires_columns_names (questionnaire_name, column_names)
+VALUES('cgi_s_stu',
+	ARRAY[
+	    'cgi_s_stu_timestamp',
+		'cgi_s_base_stu'
+	]
+);
+
+
+
+
+
+INSERT INTO auxiliary_questionnaires_data.questionnaires_columns_names (questionnaire_name, column_names)
+VALUES('remote_stu',
+	ARRAY[
+	'remote_stu_timestamp', 'remote_1_stu'
+	]
+);
+
+
+
+
+
+
+INSERT INTO auxiliary_questionnaires_data.questionnaires_columns_names (questionnaire_name, column_names)
+VALUES('cps_stu',
+	ARRAY[
+	'cps_stu_timestamp', 'cps_1_stu', 'cps_2_stu'
+	]
+);
+
+
+
+
+
+
+INSERT INTO auxiliary_questionnaires_data.questionnaires_columns_names (questionnaire_name, column_names)
+VALUES('cps_clin',
+	ARRAY[
+		'cps_clin_timestamp', 'cps_1_clin', 'cps_2_clin'
+	]
+);
+
+
+
+
+
+
+INSERT INTO auxiliary_questionnaires_data.questionnaires_columns_names (questionnaire_name, column_names)
+VALUES('cgi_s_clin',
+	ARRAY[
+	'cgi_s_clin_timestamp', 'cgi_s_base_clin'
+	]
+);
+
+
+
+
+
+
+
+
+
+INSERT INTO auxiliary_questionnaires_data.questionnaires_columns_names (questionnaire_name, column_names)
+VALUES('opening_therapist_battery',
+	ARRAY[
+'opening_therapist_battery_timestamp', 'time_clin', 'parents_safety_plan_clin', 'safety_plan_clin', 'safety_plan_changed_clin', 'cgi_s_clin', 'cgi_i_clin', 'wai_t_1_clin', 'wai_t_2_clin', 'wai_t_3_clin', 'wai_t_4_clin', 'wai_t_5_clin', 'wai_t_6_clin', 'wai_t_7_clin', 'wai_t_8_clin', 'wai_t_9_clin', 'wai_t_10_clin', 'wai_t_11_clin', 'wai_t_12_clin'
+	]
+);
+
+
+
+
+
+INSERT INTO auxiliary_questionnaires_data.questionnaires_columns_names (questionnaire_name, column_names)
+VALUES('maris_y_scars_clin',
+	ARRAY[
+'marisyscars_clin_timestamp', 'maris_y_scars_1_clin', 'maris_y_scars_2_clin', 'maris_y_scars_3_clin', 'maris_y_scars_4_clin', 'maris_y_scars_5_clin', 'maris_y_scars_6_clin', 'maris_y_scars_7_clin', 'maris_y_scars_8_clin'
+	]
+);
+
+
+
+
+
+
+INSERT INTO auxiliary_questionnaires_data.questionnaires_columns_names (questionnaire_name, column_names)
+VALUES('ending_parent_f',
+	ARRAY[
+		'ending_parent_f_timestamp',
+		'therapy_child_2_f',
+		'ending_childparent_f'
+	]
+);
+
+
+
+
+
+
+INSERT INTO auxiliary_questionnaires_data.questionnaires_columns_names (questionnaire_name, column_names)
+VALUES('moas_f',
+	ARRAY[
+		'moas_f_timestamp',
+
+	]
+);
+
+
+
+
+
+
+INSERT INTO auxiliary_questionnaires_data.questionnaires_columns_names (questionnaire_name, column_names)
+VALUES('cts_f',
+	ARRAY[
+		'cts_f_timestamp',
+
+	]
+);
+
+
+
+
+
+
+INSERT INTO auxiliary_questionnaires_data.questionnaires_columns_names (questionnaire_name, column_names)
+VALUES('cts_c',
+	ARRAY[
+		'cts_c_timestamp',
+
+	]
+);
+
+
+
+
+
+
+INSERT INTO auxiliary_questionnaires_data.questionnaires_columns_names (questionnaire_name, column_names)
+VALUES('dshi_pre',
+	ARRAY[
+		'dshi_pre_timestamp',
+
+	]
+);
+
+
+
+
+
+
+INSERT INTO auxiliary_questionnaires_data.questionnaires_columns_names (questionnaire_name, column_names)
+VALUES('dshi_post',
+	ARRAY[
+		'dshi_post_timestamp',
+
+	]
+);
+
+
+
+
+
+
+INSERT INTO auxiliary_questionnaires_data.questionnaires_columns_names (questionnaire_name, column_names)
+VALUES('inq',
+	ARRAY[
+'inq_timestamp',
+
+	]
+);
+
+
+
+
+
+INSERT INTO auxiliary_questionnaires_data.questionnaires_columns_names (questionnaire_name, column_names)
+VALUES('ending',
+	ARRAY[
+		'ending_timestamp',
+		'therapy_child',
+		'ending_child'
+
+	]
+);
+
+
+
+
+
+
+INSERT INTO auxiliary_questionnaires_data.questionnaires_columns_names (questionnaire_name, column_names)
+VALUES('opening_parents_m',
+	ARRAY[
+		'opening_parents_m_timestamp',
+		'who_fills_out_m',
+		'who_fills_out_2_m'
+	]
+);
+
+
+
+
+
+
+INSERT INTO auxiliary_questionnaires_data.questionnaires_columns_names (questionnaire_name, column_names)
+VALUES('estimation_and_satisfaction',
+	ARRAY[
+		'estimation_and_satisfaction_timestamp',
+
+	]
+);
+
+
+
+
+
+INSERT INTO auxiliary_questionnaires_data.questionnaires_columns_names (questionnaire_name, column_names)
+VALUES('intro',
+	ARRAY[
+		'record_id',
+		'redcap_event_name',
+		'redcap_survey_identifier'
+	]
+);
