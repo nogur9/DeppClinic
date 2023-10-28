@@ -585,10 +585,6 @@ w
 Gcreating_the_clinic_dataset/step1_fill_missing_2021_clin_stu/main.ipynb,a\2\a2ba720ad61c5f613ef82dc81867acae9e01b745
 ¢
 rcreating_the_clinic_dataset/step1_fill_missing_2021_clin_stu/.ipynb_checkpoints/renaming-with sql-checkpoint.ipynb,9\f\9fa74ab518a5da02f6e31ae708c564c8c29088b6
-≠
-}Transferring_Data_to_PostgreSQL/insert_original_data/.ipynb_checkpoints/creating primary key for redcap data-checkpoint.ipynb,f\7\f700c0ca0efebb33560cf30e82f5fb70af147a8d
-è
-_Transferring_Data_to_PostgreSQL/insert_original_data/creating primary key for redcap data.ipynb,9\c\9c55f490ebbde13b38a04ae278beca62b984f604
 Ñ
 Tcreating_the_clinic_dataset/step1_fill_missing_2021_clin_stu/renaming-with sql.ipynb,a\2\a291cf50b20a6e9321193d160181483bc449f9e7
 `
@@ -601,8 +597,6 @@ kcreating_the_clinic_dataset/step1_fill_missing_2021_clin_stu/renaming-checking 
 âcreating_the_clinic_dataset/step1_fill_missing_2021_clin_stu/.ipynb_checkpoints/renaming-checking full columns-Clinician-checkpoint.ipynb,d\6\d617acff5b9777683ffd7c127f24993334cac36d
 õ
 kcreating_the_clinic_dataset/step1_fill_missing_2021_clin_stu/renaming-checking full columns-Clinician.ipynb,0\7\0709bffa45d129f937b2689106b6f09cfb927430
-ä
-ZTransferring_Data_to_PostgreSQL/create sql database - step 2 auxiliary_questionnaires_data,0\8\083d8dddb80e3968409aa1f048473576788497da
 ∏
 ácreating_the_clinic_dataset/step1_fill_missing_2021_clin_stu/.ipynb_checkpoints/renaming-checking full columns-Student-checkpoint.ipynb,f\e\fe07a2d502de0beeeac79e002942565f1e4092cd
 ∫

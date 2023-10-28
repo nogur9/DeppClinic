@@ -47,6 +47,7 @@ INSERT INTO auxiliary_questionnaires_data.questionnaires_columns_names (question
 VALUES('c_ssrs_clin',
 	ARRAY[
     'cssrs_t_clin_timestamp',
+    'c_ssrs_t_2weeks_1_clin',
     'c_ssrs_t_2weeks_2_clin',
     'c_ssrs_t_2weeks_3_clin',
     'c_ssrs_t_2weeks_4_clin',
@@ -2402,7 +2403,13 @@ INSERT INTO auxiliary_questionnaires_data.questionnaires_columns_names (question
 VALUES('intro',
 	ARRAY[
 		'record_id',
+
+		'ID_Merge',
+		'ID_2',y
+
 		'redcap_event_name',
 		'redcap_survey_identifier'
 	]
 );
+
+### should I add primary key column?
