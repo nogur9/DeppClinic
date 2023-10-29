@@ -191,7 +191,7 @@ def upload_to_imputation_data_to_old_data_map(conn_str, questionnaire, imputatio
     conn = psycopg2.connect(conn_str, questionnaire)
     cur = conn.cursor()
 
-    cur.execute("""UPDATE  auxiliary_questionnaires_data.questionnaires_columns_names
+    cur.execute("""UPDATE  auxiliary_questionnaires_data.old_data_questionnaires_columns_names
     SET imputation_data_to_old_data_map = '{0}'
     WHERE questionnaire_name = {1};""".format(repr(imputation_2_old_map).replace("'", "\""), questionnaire))
 
@@ -201,3 +201,4 @@ def upload_to_imputation_data_to_old_data_map(conn_str, questionnaire, imputatio
     # Close cursor and communication with the database
     cur.close()
     conn.close()
+

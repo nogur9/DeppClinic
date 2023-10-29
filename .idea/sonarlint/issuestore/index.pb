@@ -595,9 +595,9 @@ icreating_the_clinic_dataset/step1_fill_missing_2021_clin_stu/renaming-checking 
 kcreating_the_clinic_dataset/step1_fill_missing_2021_clin_stu/renaming-checking full columns-Chameleon.ipynb,3\d\3deeafeed2c76d72c1dd36ea5407ce430bb9a6fa
 º
 ‰creating_the_clinic_dataset/step1_fill_missing_2021_clin_stu/.ipynb_checkpoints/renaming-checking full columns-Clinician-checkpoint.ipynb,d\6\d617acff5b9777683ffd7c127f24993334cac36d
-›
-kcreating_the_clinic_dataset/step1_fill_missing_2021_clin_stu/renaming-checking full columns-Clinician.ipynb,0\7\0709bffa45d129f937b2689106b6f09cfb927430
 ¸
 ‡creating_the_clinic_dataset/step1_fill_missing_2021_clin_stu/.ipynb_checkpoints/renaming-checking full columns-Student-checkpoint.ipynb,f\e\fe07a2d502de0beeeac79e002942565f1e4092cd
 º
 ‰creating_the_clinic_dataset/step1_fill_missing_2021_clin_stu/.ipynb_checkpoints/renaming-checking full columns-Chameleon-checkpoint.ipynb,6\0\607f18f326e8567687de670dc787c0961edb6f2c
+Š
+ZTransferring_Data_to_PostgreSQL/create sql database - step 2 auxiliary_questionnaires_data,0\8\083d8dddb80e3968409aa1f048473576788497da
