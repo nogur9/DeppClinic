@@ -173,8 +173,6 @@ S
 #snorkel_exercise/display text.ipynb,6\9\69bae5316c8522d4ba764eedb585ac394929bbee
 v
 Fsnorkel_exercise/.ipynb_checkpoints/snorkel-attempt 1-checkpoint.ipynb,f\8\f89f8d492c37cf84afb6102ea67600b7943a0943
-j
-:creating_the_clinic_dataset/step2_merge_2021_2022/utils.py,9\1\91495b5aa9d539fcee1eb62bd61792e3703f5bab
 i
 9creating_the_clinic_dataset/step2_merge_2021_2022/main.py,c\3\c3815a6c1834b0f37f29542dc03e5b098a19e54e
 m
@@ -379,8 +377,6 @@ V
 &projects/Liat graphs/Liat graphs.ipynb,9\e\9e0bec5287e5ad24edbcf6d595660855b09b7b47
 b
 2Data/redcap_data/redcap_wai_immirisk_clin_data.csv,5\8\581463c331c886d5b7519e3f8d9c74fb0ec231a4
-’
-bTransferring_Data_to_PostgreSQL/.ipynb_checkpoints/step 4 -uploading redcap data -checkpoint.ipynb,f\9\f953c85337ce0c6f69be17644238e47817b05c0a
 X
 (Data/redcap_data/redcap_ari_p_f_data.csv,d\c\dc55c041f77453ca60f7e38802bdb266b8b9659d
 W
@@ -445,8 +441,6 @@ b
 2Data/redcap_data/redcap_opening_parents_f_data.csv,3\9\39368a9c152ce3a50373914c558f9fd165232fca
 `
 0Data/redcap_data/redcap_ending_parent_m_data.csv,0\e\0e512516071b58e4b82af7d9ba2e1a49d22ca8dc
-t
-DTransferring_Data_to_PostgreSQL/step 4 -uploading redcap data .ipynb,0\c\0c4ccd1b45ce5cbe1d347a4048b4d55bc43a2f47
 z
 Jprojects/Liat graphs/data/support and invalid data/time3_invalid_group.csv,d\1\d1089f880533c1bc74cbaebf32bac108e7c477e1
 [
@@ -557,8 +551,6 @@ Z
 *Data/redcap_data/redcap_sci_af_ca_data.csv,4\2\42e381accbd506d2225264c8840bb06ba487b297
 Q
 !utils/consts/questions_columns.py,5\0\5014c63199c7090d679d93c45f4821f69ee8562b
-l
-<Transferring_Data_to_PostgreSQL/create sql database - step 1,e\d\ed163d44735ef67d582ce92c12c0efa095cc8b7f
 {
 KTransferring_Data_to_PostgreSQL/create sql database - step 3, redcap tables,e\8\e8ada032a5074a000803841967649c7dcf96a5fc
 m
@@ -601,3 +593,15 @@ kcreating_the_clinic_dataset/step1_fill_missing_2021_clin_stu/renaming-checking 
 ‰creating_the_clinic_dataset/step1_fill_missing_2021_clin_stu/.ipynb_checkpoints/renaming-checking full columns-Chameleon-checkpoint.ipynb,6\0\607f18f326e8567687de670dc787c0961edb6f2c
 Š
 ZTransferring_Data_to_PostgreSQL/create sql database - step 2 auxiliary_questionnaires_data,0\8\083d8dddb80e3968409aa1f048473576788497da
+Ÿ
+ocreating_the_clinic_dataset/step1_fill_missing_2021_clin_stu/completing_missing_clinician_questionnaire_2021.py,4\6\462d35e177fe7a3b9f11bf4371e42c04535a9a0f
+­
+}Transferring_Data_to_PostgreSQL/insert_original_data/.ipynb_checkpoints/creating primary key for redcap data-checkpoint.ipynb,f\7\f700c0ca0efebb33560cf30e82f5fb70af147a8d
+›
+kcreating_the_clinic_dataset/step1_fill_missing_2021_clin_stu/renaming-checking full columns-Clinician.ipynb,0\7\0709bffa45d129f937b2689106b6f09cfb927430
+
+_Transferring_Data_to_PostgreSQL/insert_original_data/creating primary key for redcap data.ipynb,9\c\9c55f490ebbde13b38a04ae278beca62b984f604
+¢
+rcreating_the_clinic_dataset/step1_fill_missing_2021_clin_stu/Adding name mapping of columns between datasets.ipynb,9\c\9c7f6a5678ee9a47c2472236ed9884f356c4e00c
+Á
+creating_the_clinic_dataset/step1_fill_missing_2021_clin_stu/.ipynb_checkpoints/Adding name mapping of columns between datasets-checkpoint.ipynb,0\4\04d0056bdc94579124ec5e83e6fb5f83244cdcfe

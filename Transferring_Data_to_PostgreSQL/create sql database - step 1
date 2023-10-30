@@ -9,6 +9,8 @@ CREATE SCHEMA data_imputations;
 
 CREATE SCHEMA redcap_data;
 
+CREATE SCHEMA old_data;
+
 
 CREATE SCHEMA support_data;
 
