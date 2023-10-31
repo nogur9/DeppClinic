@@ -170,35 +170,95 @@ def should_remove_from_stu_columns(string):
     return False
 
 
-def upload_to_old_data_column_names_map(conn_str, questionnaire, old_2_redcap_map):
-
-    conn = psycopg2.connect(conn_str)
-    cur = conn.cursor()
-
-    cur.execute("""UPDATE  auxiliary_questionnaires_data.questionnaires_columns_names
-    SET old_data_column_names_map = '{0}'
-    WHERE questionnaire_name = {1};""".format(repr(old_2_redcap_map).replace("'", "\""), questionnaire))
-
-    # Make the changes to the database persistent
-    conn.commit()
-
-    # Close cursor and communication with the database
-    cur.close()
-    conn.close()
+## Functions for Step 7 in the SQL transformation - Moving jupyter code to functions
 
 
-def upload_to_imputation_data_to_old_data_map(conn_str, questionnaire, imputation_2_old_map):
-    conn = psycopg2.connect(conn_str, questionnaire)
-    cur = conn.cursor()
+def prepare_datasets():
+    old_data = pd.read_csv(r"../../Data/OriginalDataset/Schneider Depression Clinic Database.csv", na_values=' ')
+    redcap_data = pd.read_csv(r"../../Data/OriginalDataset/ImmiRiskIPT2022_DATA_2023-09-03_1503.csv", na_values=' ')
+    imputation_data = pd.read_csv(r"../../Data/helper_docs/Student_Clinician_data_2021.csv", na_values=' ')
+    # the warning rooted from the nan values
 
-    cur.execute("""UPDATE  auxiliary_questionnaires_data.old_data_questionnaires_columns_names
-    SET imputation_data_to_old_data_map = '{0}'
-    WHERE questionnaire_name = {1};""".format(repr(imputation_2_old_map).replace("'", "\""), questionnaire))
+    rename_imputation_data = {
+        'cssrs_followup_timestamp': 'cssrs_fw_maya_timestamp',
+        'cssrs_followup_complete': 'cssrs_fw_maya_complete',
+    }
 
-    # Make the changes to the database persistent
-    conn.commit()
+    rename_old_data = {
+        'cssrs_followup_timestamp': 'cssrs_fw_maya_timestamp',
+        'cssrs_followup_complete': 'cssrs_fw_maya_complete',
+        'chameleon_complete_stu': 'chameleon_complete'
+    }
 
-    # Close cursor and communication with the database
-    cur.close()
-    conn.close()
+    ## error record_id = 363
+    imputation_data = imputation_data[imputation_data['record_id'] != 363]
 
+    # do the imputation id like of redcap dataset
+    imputation_data = fill_id(imputation_data)
+
+    imputation_data = imputation_data.rename(rename_imputation_data, axis=1)
+
+    old_data = old_data.rename(rename_old_data, axis=1)
+
+    return old_data, redcap_data, imputation_data
+
+
+def get_columns_range(old_data, redcap_data, imputation_data, columns_range_mapping, is_student_data=False,
+                      is_clinician_data=False):
+    old_data_column_names = list(old_data.columns)
+    redcap_data_column_names = list(redcap_data.columns)
+    imputation_data_column_names = list(imputation_data.columns)
+
+    columns_range_indecies = {
+        'old_data_start': old_data_column_names.index(columns_range_mapping['old_data_start_column']),
+        'old_data_end': old_data_column_names.index(columns_range_mapping['old_data_end_column']) + 1,
+        'redcap_data_start': redcap_data_column_names.index(columns_range_mapping['redcap_data_start_column']),
+        'redcap_data_end': redcap_data_column_names.index(columns_range_mapping['redcap_data_end_column']) + 1,
+        'imputation_data_start': imputation_data_column_names.index(
+            columns_range_mapping['imputation_data_start_column']),
+        'imputation_data_end': imputation_data_column_names.index(
+            columns_range_mapping['imputation_data_end_column']) + 1
+    }
+
+    # ranges
+
+    old_data_columns = old_data_column_names[
+                       columns_range_indecies['old_data_start']:columns_range_indecies['old_data_end']]
+    redcap_data_columns = redcap_data_column_names[
+                          columns_range_indecies['redcap_data_start']:columns_range_indecies['redcap_data_end']]
+    imputation_data_columns = imputation_data_column_names[
+                              columns_range_indecies['imputation_data_start']:columns_range_indecies[
+                                  'imputation_data_end']]
+
+    # Altarations
+
+    # if clinician_data
+    if is_clinician_data:
+        columns_range_indecies['redcap_data_start_2'] = old_data_column_names.index(
+            columns_range_mapping['redcap_data_start_column_2'])
+        columns_range_indecies['redcap_data_end_2'] = old_data_column_names.index(
+            columns_range_mapping['redcap_data_end_column_2']) + 1
+        redcap_data_columns += redcap_data_column_names[
+                               columns_range_indecies['redcap_data_start_2']:columns_range_indecies[
+                                   'redcap_data_end_2']]
+
+    if is_student_data:
+        imputation_data_columns = imputation_data_columns + ['who', 'who_other', 'name']
+        imputation_data_columns = [i for i in imputation_data_columns if not should_remove_from_stu_columns(i)]
+
+    return old_data_columns, redcap_data_columns, imputation_data_columns
+
+
+def create_columns_names_mapping(map_from, map_to, transformation_function, is_clinician_imputation_data=False):
+    columns_names_mapping = {}
+
+    if is_clinician_imputation_data:
+        columns_names_mapping['trqsfmaris_timestamp'] = 'trqsfmarisclin_timestamp',
+        columns_names_mapping['trqsfmaris_complete'] = 'trqsfmarisclin_complete'
+
+    for column_name in map_from:
+        mapped_name, success = transformation_function(column_name, map_to)
+        if success:
+            columns_names_mapping[column_name] = mapped_name
+
+    return columns_names_mapping
