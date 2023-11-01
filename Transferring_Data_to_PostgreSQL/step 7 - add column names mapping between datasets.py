@@ -38,11 +38,11 @@ def upload_to_old_data(conn_str, questionnaire, imputation_2_old_map):
     conn.close()
 
 
-def add_name_mapping_to_DB(conn_str, questionnaires_cluster, columns_range_mapping, transformation_function,
+def add_name_mapping_to_database(conn_str, questionnaires_cluster, columns_range_mapping, transformation_function,
                            is_student_data=False, is_clinician_data=False):
 
     old_data, redcap_data, imputation_data = prepare_datasets()
-    old_data_columns, redcap_data_columns, imputation_data_columns = get_columns_range(old_data, redcap_data,
+    old_data_columns, _, imputation_data_columns = get_columns_range(old_data, redcap_data,
                                                                                        imputation_data,
                                                                                        columns_range_mapping,
                                                                                        is_student_data=is_student_data,
@@ -89,7 +89,7 @@ def add_column_names_mapping(conn_str):
     }
 
     transformation_function = map_additional_column_name_to_2021_student_column_name
-    add_name_mapping_to_DB(conn_str, ['chameleon'], columns_range_mapping, transformation_function)
+    add_name_mapping_to_database(conn_str, ['chameleon'], columns_range_mapping, transformation_function)
 
     # Student
 
@@ -106,7 +106,7 @@ def add_column_names_mapping(conn_str):
     }
 
     transformation_function = map_additional_column_name_to_2021_student_column_name
-    add_name_mapping_to_DB(conn_str, student_questionnaires, columns_range_mapping, transformation_function,
+    add_name_mapping_to_database(conn_str, student_questionnaires, columns_range_mapping, transformation_function,
                            is_student_data=True)
 
     # Clinician
@@ -128,6 +128,6 @@ def add_column_names_mapping(conn_str):
     }
 
     transformation_function = map_additional_column_name_to_2021_clinician_column_name
-    add_name_mapping_to_DB(conn_str, clinician_questionnaires, columns_range_mapping, transformation_function,
+    add_name_mapping_to_database(conn_str, clinician_questionnaires, columns_range_mapping, transformation_function,
                            is_clinician_data=True)
 

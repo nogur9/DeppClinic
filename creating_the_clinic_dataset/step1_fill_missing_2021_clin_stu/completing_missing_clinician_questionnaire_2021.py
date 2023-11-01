@@ -4,24 +4,6 @@ import re
 import psycopg2
 
 
-
-def fill_id(df):
-    """
-    This function takes a DataFrame as input, and fills out the empty 'id' values by matching them to the 'record_id' which isn't empty.
-
-    Parameters:
-        df (pandas DataFrame): The DataFrame to be cleaned.
-
-    Returns:
-        pandas DataFrame : The cleaned DataFrame.
-    """
-    df = df.copy()
-    id_map = df.dropna(subset=['id']).groupby('record_id')['id'].first()
-    id_map = {key: id_map[key] for key in id_map.keys()}
-    df['id'] = df['record_id'].apply(lambda x: id_map[x])
-    return df
-
-
 def IsClinician(row):
     """
     Determine if data in row belongs to either student or clinician.
@@ -33,24 +15,17 @@ def IsClinician(row):
     if 'who' empty, do step b: check 'opening_therapist_battery_timestamp' column:
     if column not empty. determine it's clinician
     """
+
+    if row['who'] == 1: # 'clinician'
+        return True
     
-    questionnaire_operator = 'student'
+    elif row['who'] == 2: # 'student'
+        return False
     
-    #step a
-    if row['who'] == 1:
-        questionnaire_operator = 'clinician'
-        return questionnaire_operator
-    
-    elif row['who'] == 2:
-        questionnaire_operator = 'student'
-        return questionnaire_operator
-    
-    elif pd.isnull(row['opening_therapist_battery_timestamp']):
-        questionnaire_operator = 'student'
-        return questionnaire_operator
-    else:
-        questionnaire_operator = 'clinician'
-        return questionnaire_operator
+    elif pd.isnull(row['opening_therapist_battery_timestamp']):  # 'student'
+        return False
+    else:  # 'clinician'
+        return True
     
 
 def map_additional_column_name_to_2021_student_column_name(column_name, target_columns_names):
