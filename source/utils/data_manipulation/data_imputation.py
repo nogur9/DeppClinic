@@ -1,16 +1,15 @@
 import numpy as np
-from source.utils.consts.assistment_consts import Questionnaires
+#from source.utils.consts.assistment_consts import Questionnaires
 
 
-def impute_mean_questionnaire_score(df, questionnaire_name):
+def impute_mean_questionnaire_score(df, questionnaire_columns, reverse_questions=None):
     """
 
 
     """
-    questionnaires = Questionnaires().questionnaires
-    questionnaire_columns = questionnaires[questionnaire_name]['columns']
-    if "reverse_questions" in questionnaires[questionnaire_name].keys():
-        # later_ToDo - implement
+
+    if reverse_questions is not None:
+        # ToDo - implement
         pass
 
     def impute_row_with_mean(row):

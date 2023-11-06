@@ -30,9 +30,7 @@ c_ssrs = [
     'c_ssrs_8',
 ]
 
-c_ssrs_clin = [  # 'c_ssrs_t_time_clin',  # what's that?
-
-#    'c_ssrs_t_2weeks_1_clin',
+c_ssrs_clin = [  # 'c_ssrs_t_time_clin',  # what's that?#    'c_ssrs_t_2weeks_1_clin',
     'c_ssrs_t_2weeks_2_clin',
     'c_ssrs_t_2weeks_3_clin',
     'c_ssrs_t_2weeks_4_clin',
@@ -90,8 +88,6 @@ c_ssrs_clin = [  # 'c_ssrs_t_time_clin',  # what's that?
 ]
 
 c_ssrs_stu = [
-    'cssrs_t_stu_timestamp',
-    'c_ssrs_t_time_stu',
     'c_ssrs_t_2weeks_1_stu',
     'c_ssrs_t_2weeks_2_stu',
     'c_ssrs_t_2weeks_3_stu',
@@ -341,7 +337,6 @@ sci_af_ca = [
 ]
 
 scs_clin = [
-    'sci_c_clin_timestamp',
     'sci_c_1_1_clin',
     'scs_2_1_clin',
     'scs_2_2_clin',

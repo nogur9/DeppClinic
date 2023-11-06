@@ -1,4 +1,4 @@
-CREATE TABLE auxiliary_questionnaires_data.questionnaires_columns_names (
+CREATE TABLE auxiliary_questionnaires_data.redcap_data_questionnaires_columns_names (
   questionnaire_name text NOT NULL,
   column_names text[], -- this is an array column
   old_data_column_names_map jsonb, -- this is a jsonb column
@@ -9,7 +9,7 @@ CREATE TABLE auxiliary_questionnaires_data.questionnaires_columns_names (
 
 
 
-INSERT INTO auxiliary_questionnaires_data.questionnaires_columns_names (questionnaire_name, column_names)
+INSERT INTO auxiliary_questionnaires_data.redcap_data_questionnaires_columns_names (questionnaire_name, column_names)
 VALUES('c_ssrs_intake',
 	ARRAY['cssrs_intake_timestamp',
 	'c_ssrs_1_life',
@@ -29,7 +29,7 @@ VALUES('c_ssrs_intake',
     'c_ssrs_8_intake']
 );
 
-INSERT INTO auxiliary_questionnaires_data.questionnaires_columns_names (questionnaire_name, column_names)
+INSERT INTO auxiliary_questionnaires_data.redcap_data_questionnaires_columns_names (questionnaire_name, column_names)
 VALUES('c_ssrs',
 	ARRAY['cssrs_timestamp',
 	'c_ssrs_1',
@@ -43,7 +43,7 @@ VALUES('c_ssrs',
     'c_ssrs_8']
 );
 
-INSERT INTO auxiliary_questionnaires_data.questionnaires_columns_names (questionnaire_name, column_names)
+INSERT INTO auxiliary_questionnaires_data.redcap_data_questionnaires_columns_names (questionnaire_name, column_names)
 VALUES('c_ssrs_clin',
 	ARRAY[
     'cssrs_t_clin_timestamp',
@@ -105,7 +105,7 @@ VALUES('c_ssrs_clin',
 ]
 );
 
-INSERT INTO auxiliary_questionnaires_data.questionnaires_columns_names (questionnaire_name, column_names)
+INSERT INTO auxiliary_questionnaires_data.redcap_data_questionnaires_columns_names (questionnaire_name, column_names)
 VALUES('c_ssrs_stu',
 	ARRAY[
     'cssrs_t_stu_timestamp',
@@ -168,7 +168,7 @@ VALUES('c_ssrs_stu',
 );
 
 
-INSERT INTO auxiliary_questionnaires_data.questionnaires_columns_names (questionnaire_name, column_names)
+INSERT INTO auxiliary_questionnaires_data.redcap_data_questionnaires_columns_names (questionnaire_name, column_names)
 VALUES('mfq',
 	ARRAY[
 	'mfq_short_timestamp',
@@ -194,7 +194,7 @@ VALUES('mfq',
 
 
 
-INSERT INTO auxiliary_questionnaires_data.questionnaires_columns_names (questionnaire_name, column_names)
+INSERT INTO auxiliary_questionnaires_data.redcap_data_questionnaires_columns_names (questionnaire_name, column_names)
 VALUES('siq',
 	ARRAY[
 	'siq_timestamp',
@@ -216,7 +216,7 @@ VALUES('siq',
 	]
 );
 
-INSERT INTO auxiliary_questionnaires_data.questionnaires_columns_names (questionnaire_name, column_names)
+INSERT INTO auxiliary_questionnaires_data.redcap_data_questionnaires_columns_names (questionnaire_name, column_names)
 VALUES('sdq',
 	ARRAY[
 	'sdq_timestamp',
@@ -248,7 +248,7 @@ VALUES('sdq',
 );
 
 
-INSERT INTO auxiliary_questionnaires_data.questionnaires_columns_names (questionnaire_name, column_names)
+INSERT INTO auxiliary_questionnaires_data.redcap_data_questionnaires_columns_names (questionnaire_name, column_names)
 VALUES('scared',
 	ARRAY[
 	'scared_timestamp',
@@ -296,7 +296,7 @@ VALUES('scared',
 );
 
 
-INSERT INTO auxiliary_questionnaires_data.questionnaires_columns_names (questionnaire_name, column_names)
+INSERT INTO auxiliary_questionnaires_data.redcap_data_questionnaires_columns_names (questionnaire_name, column_names)
 VALUES('ATHENS',
 	ARRAY[
     'athens_1',
@@ -311,7 +311,7 @@ VALUES('ATHENS',
 );
 
 
-INSERT INTO auxiliary_questionnaires_data.questionnaires_columns_names (questionnaire_name, column_names)
+INSERT INTO auxiliary_questionnaires_data.redcap_data_questionnaires_columns_names (questionnaire_name, column_names)
 VALUES('SAS',
 	ARRAY[
 	'sas_timestamp',
@@ -343,7 +343,7 @@ VALUES('SAS',
 );
 
 
-INSERT INTO auxiliary_questionnaires_data.questionnaires_columns_names (questionnaire_name, column_names)
+INSERT INTO auxiliary_questionnaires_data.redcap_data_questionnaires_columns_names (questionnaire_name, column_names)
 VALUES('sci_af_ca',
 	ARRAY[
 	'sciafca_timestamp',
@@ -391,7 +391,7 @@ VALUES('sci_af_ca',
 );
 
 
-INSERT INTO auxiliary_questionnaires_data.questionnaires_columns_names (questionnaire_name, column_names)
+INSERT INTO auxiliary_questionnaires_data.redcap_data_questionnaires_columns_names (questionnaire_name, column_names)
 VALUES('scs_clin',
 	ARRAY[
 	'sci_c_clin_timestamp',
@@ -415,7 +415,7 @@ VALUES('scs_clin',
 );
 
 
-INSERT INTO auxiliary_questionnaires_data.questionnaires_columns_names (questionnaire_name, column_names)
+INSERT INTO auxiliary_questionnaires_data.redcap_data_questionnaires_columns_names (questionnaire_name, column_names)
 VALUES('scs_stu',
 	ARRAY[
 	'sci_c_stu_timestamp',
@@ -438,7 +438,7 @@ VALUES('scs_stu',
 );
 
 
-INSERT INTO auxiliary_questionnaires_data.questionnaires_columns_names (questionnaire_name, column_names)
+INSERT INTO auxiliary_questionnaires_data.redcap_data_questionnaires_columns_names (questionnaire_name, column_names)
 VALUES('sci_mother',
 	ARRAY[
 	'scip_m_timestamp',
@@ -462,7 +462,7 @@ VALUES('sci_mother',
 
 
 
-INSERT INTO auxiliary_questionnaires_data.questionnaires_columns_names (questionnaire_name, column_names)
+INSERT INTO auxiliary_questionnaires_data.redcap_data_questionnaires_columns_names (questionnaire_name, column_names)
 VALUES('sci_father',
 	ARRAY[
 	'scip_f_timestamp',
@@ -490,7 +490,7 @@ VALUES('sci_father',
 
 
 
-INSERT INTO auxiliary_questionnaires_data.questionnaires_columns_names (questionnaire_name, column_names)
+INSERT INTO auxiliary_questionnaires_data.redcap_data_questionnaires_columns_names (questionnaire_name, column_names)
 VALUES('mast',
 	ARRAY[
 		'immirisk_adolescents_mast_athens_timestamp',
@@ -531,7 +531,7 @@ VALUES('mast',
 
 
 
-INSERT INTO auxiliary_questionnaires_data.questionnaires_columns_names (questionnaire_name, column_names)
+INSERT INTO auxiliary_questionnaires_data.redcap_data_questionnaires_columns_names (questionnaire_name, column_names)
 VALUES('maris_sci_sf',
 	ARRAY[
 		'marisscisf_timestamp',
@@ -551,7 +551,7 @@ VALUES('maris_sci_sf',
 
 
 
-INSERT INTO auxiliary_questionnaires_data.questionnaires_columns_names (questionnaire_name, column_names)
+INSERT INTO auxiliary_questionnaires_data.redcap_data_questionnaires_columns_names (questionnaire_name, column_names)
 VALUES('maris_soq_sf',
 	ARRAY[
 		'marissoqsf_timestamp',
@@ -568,7 +568,7 @@ VALUES('maris_soq_sf',
 
 
 
-INSERT INTO auxiliary_questionnaires_data.questionnaires_columns_names (questionnaire_name, column_names)
+INSERT INTO auxiliary_questionnaires_data.redcap_data_questionnaires_columns_names (questionnaire_name, column_names)
 VALUES('ARI_P_M',
 	ARRAY[
 		'arippps_m_timestamp',
@@ -586,7 +586,7 @@ VALUES('ARI_P_M',
 );
 
 
-INSERT INTO auxiliary_questionnaires_data.questionnaires_columns_names (questionnaire_name, column_names)
+INSERT INTO auxiliary_questionnaires_data.redcap_data_questionnaires_columns_names (questionnaire_name, column_names)
 VALUES('ARI_S',
 	ARRAY[
 		'aris_timestamp',
@@ -602,7 +602,7 @@ VALUES('ARI_S',
 
 
 
-INSERT INTO auxiliary_questionnaires_data.questionnaires_columns_names (questionnaire_name, column_names)
+INSERT INTO auxiliary_questionnaires_data.redcap_data_questionnaires_columns_names (questionnaire_name, column_names)
 VALUES('demographics_f',
 	ARRAY[
 		'demographic_parents_f_timestamp',
@@ -636,7 +636,7 @@ VALUES('demographics_f',
 
 
 
-INSERT INTO auxiliary_questionnaires_data.questionnaires_columns_names (questionnaire_name, column_names)
+INSERT INTO auxiliary_questionnaires_data.redcap_data_questionnaires_columns_names (questionnaire_name, column_names)
 VALUES('demographics_m',
 	ARRAY[
 		'demographic_parents_m_timestamp',
@@ -668,7 +668,7 @@ VALUES('demographics_m',
 
 
 
-INSERT INTO auxiliary_questionnaires_data.questionnaires_columns_names (questionnaire_name, column_names)
+INSERT INTO auxiliary_questionnaires_data.redcap_data_questionnaires_columns_names (questionnaire_name, column_names)
 VALUES('swan_m',
 	ARRAY[
 	'swan_m_timestamp',
@@ -696,7 +696,7 @@ VALUES('swan_m',
 
 
 
-INSERT INTO auxiliary_questionnaires_data.questionnaires_columns_names (questionnaire_name, column_names)
+INSERT INTO auxiliary_questionnaires_data.redcap_data_questionnaires_columns_names (questionnaire_name, column_names)
 VALUES('swan_f',
 	ARRAY[
 	'swan_f_timestamp',
@@ -723,7 +723,7 @@ VALUES('swan_f',
 
 
 
-INSERT INTO auxiliary_questionnaires_data.questionnaires_columns_names (questionnaire_name, column_names)
+INSERT INTO auxiliary_questionnaires_data.redcap_data_questionnaires_columns_names (questionnaire_name, column_names)
 VALUES('dass_f',
 	ARRAY[
 		'dass_f_timestamp',
@@ -753,7 +753,7 @@ VALUES('dass_f',
 
 
 
-INSERT INTO auxiliary_questionnaires_data.questionnaires_columns_names (questionnaire_name, column_names)
+INSERT INTO auxiliary_questionnaires_data.redcap_data_questionnaires_columns_names (questionnaire_name, column_names)
 VALUES('ecr_f',
 	ARRAY[
 		'ecr_f_timestamp',
@@ -799,10 +799,10 @@ VALUES('ecr_f',
 
 
 
-INSERT INTO auxiliary_questionnaires_data.questionnaires_columns_names (questionnaire_name, column_names)
+INSERT INTO auxiliary_questionnaires_data.redcap_data_questionnaires_columns_names (questionnaire_name, column_names)
 VALUES('trq_sf_maris_clin',
 	ARRAY[
-		'trqsfmarisclin_timestamp',
+		'trqsfmaris_clin_timestamp',
 		'trq_sf_maris_1_clin',
 		'trq_sf_maris_2_clin',
 		'trq_sf_maris_3_clin',
@@ -824,7 +824,7 @@ VALUES('trq_sf_maris_clin',
 
 
 
-INSERT INTO auxiliary_questionnaires_data.questionnaires_columns_names (questionnaire_name, column_names)
+INSERT INTO auxiliary_questionnaires_data.redcap_data_questionnaires_columns_names (questionnaire_name, column_names)
 VALUES('screening_form',
 	ARRAY[
 		'screening_form_timestamp',
@@ -866,7 +866,7 @@ VALUES('screening_form',
 
 
 
-INSERT INTO auxiliary_questionnaires_data.questionnaires_columns_names (questionnaire_name, column_names)
+INSERT INTO auxiliary_questionnaires_data.redcap_data_questionnaires_columns_names (questionnaire_name, column_names)
 VALUES('c_ssrs_fu_maya',
 	ARRAY[
 		'cssrs_fw_maya_timestamp',
@@ -901,7 +901,7 @@ VALUES('c_ssrs_fu_maya',
 
 
 
-INSERT INTO auxiliary_questionnaires_data.questionnaires_columns_names (questionnaire_name, column_names)
+INSERT INTO auxiliary_questionnaires_data.redcap_data_questionnaires_columns_names (questionnaire_name, column_names)
 VALUES('opening',
 	ARRAY[
 		'opening_timestamp',
@@ -957,7 +957,7 @@ VALUES('opening',
 
 
 
-INSERT INTO auxiliary_questionnaires_data.questionnaires_columns_names (questionnaire_name, column_names)
+INSERT INTO auxiliary_questionnaires_data.redcap_data_questionnaires_columns_names (questionnaire_name, column_names)
 VALUES('covid19',
 	ARRAY[
 		'covid19_timestamp',
@@ -985,7 +985,7 @@ VALUES('covid19',
 
 
 
-INSERT INTO auxiliary_questionnaires_data.questionnaires_columns_names (questionnaire_name, column_names)
+INSERT INTO auxiliary_questionnaires_data.redcap_data_questionnaires_columns_names (questionnaire_name, column_names)
 VALUES('opening_child_pre',
 	ARRAY[
 		'opening_child_pre_timestamp',
@@ -997,7 +997,7 @@ VALUES('opening_child_pre',
 
 
 
-INSERT INTO auxiliary_questionnaires_data.questionnaires_columns_names (questionnaire_name, column_names)
+INSERT INTO auxiliary_questionnaires_data.redcap_data_questionnaires_columns_names (questionnaire_name, column_names)
 VALUES('erc_rc',
 	ARRAY[
 		'ecrrc_timestamp',
@@ -1020,7 +1020,7 @@ VALUES('erc_rc',
 
 
 
-INSERT INTO auxiliary_questionnaires_data.questionnaires_columns_names (questionnaire_name, column_names)
+INSERT INTO auxiliary_questionnaires_data.redcap_data_questionnaires_columns_names (questionnaire_name, column_names)
 VALUES('piu_cyberbulling',
 	ARRAY[
 		'piu_cyberbulling_timestamp',
@@ -1051,7 +1051,7 @@ VALUES('piu_cyberbulling',
 
 
 
-INSERT INTO auxiliary_questionnaires_data.questionnaires_columns_names (questionnaire_name, column_names)
+INSERT INTO auxiliary_questionnaires_data.redcap_data_questionnaires_columns_names (questionnaire_name, column_names)
 VALUES('erq_ca',
 	ARRAY[
 
@@ -1072,7 +1072,7 @@ VALUES('erq_ca',
 
 
 
-INSERT INTO auxiliary_questionnaires_data.questionnaires_columns_names (questionnaire_name, column_names)
+INSERT INTO auxiliary_questionnaires_data.redcap_data_questionnaires_columns_names (questionnaire_name, column_names)
 VALUES('ders',
 	ARRAY[
 		'ders_timestamp',
@@ -1118,7 +1118,7 @@ VALUES('ders',
 
 
 
-INSERT INTO auxiliary_questionnaires_data.questionnaires_columns_names (questionnaire_name, column_names)
+INSERT INTO auxiliary_questionnaires_data.redcap_data_questionnaires_columns_names (questionnaire_name, column_names)
 VALUES('wai',
 	ARRAY[
 		'wai_timestamp',
@@ -1143,7 +1143,7 @@ VALUES('wai',
 
 
 
-INSERT INTO auxiliary_questionnaires_data.questionnaires_columns_names (questionnaire_name, column_names)
+INSERT INTO auxiliary_questionnaires_data.redcap_data_questionnaires_columns_names (questionnaire_name, column_names)
 VALUES('cshq_m',
 	ARRAY[
 		'cshq_m_timestamp',
@@ -1194,7 +1194,7 @@ VALUES('cshq_m',
 
 
 
-INSERT INTO auxiliary_questionnaires_data.questionnaires_columns_names (questionnaire_name, column_names)
+INSERT INTO auxiliary_questionnaires_data.redcap_data_questionnaires_columns_names (questionnaire_name, column_names)
 VALUES('sdq_parents_m',
 	ARRAY[
 		'sdq_parents_m_timestamp',
@@ -1238,7 +1238,7 @@ VALUES('sdq_parents_m',
 
 
 
-INSERT INTO auxiliary_questionnaires_data.questionnaires_columns_names (questionnaire_name, column_names)
+INSERT INTO auxiliary_questionnaires_data.redcap_data_questionnaires_columns_names (questionnaire_name, column_names)
 VALUES('dass_m',
 	ARRAY[
 		'dass_m_timestamp',
@@ -1271,7 +1271,7 @@ VALUES('dass_m',
 
 
 
-INSERT INTO auxiliary_questionnaires_data.questionnaires_columns_names (questionnaire_name, column_names)
+INSERT INTO auxiliary_questionnaires_data.redcap_data_questionnaires_columns_names (questionnaire_name, column_names)
 VALUES('ders_p_m',
 	ARRAY[
 		'ders_p_m_timestamp',
@@ -1318,7 +1318,7 @@ VALUES('ders_p_m',
 
 
 
-INSERT INTO auxiliary_questionnaires_data.questionnaires_columns_names (questionnaire_name, column_names)
+INSERT INTO auxiliary_questionnaires_data.redcap_data_questionnaires_columns_names (questionnaire_name, column_names)
 VALUES('ecr_m',
 	ARRAY[
 	'ecr_m_timestamp',
@@ -1366,7 +1366,7 @@ VALUES('ecr_m',
 
 
 
-INSERT INTO auxiliary_questionnaires_data.questionnaires_columns_names (questionnaire_name, column_names)
+INSERT INTO auxiliary_questionnaires_data.redcap_data_questionnaires_columns_names (questionnaire_name, column_names)
 VALUES('cshq_f',
 	ARRAY[
 		'cshq_f_timestamp',
@@ -1416,7 +1416,7 @@ VALUES('cshq_f',
 
 
 
-INSERT INTO auxiliary_questionnaires_data.questionnaires_columns_names (questionnaire_name, column_names)
+INSERT INTO auxiliary_questionnaires_data.redcap_data_questionnaires_columns_names (questionnaire_name, column_names)
 VALUES('erq_f',
 	ARRAY[
 		'erq_f_timestamp',
@@ -1439,7 +1439,7 @@ VALUES('erq_f',
 
 
 
-INSERT INTO auxiliary_questionnaires_data.questionnaires_columns_names (questionnaire_name, column_names)
+INSERT INTO auxiliary_questionnaires_data.redcap_data_questionnaires_columns_names (questionnaire_name, column_names)
 VALUES('ARI_P_F',
 	ARRAY[
 		'arippps_f_timestamp',
@@ -1458,7 +1458,7 @@ VALUES('ARI_P_F',
 
 
 
-INSERT INTO auxiliary_questionnaires_data.questionnaires_columns_names (questionnaire_name, column_names)
+INSERT INTO auxiliary_questionnaires_data.redcap_data_questionnaires_columns_names (questionnaire_name, column_names)
 VALUES('opening_clinicians',
 	ARRAY[
 		'opening_clinicians_timestamp',
@@ -1471,7 +1471,7 @@ VALUES('opening_clinicians',
 
 
 
-INSERT INTO auxiliary_questionnaires_data.questionnaires_columns_names (questionnaire_name, column_names)
+INSERT INTO auxiliary_questionnaires_data.redcap_data_questionnaires_columns_names (questionnaire_name, column_names)
 VALUES('wai_immirisk_clin',
 	ARRAY[
 		'wai_immirisk_clin_timestamp',
@@ -1493,7 +1493,7 @@ VALUES('wai_immirisk_clin',
 
 
 
-INSERT INTO auxiliary_questionnaires_data.questionnaires_columns_names (questionnaire_name, column_names)
+INSERT INTO auxiliary_questionnaires_data.redcap_data_questionnaires_columns_names (questionnaire_name, column_names)
 VALUES('remote_clin',
 	ARRAY[
 		'remote_clin_timestamp',
@@ -1504,7 +1504,7 @@ VALUES('remote_clin',
 
 
 
-INSERT INTO auxiliary_questionnaires_data.questionnaires_columns_names (questionnaire_name, column_names)
+INSERT INTO auxiliary_questionnaires_data.redcap_data_questionnaires_columns_names (questionnaire_name, column_names)
 VALUES('er_questionnaire_clin',
 	ARRAY[
 		'er_questionnaire_clin_timestamp',
@@ -1531,7 +1531,7 @@ VALUES('er_questionnaire_clin',
 
 
 
-INSERT INTO auxiliary_questionnaires_data.questionnaires_columns_names (questionnaire_name, column_names)
+INSERT INTO auxiliary_questionnaires_data.redcap_data_questionnaires_columns_names (questionnaire_name, column_names)
 VALUES('suicide_form_clin',
 	ARRAY[
 		'suicide_form_clin_timestamp',
@@ -1613,7 +1613,7 @@ VALUES('suicide_form_clin',
 
 
 
-INSERT INTO auxiliary_questionnaires_data.questionnaires_columns_names (questionnaire_name, column_names)
+INSERT INTO auxiliary_questionnaires_data.redcap_data_questionnaires_columns_names (questionnaire_name, column_names)
 VALUES('mini_kid_sum_clin',
 	ARRAY[
 		'mini_kid_sum_clin_timestamp',
@@ -1690,7 +1690,7 @@ VALUES('mini_kid_sum_clin',
 
 
 
-INSERT INTO auxiliary_questionnaires_data.questionnaires_columns_names (questionnaire_name, column_names)
+INSERT INTO auxiliary_questionnaires_data.redcap_data_questionnaires_columns_names (questionnaire_name, column_names)
 VALUES('trq_sf_maris_stu',
 	ARRAY[
 	'trqsfmaris_stu_timestamp',
@@ -1717,7 +1717,7 @@ VALUES('trq_sf_maris_stu',
 
 
 
-INSERT INTO auxiliary_questionnaires_data.questionnaires_columns_names (questionnaire_name, column_names)
+INSERT INTO auxiliary_questionnaires_data.redcap_data_questionnaires_columns_names (questionnaire_name, column_names)
 VALUES('mini_kid_sum_stu',
 	ARRAY[
 		'mini_kid_sum_stu_timestamp',
@@ -1794,7 +1794,7 @@ VALUES('mini_kid_sum_stu',
 
 
 
-INSERT INTO auxiliary_questionnaires_data.questionnaires_columns_names (questionnaire_name, column_names)
+INSERT INTO auxiliary_questionnaires_data.redcap_data_questionnaires_columns_names (questionnaire_name, column_names)
 VALUES('chameleon',
 	ARRAY[
 	'chameleon_timestamp',
@@ -1839,7 +1839,7 @@ VALUES('chameleon',
 
 
 
-INSERT INTO auxiliary_questionnaires_data.questionnaires_columns_names (questionnaire_name, column_names)
+INSERT INTO auxiliary_questionnaires_data.redcap_data_questionnaires_columns_names (questionnaire_name, column_names)
 VALUES('erq_m',
 	ARRAY[
 		'erq_m_timestamp',
@@ -1861,7 +1861,7 @@ VALUES('erq_m',
 
 
 
-INSERT INTO auxiliary_questionnaires_data.questionnaires_columns_names (questionnaire_name, column_names)
+INSERT INTO auxiliary_questionnaires_data.redcap_data_questionnaires_columns_names (questionnaire_name, column_names)
 VALUES('cts_m',
 	ARRAY[
 		'cts_m_timestamp',
@@ -1877,7 +1877,7 @@ VALUES('cts_m',
 
 
 
-INSERT INTO auxiliary_questionnaires_data.questionnaires_columns_names (questionnaire_name, column_names)
+INSERT INTO auxiliary_questionnaires_data.redcap_data_questionnaires_columns_names (questionnaire_name, column_names)
 VALUES('moas_m',
 	ARRAY[
 'moas_m_timestamp',
@@ -1910,7 +1910,7 @@ VALUES('moas_m',
 
 
 
-INSERT INTO auxiliary_questionnaires_data.questionnaires_columns_names (questionnaire_name, column_names)
+INSERT INTO auxiliary_questionnaires_data.redcap_data_questionnaires_columns_names (questionnaire_name, column_names)
 VALUES('ending_parent_m',
 	ARRAY[
 		'ending_parent_m_timestamp',
@@ -1924,7 +1924,7 @@ VALUES('ending_parent_m',
 
 
 
-INSERT INTO auxiliary_questionnaires_data.questionnaires_columns_names (questionnaire_name, column_names)
+INSERT INTO auxiliary_questionnaires_data.redcap_data_questionnaires_columns_names (questionnaire_name, column_names)
 VALUES('opening_parents_f',
 	ARRAY[
 		'opening_parents_f_timestamp',
@@ -1939,7 +1939,7 @@ VALUES('opening_parents_f',
 
 
 
-INSERT INTO auxiliary_questionnaires_data.questionnaires_columns_names (questionnaire_name, column_names)
+INSERT INTO auxiliary_questionnaires_data.redcap_data_questionnaires_columns_names (questionnaire_name, column_names)
 VALUES('sdq_parents_f',
 	ARRAY[
 		'sdq_parents_f_timestamp',
@@ -1984,7 +1984,7 @@ VALUES('sdq_parents_f',
 
 
 
-INSERT INTO auxiliary_questionnaires_data.questionnaires_columns_names (questionnaire_name, column_names)
+INSERT INTO auxiliary_questionnaires_data.redcap_data_questionnaires_columns_names (questionnaire_name, column_names)
 VALUES('ders_p_f',
 	ARRAY[
 	'ders_p_f_timestamp',
@@ -2031,7 +2031,7 @@ VALUES('ders_p_f',
 
 
 
-INSERT INTO auxiliary_questionnaires_data.questionnaires_columns_names (questionnaire_name, column_names)
+INSERT INTO auxiliary_questionnaires_data.redcap_data_questionnaires_columns_names (questionnaire_name, column_names)
 VALUES('cdrsr_clin',
 	ARRAY[
 'cdrsr_clin_timestamp',
@@ -2064,7 +2064,7 @@ VALUES('cdrsr_clin',
 
 
 
-INSERT INTO auxiliary_questionnaires_data.questionnaires_columns_names (questionnaire_name, column_names)
+INSERT INTO auxiliary_questionnaires_data.redcap_data_questionnaires_columns_names (questionnaire_name, column_names)
 VALUES('ffq',
 	ARRAY[
 		'ffq_sum_timestamp',
@@ -2078,7 +2078,7 @@ VALUES('ffq',
 
 
 
-INSERT INTO auxiliary_questionnaires_data.questionnaires_columns_names (questionnaire_name, column_names)
+INSERT INTO auxiliary_questionnaires_data.redcap_data_questionnaires_columns_names (questionnaire_name, column_names)
 VALUES('opening_students',
 	ARRAY[
 		'opening_students_timestamp',
@@ -2093,7 +2093,7 @@ VALUES('opening_students',
 
 
 
-INSERT INTO auxiliary_questionnaires_data.questionnaires_columns_names (questionnaire_name, column_names)
+INSERT INTO auxiliary_questionnaires_data.redcap_data_questionnaires_columns_names (questionnaire_name, column_names)
 VALUES('cgi_s_stu',
 	ARRAY[
 	    'cgi_s_stu_timestamp',
@@ -2105,7 +2105,7 @@ VALUES('cgi_s_stu',
 
 
 
-INSERT INTO auxiliary_questionnaires_data.questionnaires_columns_names (questionnaire_name, column_names)
+INSERT INTO auxiliary_questionnaires_data.redcap_data_questionnaires_columns_names (questionnaire_name, column_names)
 VALUES('remote_stu',
 	ARRAY[
 		'remote_stu_timestamp',
@@ -2118,7 +2118,7 @@ VALUES('remote_stu',
 
 
 
-INSERT INTO auxiliary_questionnaires_data.questionnaires_columns_names (questionnaire_name, column_names)
+INSERT INTO auxiliary_questionnaires_data.redcap_data_questionnaires_columns_names (questionnaire_name, column_names)
 VALUES('cps_stu',
 	ARRAY[
 		'cps_stu_timestamp',
@@ -2132,7 +2132,7 @@ VALUES('cps_stu',
 
 
 
-INSERT INTO auxiliary_questionnaires_data.questionnaires_columns_names (questionnaire_name, column_names)
+INSERT INTO auxiliary_questionnaires_data.redcap_data_questionnaires_columns_names (questionnaire_name, column_names)
 VALUES('cps_clin',
 	ARRAY[
 		'cps_clin_timestamp',
@@ -2146,7 +2146,7 @@ VALUES('cps_clin',
 
 
 
-INSERT INTO auxiliary_questionnaires_data.questionnaires_columns_names (questionnaire_name, column_names)
+INSERT INTO auxiliary_questionnaires_data.redcap_data_questionnaires_columns_names (questionnaire_name, column_names)
 VALUES('cgi_s_clin',
 	ARRAY[
 		'cgi_s_clin_timestamp',
@@ -2162,7 +2162,7 @@ VALUES('cgi_s_clin',
 
 
 
-INSERT INTO auxiliary_questionnaires_data.questionnaires_columns_names (questionnaire_name, column_names)
+INSERT INTO auxiliary_questionnaires_data.redcap_data_questionnaires_columns_names (questionnaire_name, column_names)
 VALUES('opening_therapist_battery',
 	ARRAY[
 		'opening_therapist_battery_timestamp',
@@ -2191,7 +2191,7 @@ VALUES('opening_therapist_battery',
 
 
 
-INSERT INTO auxiliary_questionnaires_data.questionnaires_columns_names (questionnaire_name, column_names)
+INSERT INTO auxiliary_questionnaires_data.redcap_data_questionnaires_columns_names (questionnaire_name, column_names)
 VALUES('maris_y_scars_clin',
 	ARRAY[
 		'marisyscars_clin_timestamp',
@@ -2211,7 +2211,7 @@ VALUES('maris_y_scars_clin',
 
 
 
-INSERT INTO auxiliary_questionnaires_data.questionnaires_columns_names (questionnaire_name, column_names)
+INSERT INTO auxiliary_questionnaires_data.redcap_data_questionnaires_columns_names (questionnaire_name, column_names)
 VALUES('ending_parent_f',
 	ARRAY[
 		'ending_parent_f_timestamp',
@@ -2225,7 +2225,7 @@ VALUES('ending_parent_f',
 
 
 
-INSERT INTO auxiliary_questionnaires_data.questionnaires_columns_names (questionnaire_name, column_names)
+INSERT INTO auxiliary_questionnaires_data.redcap_data_questionnaires_columns_names (questionnaire_name, column_names)
 VALUES('moas_f',
 	ARRAY[
 		'moas_f_timestamp',
@@ -2258,7 +2258,7 @@ VALUES('moas_f',
 
 
 
-INSERT INTO auxiliary_questionnaires_data.questionnaires_columns_names (questionnaire_name, column_names)
+INSERT INTO auxiliary_questionnaires_data.redcap_data_questionnaires_columns_names (questionnaire_name, column_names)
 VALUES('cts_f',
 	ARRAY[
 		'cts_f_timestamp',
@@ -2275,7 +2275,7 @@ VALUES('cts_f',
 
 
 
-INSERT INTO auxiliary_questionnaires_data.questionnaires_columns_names (questionnaire_name, column_names)
+INSERT INTO auxiliary_questionnaires_data.redcap_data_questionnaires_columns_names (questionnaire_name, column_names)
 VALUES('cts_c',
 	ARRAY[
 		'cts_c_timestamp',
@@ -2292,7 +2292,7 @@ VALUES('cts_c',
 
 
 
-INSERT INTO auxiliary_questionnaires_data.questionnaires_columns_names (questionnaire_name, column_names)
+INSERT INTO auxiliary_questionnaires_data.redcap_data_questionnaires_columns_names (questionnaire_name, column_names)
 VALUES('dshi_pre',
 	ARRAY[
 		'dshi_pre_timestamp',
@@ -2311,7 +2311,7 @@ VALUES('dshi_pre',
 
 
 
-INSERT INTO auxiliary_questionnaires_data.questionnaires_columns_names (questionnaire_name, column_names)
+INSERT INTO auxiliary_questionnaires_data.redcap_data_questionnaires_columns_names (questionnaire_name, column_names)
 VALUES('dshi_post',
 	ARRAY[
 		'dshi_post_timestamp',
@@ -2329,7 +2329,7 @@ VALUES('dshi_post',
 
 
 
-INSERT INTO auxiliary_questionnaires_data.questionnaires_columns_names (questionnaire_name, column_names)
+INSERT INTO auxiliary_questionnaires_data.redcap_data_questionnaires_columns_names (questionnaire_name, column_names)
 VALUES('inq',
 	ARRAY[
 'inq_timestamp',
@@ -2355,7 +2355,7 @@ VALUES('inq',
 
 
 
-INSERT INTO auxiliary_questionnaires_data.questionnaires_columns_names (questionnaire_name, column_names)
+INSERT INTO auxiliary_questionnaires_data.redcap_data_questionnaires_columns_names (questionnaire_name, column_names)
 VALUES('ending',
 	ARRAY[
 		'ending_timestamp',
@@ -2370,7 +2370,7 @@ VALUES('ending',
 
 
 
-INSERT INTO auxiliary_questionnaires_data.questionnaires_columns_names (questionnaire_name, column_names)
+INSERT INTO auxiliary_questionnaires_data.redcap_data_questionnaires_columns_names (questionnaire_name, column_names)
 VALUES('opening_parents_m',
 	ARRAY[
 		'opening_parents_m_timestamp',
@@ -2384,7 +2384,7 @@ VALUES('opening_parents_m',
 
 
 
-INSERT INTO auxiliary_questionnaires_data.questionnaires_columns_names (questionnaire_name, column_names)
+INSERT INTO auxiliary_questionnaires_data.redcap_data_questionnaires_columns_names (questionnaire_name, column_names)
 VALUES('estimation_and_satisfaction',
 	ARRAY[
 		'estimation_and_satisfaction_timestamp',
@@ -2399,17 +2399,14 @@ VALUES('estimation_and_satisfaction',
 
 
 
-INSERT INTO auxiliary_questionnaires_data.questionnaires_columns_names (questionnaire_name, column_names)
+INSERT INTO auxiliary_questionnaires_data.redcap_data_questionnaires_columns_names (questionnaire_name, column_names)
 VALUES('intro',
 	ARRAY[
 		'record_id',
-
-		'ID_Merge',
-		'ID_2',y
 
 		'redcap_event_name',
 		'redcap_survey_identifier'
 	]
 );
 
-### should I add primary key column?
+

@@ -1,4 +1,4 @@
-import pandas_profiling as pp
+# import pandas_profiling as pp
 
 
 class TargetVariable:
@@ -12,6 +12,7 @@ class TargetVariable:
     def calculate_value(self, df):
         if self.do_preprocessing:
             aligned_df = df[self.columns].replace(2, 0)
+            aligned_df = aligned_df[self.columns].replace(3, 0)
             df[self.name] = (aligned_df.sum(axis=1) > 0).astype(int)
         else:
             df[self.name] = (df[self.columns].sum(axis=1) > 0).astype(int)

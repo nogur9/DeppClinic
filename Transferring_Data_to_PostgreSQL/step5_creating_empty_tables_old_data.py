@@ -15,7 +15,7 @@ def creating_empty_old_data_tables(conn_str):
 
         if len(df.column_names[i]) > 0:
 
-            questions_str = [f"{column} VARCHAR (1024)" for column in df.column_names[i]]
+            questions_str = [f"{column} VARCHAR (4096)" for column in df.column_names[i]]
 
             create_table = """CREATE TABLE old_data.{0}(
             primary_key VARCHAR (50) PRIMARY KEY,

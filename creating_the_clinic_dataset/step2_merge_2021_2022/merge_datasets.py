@@ -117,7 +117,7 @@ def fix_group_scpecific_case(df):
     return df
 
 
-def resolve_contradiction(row, col_2021, col_2022, function = None, col_name= ''):
+def resolve_contradiction(row, col_2021, col_2022, function=None, col_name=''):
   
     if pd.isnull(row[col_2021]):
         return row[col_2022]
@@ -136,8 +136,8 @@ def resolve_contradiction(row, col_2021, col_2022, function = None, col_name= ''
             print('2022 =', row[col_2022])
             raise ValueError
         elif function == 'take 2021':
-            return col_2021
+            return row[col_2021]
         elif function == 'take 2022':
-            return col_2022
+            return row[col_2022]
         else:
             return function(row[col_2021], row[col_2022])

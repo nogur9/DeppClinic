@@ -31,20 +31,19 @@ CREATE TABLE support_data.ids_of_app_users (
 
 
 COPY support_data.ids_of_app_users (patient_id)
-FROM '/postgres_db/helper_docs/APP_patient_ids.csv'
+FROM 'C:/Users/nogur/Documents/DeppClinic/Data/helper_docs/APP_patient_ids.csv'
 DELIMITER ','
 CSV HEADER;
 
 
-
 COPY support_data.columns_to_apply_default_merge_solution
-FROM '/postgres_db/helper_docs/columns_to_apply_default_merge_solution.csv'
+FROM 'C:/Users/nogur/Documents/DeppClinic/Data/helper_docs/columns_to_apply_default_merge_solution.csv'
 DELIMITER ','
 CSV HEADER;
 
 
 
 COPY data_imputations.group_imputations
-FROM '/postgres_db/helper_docs/group_imputations.csv'
+FROM 'C:/Users/nogur/Documents/DeppClinic/Data/helper_docs/group_imputations.csv'
 DELIMITER ','
 CSV HEADER;

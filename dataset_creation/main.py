@@ -1,8 +1,10 @@
 import pandas as pd
 
+from dataset_creation.cleaning import remove_invalid_values
 from dataset_creation.handle_groups import GROUPS, fill_group, GROUP_NAMES_MAP, rename_groups, fill_missing_groups
 from dataset_creation.pipeline_functions import Columns, do_imputations, compute_questions_scores, save_df, split_to_multiple_measurement_times
 from source.utils.consts.pathology_variables import pathology_variables_times
+from source.utils.consts.quesionnaires_valid_values import questionnaire_valid_values
 from source.utils.target_variable import TargetVariable
 from source.utils.consts.assistment_consts import Questionnaires
 import os
@@ -19,6 +21,11 @@ def main(times, directory_path=None):
     # handle groups
     for group in GROUPS:
         df = fill_group(df, group)
+
+    for key in questionnaire_valid_values:
+        cleaning_columns = questionnaire_valid_values[key]['columns']
+        valid_values = questionnaire_valid_values[key]['valid_values']
+        remove_invalid_values(df, valid_values, cleaning_columns)
 
     df = rename_groups(df, GROUP_NAMES_MAP)
     df = fill_missing_groups(df, GROUP_NAMES_MAP)
@@ -38,7 +45,7 @@ def main(times, directory_path=None):
         columns.add([questionnaire_name])
 
     df = pd.concat([df_time1, df_time2])
-    df = df[columns.unique_columns_with_id]
+    df = df[list(columns.unique_columns_with_id)]
 
     questionnaires = Questionnaires().questionnaires
     df, columns = compute_questions_scores(df, questionnaires, columns)
@@ -56,5 +63,5 @@ times = {
     'Time 3': ['followup_3month_arm_1', 'control_3month_arm_1', 'control_6month_arm_1']
 }
 
-main(times, r"Request_for_app_data_analysis/data/treatment_group")
+main(times, r"source/projects/Request_for_app_data_analysis/data/treatment_group")
 

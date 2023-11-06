@@ -1,4 +1,4 @@
-primary_key,trqsfmarisclin_timestamp,trq_sf_maris_1_clin,trq_sf_maris_2_clin,trq_sf_maris_3_clin,trq_sf_maris_4_clin,trq_sf_maris_5_clin,trq_sf_maris_6_clin,trq_sf_maris_7_clin,trq_sf_maris_8_clin,trq_sf_maris_9_clin,trq_sf_maris_10_clin,trq_sf_maris_11_clin,trq_sf_maris_12_clin,trq_sf_maris_13_clin,trq_sf_maris_14_clin
+primary_key,trqsfmaris_clin_timestamp,trq_sf_maris_1_clin,trq_sf_maris_2_clin,trq_sf_maris_3_clin,trq_sf_maris_4_clin,trq_sf_maris_5_clin,trq_sf_maris_6_clin,trq_sf_maris_7_clin,trq_sf_maris_8_clin,trq_sf_maris_9_clin,trq_sf_maris_10_clin,trq_sf_maris_11_clin,trq_sf_maris_12_clin,trq_sf_maris_13_clin,trq_sf_maris_14_clin
 G8120_intake_arm_1,,,,,,,,,,,,,,,
 G8120_control_5weeks_arm_1,,,,,,,,,,,,,,,
 G8120_control_3month_arm_1,,,,,,,,,,,,,,,

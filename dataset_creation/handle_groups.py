@@ -10,15 +10,7 @@ GROUP_NAMES_MAP = {
 }
 
 def fill_group(df, group):
-    """
-    This function takes a DataFrame as input, and fills out the empty 'id' values by matching them to the 'record_id' which isn't empty.
 
-    Parameters:
-        df (pandas DataFrame): The DataFrame to be cleaned.
-
-    Returns:
-        pandas DataFrame : The cleaned DataFrame.
-    """
     df = df.copy()
     group_map = df.dropna(subset=[group]).groupby('id')[group].first()
     group_map = {key: group_map[key] for key in group_map.keys()}
@@ -45,10 +37,10 @@ def rename_groups(df, group_names):
 
 
 def fill_missing_groups(df, group_names):
-    filling_map = pd.read_csv("helper_docs/group_imputations.csv")
+    filling_map = pd.read_csv(r"Data/helper_docs/group_imputations.csv")
     inv_group_names = {v: k for k, v in group_names.items()}
     for _, row in filling_map.iterrows():
-        df.loc[df['id'] == row['id'], 'group'] = row['group']
-        df.loc[df['id'] == row['id'], f"group___{inv_group_names[row['group']]}"] = 1
+        df.loc[df['id'] == row['id'], 'group'] = row['group_name']
+        df.loc[df['id'] == row['id'], f"group___{inv_group_names[row['group_name']]}"] = 1
     return df
 

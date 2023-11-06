@@ -4,14 +4,14 @@ import psycopg2
 
 def creating_empty_redcap_data_tables(conn_str):
     conn = psycopg2.connect(conn_str)
-    sql = "SELECT * FROM auxiliary_questionnaires_data.questionnaires_columns_names;"
+    sql = "SELECT * FROM auxiliary_questionnaires_data.redcap_data_questionnaires_columns_names;"
     df = pd.read_sql_query(sql, conn)
     conn.close()
 
     number_of_questionnaires = len(list(df.questionnaire_name))
 
     for i in range(number_of_questionnaires):
-        questions_str = [f"{column} VARCHAR (1024)" for column in df.column_names[i]]
+        questions_str = [f"{column} VARCHAR (4096)" for column in df.column_names[i]]
 
         create_table = """CREATE TABLE redcap_data.{0}(
         primary_key VARCHAR (50) PRIMARY KEY,
@@ -27,7 +27,7 @@ def creating_empty_redcap_data_tables(conn_str):
 
 def delete_redcap_data_tables(conn_str):
     conn = psycopg2.connect(conn_str)
-    sql = "SELECT * FROM auxiliary_questionnaires_data.questionnaires_columns_names;"
+    sql = "SELECT * FROM auxiliary_questionnaires_data.redcap_data_questionnaires_columns_names;"
     df = pd.read_sql_query(sql, conn)
     conn.close()
 

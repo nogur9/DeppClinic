@@ -4,7 +4,7 @@ intake & time 2
 suicidal ideation, suicidal behavior, suicidal attempt, NSSI
 
 """
-
+# ToDo: Fix c_ssrs_t_2weeks_1_clin
 # intake
 
 suicidal_behavior_intake = [
@@ -33,7 +33,7 @@ nssi_intake = [
 self_harm_intake = suicide_attempt_intake + nssi_intake + suicidal_behavior_intake
 
 suicidal_ideation_2weeks_intake = [
-    'c_ssrs_t_2weeks_1_clin',
+#    'c_ssrs_t_2weeks_1_clin',
     'c_ssrs_t_2weeks_2_clin',
     'c_ssrs_t_2weeks_3_clin',
     'c_ssrs_t_2weeks_4_clin',
@@ -53,7 +53,7 @@ suicidal_ideation_life_intake = [
     'c_ssrs_t_life_4_clin',
     'c_ssrs_t_life_5_clin',
 
-    'c_ssrs_t_2weeks_1_clin',
+#    'c_ssrs_t_2weeks_1_clin',
     'c_ssrs_t_2weeks_2_clin',
     'c_ssrs_t_2weeks_3_clin',
     'c_ssrs_t_2weeks_4_clin',
@@ -108,7 +108,7 @@ suicidal_ideation_time2 = [
     'c_ssrs_t_last_4_clin',
     'c_ssrs_t_last_5_clin',
 
-    'c_ssrs_t_2weeks_1_clin',
+ #   'c_ssrs_t_2weeks_1_clin',
     'c_ssrs_t_2weeks_2_clin',
     'c_ssrs_t_2weeks_3_clin',
     'c_ssrs_t_2weeks_4_clin',

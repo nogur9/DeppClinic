@@ -2,7 +2,7 @@ CREATE TABLE auxiliary_questionnaires_data.old_data_questionnaires_columns_names
   questionnaire_name text NOT NULL,
   column_names text[], -- this is an array column
   imputation_data_to_old_data_map jsonb -- this is a jsonb column
-);
+    );
 
 
 INSERT INTO auxiliary_questionnaires_data.old_data_questionnaires_columns_names (questionnaire_name, column_names)
@@ -768,7 +768,7 @@ VALUES('ecr_f',
 INSERT INTO auxiliary_questionnaires_data.old_data_questionnaires_columns_names (questionnaire_name, column_names)
 VALUES('trq_sf_maris_clin',
 	ARRAY[
-    'trqsfmarisclin_timestamp',
+    'trqsfmaris_clin_timestamp',
     'trq_sf_maris_1_clin',
     'trq_sf_maris_2_clin',
     'trq_sf_maris_3_clin',
@@ -882,7 +882,6 @@ VALUES('opening',
     'group___1',
     'group___2',
     'group___3',
-    'Group99',
     'consent',
     'consent_no'
 	]
@@ -1758,8 +1757,7 @@ VALUES('chameleon',
     'chameleon_medicine_2_stu___4',
     'chameleon_medicine_2_stu___5',
     'chameleon_medicine_other_stu',
-    'chameleon_notes_stu',
-    'chameleon_complete_stu'
+    'chameleon_notes_stu'
 ]
 );
 
@@ -2277,8 +2275,6 @@ INSERT INTO auxiliary_questionnaires_data.old_data_questionnaires_columns_names 
 VALUES('intro',
 	ARRAY[
 	'record_id',
-	'ID_Merge',
-	'ID_2',
 	'redcap_event_name',
 	'redcap_survey_identifier'
 ]
