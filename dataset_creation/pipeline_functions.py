@@ -1,6 +1,6 @@
 from source.utils.consts.pathology_variables import pathology_variables_times
 from source.utils.consts.questions_columns import sci_af_ca, c_ssrs, sci_mother, scs_clin, siq, sdq, c_ssrs_intake, mfq, \
-    scared, ATHENS, SAS, c_ssrs_clin, demographics_m, swan_m
+    scared, ATHENS, SAS, c_ssrs_clin, demographics_m, swan_m, DERS, wai, erc_rc
 from source.utils.consts.assistment_consts import imputation_questionnaires
 from source.utils.util_functions import impute_from_questionnaire
 from source.utils.data_manipulation.data_imputation import impute_from_column
@@ -21,8 +21,9 @@ class Columns:
 
         info_columns = ['gender', 'redcap_event_name', 'age_child_pre']
 
-        default_columns = info_columns + demographics_m + c_ssrs_intake + c_ssrs + c_ssrs_clin + sci_af_ca + scs_clin + \
-                          sci_mother + siq + sdq + mfq + scared + ATHENS + SAS + demographics_m + swan_m
+        default_columns = info_columns + demographics_m + c_ssrs_intake + c_ssrs + c_ssrs_clin + \
+                          sci_af_ca + scs_clin + sci_mother + siq + sdq + mfq + scared + \
+                          ATHENS + SAS + demographics_m + swan_m + DERS + wai + erc_rc
 
         self.id_column = id_column
 
@@ -63,10 +64,10 @@ def do_imputations(df):
 
 def create_single_event_name(df, columns, event_names):
 
-    df_event_name = df[df.redcap_event_name == event_names[0]][columns.unique_columns_with_id]
+    df_event_name = df[df.redcap_event_name == event_names[0]][list(columns.unique_columns_with_id)]
 
     for event_name in event_names[1:]:
-        df_new_measurement = df[df.redcap_event_name == event_name][columns.unique_columns_with_id]
+        df_new_measurement = df[df.redcap_event_name == event_name][list(columns.unique_columns_with_id)]
 
         df_event_name = impute_events(df_event_name, df_new_measurement, columns, suffix=event_name)
 
@@ -139,7 +140,7 @@ def compute_questions_scores(df, questionnaires_map, variables_list):
     return df, variables_list
 
 
-def save_df(df, columns, axis='patient', profile=False, directory_path=None):
+def save_df(df, columns, axis='patient', profile=False, directory_path=None, suffix=''):
     if axis == 'patient':
 
         df_intake = df[df.measurement == 'time1'][columns.ordered_columns_with_id]
@@ -151,16 +152,16 @@ def save_df(df, columns, axis='patient', profile=False, directory_path=None):
         df = df.drop(['measurement_time1', 'measurement_time2'], axis=1)
 
         if directory_path is None:
-            df.to_csv("DeppClinic_patient_data.csv", index=False)
+            df.to_csv(f"DeppClinic_patient_data{suffix}.csv", index=False)
         else:
-            df.to_csv(rf"{directory_path}\DeppClinic_patient_data.csv", index=False)
+            df.to_csv(rf"{directory_path}\DeppClinic_patient_data{suffix}.csv", index=False)
 
     elif axis == 'time':
         df = df[columns.ordered_columns_with_id]
         if directory_path is None:
-            df.to_csv("DeppClinic_prediction_task.csv", index=False)
+            df.to_csv(f"DeppClinic_prediction_task{suffix}.csv", index=False)
         else:
-            df.to_csv(rf"{directory_path}\DeppClinic_patient_data.csv", index=False)
+            df.to_csv(rf"{directory_path}\DeppClinic_patient_data{suffix}.csv", index=False)
 
         if profile:
             to_profile = df[columns.unique_columns]

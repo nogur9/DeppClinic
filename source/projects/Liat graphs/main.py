@@ -38,7 +38,7 @@ def fill_group(df, group):
 
 def create_dataset(event_names, path=None):
 
-    df = pd.read_csv(r"creating_the_clinic_dataset/preprocessed_data/merged_2021_and_2022.csv", na_values=' ')
+    df = pd.read_csv(r"C:\Users\nogur\Documents\DeppClinic\creating_the_clinic_dataset\preprocessed_data\merged_2021_and_2022.csv", na_values=' ')
     columns = Columns()
     groups = ['group___1', 'group___2', 'group___3']
     columns.add(groups)
@@ -48,7 +48,7 @@ def create_dataset(event_names, path=None):
     df = create_single_event_name(df, columns, event_names)
     # calculate pathology variables
 
-    if 'intake' in event_names:
+    if 'intake_arm_1' in event_names:
         for questionnaire_name, items in Liat_Graphs_pathology_variables_times['intake'].items():
             tv = TargetVariable(questionnaire_name, {'measurement': 'time1'}, items)
             df = tv.calculate_value(df)
@@ -59,9 +59,9 @@ def create_dataset(event_names, path=None):
             df = tv.calculate_value(df)
             columns.add([questionnaire_name])
 
-    df = df[columns.unique_columns_with_id]
+    df = df[list(columns.unique_columns_with_id)]
 
-    save_df(df, columns, axis='time', profile=False, path=path)
+    save_df(df, columns, axis='time', profile=False, directory_path=path)
 
 
 if __name__ == "__main__":
@@ -70,6 +70,5 @@ if __name__ == "__main__":
              'time3': ['followup_3month_arm_1', 'control_3month_arm_1', 'control_6month_arm_1']}
 
     for time in times.keys():
-        create_dataset(event_names=times[time], path=f"Liat graphs/data/{time}.csv")
-
+        create_dataset(event_names=times[time], path=rf"C:\Users\nogur\Documents\DeppClinic\source\projects\Liat graphs\data\{time}")
 

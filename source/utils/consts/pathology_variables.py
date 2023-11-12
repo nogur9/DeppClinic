@@ -70,6 +70,8 @@ suicidal_ideation_life_intake = [
     'c_ssrs_3_2weeks',
     'c_ssrs_4_2weeks',
     'c_ssrs_5_2weeks',
+    'chameleon_ideation_stu'
+
 ]
 
 ER_intake = ["complaint___1", "complaint___2", "complaint___3", "complaint___4", "complaint___5", 'chameleon_suicide_er_stu']

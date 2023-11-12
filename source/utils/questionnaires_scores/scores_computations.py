@@ -1,10 +1,11 @@
 #from source.utils.consts.assistment_consts import Questionnaires
 from source.utils.consts.subsets_of_questionnaires import sci_af_ac_factors, C_ssrs_clinician, sci_af_ca_new_questions, \
-    maris_soq_sf_reverse, maris_soq_sf_normal, MAST_factors, SDQ_factors, DERS_factors, swan_factors
+    maris_soq_sf_reverse, maris_soq_sf_normal, MAST_factors, SDQ_factors, DERS_factors, swan_factors, \
+    erc_rc_reversed_items, erc_rc_factors
 from source.utils.consts.subsets_of_questionnaires import sdq_reverse, sdq_normal, c_ssrs_life_values_map, \
     c_ssrs_2weeks_values_map, DERS_reverse_items, wai_reversed_items, wai_factors
 from source.utils.consts.questions_columns import c_ssrs, maris_sci_sf, maris_soq_sf, MAST, DERS, wai, swan_m, \
-    sci_mother, scs_clin, sci_af_ca, ATHENS, SAS, scared, mfq, siq
+    sci_mother, scs_clin, sci_af_ca, ATHENS, SAS, scared, mfq, siq, erc_rc
 from source.utils.data_manipulation.data_imputation import impute_mean_questionnaire_score
 from source.utils.questionnaires_scores.utils import calculate_clinician_c_ssrs_individual_score, \
     calculate_intake_c_ssrs_individual_score, c_ssrs_roll_negative, calculate_c_ssrs_individual_score
@@ -28,7 +29,7 @@ def compute_sdq_score(df, skipna=False):
     for key in SDQ_factors.keys():
         df[key] = df[SDQ_factors[key]].sum(axis=1, skipna=skipna)
     df = df.drop(sdq_reverse_columns, axis=1)
-    params = list(sci_af_ac_factors.keys()) + ['sdq_score', 'ratio_of_missing_sdq_values']
+    params = list(SDQ_factors.keys()) + ['sdq_score', 'ratio_of_missing_sdq_values']
 
     return df, params
 
@@ -427,7 +428,7 @@ def compute_ders_score(df, skipna=False):
             df[key] = df[DERS_factors[key]].sum(axis=1, skipna=skipna)
 
         df = df.drop(ders_reverse_columns, axis=1)
-        params = list(sci_af_ac_factors.keys()) + ['DERS_score', 'DERS_sum', 'ratio_of_missing_DERS_values']
+        params = list(DERS_factors.keys()) + ['DERS_score', 'DERS_sum', 'ratio_of_missing_DERS_values']
 
         return df, params
 
@@ -445,6 +446,25 @@ def compute_wai_score(df, skipna=False):
         df[key] = df[wai_factors[key]].sum(axis=1, skipna=skipna)
 
     df = df.drop(wai_reverse_columns, axis=1)
-    params = list(sci_af_ac_factors.keys()) + ['ratio_of_missing_wai_values']
+    params = list(wai_factors.keys()) + ['ratio_of_missing_wai_values']
 
     return df, params
+
+
+def compute_ecr_score(df, skipna=False):
+
+    erc_rc_reverse_columns = [f"{i}_reverse" for i in erc_rc_reversed_items]
+    df[erc_rc_reverse_columns] = 8 - df[erc_rc_reversed_items]
+
+    missing_values = df[erc_rc].isnull()
+    missing_values_sum = missing_values.sum(axis=1)
+    df['ratio_of_missing_erc_rc_values'] = missing_values_sum / len(erc_rc)
+
+    for key in erc_rc_factors.keys():
+        df[key] = df[erc_rc_factors[key]].sum(axis=1, skipna=skipna)
+
+    df = df.drop(erc_rc_reverse_columns, axis=1)
+    params = list(erc_rc_factors.keys()) + ['ratio_of_missing_erc_rc_values']
+
+    return df, params
+

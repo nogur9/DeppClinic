@@ -10,7 +10,7 @@ class TargetVariable:
         self.do_preprocessing = do_preprocessing
 
     def calculate_value(self, df):
-        if self.do_preprocessing:
+        if self.do_preprocessing and 'chameleon' in self.name:
             aligned_df = df[self.columns].replace(2, 0)
             aligned_df = aligned_df[self.columns].replace(3, 0)
             df[self.name] = (aligned_df.sum(axis=1) > 0).astype(int)

@@ -639,16 +639,22 @@ c_ssrs_fu_maya = [
 ]
 
 DERS = [
-    'DERS_1', 'DERS_2', 'DERS_3', 'DERS_4', 'DERS_5', 'DERS_6', 'DERS_7', 'DERS_8R,DERS_9', 'DERS_10',
-    'DERS_11', 'DERS_12', 'DERS_13', 'DERS_14', 'DERS_15', 'DERS_16', 'DERS_17', 'DERS_18', 'DERS_19',
-    'DERS_20', 'DERS_21', 'DERS_22', 'DERS_23', 'DERS_24', 'DERS_25', 'DERS_26', 'DERS_27', 'DERS_28',
-    'DERS_29', 'DERS_30', 'DERS_31', 'DERS_32', 'DERS_33','DERS_34', 'DERS_35', 'DERS_36'
+    'ders_1', 'ders_2', 'ders_3', 'ders_4', 'ders_5', 'ders_6', 'ders_7', 'ders_8', 'ders_9', 'ders_10',
+    'ders_11', 'ders_12', 'ders_13', 'ders_14', 'ders_15', 'ders_16', 'ders_17', 'ders_18', 'ders_19',
+    'ders_20', 'ders_21', 'ders_22', 'ders_23', 'ders_24', 'ders_25', 'ders_26', 'ders_27', 'ders_28',
+    'ders_29', 'ders_30', 'ders_31', 'ders_32', 'ders_33','ders_34', 'ders_35', 'ders_36'
 ]
 
-wai = ['WAI_1', 'WAI_2', 'WAI_3', 'WAI_4',
-       'WAI_5', 'WAI_6', 'WAI_7', 'WAI_8',
-       'WAI_9', 'WAI_10', 'WAI_11', 'WAI_12']
+wai = ['wai_1', 'wai_2', 'wai_3', 'wai_4',
+       'wai_5', 'wai_6', 'wai_7', 'wai_8',
+       'wai_9', 'wai_10', 'wai_11', 'wai_12']
 
+
+erc_rc = [
+    'erc_rc_1', 'erc_rc_2', 'erc_rc_3',
+    'erc_rc_4', 'erc_rc_5', 'erc_rc_6',
+    'erc_rc_7', 'erc_rc_8', 'erc_rc_9',
+    'erc_rc_10', 'erc_rc_11', 'erc_rc_12']
 
 all_questionarries = siq \
                      + sdq \

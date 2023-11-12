@@ -334,31 +334,41 @@ C_ssrs_clinician = {
         },
 }
 
-# DERS
-DERS_reverse_items = ['DERS_1', 'DERS_2', 'DERS_6', 'DERS_7', 'DERS_8', 'DERS_10', 'DERS_17', 'DERS_20',
-                      'DERS_22', 'DERS_24', 'DERS_34']
+# ders
+DERS_reverse_items = ['ders_1', 'ders_2', 'ders_6', 'ders_7', 'ders_8', 'ders_10', 'ders_17', 'ders_20',
+                      'ders_22', 'ders_24', 'ders_34']
 
 DERS_factors = {
-    'DERS_non_accept': ['DERS_11', 'DERS_12', 'DERS_21', 'DERS_23', 'DERS_25', 'DERS_29'],
-    'DERS_goals': ['DERS_13', 'DERS_18', 'DERS_20_reverse', 'DERS_26', 'DERS_33'],
-    'DERS_IMPULS': ['DERS_3', 'DERS_14', 'DERS_19', 'DERS_24_reverse', 'DERS_27', 'DERS_32'],
-    'DERS_STRATEG': ['DERS_15', 'DERS_16', 'DERS_22_reverse', 'DERS_28',
-                     'DERS_30', 'DERS_31', 'DERS_35', 'DERS_36'],
-    'DERS_CLARITY': ['DERS_1_reverse', 'DERS_4', 'DERS_5', 'DERS_7_reverse', 'DERS_9'],
-    'DERS_AWARE': ['DERS_2_reverse', 'DERS_6_reverse', 'DERS_8_reverse',
-                   'DERS_10_reverse', 'DERS_17_reverse', 'DERS_34'],
+    'DERS_non_accept': ['ders_11', 'ders_12', 'ders_21', 'ders_23', 'ders_25', 'ders_29'],
+    'DERS_goals': ['ders_13', 'ders_18', 'ders_20_reverse', 'ders_26', 'ders_33'],
+    'DERS_IMPULS': ['ders_3', 'ders_14', 'ders_19', 'ders_24_reverse', 'ders_27', 'ders_32'],
+    'DERS_STRATEG': ['ders_15', 'ders_16', 'ders_22_reverse', 'ders_28',
+                     'ders_30', 'ders_31', 'ders_35', 'ders_36'],
+    'DERS_CLARITY': ['ders_1_reverse', 'ders_4', 'ders_5', 'ders_7_reverse', 'ders_9'],
+    'DERS_AWARE': ['ders_2_reverse', 'ders_6_reverse', 'ders_8_reverse',
+                   'ders_10_reverse', 'ders_17_reverse', 'ders_34'],
 }
 
-# Wai
+# wai
 
-wai_reversed_items = ['WAI_4', 'WAI_10']
-
+wai_reversed_items = ['wai_4', 'wai_10']
 
 wai_factors = {
-    'wai_goal': ['WAI_4_reverse', 'WAI_6', 'WAI_10_reverse', 'WAI_11'],
-    'wai_task': ['WAI_1', 'WAI_2', 'WAI_8', 'WAI_12'],
-    'wai_bond': ['WAI_3', 'WAI_5', 'WAI_7', 'WAI_9'],
+    'wai_goal': ['wai_4_reverse', 'wai_6', 'wai_10_reverse', 'wai_11'],
+    'wai_task': ['wai_1', 'wai_2', 'wai_8', 'wai_12'],
+    'wai_bond': ['wai_3', 'wai_5', 'wai_7', 'wai_9'],
 }
+
+# ECR
+
+erc_rc_reversed_items = ['erc_rc_10', 'erc_rc_11', 'erc_rc_12']
+
+erc_rc_factors = {
+    'erc_rc_anxiety': ['erc_rc_1', 'erc_rc_2', 'erc_rc_3', 'erc_rc_4', 'erc_rc_5', 'erc_rc_6'],
+    'erc_rc_avoidance': ['erc_rc_7', 'erc_rc_8', 'erc_rc_9', 'erc_rc_10_reverse',
+                         'erc_rc_11_reverse', 'erc_rc_12_reverse']
+}
+
 
 # C_ssrs maya
 """

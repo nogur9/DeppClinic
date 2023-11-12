@@ -9,6 +9,7 @@ GROUP_NAMES_MAP = {
     '3': 'control' # מינימלית
 }
 
+
 def fill_group(df, group):
 
     df = df.copy()

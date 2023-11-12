@@ -10,7 +10,7 @@ from source.utils.consts.assistment_consts import Questionnaires
 import os
 
 
-def main(times, directory_path=None):
+def main(times, directory_path=None, suffix=''):
     # Change the current directory to the source root
     os.chdir(r'C:\Users\nogur\Documents\DeppClinic')
 
@@ -53,15 +53,22 @@ def main(times, directory_path=None):
     if not os.path.exists(directory_path):
         os.makedirs(directory_path)
 
-    save_df(df, columns, axis='patient', profile=False, directory_path=directory_path)
-    save_df(df, columns, axis='time', profile=False, directory_path=directory_path)
+    save_df(df, columns, axis='patient', profile=False, directory_path=directory_path, suffix=suffix)
+    save_df(df, columns, axis='time', profile=False, directory_path=directory_path, suffix=suffix)
 
 
-times = {
+treatment_times = {
     'Time 1': ['intake_arm_1', 'pre_treatment_arm_1'],
-    'Time 2': ['5th_session_arm_1'],#, 'control_5weeks_arm_1' ],
+    'Time 2': ['5th_session_arm_1'],
     'Time 3': ['followup_3month_arm_1', 'control_3month_arm_1', 'control_6month_arm_1']
 }
 
-main(times, r"source/projects/Request_for_app_data_analysis/data/treatment_group")
+control_times = {
+    'Time 1': ['intake_arm_1'],
+    'Time 2': ['control_5weeks_arm_1'],
+    'Time 3': ['control_3month_arm_1', 'control_6month_arm_1']
+}
+
+main(treatment_times, r"source/projects/IPT young/data", '_treatment')
+main(treatment_times, r"source/projects/IPT young/data", '_control')
 
