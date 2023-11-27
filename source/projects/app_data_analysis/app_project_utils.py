@@ -20,6 +20,7 @@ def anova_test(df, target, time):
 
 def logistic_regression_test(df, target, time):
     df = df[df.time.isin(['Time 1', time])]
+    df = df[~df[target].isna()]
     X = df[['time', 'used_app']]
     Y = df[target]
 
@@ -29,6 +30,7 @@ def logistic_regression_test(df, target, time):
     X['used_app'] = label_encoder_of_group.fit_transform(X['used_app'])
     X['time'] = label_encoder_of_group.fit_transform(X['time'])
     X[['used_app', 'time']] = standard_scaler.fit_transform(X[['used_app', 'time']])
+
     X['interaction'] = X['time'] * X['used_app']
 
     model = sm.Logit(Y, X).fit()
@@ -62,10 +64,11 @@ def filter_samples(df, age, groups):
 
 
 def load_data(group):
+    print(os.getcwd())
     if group == 'treatment':
-        df = pd.read_csv(r"data\DeppClinic_patient_data_treatment.csv")
+        df = pd.read_csv(r"data\DeppClinic_patient_data_treatment_22_11.csv")
     elif group == 'control':
-        df = pd.read_csv(r"data\DeppClinic_patient_data_control.csv")
+        df = pd.read_csv(r"data\DeppClinic_patient_data_control_22_11.csv")
     else:
         raise ValueError
     df["intake_date"] = pd.to_datetime(df["sciafca_timestamp"], errors='coerce')
@@ -315,3 +318,4 @@ def perform_discrete_tests(df, target_variables, dir):
             figure = discrete_treatment_improvement_plot(df, target_variable, time)
             figure.write_html(os.path.join(f"plots/{dir}", f"{time}_{target_variable}.html"))
             logistic_regression_test(df, target_variable, time)
+

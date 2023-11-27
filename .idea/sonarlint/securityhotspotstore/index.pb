@@ -1,6 +1,4 @@
 
-ã
-[research/create_dataset/dataset_for_prediction_task/Create_the_dataset_for_prediction.ipynb,d\1\d17c97f5df6c035e0c3972b62abea30feef86ed4
 ô
 iresearch/create_dataset/data_for_CFA/.ipynb_checkpoints/create_data_for_CFA-both parents-checkpoint.ipynb,5\4\54f27dd27b0219161a8591e6420f638b1a2c3658
 å
@@ -1063,10 +1061,6 @@ a
 -Data/postgres_db/old_data/old_scared_data.csv,e\4\e498945c8c7811557ac0a2c7da8d9ea365105a94
 _
 /Data/postgres_db/old_data/old_ders_p_f_data.csv,f\3\f33d9dd91821b12f5f5eda246d5ec78f4dbc502b
-L
-dataset_creation/cleaning.py,8\f\8ffa76e620208368ad5f4c4f067d13756301061b
-a
-1source/utils/consts/quesionnaires_valid_values.py,4\5\456fcf5260d4d01cf2cae3846e0bcb2a159626e7
 n
 >Transferring_Data_to_PostgreSQL/step6_uploading_redcap_data.py,1\6\165bbb23cc39f19da5d2fbc1c6de86c748225dd8
 Ç
@@ -1075,9 +1069,327 @@ e
 5Data/postgres_db/old_data/old_demographics_f_data.csv,d\0\d080ef300786b34f59bbccbff67fde0c88bc5efa
 ä
 ZTransferring_Data_to_PostgreSQL/create sql database - step 2 auxiliary_questionnaires_data,0\8\083d8dddb80e3968409aa1f048473576788497da
-~
-Nresearch/create_dataset/dataset_for_prediction_task/pipeline_functions/main.py,b\d\bd3972acf2ea64d4c8460d69afab870d86bec2b6
 ã
 [source/projects/Liat graphs/.ipynb_checkpoints/Create Datasets For Graphs -checkpoint.ipynb,8\f\8f24b7b7c0d385dab53dc6bc721da0665153b9c5
 V
 &Data/helper_docs/group_imputations.csv,9\7\9762e0b1fa78a924869508415103a00e078374f4
+w
+Gsource/projects/app_data_analysis/output/data/intake_treatment_data.csv,a\6\a62f4c7e091334b79107a7373245b9a03a5eedd3
+Ä
+Psource/projects/IPT young/.ipynb_checkpoints/Analysis for grant-checkpoint.ipynb,6\5\65916754d397716308106b0fe62e09e7ca609e85
+}
+Msource/projects/IPT young/.ipynb_checkpoints/Data Comparison-checkpoint.ipynb,4\2\4237953d08496a1501e466688a08a4eebb8fe0b9
+j
+:source/projects/IPT young/data/DeppClinic_patient_data.csv,3\d\3d3b2cd268a34d7eff629d3ca8cc7f7b7c3ee4d8
+_
+/source/projects/IPT young/Data Comparison.ipynb,6\7\6730c3e3e75638f94dd7174ce865b964a7ebb8f3
+p
+@source/projects/IPT young/data/time2/DeppClinic_patient_data.csv,2\7\27cf9c405b351101c50d30127f4531686f4bf4c6
+p
+@source/projects/IPT young/data/time3/DeppClinic_patient_data.csv,8\c\8cdb1ccb9318b18c956ababe45f2c94818e52cda
+q
+Asource/projects/IPT young/data/intake/DeppClinic_patient_data.csv,3\1\31cab390bb520755885da04cc1554cb918b661c6
+Ñ
+Tsource/projects/Liat graphs/data/intake/.ipynb_checkpoints/Untitled-checkpoint.ipynb,9\e\9e668156f8acbf18c388f227ec6bf3b53e17ca70
+r
+Bsource/projects/Liat graphs/data/time2/DeppClinic_patient_data.csv,5\f\5f32d2d61e323f309d9eb27f03be3f22ca3143a4
+ñ
+fsource/projects/app_data_analysis/mcnemar_data_with_control/short_effect/nssi_time2 - pval = 0.019.csv,c\f\cf4068b93ffe82760fa42e71ccc57922509b13c9
+r
+Bsource/projects/Liat graphs/data/time3/DeppClinic_patient_data.csv,5\4\5487c781dab7097d261f2d536b58bff9c688061b
+£
+ssource/projects/app_data_analysis/mcnemar_data_with_control/short_effect/suicidal_behavior_time2 - pval = 0.042.csv,e\2\e2f01a4c2198676644adecac51a29b49e91a524b
+s
+Csource/projects/Liat graphs/data/intake/DeppClinic_patient_data.csv,d\6\d6346e8a4e8f78fee0bf3e165603f3a4251a9f92
+£
+ssource/projects/app_data_analysis/mcnemar_data_with_control/short_effect/suicidal_ideation_time2 - pval = 0.668.csv,f\3\f38055c5682aa523474d426f4bc380b710c114d6
+f
+6source/projects/Liat graphs/data/intake/Untitled.ipynb,c\1\c1e29b9a21e507c98045833e48e1b661d1cea701
+R
+"source/projects/IPT young/id_1.csv,4\6\4601696f5145d3dd3355452241871c765f389f68
+ñ
+fsource/projects/app_data_analysis/mcnemar_data/short_effect/suicidal_ideation_time2 - pval = 0.017.csv,7\0\700e439c1a50d0630f1d1cc8de9c462ee353ee01
+ï
+esource/projects/app_data_analysis/mcnemar_data_with_control/long_effect/nssi_time2 - pval = 0.594.csv,6\4\64065e0df2e59690c4a969a4c2eb8bcffee26753
+¢
+rsource/projects/app_data_analysis/mcnemar_data_with_control/long_effect/suicidal_behavior_time2 - pval = 0.235.csv,7\6\7691ab2f7ebe09bb2c45230577e98320d1e67bf1
+¢
+rsource/projects/app_data_analysis/mcnemar_data_with_control/long_effect/suicidal_ideation_time2 - pval = 0.245.csv,8\1\816da04bd906b460601288af408a99500f6dbbf6
+ï
+esource/projects/app_data_analysis/mcnemar_data/long_effect/suicidal_behavior_time2 - pval = 0.401.csv,7\b\7bfba52474f1284490552ce45816476d32f473e5
+ï
+esource/projects/app_data_analysis/mcnemar_data/long_effect/suicidal_ideation_time2 - pval = 0.284.csv,f\4\f4696d5e9f4e02a36373764594ee208d85400ea3
+à
+Xsource/projects/app_data_analysis/mcnemar_data/short_effect/nssi_time2 - pval = 0.48.csv,d\a\dadd6f5b6140f995275db9434fa4cc0db2961256
+ñ
+fsource/projects/app_data_analysis/mcnemar_data/short_effect/suicidal_behavior_time2 - pval = 0.894.csv,b\7\b7b07749c97f20c4ab8ae5c7c27c2bf8f0d5e4c9
+Ü
+Vsource/projects/app_data_analysis/output/plots/treatment_short_effects_nssi_time2.html,c\2\c20459be779fccddd6662a6e560ad595a71a81b4
+ì
+csource/projects/app_data_analysis/output/plots/treatment_short_effects_suicidal_behavior_time2.html,a\3\a393e53f4aff00f9f5c0c22e46cd92290d6f89cc
+ì
+csource/projects/app_data_analysis/output/plots/treatment_short_effects_suicidal_ideation_time2.html,b\1\b19d37f9682946bf4e3dec2281fe3acf9b7acad5
+a
+1source/projects/IPT young/plots/NSSI by time.html,6\9\698d402f44681355bfeac69eb33cd403c5458e3b
+à
+Xsource/projects/app_data_analysis/mcnemar_data/long_effect/nssi_time2 - pval = 0.678.csv,d\c\dcee48c45a7645307e0c57d75162e1378c7a4ec3
+ã
+[source/projects/app_data_analysis/output/plots/intake_suicidal_ideation_time2 X groups.html,2\c\2c98c05c6e14dc4f6a07b873ce60dfb4e3422458
+n
+>source/projects/IPT young/plots/suicidal_ideation by time.html,a\9\a9c2f35f22416b4660fd76fb918b62109e31708c
+Ö
+Usource/projects/app_data_analysis/output/plots/treatment_long_effects_nssi_time2.html,2\c\2c910e858c2af1377956431a39bd0605cb6da7d7
+í
+bsource/projects/app_data_analysis/output/plots/treatment_long_effects_suicidal_behavior_time2.html,e\0\e02b8716ff3de10c59bd272d7689fdfc35c8944d
+í
+bsource/projects/app_data_analysis/output/plots/treatment_long_effects_suicidal_ideation_time2.html,7\3\739ee4262ba01b457406ad529eda5a651750d416
+w
+Gsource/projects/app_data_analysis/output/data/short_effect_raw_data.csv,a\e\ae6c8c892c4de75992323931c3cdc14eb5046f20
+ò
+hsource/projects/app_data_analysis/.ipynb_checkpoints/Analysis for grant - control group-checkpoint.ipynb,c\2\c21e65e78a7487d850e32e98e4075235b4ebf857
+Ñ
+Tsource/projects/app_data_analysis/output/plots/intake_c_ssrs_stb_score X groups.html,4\c\4c0e925974da5e25a44917a701741192dff5383c
+~
+Nsource/projects/app_data_analysis/output/plots/intake_nssi_time2 X groups.html,d\b\db5648f73f10d6ddf8d783b971301d8c34253ed1
+n
+>source/projects/IPT young/plots/suicidal_behavior by time.html,d\e\de87bbb7a325197de617ab2d8c507ee11869c6fc
+ã
+[source/projects/app_data_analysis/output/plots/intake_suicidal_behavior_time2 X groups.html,e\d\edb32474bc611bf58ebd2e3464256e8de5bec986
+|
+Lsource/projects/app_data_analysis/data/DeppClinic_patient_data_treatment.csv,5\b\5bdba0625c5f48cce94c155c4a81db28da4b6c2b
+|
+Lsource/projects/app_data_analysis/output/data/intake_groups_targets_data.csv,8\a\8a5657ce6c48867de6c56dd153c6a478c8342b1b
+z
+Jsource/projects/app_data_analysis/data/DeppClinic_patient_data_control.csv,5\c\5cf6174dbdde2f2a10e49a2becd45b7d09787857
+v
+Fsource/projects/app_data_analysis/output/data/long_effect_raw_data.csv,6\4\64ca2ffe0e99539502bcd96855a5f7ca3fc13586
+Ü
+Vsource/projects/app_data_analysis/plots/treatment/suicidal_ideation_time2 by time.html,2\9\29254280bab3cb0db684559cc3b23efa2393f1a8
+y
+Isource/projects/app_data_analysis/plots/treatment/nssi_time2 by time.html,b\a\ba437a3aaf8cf27a7652e810db7ea01cd662df53
+w
+Gsource/projects/app_data_analysis/plots/control/nssi_time2 by time.html,d\b\db4e2a9624597fba3d6b4966f33c54c83b864442
+Ñ
+Tsource/projects/app_data_analysis/plots/control/suicidal_ideation_time2 by time.html,a\4\a48fc57f3f6c254466aa215daa319d1d78c422a2
+Ñ
+Tsource/projects/app_data_analysis/plots/control/suicidal_behavior_time2 by time.html,e\f\ef633eb89d3a8d1d785fd27efab2d4260b90b49d
+u
+Esource/projects/app_data_analysis/plots/control/wai_bond by time.html,1\1\1112fce49ee2c23f787189c8907ef2b610bb4a44
+u
+Esource/projects/app_data_analysis/plots/control/wai_goal by time.html,d\1\d1172b3035b75517955dbced7e85d867a6340a95
+u
+Esource/projects/app_data_analysis/plots/control/wai_task by time.html,5\a\5abc1b200c1f84213c8f07a476bfdece2176e03a
+w
+Gsource/projects/app_data_analysis/plots/control/DERS_score by time.html,1\4\142243de6e97fba70a51a17a4e40c8c2ed90c633
+{
+Ksource/projects/app_data_analysis/plots/control/erc_rc_anxiety by time.html,7\4\745220c0c742c07f72a80f817a2cd8d96f4ba405
+Ö
+Usource/projects/app_data_analysis/mcnemar_data_with_control/short_effect_raw_data.csv,e\0\e0a23bfdf5c12f9b2ec4bddfc2bde89529248da0
+ã
+[source/projects/app_data_analysis/.ipynb_checkpoints/McNeamer-with_control-checkpoint.ipynb,a\e\ae27a0e671f5a0e908775b5ec1a2c7328a60ea6c
+w
+Gsource/projects/app_data_analysis/plots/treatment/wai_task by time.html,d\b\dbbf4d40f5f4e7330e7a83dc41aab15306bc43dc
+Ü
+Vsource/projects/app_data_analysis/plots/treatment/suicidal_behavior_time2 by time.html,7\f\7fd81585aeb2be0c2cddb7138ae374d714d593c0
+Ñ
+Tsource/projects/app_data_analysis/mcnemar_data_with_control/long_effect_raw_data.csv,c\6\c6538fa4c860731ba8d28a5028ebc6651419ab98
+à
+Xsource/projects/app_data_analysis/.ipynb_checkpoints/Analysis for grant-checkpoint.ipynb,0\1\01ff431716a84d5b6550a190b68db07e768091db
+y
+Isource/projects/app_data_analysis/plots/treatment/DERS_score by time.html,3\3\339095ed67c6a86cf26c35d6b0d577fe9400fab1
+à
+Xsource/projects/app_data_analysis/.ipynb_checkpoints/chi square & anova-checkpoint.ipynb,4\d\4db63b276a40e757968a0f480e04d6fada5dc09d
+~
+Nsource/projects/app_data_analysis/.ipynb_checkpoints/McNeamer-checkpoint.ipynb,b\9\b9be047b212b4c66cea32b79f25f3357c4f32e2e
+w
+Gsource/projects/app_data_analysis/plots/treatment/wai_goal by time.html,8\d\8d56b85797a94448c53579d8e0e01aef2a913a37
+î
+dsource/projects/app_data_analysis/chi square plots/Time 3_tau_Psychiatric_hospitalization_time2.html,3\1\311071046d1255065c5dfe7a70464b0ee655f810
+â
+Ysource/projects/app_data_analysis/chi square plots/Time 3_tau_suicidal_attempt_time2.html,c\2\c24c53dbbfaa45c1cc0a8595df15cbb29da8448b
+ä
+Zsource/projects/app_data_analysis/chi square plots/Time 3_tau_suicidal_behavior_time2.html,3\8\384bfff118f623d6275fca0ac26e61cb8c507115
+w
+Gsource/projects/app_data_analysis/plots/treatment/wai_bond by time.html,2\a\2afa81c59cfa4a50a96b46e6441906272fe3746e
+}
+Msource/projects/app_data_analysis/plots/treatment/erc_rc_anxiety by time.html,0\4\0406467b1b04dfc5c2674f83609dc368368b57fd
+ä
+Zsource/projects/app_data_analysis/chi square plots/Time 3_tau_suicidal_ideation_time2.html,2\6\2644d6a54275230adfa2b73ec22994b4a6d4d283
+ä
+Zsource/projects/app_data_analysis/chi square plots/Time 3_ipt_suicidal_behavior_time2.html,f\f\ffcb3c098235ed949405a34afeb070ec4673166d
+ä
+Zsource/projects/app_data_analysis/chi square plots/Time 3_ipt_suicidal_ideation_time2.html,c\1\c1ac33aa4d47bda96802deb2a59ed0781df8d9b9
+{
+Ksource/projects/app_data_analysis/chi square plots/Time 3_tau_ER_time2.html,4\b\4b66c6b9a028b6acab4a0ca4ffd094ff1247dc2f
+}
+Msource/projects/app_data_analysis/chi square plots/Time 3_tau_nssi_time2.html,8\4\844c2f41428cc3b9682b349b64330d13342c060c
+{
+Ksource/projects/app_data_analysis/chi square plots/Time 3_ipt_ER_time2.html,e\f\ef7cc148a318c33460667f9171c3a96f8f22b0b4
+}
+Msource/projects/app_data_analysis/chi square plots/Time 3_ipt_nssi_time2.html,e\3\e30f6d8be3d3a681177278ecf50f48f146a9a9e0
+î
+dsource/projects/app_data_analysis/chi square plots/Time 3_ipt_Psychiatric_hospitalization_time2.html,d\e\dec58fd2242c22b9e89e0ab9928b5c50e43eb614
+â
+Ysource/projects/app_data_analysis/chi square plots/Time 3_ipt_suicidal_attempt_time2.html,1\4\1466b25ef83485631dd0750488fec71542e13311
+ò
+hsource/projects/app_data_analysis/chi square plots/Time 3_control_Psychiatric_hospitalization_time2.html,f\7\f7b6e22176a3ffc0f5b47530e26d95f10f35ca1d
+ç
+]source/projects/app_data_analysis/chi square plots/Time 3_control_suicidal_attempt_time2.html,1\5\1593b671b80ee59d1d6de0c68559f6ea86044125
+é
+^source/projects/app_data_analysis/chi square plots/Time 3_control_suicidal_behavior_time2.html,e\3\e3801aaac71a7be80e949a1b3f485d00ca101752
+é
+^source/projects/app_data_analysis/chi square plots/Time 3_control_suicidal_ideation_time2.html,6\9\69e8a96893f1ecc8b2d84bd1cc5dbfb8932f3c97
+ä
+Zsource/projects/app_data_analysis/chi square plots/Time 2_tau_suicidal_behavior_time2.html,b\1\b19d045427018609a780e51d39400c55c2372f36
+ä
+Zsource/projects/app_data_analysis/chi square plots/Time 2_tau_suicidal_ideation_time2.html,c\6\c6bc37b2544808221181d418d3de77b846ebb4e0
+
+Osource/projects/app_data_analysis/chi square plots/Time 3_control_ER_time2.html,a\6\a6fb36668f58811f99d15faf7bc6390704b78cf4
+Å
+Qsource/projects/app_data_analysis/chi square plots/Time 3_control_nssi_time2.html,d\0\d042b4bafa3ecc2275db4780eb020de1fc873117
+{
+Ksource/projects/app_data_analysis/chi square plots/Time 2_tau_ER_time2.html,3\5\35f922b0abf4d43090dbcac8d72c4791e55c8ed5
+}
+Msource/projects/app_data_analysis/chi square plots/Time 2_tau_nssi_time2.html,3\8\386c7bbeac362b0d107b1da45dd12b2d02894ead
+î
+dsource/projects/app_data_analysis/chi square plots/Time 2_tau_Psychiatric_hospitalization_time2.html,c\7\c74c7e638f2bf028df2ec9c1776ca1fa48d41e6f
+â
+Ysource/projects/app_data_analysis/chi square plots/Time 2_tau_suicidal_attempt_time2.html,8\e\8e63e5ae1c219ff48011e04fd39720eaca4e1d83
+î
+dsource/projects/app_data_analysis/chi square plots/Time 2_ipt_Psychiatric_hospitalization_time2.html,f\e\fe172adcffb97c955705f577ca3188ca1330df9d
+Q
+!dataset_creation/handle_groups.py,8\6\86220520fb00f8c7d0c03651223b011420a49a72
+â
+Ysource/projects/app_data_analysis/chi square plots/Time 2_ipt_suicidal_attempt_time2.html,f\1\f1ea8afad4b02cd85c51201c87e3c5d415665cba
+ä
+Zsource/projects/app_data_analysis/chi square plots/Time 2_ipt_suicidal_behavior_time2.html,8\4\84dd2b5985fcdbbd41629394337cda86bb880057
+ä
+Zsource/projects/app_data_analysis/chi square plots/Time 2_ipt_suicidal_ideation_time2.html,c\4\c4eb8109c6eb64e5cad05037da71359734a11d54
+é
+^source/projects/app_data_analysis/chi square plots/Time 2_control_suicidal_behavior_time2.html,8\b\8bbec981806fe6078180decacb5e47785ab48ecf
+é
+^source/projects/app_data_analysis/chi square plots/Time 2_control_suicidal_ideation_time2.html,2\1\2189bcdabb41e631232d19a8d7af09e3fd30f010
+{
+Ksource/projects/app_data_analysis/chi square plots/Time 2_ipt_ER_time2.html,7\1\71b1e2a3514a4f99264774936f2df77a22215ca8
+}
+Msource/projects/app_data_analysis/chi square plots/Time 2_ipt_nssi_time2.html,5\c\5caf63276fd54221a1edc8252a7c810519d716dc
+
+Osource/projects/app_data_analysis/chi square plots/Time 2_control_ER_time2.html,7\2\72d59551084e7f2bdcf896d5745b51f3badbddc9
+Å
+Qsource/projects/app_data_analysis/chi square plots/Time 2_control_nssi_time2.html,f\f\fff4ef6aa8861c98acf0fa3536ce4e234cc9f90e
+ò
+hsource/projects/app_data_analysis/chi square plots/Time 2_control_Psychiatric_hospitalization_time2.html,7\e\7e0e2b1107c9430b0e1285d9c20b88885fcb27fa
+ç
+]source/projects/app_data_analysis/chi square plots/Time 2_control_suicidal_attempt_time2.html,e\e\ee1fd509a9a47c6901c5040c4dfefd98948fc70b
+ã
+[source/projects/app_data_analysis/chi square plots/Time 1_tau_suicidal_behavior_intake.html,a\3\a3894d98f5026f11d01f7e2e77e9487e4bbce447
+í
+bsource/projects/app_data_analysis/chi square plots/Time 1_tau_suicidal_ideation_2weeks_intake.html,f\b\fbbaaacda70d1c4d390677e7b86692711526f8cb
+ê
+`source/projects/app_data_analysis/chi square plots/Time 1_tau_suicidal_ideation_life_intake.html,8\7\8777bde453e5969ebcae8959ce22fc588a8d767b
+â
+Ysource/projects/app_data_analysis/chi square plots/Time 1_tau_suicide_attempt_intake.html,4\8\489fadfe1e4446f0183537833f1b780c9ca53d9a
+|
+Lsource/projects/app_data_analysis/chi square plots/Time 1_tau_ER_intake.html,f\e\fec0b29260de87645c17dc5f2de087576d4b528e
+~
+Nsource/projects/app_data_analysis/chi square plots/Time 1_tau_nssi_intake.html,4\3\43f566c3f2a5857a11953a7fda13f70680318d0c
+ï
+esource/projects/app_data_analysis/chi square plots/Time 1_tau_Psychiatric_hospitalization_intake.html,2\1\215873f452cfed11f99cab8e9b6392de9928b4e6
+É
+Ssource/projects/app_data_analysis/chi square plots/Time 1_tau_self_harm_intake.html,3\a\3ad95fd1b939eb823ec1cd7441477c1a14d5916f
+ã
+[source/projects/app_data_analysis/chi square plots/Time 1_ipt_suicidal_behavior_intake.html,3\0\3022c35efeb565d9513b2ed848d0f1847725e1c0
+í
+bsource/projects/app_data_analysis/chi square plots/Time 1_ipt_suicidal_ideation_2weeks_intake.html,9\3\939899850100ea93bc085d91f80ed73dda8ccf31
+ê
+`source/projects/app_data_analysis/chi square plots/Time 1_ipt_suicidal_ideation_life_intake.html,f\a\fa8c647b9946e155a44fd3f4339accf1ee336081
+â
+Ysource/projects/app_data_analysis/chi square plots/Time 1_ipt_suicide_attempt_intake.html,d\1\d16927cedc9bbe094ef44d3b30a204b94d24b221
+|
+Lsource/projects/app_data_analysis/chi square plots/Time 1_ipt_ER_intake.html,1\9\19960683036dc07c80cae24ca44c11007a26b298
+~
+Nsource/projects/app_data_analysis/chi square plots/Time 1_ipt_nssi_intake.html,1\b\1b8e255d997b72d0e5d1573b57908230fc18fb7f
+ï
+esource/projects/app_data_analysis/chi square plots/Time 1_ipt_Psychiatric_hospitalization_intake.html,6\f\6fbc48b6d211cd89833930ceb77a856c10807718
+É
+Ssource/projects/app_data_analysis/chi square plots/Time 1_ipt_self_harm_intake.html,f\d\fd65a9f579de21f28921ff2702c01b0ff9ca95ac
+è
+_source/projects/app_data_analysis/chi square plots/Time 1_control_suicidal_behavior_intake.html,1\a\1af131a27ec79e1ef7473b447ef0c6c84ef179c8
+ñ
+fsource/projects/app_data_analysis/chi square plots/Time 1_control_suicidal_ideation_2weeks_intake.html,a\d\ad5bd0dae9166d21a5bd2143fe67ea65e9b672fd
+î
+dsource/projects/app_data_analysis/chi square plots/Time 1_control_suicidal_ideation_life_intake.html,c\c\cc22f9ff275b39a49ef219da8ae57b959d164960
+ç
+]source/projects/app_data_analysis/chi square plots/Time 1_control_suicide_attempt_intake.html,c\3\c3455bd01a3076dc71d53fa63d07cb3b53421253
+Ä
+Psource/projects/app_data_analysis/chi square plots/Time 1_control_ER_intake.html,5\a\5a03bb016d1f1c6a91b9359decf0a5bab966e47c
+Ç
+Rsource/projects/app_data_analysis/chi square plots/Time 1_control_nssi_intake.html,3\0\3018dc0a50d17c7e997ac2247a7070df8c003041
+ô
+isource/projects/app_data_analysis/chi square plots/Time 1_control_Psychiatric_hospitalization_intake.html,6\4\6406f5f4deaee40b46156d9939b703e3725ed366
+á
+Wsource/projects/app_data_analysis/chi square plots/Time 1_control_self_harm_intake.html,6\d\6d172f18f14d09cff90eb888b7cb381cb573eb10
+w
+Gsource/projects/app_data_analysis/mcnemar_data/long_effect_raw_data.csv,3\2\32d23747f6a85323ddef65adf076a0cf84dddea3
+x
+Hsource/projects/app_data_analysis/mcnemar_data/short_effect_raw_data.csv,9\1\91a1686e2e1a17388f1d6308bf57ee71433f116e
+`
+0source/utils/consts/subsets_of_questionnaires.py,b\4\b423f9dd0a2547116a61265a85a4743d06f1f966
+X
+(source/utils/consts/assistment_consts.py,3\e\3e8190c524496576e8e44446253603d064a01bd6
+ö
+jsource/projects/app_data_analysis/.ipynb_checkpoints/Analysis for grant - treatment group-checkpoint.ipynb,f\6\f68c7500eb4500f7b5d9cdeac36f32161179fca2
+t
+Dsource/projects/IPT young/data/DeppClinic_patient_data_treatment.csv,b\d\bdfdbad1a87616c2c1ff06d9896223f9cd7b6181
+m
+=source/projects/app_data_analysis/Time 2_invalid_group___.csv,e\2\e2a5cb2cc1a90501193d161f9fc0f561eaf4a96e
+m
+=source/projects/app_data_analysis/Time 3_invalid_group___.csv,6\a\6a7726bf281757c2ae077267370477a41c680248
+X
+(source/utils/consts/questions_columns.py,7\4\7464b7b35399c138636165733d646fdad0bab1a8
+i
+9source/utils/questionnaires_scores/scores_computations.py,2\8\28c43e11ba23027d08495ef267bb982a4e931a19
+k
+;source/projects/app_data_analysis/short_effect_raw_data.csv,2\a\2a6804c8411f878c9b37aae88f196fc4b3ed13c7
+m
+=source/projects/app_data_analysis/Time 1_invalid_group___.csv,a\9\a9082a6c62101b50ff15b3b0ddd1b92624dadd61
+r
+Bsource/projects/IPT young/data/DeppClinic_patient_data_control.csv,0\3\03c6416c902efafa5b5755559493dae028260b8e
+m
+=source/projects/app_data_analysis/McNeamer-with_control.ipynb,5\1\5110ac09250704c400b6c22ead5f9dd3fe0dcb94
+`
+0source/projects/app_data_analysis/McNeamer.ipynb,0\a\0adf337b83bee43a5f4fc60d5806ec161b9abac3
+j
+:source/projects/app_data_analysis/long_effect_raw_data.csv,2\9\29270d53815008c20b7e342d464e1bb179d7c576
+j
+:source/projects/app_data_analysis/Analysis for grant.ipynb,1\7\17910f8de2dfc3ee9d41bb00f5ebae466430f3e8
+j
+:source/projects/app_data_analysis/chi square & anova.ipynb,7\3\73e67afbae39e20b1d38708e6d69d6666adf670e
+Z
+*source/projects/Liat graphs/tmp liat.ipynb,7\f\7fa46e8abd915c9f33d055a7a8972e08e496eaf8
+|
+Lsource/projects/app_data_analysis/output/plots/intake_wai_bond X groups.html,3\8\38c421a6cd184579c0474a52a2ce80538ea91cb6
+Ç
+Rsource/projects/app_data_analysis/output/plots/intake_erc_rc_anxiety X groups.html,4\7\47cdad1b73b5727cae5e13f216e8e3e920576976
+_
+/source/projects/Liat graphs/reform groups.ipynb,6\4\6428146ab688131f85f763625f2b21b7f04565c4
+~
+Nsource/projects/app_data_analysis/output/plots/intake_DERS_score X groups.html,4\9\492f0efea7cd60470b532a38fdc6c28c33dc7327
+]
+-source/projects/Liat graphs/Liat graphs.ipynb,5\d\5d9dd5551b5e2d17809e279e19cbb105a7642457
+c
+3source/projects/Liat graphs/Liat graphs-young.ipynb,c\4\c4eb169a001b77a65999aee91822c0cb1e3fa459
+m
+=source/projects/Liat graphs/Create Datasets For Graphs .ipynb,3\6\36cff654fc2163b3e518df09b8edbaada91bea4e
+ã
+[research/create_dataset/dataset_for_prediction_task/Create_the_dataset_for_prediction.ipynb,d\1\d17c97f5df6c035e0c3972b62abea30feef86ed4
+~
+Nresearch/create_dataset/dataset_for_prediction_task/pipeline_functions/main.py,b\d\bd3972acf2ea64d4c8460d69afab870d86bec2b6
+d
+4source/projects/IPT young/ipt_young_project_utils.py,2\9\292befa3c2a34ff679ae9c91c8b0cf159afa805c
+V
+&dataset_creation/pipeline_functions.py,b\3\b3ebf0d1729e8dbf7257a16bb1e40cbf27473bdb
+a
+1source/utils/consts/quesionnaires_valid_values.py,4\5\456fcf5260d4d01cf2cae3846e0bcb2a159626e7
+L
+dataset_creation/cleaning.py,8\f\8ffa76e620208368ad5f4c4f067d13756301061b

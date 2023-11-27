@@ -53,13 +53,13 @@ def main(times, directory_path=None, suffix=''):
     if not os.path.exists(directory_path):
         os.makedirs(directory_path)
 
-    save_df(df, columns, axis='patient', profile=False, directory_path=directory_path, suffix=suffix)
+    #save_df(df, columns, axis='patient', profile=False, directory_path=directory_path, suffix=suffix)
     save_df(df, columns, axis='time', profile=False, directory_path=directory_path, suffix=suffix)
 
 
 treatment_times = {
     'Time 1': ['intake_arm_1', 'pre_treatment_arm_1'],
-    'Time 2': ['5th_session_arm_1'],
+    'Time 2': ['5th_session_arm_1', 'control_5weeks_arm_1'],
     'Time 3': ['followup_3month_arm_1', 'control_3month_arm_1', 'control_6month_arm_1']
 }
 
@@ -69,6 +69,6 @@ control_times = {
     'Time 3': ['control_3month_arm_1', 'control_6month_arm_1']
 }
 
-main(treatment_times, r"source/projects/IPT young/data", '_treatment')
-main(treatment_times, r"source/projects/IPT young/data", '_control')
+main(treatment_times, r"source/projects/app_data_analysis/data", '_treatment_27_11')
+main(control_times, r"source/projects/app_data_analysis/data", '_control_27_11')
 

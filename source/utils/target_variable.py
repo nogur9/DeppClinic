@@ -1,4 +1,5 @@
 # import pandas_profiling as pp
+import numpy as np
 
 
 class TargetVariable:
@@ -10,12 +11,12 @@ class TargetVariable:
         self.do_preprocessing = do_preprocessing
 
     def calculate_value(self, df):
-        if self.do_preprocessing and 'chameleon' in self.name:
-            aligned_df = df[self.columns].replace(2, 0)
-            aligned_df = aligned_df[self.columns].replace(3, 0)
-            df[self.name] = (aligned_df.sum(axis=1) > 0).astype(int)
-        else:
-            df[self.name] = (df[self.columns].sum(axis=1) > 0).astype(int)
+        df = self.calculate_missing_values(df)
+        chameleon_cols = [column for column in self.columns if 'chameleon' in column]
+        df[chameleon_cols] = df[chameleon_cols].replace(2, 0)
+        df[chameleon_cols] = df[chameleon_cols].replace(3, 0)
+        df[self.name] = (df[self.columns].sum(axis=1) > 0).astype(int)
+        df.loc[df[f'ratio_of_missing_{self.name}_values'] == 1, self.name] = np.NaN
         return df
 
     def calculate_missing_values(self, df):

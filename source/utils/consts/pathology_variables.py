@@ -74,6 +74,30 @@ suicidal_ideation_life_intake = [
 
 ]
 
+active_suicidal_ideation_life_intake = [
+    'c_ssrs_t_life_2_clin',
+    'c_ssrs_t_life_3_clin',
+    'c_ssrs_t_life_4_clin',
+    'c_ssrs_t_life_5_clin',
+
+    'c_ssrs_t_2weeks_2_clin',
+    'c_ssrs_t_2weeks_3_clin',
+    'c_ssrs_t_2weeks_4_clin',
+    'c_ssrs_t_2weeks_5_clin',
+
+    'c_ssrs_2_life',
+    'c_ssrs_3_life',
+    'c_ssrs_4_life',
+    'c_ssrs_5_life',
+
+    'c_ssrs_2_2weeks',
+    'c_ssrs_3_2weeks',
+    'c_ssrs_4_2weeks',
+    'c_ssrs_5_2weeks',
+
+    'chameleon_ideation_stu'
+
+]
 ER_intake = ["complaint___1", "complaint___2", "complaint___3", "complaint___4", "complaint___5", 'chameleon_suicide_er_stu']
 # time 2
 
@@ -122,7 +146,18 @@ suicidal_ideation_time2 = [
     'c_ssrs_4',
     'c_ssrs_5',
 
-    'chameleon_ideation_stu'
+    'chameleon_ideation_stu',
+
+    'suicidal_behavior_last_11_clin',
+    'suicidal_behavior_last_12_clin',
+    'suicidal_behavior_last_13_clin',
+    'suicidal_behavior_last_14_clin',
+    'suicidal_behavior_last_15_clin',
+
+    'c_ssrs_6', 'mfq_36',
+    'c_ssrs_last_visit_6',
+    'chameleon_behavior_stu',
+    'chameleon_attempt_stu',
 ]
 
 ER_time2 = ['chameleon_suicide_er_stu']
@@ -139,6 +174,7 @@ pathology_variables_times = {
                'suicide_attempt_intake': suicide_attempt_intake,
                'nssi_intake': nssi_intake,
                'suicidal_ideation_2weeks_intake': suicidal_ideation_2weeks_intake,
+               "active_suicidal_ideation_life_intake": active_suicidal_ideation_life_intake,
                'suicidal_ideation_life_intake': suicidal_ideation_life_intake,
                'self_harm_intake': self_harm_intake,
                'ER_intake': ER_intake,

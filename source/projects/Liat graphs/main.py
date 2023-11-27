@@ -37,7 +37,8 @@ def fill_group(df, group):
 
 
 def create_dataset(event_names, path=None):
-
+    if not os.path.exists(path):
+        os.mkdir(path)
     df = pd.read_csv(r"C:\Users\nogur\Documents\DeppClinic\creating_the_clinic_dataset\preprocessed_data\merged_2021_and_2022.csv", na_values=' ')
     columns = Columns()
     groups = ['group___1', 'group___2', 'group___3']
@@ -45,6 +46,7 @@ def create_dataset(event_names, path=None):
     df = do_imputations(df)
     for group in groups:
         df = fill_group(df, group)
+
     df = create_single_event_name(df, columns, event_names)
     # calculate pathology variables
 
@@ -70,5 +72,5 @@ if __name__ == "__main__":
              'time3': ['followup_3month_arm_1', 'control_3month_arm_1', 'control_6month_arm_1']}
 
     for time in times.keys():
-        create_dataset(event_names=times[time], path=rf"C:\Users\nogur\Documents\DeppClinic\source\projects\Liat graphs\data\{time}")
+        create_dataset(event_names=times[time], path=rf"C:\Users\nogur\Documents\DeppClinic\source\projects\Liat graphs\data\new_processing\{time}")
 
