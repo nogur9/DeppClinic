@@ -5,7 +5,7 @@ from utils.consts.assistment_consts import imputation_questionnaires
 from utils.util_functions import questionnaire_is_empty, impute_from_questionnaire
 from utils.data_manipulation.data_imputation import impute_from_column
 import pandas as pd
-import pandas_profiling as pp
+#import pandas_profiling as pp
 
 
 class Columns:
@@ -79,12 +79,12 @@ def split_to_multiple_measurement_times(df, columns, times):
     for time in times.keys():
         events = times[time]
 
-        event_dataset = df[df.redcap_event_name == events[0]][columns.unique_columns_with_id]
+        event_dataset = df[df.redcap_event_name == events[0]][list(columns.unique_columns_with_id)]
 
         if len(events) > 1:
 
             for event_name in events[1:]:
-                df_new_measurement = df[df.redcap_event_name == event_name][columns.unique_columns_with_id]
+                df_new_measurement = df[df.redcap_event_name == event_name][list(columns.unique_columns_with_id)]
                 event_dataset = impute_events(event_dataset, df_new_measurement, columns, suffix=event_name)
 
         event_dataset['measurement'] = time

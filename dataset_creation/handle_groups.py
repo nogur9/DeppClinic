@@ -48,7 +48,7 @@ def fill_missing_groups(df, group_names):
     filling_map = pd.read_csv("helper_docs/group_imputations.csv")
     inv_group_names = {v: k for k, v in group_names.items()}
     for _, row in filling_map.iterrows():
-        df.loc[df['id'] == row['id'], 'group'] = row['group']
-        df.loc[df['id'] == row['id'], f"group___{inv_group_names[row['group']]}"] = 1
+        df.loc[df['id'] == row['id'], 'group'] = row['group_name']
+        df.loc[df['id'] == row['id'], f"group___{inv_group_names[row['group_name']]}"] = 1
     return df
 

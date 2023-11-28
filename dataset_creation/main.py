@@ -39,7 +39,7 @@ def main(times, directory_path=None):
         columns.add([questionnaire_name])
 
     df = pd.concat([df_time1, df_time2])
-    df = df[columns.unique_columns_with_id]
+    df = df[list(columns.unique_columns_with_id)]
 
     questionnaires = Questionnaires().questionnaires
     df, columns = compute_questions_scores(df, questionnaires, columns)
@@ -57,5 +57,5 @@ times = {
     'Time 3': ['followup_3month_arm_1', 'control_3month_arm_1', 'control_6month_arm_1']
 }
 
-main(times, r"Request_for_app_data_analysis/data/treatment_group")
+main(times, r"Request_for_app_data_analysis/data/treatment_group_recreation")
 

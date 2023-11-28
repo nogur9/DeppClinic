@@ -247,8 +247,6 @@ O
 aLiat graphs/.ipynb_checkpoints/continue reseach for the missing data from master-checkpoint.ipynb,2\5\25485561b14af7d9bfad9e06619ee2b8a2d7505f
 ~
 Nresearch/create_dataset/dataset_for_prediction_task/pipeline_functions/main.py,b\d\bd3972acf2ea64d4c8460d69afab870d86bec2b6
-H
-utils/target_variable.py,5\6\56bbde7868d98feb8302bd6615772b61db16a0d7
 Q
 !utils/consts/questions_columns.py,5\0\5014c63199c7090d679d93c45f4821f69ee8562b
 C
@@ -265,14 +263,8 @@ b
 2utils/questionnaires_scores/scores_computations.py,7\9\797008ecd9e036fdc4c1b4fc356c5da935ede171
 i
 9creating_the_clinic_dataset/step2_merge_2021_2022/main.py,c\3\c3815a6c1834b0f37f29542dc03e5b098a19e54e
-V
-&dataset_creation/pipeline_functions.py,b\3\b3ebf0d1729e8dbf7257a16bb1e40cbf27473bdb
-Q
-!dataset_creation/handle_groups.py,8\6\86220520fb00f8c7d0c03651223b011420a49a72
 S
 #utils/consts/pathology_variables.py,2\e\2e55718db1cadd4ec554dba314ab0776e40b2bdf
-H
-dataset_creation/main.py,b\e\be9a6d0be3547a50abdfc1d5b1cf44d7c5e28a6b
 M
 tests/test_data_imputation.py,3\4\343a8eece07f68b322372a6ab4de22c95c31fe8a
 w
