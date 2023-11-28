@@ -1,0 +1,7 @@
+[
+  "test_data_imputation.py::TestImputeRowWithMean::test_impute_row_with_mean",
+  "test_scores_computations.py::TestCalculateCSSRSIndividualScore::test_calculate_c_ssrs_individual_score_idea",
+  "test_scores_computations.py::TestCalculateCSSRSIndividualScore::test_calculate_c_ssrs_individual_score_invalid_severity",
+  "test_scores_computations.py::TestCalculateCSSRSIndividualScore::test_calculate_c_ssrs_individual_score_stb",
+  "test_scores_computations.py::TestGetMaxIndex::test_get_max_index"
+]
