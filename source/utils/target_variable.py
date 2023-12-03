@@ -10,12 +10,15 @@ class TargetVariable:
         self.do_preprocessing = do_preprocessing
 
     def calculate_value(self, df):
-        if self.do_preprocessing and 'chameleon' in self.name:
-            aligned_df = df[self.columns].replace(2, 0)
-            aligned_df = aligned_df[self.columns].replace(3, 0)
-            df[self.name] = (aligned_df.sum(axis=1) > 0).astype(int)
-        else:
-            df[self.name] = (df[self.columns].sum(axis=1) > 0).astype(int)
+        columns_aligns = [i for i in self.columns if 'chameleon' not in i]
+        columns_chameleon = [i for i in self.columns if 'chameleon' in i]
+        aligned_columns_chameleon = [f"{i}.align" for i in columns_chameleon]
+
+        align_df = df
+        align_df[aligned_columns_chameleon] = align_df[columns_chameleon].replace(2, 0)
+        align_df[aligned_columns_chameleon] = align_df[columns_chameleon].replace(3, 0)
+        align_df = align_df[columns_aligns + aligned_columns_chameleon]
+        df[self.name] = (align_df.sum(axis=1) > 0).astype(int)
         return df
 
     def calculate_missing_values(self, df):

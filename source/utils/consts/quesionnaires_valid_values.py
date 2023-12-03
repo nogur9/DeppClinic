@@ -6,7 +6,7 @@ questionnaire_valid_values = {
     },
     'c_ssrs_clin_part_1': {
         'columns': [
-        #'c_ssrs_t_2weeks_1_clin',
+        'c_ssrs_t_2weeks_1_clin',
         'c_ssrs_t_2weeks_2_clin', 'c_ssrs_t_2weeks_3_clin',
         'c_ssrs_t_2weeks_4_clin', 'c_ssrs_t_2weeks_5_clin', 'c_ssrs_t_last_1_clin',
         'c_ssrs_t_last_2_clin', 'c_ssrs_t_last_3_clin', 'c_ssrs_t_last_4_clin',

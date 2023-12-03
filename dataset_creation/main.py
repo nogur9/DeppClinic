@@ -1,5 +1,5 @@
 import pandas as pd
-
+import numpy as np
 from dataset_creation.cleaning import remove_invalid_values
 from dataset_creation.handle_groups import GROUPS, fill_group, GROUP_NAMES_MAP, rename_groups, fill_missing_groups
 from dataset_creation.pipeline_functions import Columns, do_imputations, compute_questions_scores, save_df, split_to_multiple_measurement_times
@@ -15,6 +15,7 @@ def main(times, directory_path=None, suffix=''):
     os.chdir(r'C:\Users\nogur\Documents\DeppClinic')
 
     df = pd.read_csv(r"creating_the_clinic_dataset/preprocessed_data/merged_2021_and_2022.csv", na_values=' ')
+    df = df.replace('chameleon_ideation_stu_2022', np.nan)
     columns = Columns()
     df = do_imputations(df)
 
@@ -58,17 +59,17 @@ def main(times, directory_path=None, suffix=''):
 
 
 treatment_times = {
-    'Time 1': ['intake_arm_1', 'pre_treatment_arm_1'],
+    'Time 1': ['intake_arm_1', 'pre_treatment_arm_1', 'er_arm_1'],
     'Time 2': ['5th_session_arm_1'],
     'Time 3': ['followup_3month_arm_1', 'control_3month_arm_1', 'control_6month_arm_1']
 }
 
 control_times = {
-    'Time 1': ['intake_arm_1'],
+    'Time 1': ['intake_arm_1', 'er_arm_1'],
     'Time 2': ['control_5weeks_arm_1'],
     'Time 3': ['control_3month_arm_1', 'control_6month_arm_1']
 }
 
-main(treatment_times, r"source/projects/IPT young/data", '_treatment')
-main(treatment_times, r"source/projects/IPT young/data", '_control')
+main(treatment_times, r"source/projects/app_data_analysis/data", '_treatment')
+main(treatment_times, r"source/projects/app_data_analysis/data", '_control')
 
