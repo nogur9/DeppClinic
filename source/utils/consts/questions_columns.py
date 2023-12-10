@@ -30,7 +30,8 @@ c_ssrs = [
     'c_ssrs_8',
 ]
 
-c_ssrs_clin = [  # 'c_ssrs_t_time_clin',  # what's that?#    'c_ssrs_t_2weeks_1_clin',
+c_ssrs_clin = [  # 'c_ssrs_t_time_clin',  # what's that?#
+    'c_ssrs_t_2weeks_1_clin',
     'c_ssrs_t_2weeks_2_clin',
     'c_ssrs_t_2weeks_3_clin',
     'c_ssrs_t_2weeks_4_clin',

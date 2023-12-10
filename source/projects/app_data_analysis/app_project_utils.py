@@ -1,54 +1,22 @@
 import pingouin as pg
-import plotly.graph_objs as go
 import pandas as pd
 import os
 from source.utils.consts.pathology_variables import pathology_variables_times
-import plotly.express as px
 import statsmodels.api as sm
 from sklearn.preprocessing import OneHotEncoder, LabelEncoder, StandardScaler
+import plotly.graph_objs as go
 
 
-def anova_test(df, target, time):
-    print(target, 'X', time)
-    df = df[df.time.isin(['Time 1', time])]
-    try:
-        results = pg.anova(data=df, dv=target, between=['used_app', 'time'])[['Source', 'F', 'p-unc']]
-    except ValueError:
-        results = 'Invalid data'
-    print(results, '\n\n\n\n\n')
+def create_directories(path, dir_name):
+    if not os.path.exists(path):
+        os.mkdir(path)
+
+    if not os.path.exists(f"{path}/{dir_name}"):
+        os.mkdir(f"{path}/{dir_name}")
 
 
-def logistic_regression_test(df, target, time):
-    df = df[df.time.isin(['Time 1', time])]
-    X = df[['time', 'used_app']]
-    Y = df[target]
-
-    label_encoder_of_group = LabelEncoder()
-    standard_scaler = StandardScaler()
-
-    X['used_app'] = label_encoder_of_group.fit_transform(X['used_app'])
-    X['time'] = label_encoder_of_group.fit_transform(X['time'])
-    X[['used_app', 'time']] = standard_scaler.fit_transform(X[['used_app', 'time']])
-    X['interaction'] = X['time'] * X['used_app']
-
-    model = sm.Logit(Y, X).fit()
-
-    wald_test_with_interation = model.wald_test('time + used_app + interaction = 0')
-    wald_test_linear = model.wald_test('time + used_app = 0')
-
-    print(time, "\n", target, f"\n{wald_test_with_interation = }")
-    #print(f"{wald_test_linear = }")
-
-
-def create_directories(dir):
-    if not os.path.exists("plots"):
-        os.mkdir("plots")
-
-    if not os.path.exists(f"plots/{dir}"):
-        os.mkdir(f"plots/{dir}")
-
-
-def used_app(x, app_ids):
+def used_app(x):
+    app_ids = pd.read_csv(r"../../../Data/helper_docs/APP_patient_ids.csv")
     if x['id'] in list(app_ids['patient_id']):
         return True
     else:
@@ -66,12 +34,13 @@ def load_data(group):
         df = pd.read_csv(r"data\DeppClinic_patient_data_treatment.csv")
     elif group == 'control':
         df = pd.read_csv(r"data\DeppClinic_patient_data_control.csv")
+    elif group == 'all':
+        df = pd.read_csv(r"data\DeppClinic_patient_data_all.csv")
     else:
         raise ValueError
     df["intake_date"] = pd.to_datetime(df["sciafca_timestamp"], errors='coerce')
 
-    app_ids = pd.read_csv(r"../../../Data/helper_docs/APP_patient_ids.csv")
-    df['used_app'] = df.apply(used_app, args=[app_ids], axis=1)
+    df['used_app'] = df.apply(used_app, axis=1)
     return df
 
 
@@ -94,13 +63,14 @@ def get_target_variables():
         'Psychiatric_hospitalization_intake': 'Psychiatric_hospitalization_time2'
     }
 
-    continuous_target_vars = ['DERS_score', 'erc_rc_anxiety', 'wai_goal', 'wai_task', 'wai_bond']
+    continuous_target_vars = ['DERS_score', 'erc_rc_anxiety']
     discrete_target_vars = ['suicidal_ideation_time2', 'suicidal_behavior_time2', 'nssi_time2']
     info_cols = ['group', 'used_app', 'measurement', 'id']
 
     target_variables = {
         'continuous_target_vars': continuous_target_vars,
         'discrete_target_vars': discrete_target_vars,
+        'wai_target_vars': ['wai_goal', 'wai_task', 'wai_bond'],
         'info_cols': info_cols,
         'intake_to_time2_map': intake_to_time2_map,
         'target_variables_per_time': target_variables_per_time,
@@ -120,12 +90,13 @@ def align_multiple_measurement_times(df, target_variables, age, groups):
     time3_df = df[df.measurement.isin(['Time 3'])]
     df = pd.concat([time1_df, time2_df, time3_df])
 
-    df = df[target_variables['continuous_target_vars'] + target_variables['discrete_target_vars'] + target_variables['info_cols']]
+    df = df[target_variables['continuous_target_vars'] + target_variables['discrete_target_vars'] +
+            target_variables['info_cols'] + target_variables['wai_target_vars']]
     df['time'] = df['measurement']
     return df
 
 
-def plot_histogram(df, target, time):
+def continuous_treatment_improvement_plot(df, target, time):
     chart_data = pd.concat([
         pd.Series(df.index, index=df.index, name='__index__'),
         df[target],
@@ -162,82 +133,6 @@ def plot_histogram(df, target, time):
     return figure
 
 
-def intake_bar_plot(df, target_variable):
-    _, _, stats = pg.chi2_independence(data=df, x=target_variable, y='group')
-    stats = stats[stats.test == 'pearson'].round(3)[['pval', 'power']].to_string(index=False).split('\n')
-    stat_text = f"<b>chi_square Result:</b><br>{stats[0]}</b><br>{stats[1]}"
-
-    chart_data = pd.concat([
-        pd.Series(df.index, index=df.index, name='__index__'),
-        df['group'],
-        df[target_variable],
-    ], axis=1)
-    chart_data = chart_data.query(f"""(`{target_variable}` == 1) or (`{target_variable}` == 0)""")
-    chart_data = chart_data.sort_values([target_variable, 'group'])
-    chart_data = chart_data.rename(columns={'group': 'x'})
-    chart_data_pctct = chart_data.groupby([target_variable, 'x'])[['__index__']].count()
-    chart_data_pctct = chart_data_pctct / chart_data_pctct.groupby(['x']).count()
-    chart_data_pctct.columns = ['__index__|pctct']
-    chart_data = chart_data_pctct.reset_index()
-    chart_data = chart_data.dropna()
-
-    chart_data = chart_data.query(f"""{target_variable} == 1""")
-
-    charts = [go.Bar(
-        x=chart_data['x'],
-        y=chart_data['__index__|pctct'],
-        name=f"({target_variable.replace('_time2', '')}: 1)",
-        marker_color='red'
-    )]
-
-    chart_data = pd.concat([
-        pd.Series(df.index, index=df.index, name='__index__'),
-        df['group'],
-        df[target_variable],
-    ], axis=1)
-    chart_data = chart_data.query(f"""(`{target_variable}` == 1) or (`{target_variable}` == 0)""")
-    chart_data = chart_data.sort_values([target_variable, 'group'])
-    chart_data = chart_data.rename(columns={'group': 'x'})
-    chart_data_pctct = chart_data.groupby([target_variable, 'x'])[['__index__']].count()
-    chart_data_pctct = chart_data_pctct / chart_data_pctct.groupby(['x']).count()
-    chart_data_pctct.columns = ['__index__|pctct']
-    chart_data = chart_data_pctct.reset_index()
-    chart_data = chart_data.dropna()
-    # WARNING: This is not taking into account grouping of any kind, please apply filter associated with
-    #          the group in question in order to replicate chart. For this we're using '"""`gender` == 'man'"""'
-    chart_data = chart_data.query(f"""`{target_variable}` == 0""")
-
-    charts.append(go.Bar(
-        x=chart_data['x'],
-        y=chart_data['__index__|pctct'],
-        name=f"({target_variable.replace('_time2', '')}: 0)",
-        marker_color='green'
-    ))
-
-    figure = go.Figure(data=charts, layout=go.Layout({
-        'barmode': 'group',
-        'legend': {'orientation': 'h'},
-        'title': {'text': f"Rate of {target_variable.replace('_time2', '')} by Treatment Group"},
-        'xaxis': {'tickformat': '0:g', 'title': {'text': 'group'}},
-        'yaxis': {'tickformat': '0:g', 'title': {'text': 'Count'}, 'type': 'linear'},
-    }))
-    figure.add_annotation(
-        x=1,
-        y=1,
-        text=stat_text,
-        showarrow=False,
-        font=dict(size=11, color='black'),
-        bgcolor='lightgray',
-        bordercolor='black',
-        borderwidth=1,
-        borderpad=12,
-        xref='paper',
-        yref='paper'
-    )
-    figure.show()
-    return figure
-
-
 def discrete_treatment_improvement_plot(df, target_variable, time="Time 3"):
     # remove any pre-existing indices for ease of use in the D-Tale code, but this is not required
     df = df.reset_index().drop('index', axis=1, errors='ignore')
@@ -256,8 +151,6 @@ def discrete_treatment_improvement_plot(df, target_variable, time="Time 3"):
     chart_data = chart_data.dropna()
     # WARNING: This is not taking into account grouping of any kind, please apply filter associated with
     #          the group in question in order to replicate chart. For this we're using '"""`time` == 'intake'"""'
-
-    import plotly.graph_objs as go
 
     charts = []
 
@@ -287,31 +180,241 @@ def discrete_treatment_improvement_plot(df, target_variable, time="Time 3"):
     return figure
 
 
-def continuous_descriptive_plots(df, target_variables, dir):
-    for target_variable in target_variables['continuous_target_vars']:
-        figure = px.histogram(df, x=target_variable, color=df['time'], title=f"Distplot of {target_variable} by time", nbins=30)
-        figure.write_html(os.path.join(f"plots/{dir}", f"{target_variable} by time.html"))
+class StatisticalAnalyzer:
+
+    def __init__(self, df, target_variable, time, data_type):
+        self.df = df
+        self.target_variable = target_variable
+        self.time = time
+        self.data_type = data_type
+        self.results = None
+        self.data = None
+        self.perform_statistical_test()
+
+    def is_significant(self):
+        if self.results is None:
+            raise ValueError
+        elif self.data_type == 'Discrete':
+            p_value = self.results.pvalue
+        elif self.data_type == 'Continuous':
+            p_value = self.results.query("Source == 'used_app * time'")['p-unc'].values[0]
+
+        elif self.data_type == 'wai':
+            p_value = self.results['p-val'].values[0]
+        else:
+            raise ValueError
+
+        return p_value <= 0.06
+
+    def create_directories(self):
+        create_directories('results', self.target_variable)
+        create_directories('results/plots', self.target_variable)
+
+    def anova_test(self):
+        df = self.df[self.df.time.isin(['Time 1', self.time])]
+        try:
+            results = pg.anova(data=df, dv=self.target_variable, between=['used_app', 'time'])[['Source', 'F', 'p-unc']]
+            data = df[['id', 'used_app', 'time', self.target_variable]]
+            self.results = results
+            self.data = data
+        except ValueError:
+            print('Invalid data')
+
+    def plot(self):
+        # remove any pre-existing indices for ease of use in the D-Tale code, but this is not required
+        df = self.df.reset_index().drop('index', axis=1, errors='ignore')
+        #df.loc[df['used_app']==True, 'used_app'] = 'App User'
+        #df.loc[df['used_app']==False, 'used_app'] = 'Not used App'
+        df.columns = [str(c) for c in df.columns]  # update columns to strings in case they are numbers
+
+        chart_data = pd.concat([
+            df['used_app'],
+            df[self.target_variable],
+            df['time'],
+        ], axis=1)
+        chart_data = chart_data.query(f"""(`time` == 'Time 1') or (`time` == '{self.time}')""")
+        chart_data = chart_data.rename(columns={'used_app': 'x'})
+        chart_data_mean = chart_data.groupby(['time', 'x'], dropna=True)[[self.target_variable]].mean()
+        chart_data_mean.columns = [f'{self.target_variable}||mean']
+        chart_data = chart_data_mean.reset_index()
+        chart_data = chart_data.dropna()
+        # WARNING: This is not taking into account grouping of any kind, please apply filter associated with
+        #          the group in question in order to replicate chart. For this we're using '"""`time` == 'intake'"""'
+
+        charts = []
+
+        intake_chart_data = chart_data.query("""`time` == 'Time 1'""")
+        charts.append(go.Bar(
+            x=intake_chart_data['x'],
+            y=intake_chart_data[f'{self.target_variable}||mean'],
+            name='(time: intake)'
+        ))
+
+        time3_chart_data = chart_data.query(f"""`time` == '{self.time}'""")
+        charts.append(go.Bar(
+            x=time3_chart_data['x'],
+            y=time3_chart_data[f'{self.target_variable}||mean'],
+            name='(time: follow up)'
+        ))
+
+        figure = go.Figure(data=charts, layout=go.Layout({
+            'barmode': 'group',
+            'legend': {'orientation': 'h', 'y': -0.3},
+            'title': {'text': f"Rate of {self.target_variable.replace('_time2', '')} by Used App"},
+            'xaxis': {'title': {'text': 'used_app'}},
+            'yaxis': {'title': {'text': f"Rate of {self.target_variable.replace('_time2', '')}"}, 'type': 'linear'}
+        }))
+
         figure.show()
+        return figure
 
+    def wai_plot(self):
+        # remove any pre-existing indices for ease of use in the D-Tale code, but this is not required
+        df = self.df.reset_index().drop('index', axis=1, errors='ignore')
+        df.loc[df['used_app']==True, 'used_app'] = 'App User'
+        df.loc[df['used_app']==False, 'used_app'] = 'Not used App'
 
-def discrete_descriptive_plots(df, target_variables, dir):
-    for target_variable in target_variables['discrete_target_vars']:
-        figure = px.histogram(df, x=target_variable, color=df['time'], title=f"Distplot of {target_variable} by time", nbins=30)
-        figure.write_html(os.path.join(f"plots/{dir}", f"{target_variable} by time.html"))
+        chart_data = pd.concat([
+            df['used_app'],
+            df[self.target_variable],
+            df['time'],
+        ], axis=1)
+        chart_data = chart_data.query(f"""(`time` == '{self.time}')""")
+        chart_data = chart_data.rename(columns={'used_app': 'x'})
+        chart_data_mean = chart_data.groupby(['x'], dropna=True)[[self.target_variable]].mean()
+        chart_data_mean.columns = [f'{self.target_variable}||mean']
+        chart_data = chart_data_mean.reset_index()
+        chart_data = chart_data.dropna()
+        # WARNING: This is not taking into account grouping of any kind, please apply filter associated with
+        #          the group in question in order to replicate chart. For this we're using '"""`time` == 'intake'"""'
+
+        chart = go.Bar(
+            x=chart_data['x'],
+            y=chart_data[f'{self.target_variable}||mean'],
+        )
+
+        figure = go.Figure(data=chart, layout=go.Layout({
+            'barmode': 'group',
+            'legend': {'orientation': 'h', 'y': -0.3},
+            'title': {'text': f"Rate of {self.target_variable.replace('_time2', '')} by Used App"},
+            'xaxis': {'title': {'text': 'used_app'}},
+            'yaxis': {'title': {'text': f"Rate of {self.target_variable.replace('_time2', '')}"}, 'type': 'linear'}
+        }))
+
         figure.show()
+        return figure
+
+    def perform_statistical_test(self):
+        if self.data_type == 'Discrete':
+            self.logistic_regression_test()
+        elif self.data_type == 'Continuous':
+            self.anova_test()
+        elif self.data_type == 'wai':
+            self.anova_test()
+        else:
+            raise ValueError
+
+    def logistic_regression_test(self):
+        df = self.df[self.df.time.isin(['Time 1', self.time])]
+        df = df.dropna(subset=[self.target_variable])
+        X = df[['time', 'used_app']]
+        Y = df[self.target_variable]
+
+        label_encoder_of_group = LabelEncoder()
+        standard_scaler = StandardScaler()
+
+        X['used_app'] = label_encoder_of_group.fit_transform(X['used_app'])
+        X['time'] = label_encoder_of_group.fit_transform(X['time'])
+        X[['used_app', 'time']] = standard_scaler.fit_transform(X[['used_app', 'time']])
+        X['interaction'] = X['time'] * X['used_app']
+
+        model = sm.Logit(Y, X).fit()
+        wald_test_with_interation = model.wald_test('time + used_app + interaction = 0')
+        data = df[['id', 'used_app', 'time', self.target_variable]]
+
+        self.results = wald_test_with_interation
+        self.data = data
+
+        wald_test_linear = model.wald_test('time + used_app = 0')
+
+    def t_test(self):
+        df = self.df[self.df.time == self.time]
+        x = df[df.used_app]
+        y = df[~ df.used_app]
+        try:
+            results = pg.ttest(x, y)
+            data = df[['id', 'used_app', 'time', self.target_variable]]
+            self.results = results
+            self.data = data
+        except ValueError:
+            print('Invalid data')
+
+    def print_results(self):
+        print(self.target_variable, 'X', self.time)
+        print(self.results, '\n\n\n\n\n')
 
 
-def perform_continuous_tests(df, target_variables, dir):
+def perform_continuous_tests(df, target_variables):
     for time in ['Time 2', 'Time 3']:
         for target in target_variables['continuous_target_vars']:
-            figure = plot_histogram(df, target, time)
-            figure.write_html(os.path.join(f"plots/{dir}", f"{time}_{target}.html"))
-            anova_test(df, target, time)
+            continuous_test = StatisticalAnalyzer(df, target, time, 'Continuous')
+            if continuous_test.is_significant():
+                continuous_test.create_directories()
+                figure = continuous_test.plot()
+                figure.write_html(os.path.join(f"results/{target}", "plot.html"))
+                continuous_test.print_results()
 
 
-def perform_discrete_tests(df, target_variables, dir):
+def perform_discrete_tests(df, target_variables):
     for time in ['Time 2', 'Time 3']:
-        for target_variable in target_variables['discrete_target_vars']:
-            figure = discrete_treatment_improvement_plot(df, target_variable, time)
-            figure.write_html(os.path.join(f"plots/{dir}", f"{time}_{target_variable}.html"))
-            logistic_regression_test(df, target_variable, time)
+        for target in target_variables['discrete_target_vars']:
+            print(f"{target = }")
+            continuous_test = StatisticalAnalyzer(df, target, time, 'Discrete')
+            if continuous_test.is_significant():
+                continuous_test.create_directories()
+                figure = continuous_test.plot()
+                figure.write_html(os.path.join(f"results/{target}", "plot.html"))
+                continuous_test.print_results()
+
+
+def perform_wai_tests(df, target_variables):
+    for time in ['Time 2', 'Time 3']:
+        for target in target_variables['wai_target_vars']:
+            continuous_test = StatisticalAnalyzer(df, target, time, 'wai')
+            if continuous_test.is_significant():
+                continuous_test.create_directories()
+                figure = continuous_test.wai_plot()
+                figure.write_html(os.path.join(f"results/{target}", "plot.html"))
+                continuous_test.print_results()
+
+#
+# def anova_test(df, target, time):
+#     print(target, 'X', time)
+#     df = df[df.time.isin(['Time 1', time])]
+#     try:
+#         results = pg.anova(data=df, dv=target, between=['used_app', 'time'])[['Source', 'F', 'p-unc']]
+#     except ValueError:
+#         results = 'Invalid data'
+#     print(results, '\n\n\n\n\n')
+#
+#
+# def logistic_regression_test(df, target, time):
+#     df = df[df.time.isin(['Time 1', time])]
+#     X = df[['time', 'used_app']]
+#     Y = df[target]
+#
+#     label_encoder_of_group = LabelEncoder()
+#     standard_scaler = StandardScaler()
+#
+#     X['used_app'] = label_encoder_of_group.fit_transform(X['used_app'])
+#     X['time'] = label_encoder_of_group.fit_transform(X['time'])
+#     X[['used_app', 'time']] = standard_scaler.fit_transform(X[['used_app', 'time']])
+#     X['interaction'] = X['time'] * X['used_app']
+#
+#     model = sm.Logit(Y, X).fit()
+#
+#     wald_test_with_interation = model.wald_test('time + used_app + interaction = 0')
+#     wald_test_linear = model.wald_test('time + used_app = 0')
+#
+#     print(time, "\n", target, f"\n{wald_test_with_interation = }")
+#     #print(f"{wald_test_linear = }")

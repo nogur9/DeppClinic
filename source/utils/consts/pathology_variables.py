@@ -13,7 +13,8 @@ suicidal_behavior_intake = [
     'c_ssrs_t_14_life_clin',
     'c_ssrs_t_15_life_clin',
 
-    'c_ssrs_6_life', 'mfq_34', 'mfq_36', 'c_ssrs_6_2weeks',
+    'c_ssrs_6_life', 'mfq_34', 'mfq_36',
+    'c_ssrs_6_2weeks',
     'c_ssrs_6_3month'
 ]
 
@@ -29,7 +30,7 @@ nssi_intake = [
     'c_ssrs_t_16_life_clin', 'mfq_35', 'mfq_37', 'chameleon_nssi_stu'
 ]
 
-self_harm_intake = suicide_attempt_intake + nssi_intake + suicidal_behavior_intake
+self_harm_intake = list(set(suicide_attempt_intake + nssi_intake + suicidal_behavior_intake))
 
 suicidal_ideation_2weeks_intake = [
     'c_ssrs_t_2weeks_1_clin',
@@ -46,6 +47,7 @@ suicidal_ideation_2weeks_intake = [
 ]
 
 suicidal_ideation_life_intake = [
+
     'c_ssrs_t_life_1_clin',
     'c_ssrs_t_life_2_clin',
     'c_ssrs_t_life_3_clin',
@@ -98,7 +100,7 @@ suicidal_attempt_time2 = [
 ]
 
 nssi_time2 = [
-    'suicidal_behavior_last_16_clin', 'mfq_37', 'chameleon_nssi_stu'
+    'suicidal_behavior_last_16_clin','mfq_35', 'mfq_37', 'chameleon_nssi_stu'
 ]
 
 suicidal_ideation_time2 = [
