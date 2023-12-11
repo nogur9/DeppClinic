@@ -58,12 +58,12 @@ def get_target_variables():
         'c_ssrs_intake_life_stb': 'c_ssrs_stb_score',
         'suicidal_behavior_intake': 'suicidal_behavior_time2',
         'nssi_intake': 'nssi_time2',
-        'suicidal_ideation_life_intake': 'suicidal_ideation_time2',
-        'ER_intake': 'ER_time2',
-        'Psychiatric_hospitalization_intake': 'Psychiatric_hospitalization_time2'
+        'suicidal_ideation_life_intake': 'suicidal_ideation_time2'
     }
 
-    continuous_target_vars = ['DERS_score', 'erc_rc_anxiety']
+    continuous_target_vars = ['DERS_score', 'DERS_non_accept', 'DERS_goals',
+                            'DERS_IMPULS', 'DERS_STRATEG', 'DERS_CLARITY', 'DERS_AWARE',
+                              'erc_rc_anxiety', 'erc_rc_avoidance']
     discrete_target_vars = ['suicidal_ideation_time2', 'suicidal_behavior_time2', 'nssi_time2']
     info_cols = ['group', 'used_app', 'measurement', 'id']
 
@@ -223,8 +223,8 @@ class StatisticalAnalyzer:
     def plot(self):
         # remove any pre-existing indices for ease of use in the D-Tale code, but this is not required
         df = self.df.reset_index().drop('index', axis=1, errors='ignore')
-        #df.loc[df['used_app']==True, 'used_app'] = 'App User'
-        #df.loc[df['used_app']==False, 'used_app'] = 'Not used App'
+        df.loc[df['used_app']==True, 'used_app'] = 'App User'
+        df.loc[df['used_app']==False, 'used_app'] = 'Not used App'
         df.columns = [str(c) for c in df.columns]  # update columns to strings in case they are numbers
 
         chart_data = pd.concat([
@@ -310,7 +310,7 @@ class StatisticalAnalyzer:
         elif self.data_type == 'Continuous':
             self.anova_test()
         elif self.data_type == 'wai':
-            self.anova_test()
+            self.t_test()
         else:
             raise ValueError
 
@@ -339,8 +339,8 @@ class StatisticalAnalyzer:
 
     def t_test(self):
         df = self.df[self.df.time == self.time]
-        x = df[df.used_app]
-        y = df[~ df.used_app]
+        x = df[df.used_app][self.target_variable]
+        y = df[~ df.used_app][self.target_variable]
         try:
             results = pg.ttest(x, y)
             data = df[['id', 'used_app', 'time', self.target_variable]]

@@ -23,11 +23,6 @@ def main(times, directory_path=None, suffix=''):
     for group in GROUPS:
         df = fill_group(df, group)
 
-    for key in questionnaire_valid_values:
-        cleaning_columns = questionnaire_valid_values[key]['columns']
-        valid_values = questionnaire_valid_values[key]['valid_values']
-        remove_invalid_values(df, valid_values, cleaning_columns)
-
     df = rename_groups(df, GROUP_NAMES_MAP)
     df = fill_missing_groups(df, GROUP_NAMES_MAP)
     columns.add(['group'])
