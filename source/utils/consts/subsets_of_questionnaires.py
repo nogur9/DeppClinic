@@ -340,13 +340,18 @@ DERS_reverse_items = ['ders_1', 'ders_2', 'ders_6', 'ders_7', 'ders_8', 'ders_10
 
 DERS_factors = {
     'DERS_non_accept': ['ders_11', 'ders_12', 'ders_21', 'ders_23', 'ders_25', 'ders_29'],
+
     'DERS_goals': ['ders_13', 'ders_18', 'ders_20_reverse', 'ders_26', 'ders_33'],
+
     'DERS_IMPULS': ['ders_3', 'ders_14', 'ders_19', 'ders_24_reverse', 'ders_27', 'ders_32'],
+
     'DERS_STRATEG': ['ders_15', 'ders_16', 'ders_22_reverse', 'ders_28',
                      'ders_30', 'ders_31', 'ders_35', 'ders_36'],
+
     'DERS_CLARITY': ['ders_1_reverse', 'ders_4', 'ders_5', 'ders_7_reverse', 'ders_9'],
+
     'DERS_AWARE': ['ders_2_reverse', 'ders_6_reverse', 'ders_8_reverse',
-                   'ders_10_reverse', 'ders_17_reverse', 'ders_34'],
+                   'ders_10_reverse', 'ders_17_reverse', 'ders_34_reverse'],
 }
 
 # wai

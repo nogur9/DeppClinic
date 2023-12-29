@@ -1,4 +1,6 @@
-#from source.utils.consts.assistment_consts import Questionnaires
+# from source.utils.consts.assistment_consts import Questionnaires
+import numpy as np
+
 from source.utils.consts.subsets_of_questionnaires import sci_af_ac_factors, C_ssrs_clinician, sci_af_ca_new_questions, \
     maris_soq_sf_reverse, maris_soq_sf_normal, MAST_factors, SDQ_factors, DERS_factors, swan_factors, \
     erc_rc_reversed_items, erc_rc_factors
@@ -57,6 +59,7 @@ def compute_mfq_score(df, skipna=False):
     missing_values = df[mfq].isnull()
     missing_values_sum = missing_values.sum(axis=1)
     df['ratio_of_missing_mfq_values'] = missing_values_sum / len(mfq)
+    df.loc[df[f'ratio_of_missing_mfq_values'] >= 0.99, 'mfq_score'] = np.nan
 
     return df, ['mfq_score', 'ratio_of_missing_mfq_values']
 
@@ -140,7 +143,6 @@ def compute_athens_score(df, skipna=False):
 
 
 def compute_sci_af_ac_score(df, skipna=False):
-
     for key in sci_af_ac_factors.keys():
         df[key] = df[sci_af_ac_factors[key]].mean(axis=1, skipna=skipna)
 
@@ -159,7 +161,6 @@ def compute_sci_af_ac_score(df, skipna=False):
 
 
 def compute_scs_clin_score(df, skipna=False):
-
     df['scs_clin_score'] = df[scs_clin].mean(axis=1, skipna=skipna)
 
     missing_values = df[scs_clin].isnull()
@@ -170,7 +171,6 @@ def compute_scs_clin_score(df, skipna=False):
 
 
 def compute_scs_mother_score(df, skipna=False):
-
     df['sci_mother_score'] = df[sci_mother].mean(axis=1, skipna=skipna)
     missing_values = df[sci_mother].isnull()
     missing_values_sum = missing_values.sum(axis=1)
@@ -412,29 +412,33 @@ def compute_swan_scores(df, impute=True):
 
 
 def compute_ders_score(df, skipna=False):
+    ders_reverse_columns = [f"{i}_reverse" for i in DERS_reverse_items]
+    ders_aligned_columns = [i for i in DERS if i not in DERS_reverse_items]
+    df[ders_reverse_columns] = 6 - df[DERS_reverse_items]
 
-        ders_reverse_columns = [f"{i}_reverse" for i in DERS_reverse_items]
-        ders_aligned_columns = [i for i in DERS if i not in DERS_reverse_items]
-        df[ders_reverse_columns] = 6 - df[DERS_reverse_items]
+    df['DERS_sum'] = df[ders_aligned_columns + ders_reverse_columns].sum(axis=1, skipna=skipna)
+    df['DERS_score'] = df[ders_aligned_columns + ders_reverse_columns].sum(axis=1, skipna=skipna)
 
-        df['DERS_sum'] = df[ders_aligned_columns + ders_reverse_columns].sum(axis=1, skipna=skipna)
-        df['DERS_score'] = df[ders_aligned_columns + ders_reverse_columns].sum(axis=1, skipna=skipna)
+    missing_values = df[DERS].isnull()
+    missing_values_sum = missing_values.sum(axis=1)
+    df['ratio_of_missing_DERS_values'] = missing_values_sum / len(DERS)
+    df.loc[df[f'ratio_of_missing_DERS_values'] >= 0.99, ['DERS_score', 'DERS_sum']] = np.nan
 
-        missing_values = df[DERS].isnull()
+    for key in DERS_factors.keys():
+        df[key] = df[DERS_factors[key]].sum(axis=1, skipna=skipna)
+
+        missing_values = df[DERS_factors[key]].isnull()
         missing_values_sum = missing_values.sum(axis=1)
-        df['ratio_of_missing_DERS_values'] = missing_values_sum / len(DERS)
+        df[f'ratio_of_missing_{key}_values'] = missing_values_sum / len(DERS_factors[key])
+        df.loc[df[f'ratio_of_missing_{key}_values'] >= 0.99, key] = np.nan
 
-        for key in DERS_factors.keys():
-            df[key] = df[DERS_factors[key]].sum(axis=1, skipna=skipna)
+    df = df.drop(ders_reverse_columns, axis=1)
+    params = list(DERS_factors.keys()) + ['DERS_score', 'DERS_sum', 'ratio_of_missing_DERS_values']
 
-        df = df.drop(ders_reverse_columns, axis=1)
-        params = list(DERS_factors.keys()) + ['DERS_score', 'DERS_sum', 'ratio_of_missing_DERS_values']
-
-        return df, params
+    return df, params
 
 
 def compute_wai_score(df, skipna=False):
-
     wai_reverse_columns = [f"{i}_reverse" for i in wai_reversed_items]
     df[wai_reverse_columns] = 8 - df[wai_reversed_items]
 
@@ -445,6 +449,11 @@ def compute_wai_score(df, skipna=False):
     for key in wai_factors.keys():
         df[key] = df[wai_factors[key]].sum(axis=1, skipna=skipna)
 
+        missing_values = df[wai_factors[key]].isnull()
+        missing_values_sum = missing_values.sum(axis=1)
+        df[f'ratio_of_missing_{key}_values'] = missing_values_sum / len(wai_factors[key])
+        df.loc[df[f'ratio_of_missing_{key}_values'] >= 0.99, key] = np.nan
+
     df = df.drop(wai_reverse_columns, axis=1)
     params = list(wai_factors.keys()) + ['ratio_of_missing_wai_values']
 
@@ -452,7 +461,6 @@ def compute_wai_score(df, skipna=False):
 
 
 def compute_ecr_score(df, skipna=False):
-
     erc_rc_reverse_columns = [f"{i}_reverse" for i in erc_rc_reversed_items]
     df[erc_rc_reverse_columns] = 8 - df[erc_rc_reversed_items]
 
@@ -463,8 +471,13 @@ def compute_ecr_score(df, skipna=False):
     for key in erc_rc_factors.keys():
         df[key] = df[erc_rc_factors[key]].sum(axis=1, skipna=skipna)
 
+        missing_values = df[erc_rc_factors[key]].isnull()
+        missing_values_sum = missing_values.sum(axis=1)
+        df[f'ratio_of_missing_{key}_values'] = missing_values_sum / len(erc_rc_factors[key])
+        df.loc[df[f'ratio_of_missing_{key}_values'] >= 0.99, key] = np.nan
+
+
     df = df.drop(erc_rc_reverse_columns, axis=1)
     params = list(erc_rc_factors.keys()) + ['ratio_of_missing_erc_rc_values']
 
     return df, params
-

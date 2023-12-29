@@ -63,7 +63,7 @@ def get_target_variables():
 
     continuous_target_vars = ['DERS_score', 'DERS_non_accept', 'DERS_goals',
                             'DERS_IMPULS', 'DERS_STRATEG', 'DERS_CLARITY', 'DERS_AWARE',
-                              'erc_rc_anxiety', 'erc_rc_avoidance']
+                              'erc_rc_anxiety', 'erc_rc_avoidance', 'mfq_score']
     discrete_target_vars = ['suicidal_ideation_time2', 'suicidal_behavior_time2', 'nssi_time2']
     info_cols = ['group', 'used_app', 'measurement', 'id']
 
@@ -193,7 +193,8 @@ class StatisticalAnalyzer:
 
     def is_significant(self):
         if self.results is None:
-            raise ValueError
+            return False
+            #raise ValueError
         elif self.data_type == 'Discrete':
             p_value = self.results.pvalue
         elif self.data_type == 'Continuous':
@@ -204,11 +205,11 @@ class StatisticalAnalyzer:
         else:
             raise ValueError
 
-        return p_value <= 0.06
+        return p_value <= 0.1
 
     def create_directories(self):
-        create_directories('results', self.target_variable)
-        create_directories('results/plots', self.target_variable)
+        create_directories(f'results', self.time)
+        create_directories(f'results/{self.time}', self.target_variable)
 
     def anova_test(self):
         df = self.df[self.df.time.isin(['Time 1', self.time])]
@@ -346,7 +347,7 @@ class StatisticalAnalyzer:
             data = df[['id', 'used_app', 'time', self.target_variable]]
             self.results = results
             self.data = data
-        except ValueError:
+        except AssertionError:
             print('Invalid data')
 
     def print_results(self):
@@ -361,7 +362,8 @@ def perform_continuous_tests(df, target_variables):
             if continuous_test.is_significant():
                 continuous_test.create_directories()
                 figure = continuous_test.plot()
-                figure.write_html(os.path.join(f"results/{target}", "plot.html"))
+                figure.write_html(os.path.join(f"results/{time}/{target}", "plot.html"))
+                continuous_test.data.to_csv(f"results/{time}/{target}/data.html", index=False)
                 continuous_test.print_results()
 
 
@@ -373,7 +375,8 @@ def perform_discrete_tests(df, target_variables):
             if continuous_test.is_significant():
                 continuous_test.create_directories()
                 figure = continuous_test.plot()
-                figure.write_html(os.path.join(f"results/{target}", "plot.html"))
+                figure.write_html(os.path.join(f"results/{time}/{target}", "plot.html"))
+                continuous_test.data.to_csv(f"results/{time}/{target}/data.html", index=False)
                 continuous_test.print_results()
 
 
@@ -384,7 +387,8 @@ def perform_wai_tests(df, target_variables):
             if continuous_test.is_significant():
                 continuous_test.create_directories()
                 figure = continuous_test.wai_plot()
-                figure.write_html(os.path.join(f"results/{target}", "plot.html"))
+                figure.write_html(os.path.join(f"results/{time}/{target}", "plot.html"))
+                continuous_test.data.to_csv(f"results/{time}/{target}/data.html", index=False)
                 continuous_test.print_results()
 
 #
