@@ -1,6 +1,6 @@
 from source.utils.consts.pathology_variables import pathology_variables_times
 from source.utils.consts.questions_columns import sci_af_ca, c_ssrs, sci_mother, scs_clin, siq, sdq, c_ssrs_intake, mfq, \
-    scared, ATHENS, SAS, c_ssrs_clin, demographics_m, swan_m, DERS, wai, erc_rc
+    scared, ATHENS, SAS, c_ssrs_clin, demographics_m, swan_m, DERS, wai, erc_rc, opening, dass_m, dass_f
 from source.utils.consts.assistment_consts import imputation_questionnaires
 from source.utils.util_functions import impute_from_questionnaire
 from source.utils.data_manipulation.data_imputation import impute_from_column
@@ -17,13 +17,16 @@ class Columns:
                               'chameleon_nssi_stu', 'chameleon_psychiatric_stu',
                               'mfq_34', 'mfq_36', 'mfq_35', 'mfq_37',
                                'treatment_end_stu', 'complaint___1', 'complaint___2',
-                              'complaint___3', 'complaint___4', 'complaint___5']
+                              'complaint___3', 'complaint___4', 'complaint___5'] +\
+                              demographics_m + sci_af_ca + scs_clin + sci_mother +\
+                              siq + sdq + mfq + scared + ATHENS + SAS +\
+                              demographics_m + swan_m + DERS + wai +\
+                              erc_rc + c_ssrs_clin
 
         info_columns = ['gender', 'redcap_event_name', 'age_child_pre']
 
-        default_columns = info_columns + demographics_m + c_ssrs_intake + c_ssrs + c_ssrs_clin + \
-                          sci_af_ca + scs_clin + sci_mother + siq + sdq + mfq + scared + \
-                          ATHENS + SAS + demographics_m + swan_m + DERS + wai + erc_rc
+        default_columns = info_columns + c_ssrs_intake + c_ssrs +\
+                          dass_m + opening
 
         self.id_column = id_column
 

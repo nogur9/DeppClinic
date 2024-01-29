@@ -1,7 +1,7 @@
 from source.utils.consts.questions_columns import demographics_m, sci_mother, scs_clin, c_ssrs_clin, c_ssrs_intake, \
     c_ssrs, \
     mfq, siq, sdq, scared, ATHENS, SAS, sci_af_ca, demographics_f, sci_father, scs_stu, c_ssrs_stu, swan_f, swan_m, \
-    DERS, wai, erc_rc
+    DERS, wai, erc_rc, dass_m, dass_f
 
 from source.utils.consts.questions_text import intake_c_ssrs_text, c_ssrs_text, mfq_text, siq_text, sdq_text, scared_text, \
     ATHENS_text, SAS_text, sci_af_ca_text, sci_mother_text, scs_clin_text
@@ -156,7 +156,15 @@ class Questionnaires:
                 "factors": erc_rc_factors,
                 "reversed_items": erc_rc_reversed_items
 
-            }
+            },
+            "dass_m": {
+                "columns": dass_m,
+                "group": "dass",
+            },
+            "dass_f": {
+                "columns": dass_f,
+                "group": "dass",
+            },
         }
 
 
@@ -164,5 +172,6 @@ imputation_questionnaires = [
     {'origin': 'scs_clin', 'replacement': 'scs_stu'},
     {'origin': 'c_ssrs_clin', 'replacement': 'c_ssrs_stu'},
     {'origin': 'demographics_m', 'replacement': 'demographics_f'},
-    {'origin': 'sci_mother', 'replacement': 'sci_father'}
+    {'origin': 'sci_mother', 'replacement': 'sci_father'},
+    {'origin': 'dass_m', 'replacement': 'dass_f'}
 ]

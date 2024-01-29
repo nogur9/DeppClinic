@@ -495,6 +495,30 @@ swan_f = [
     "swan_18_f"
 ]
 
+dass_m = [
+    'dass_1_m',
+    'dass_2_m',
+    'dass_3_m',
+    'dass_4_m',
+    'dass_5_m',
+    'dass_6_m',
+    'dass_7_m',
+    'dass_8_m',
+    'dass_9_m',
+    'dass_10_m',
+    'dass_11_m',
+    'dass_12_m',
+    'dass_13_m',
+    'dass_14_m',
+    'dass_15_m',
+    'dass_16_m',
+    'dass_17_m',
+    'dass_18_m',
+    'dass_19_m',
+    'dass_20_m',
+    'dass_21_m'
+]
+
 dass_f = [
     'dass_1_f',
     'dass_2_f',
@@ -650,12 +674,52 @@ wai = ['wai_1', 'wai_2', 'wai_3', 'wai_4',
        'wai_5', 'wai_6', 'wai_7', 'wai_8',
        'wai_9', 'wai_10', 'wai_11', 'wai_12']
 
-
 erc_rc = [
     'erc_rc_1', 'erc_rc_2', 'erc_rc_3',
     'erc_rc_4', 'erc_rc_5', 'erc_rc_6',
     'erc_rc_7', 'erc_rc_8', 'erc_rc_9',
     'erc_rc_10', 'erc_rc_11', 'erc_rc_12']
+
+opening = [
+    'complaint___1',
+    'complaint___2',
+    'complaint___3',
+    'complaint___4',
+    'complaint___5',
+    'complaint___6',
+    'complaint_other',
+    'diagnosis___1',
+    'diagnosis___2',
+    'diagnosis___3',
+    'diagnosis___4',
+    'diagnosis___5',
+    'diagnosis___6',
+    'diagnosis___7',
+    'diagnosis___8',
+    'diagnosis___9',
+    'diagnosis___10',
+    'diagnosis___11',
+    'diagnosis___12',
+    'diagnosis___13',
+    'diagnosis___14',
+    'diagnosis_other',
+    'opening_psychothe',
+    'opening_psychothe_2___1',
+    'opening_psychothe_2___2',
+    'opening_psychothe_2___3',
+    'opening_psychothe_2___4',
+    'opening_psychothe_2___5',
+    'opening_psychothe_2___6',
+    'opening_psychothe_2___7',
+    'opening_psychothe_3',
+    'opening_medicine',
+    'opening_medicine_2___1',
+    'opening_medicine_2___2',
+    'opening_medicine_2___3',
+    'opening_medicine_2___4',
+    'opening_medicine_2___5',
+    'opening_medicine_3'
+]
 
 all_questionarries = siq \
                      + sdq \
