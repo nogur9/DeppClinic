@@ -1,6 +1,5 @@
 from source.utils.consts.pathology_variables import pathology_variables_times
-from source.utils.consts.questions_columns import sci_af_ca, c_ssrs, sci_mother, scs_clin, siq, sdq, c_ssrs_intake, mfq, \
-    scared, ATHENS, SAS, c_ssrs_clin, demographics_m, swan_m, DERS, wai, erc_rc, opening, dass_m, dass_f, ecr_m, bulling
+from source.utils.consts.questions_columns import all_questionarries
 from source.utils.consts.assistment_consts import imputation_questionnaires
 from source.utils.util_functions import impute_from_questionnaire
 from source.utils.data_manipulation.data_imputation import impute_from_column
@@ -12,36 +11,9 @@ class Columns:
 
     def __init__(self, columns=[], id_column='id'):
 
-        # self.extra_columns = ['chameleon_behavior_stu', 'chameleon_attempt_stu',
-        #                       'chameleon_suicide_er_stu', 'chameleon_ideation_stu',
-        #                       'chameleon_nssi_stu', 'chameleon_psychiatric_stu',
-        #                       'mfq_34', 'mfq_36', 'mfq_35', 'mfq_37',
-        #                        'treatment_end_stu', 'complaint___1', 'complaint___2',
-        #                       'complaint___3', 'complaint___4', 'complaint___5'] +\
-        #                       demographics_m + sci_af_ca + scs_clin + sci_mother +\
-        #                       siq + sdq + mfq + scared + ATHENS + SAS +\
-        #                       demographics_m + swan_m + DERS + wai +\
-        #                       erc_rc + c_ssrs_clin + c_ssrs_intake + c_ssrs + dass_m
-        self.extra_columns = []
-        a = ['c_ssrs_6',
-             'c_ssrs_last_visit_6',
-             'chameleon_attempt_stu',
-             'chameleon_behavior_stu',
-             'chameleon_psychiatric_stu',
-             'chameleon_suicide_er_stu',
-             'mfq_36',
-             'suicidal_behavior_last_11_clin',
-             'suicidal_behavior_last_11_clin',
-             'suicidal_behavior_last_12_clin',
-             'suicidal_behavior_last_12_clin',
-             'suicidal_behavior_last_13_clin',
-             'suicidal_behavior_last_13_clin',
-             'suicidal_behavior_last_14_clin',
-             'suicidal_behavior_last_15_clin'
-        ]
         info_columns = ['gender', 'redcap_event_name', 'age_child_pre']
-
-        default_columns = info_columns + c_ssrs_intake + mfq + sci_af_ca + a
+        self.extra_columns = []
+        default_columns = info_columns + all_questionarries + ['chameleon_attempt_stu', 'chameleon_psychiatric_stu', 'chameleon_suicide_er_stu']
 
         self.id_column = id_column
 

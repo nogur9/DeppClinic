@@ -31,7 +31,7 @@ c_ssrs = [
 ]
 
 c_ssrs_clin = [  # 'c_ssrs_t_time_clin',  # what's that?#
-    'c_ssrs_t_2weeks_1_clin',
+    #'c_ssrs_t_2weeks_1_clin',
     'c_ssrs_t_2weeks_2_clin',
     'c_ssrs_t_2weeks_3_clin',
     'c_ssrs_t_2weeks_4_clin',
@@ -411,12 +411,38 @@ sci_father = [
 
 ARI_S = ['ari_s_1', 'ari_s_2', 'ari_s_3', 'ari_s_4', 'ari_s_5', 'ari_s_6']
 
-ARI_P = ['ari_p_1', 'ari_p_2', 'ari_p_3', 'ari_p_4', 'ari_p_5', 'ari_p_6']
+ARI_P = ['ari_p_1_m', 'ari_p_2_m', 'ari_p_3_m', 'ari_p_4_m', 'ari_p_5_m', 'ari_p_6_m']
 
-MAST = ['MAST_1', 'MAST_5', 'MAST_6', 'MAST_13', 'MAST_18', 'MAST_19', 'MAST_25', 'MAST_28',
-        'MAST_2', 'MAST_9', 'MAST_14', 'MAST_15', 'MAST_16', 'MAST_21', 'MAST_30',
-        'MAST_8', 'MAST_17', 'MAST_22', 'MAST_23', 'MAST_26', 'MAST_27', 'MAST_29',
-        'MAST_3', 'MAST_4', 'MAST_7', 'MAST_10', 'MAST_11', 'MAST_12', 'MAST_20', 'MAST_24']
+MAST = ['mast_1',
+         'mast_5',
+         'mast_6',
+         'mast_13',
+         'mast_18',
+         'mast_19',
+         'mast_25',
+         'mast_28',
+         'mast_2',
+         'mast_9',
+         'mast_14',
+         'mast_15',
+         'mast_16',
+         'mast_21',
+         'mast_30',
+         'mast_8',
+         'mast_17',
+         'mast_22',
+         'mast_23',
+         'mast_26',
+         'mast_27',
+         'mast_29',
+         'mast_3',
+         'mast_4',
+         'mast_7',
+         'mast_10',
+         'mast_11',
+         'mast_12',
+         'mast_20',
+         'mast_24']
 
 maris_sci_sf = ['maris_sci_sf_1', 'maris_sci_sf_2', 'maris_sci_sf_3', 'maris_sci_sf_4',
                 'maris_sci_sf_5', 'maris_sci_sf_6', 'maris_sci_sf_7', 'maris_sci_sf_8',
@@ -580,7 +606,6 @@ ecr_f = [
     'ecr_34_f',
     'ecr_35_f',
     'ecr_36_f']
-
 
 ecr_m = [
     'ecr_1_m',
@@ -778,23 +803,31 @@ opening = [
     'opening_medicine_3'
 ]
 
-all_questionarries = siq \
-                     + sdq \
-                     + c_ssrs_intake \
-                     + c_ssrs \
-                     + mfq \
-                     + scared \
-                     + ATHENS \
-                     + SAS \
-                     + maris_sci_sf \
-                     + sci_af_ca \
-                     + scs_clin \
-                     + sci_mother \
-                     + c_ssrs_clin \
-                     + demographics_m \
-                     + swan_m \
-                     + ARI_S \
-                     + ARI_P \
-                     + MAST \
-                     + maris_sci_sf \
-                     + maris_soq_sf
+all_questionarries = c_ssrs_intake + c_ssrs + \
+                    c_ssrs_clin + \
+                    mfq + \
+                    additional_mfq + \
+                    siq + \
+                    sdq + \
+                    scared + \
+                    ATHENS + \
+                    SAS + \
+                    sci_af_ca + \
+                    scs_clin + \
+                    sci_mother + \
+                    ARI_S + \
+                    ARI_P + \
+                    MAST + \
+                    maris_sci_sf + \
+                    maris_soq_sf + \
+                    demographics_m + \
+                    swan_m + \
+                    dass_m + \
+                    ecr_m + \
+                    trq_sf_maris_clin + \
+                    screening_form + \
+                    DERS + \
+                    wai + \
+                    erc_rc + \
+                    bulling + \
+                    opening
