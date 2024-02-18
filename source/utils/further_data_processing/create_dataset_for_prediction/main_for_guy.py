@@ -26,11 +26,6 @@ def main(times, directory_path=None, suffix=''):
     columns.add(['sciafca_timestamp'])
     df_time1, df_time2 = split_to_multiple_measurement_times(df, columns, times)
     columns.add(['measurement'])
-    # calculate pathology variables
-    # for questionnaire_name, items in pathology_variables_times['intake'].items():
-    #     tv = TargetVariable(questionnaire_name, {'measurement': 'time1'}, items)
-    #     df_time1 = tv.calculate_value(df_time1)
-    #     columns.add([questionnaire_name])
 
     for questionnaire_name, items in pathology_variables_times['time2'].items():
         tv = TargetVariable(questionnaire_name, {'measurement': 'time2'}, items)
