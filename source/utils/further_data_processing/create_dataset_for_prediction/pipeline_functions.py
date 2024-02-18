@@ -136,22 +136,22 @@ def compute_questions_scores(df, questionnaires_map, variables_list, only_releva
 def save_df(df, columns, axis='patient', profile=False, directory_path=None, suffix=''):
     if axis == 'patient':
 
-        df_intake = df[df.measurement == 'time1'][columns.ordered_columns_with_id]
+        df_intake = df[df.measurement == 'Time 1'][columns.ordered_columns_with_id]
         df_intake = df_intake.drop(pathology_variables_times['time2'], axis=1)
-        df_target = df[df.measurement == 'time2'][columns.ordered_columns_with_id]
-        #df_target = df_target.drop(pathology_variables_times['intake'], axis=1)
+        df_target = df[df.measurement == 'Time 2'][columns.ordered_columns_with_id]
+        df_target = df_target.drop(pathology_variables_times['intake'], axis=1)
 
         df = pd.merge(df_intake, df_target, on='id', how='outer', suffixes=('_time1', '_time2'))
         df = df.drop(['measurement_time1', 'measurement_time2'], axis=1)
 
         if directory_path is None:
-            df.to_csv(f"DeppClinic_patient_data{suffix}.csv", index=False)
+            df.to_csv(f"data_patient_axis{suffix}.csv", index=False)
         else:
-            df.to_csv(rf"{directory_path}\DeppClinic_patient_data{suffix}.csv", index=False)
+            df.to_csv(rf"{directory_path}\data_patient_axis{suffix}.csv", index=False)
 
     elif axis == 'time':
         df = df[columns.ordered_columns_with_id]
         if directory_path is None:
-            df.to_csv(f"DeppClinic_prediction_task{suffix}.csv", index=False)
+            df.to_csv(f"data_measurement_axis{suffix}.csv", index=False)
         else:
-            df.to_csv(rf"{directory_path}\data_for_prediction_{suffix}.csv", index=False)
+            df.to_csv(rf"{directory_path}\data_measurement_axis{suffix}.csv", index=False)

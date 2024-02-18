@@ -32,7 +32,7 @@ nssi_intake = [
 self_harm_intake = list(set(suicide_attempt_intake + nssi_intake + suicidal_behavior_intake))
 
 suicidal_ideation_2weeks_intake = [
-    'c_ssrs_t_2weeks_1_clin',
+    #'c_ssrs_t_2weeks_1_clin',
     'c_ssrs_t_2weeks_2_clin',
     'c_ssrs_t_2weeks_3_clin',
     'c_ssrs_t_2weeks_4_clin',
@@ -53,7 +53,7 @@ suicidal_ideation_life_intake = [
     'c_ssrs_t_life_4_clin',
     'c_ssrs_t_life_5_clin',
 
-    'c_ssrs_t_2weeks_1_clin',
+   # 'c_ssrs_t_2weeks_1_clin',
     'c_ssrs_t_2weeks_2_clin',
     'c_ssrs_t_2weeks_3_clin',
     'c_ssrs_t_2weeks_4_clin',
@@ -126,7 +126,7 @@ suicidal_ideation_time2 = [
     'c_ssrs_t_last_4_clin',
     'c_ssrs_t_last_5_clin',
 
-    'c_ssrs_t_2weeks_1_clin',
+    #'c_ssrs_t_2weeks_1_clin',
     'c_ssrs_t_2weeks_2_clin',
     'c_ssrs_t_2weeks_3_clin',
     'c_ssrs_t_2weeks_4_clin',
@@ -161,13 +161,13 @@ pathology_variables_times = {
                'Psychiatric_hospitalization_intake': psych_ward},
 
     'time2': {
-        'modcon_target': modcon_target
-        # 'suicidal_behavior_time2': suicidal_behavior_time2,
-        #       'nssi_time2': nssi_time2,
-        #       'suicidal_ideation_time2': suicidal_ideation_time2,
-        #       'ER_time2': ER_time2,
-        #       'Psychiatric_hospitalization_time2': psych_ward,
-        #       'suicidal_attempt_time2': suicidal_attempt_time2
+        'modcon_target': modcon_target,
+        'suicidal_behavior_time2': suicidal_behavior_time2,
+              'nssi_time2': nssi_time2,
+              'suicidal_ideation_time2': suicidal_ideation_time2,
+              'ER_time2': ER_time2,
+              'Psychiatric_hospitalization_time2': psych_ward,
+              'suicidal_attempt_time2': suicidal_attempt_time2
               }
 
 }
