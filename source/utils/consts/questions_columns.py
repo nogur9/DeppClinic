@@ -411,7 +411,9 @@ sci_father = [
 
 ARI_S = ['ari_s_1', 'ari_s_2', 'ari_s_3', 'ari_s_4', 'ari_s_5', 'ari_s_6']
 
-ARI_P = ['ari_p_1_m', 'ari_p_2_m', 'ari_p_3_m', 'ari_p_4_m', 'ari_p_5_m', 'ari_p_6_m']
+ARI_P_m = ['ari_p_1_m', 'ari_p_2_m', 'ari_p_3_m', 'ari_p_4_m', 'ari_p_5_m', 'ari_p_6_m']
+
+ARI_P_f = ['ari_p_1_f', 'ari_p_2_f', 'ari_p_3_f', 'ari_p_4_f', 'ari_p_5_f', 'ari_p_6_f']
 
 MAST = ['mast_1',
          'mast_5',
@@ -803,6 +805,69 @@ opening = [
     'opening_medicine_3'
 ]
 
+chameleon_all = ['chameleon_follow_stu',
+             'treatment_end_stu',
+             'treatment_end_2_stu',
+             'visit_date_stu',
+             'chameleon_ideation_stu',
+             'chameleon_behavior_stu',
+             'chameleon_attempt_stu',
+             'chameleon_nssi_stu',
+             'chameleon_suicide_er_stu',
+             'chameleon_suicide_er_date_stu',
+             'chameleon_suicide_er_date_2_stu',
+             'chameleon_suicide_er_date_3_stu',
+             'chameleon_psychiatric_stu',
+             'chameleon_psychiatric_date_stu',
+             'chameleon_psychiatric_date_2_stu',
+             'chameleon_psychiatric_date_3_stu',
+             'emergency_stu',
+             'chameleon_psychotherapy_stu',
+             'chameleon_psychotherapy_2_stu___1',
+             'chameleon_psychotherapy_2_stu___2',
+             'chameleon_psychotherapy_2_stu___3',
+             'chameleon_psychotherapy_2_stu___4',
+             'chameleon_psychotherapy_2_stu___5',
+             'chameleon_psychotherapy_2_stu___6',
+             'chameleon_psychotherapy_2_stu___7',
+             'chameleon_psychotherapy_other_stu',
+             'chameleon_medicine_stu',
+             'chameleon_medicine_2_stu___1',
+             'chameleon_medicine_2_stu___2',
+             'chameleon_medicine_2_stu___3',
+             'chameleon_medicine_2_stu___4',
+             'chameleon_medicine_2_stu___5',
+             'chameleon_medicine_other_stu',
+             'chameleon_notes_stu'
+]
+
+
+chameleon = ['chameleon_follow_stu',
+             'treatment_end_stu',
+             'chameleon_ideation_stu',
+             'chameleon_behavior_stu',
+             'chameleon_attempt_stu',
+             'chameleon_nssi_stu',
+             'chameleon_suicide_er_stu',
+             'chameleon_psychiatric_stu',
+             'emergency_stu',
+             'chameleon_psychotherapy_stu',
+             'chameleon_psychotherapy_2_stu___1',
+             'chameleon_psychotherapy_2_stu___2',
+             'chameleon_psychotherapy_2_stu___3',
+             'chameleon_psychotherapy_2_stu___4',
+             'chameleon_psychotherapy_2_stu___5',
+             'chameleon_psychotherapy_2_stu___6',
+             'chameleon_psychotherapy_2_stu___7',
+             'chameleon_medicine_stu',
+             'chameleon_medicine_2_stu___1',
+             'chameleon_medicine_2_stu___2',
+             'chameleon_medicine_2_stu___3',
+             'chameleon_medicine_2_stu___4',
+             'chameleon_medicine_2_stu___5',
+]
+
+
 all_questionarries = c_ssrs_intake + c_ssrs + \
                     c_ssrs_clin + \
                     mfq + \
@@ -816,7 +881,7 @@ all_questionarries = c_ssrs_intake + c_ssrs + \
                     scs_clin + \
                     sci_mother + \
                     ARI_S + \
-                    ARI_P + \
+                    ARI_P_m + \
                     MAST + \
                     maris_sci_sf + \
                     maris_soq_sf + \
@@ -830,4 +895,6 @@ all_questionarries = c_ssrs_intake + c_ssrs + \
                     wai + \
                     erc_rc + \
                     bulling + \
-                    opening
+                    opening + chameleon
+
+

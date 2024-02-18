@@ -12,17 +12,10 @@ def main(times, directory_path=None, suffix=''):
 
     df = pd.read_csv(r"C:\Users\nogur\Documents\DeppClinic\Data\postgres_db\merged_data\merged_2021_and_2022.csv",
                      na_values='chameleon_ideation_stu_2022', keep_default_na=True)
-    # df = df.replace('chameleon_ideation_stu_2022', np.nan)
+
     columns = Columns()
     df = do_imputations(df)
 
-    # # handle groups
-    # for group in GROUPS:
-    #     df = fill_group(df, group)
-    #
-    # df = rename_groups(df, GROUP_NAMES_MAP)
-    # df = fill_missing_groups(df, GROUP_NAMES_MAP)
-    # columns.add(['group'])
     columns.add(['sciafca_timestamp'])
     df_time1, df_time2 = split_to_multiple_measurement_times(df, columns, times)
     columns.add(['measurement'])
