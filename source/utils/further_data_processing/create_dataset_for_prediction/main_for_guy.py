@@ -9,7 +9,6 @@ import os
 
 def main(times, directory_path=None, suffix=''):
     # Change the current directory to the source root
-    #os.chdir(r'/')
 
     df = pd.read_csv(r"C:\Users\nogur\Documents\DeppClinic\Data\postgres_db\merged_data\merged_2021_and_2022.csv", na_values=' ')
     df = df.replace('chameleon_ideation_stu_2022', np.nan)
@@ -35,13 +34,6 @@ def main(times, directory_path=None, suffix=''):
     df = pd.concat([df_time1, df_time2])
     df = df[list(columns.unique_columns_with_id)]
 
-    # questionnaires = Questionnaires().questionnaires
-    # df, columns = compute_questions_scores(df, questionnaires, columns)
-
-    if not os.path.exists(directory_path):
-        os.makedirs(directory_path)
-
-    # save_df(df, columns, axis='patient', profile=False, directory_path=directory_path, suffix=suffix)
     save_df(df, columns, axis='time', profile=False, directory_path=directory_path, suffix=suffix)
 
 
@@ -50,4 +42,4 @@ all_times = {
     'Time 2': ['5th_session_arm_1', 'control_5weeks_arm_1'],
 }
 #
-main(all_times, r"source/projects/for_guy/data")
+main(all_times, r"C:\Users\nogur\Documents\DeppClinic\source\projects\for_guy\data")

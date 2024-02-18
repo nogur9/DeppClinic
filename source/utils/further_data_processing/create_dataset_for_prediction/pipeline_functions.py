@@ -182,4 +182,4 @@ def save_df(df, columns, axis='patient', profile=False, directory_path=None, suf
         if directory_path is None:
             df.to_csv(f"DeppClinic_prediction_task{suffix}.csv", index=False)
         else:
-            df.to_csv(rf"{directory_path}\DeppClinic_data{suffix}.csv", index=False)
+            df.to_csv(rf"{directory_path}\data_for_prediction_{suffix}.csv", index=False)
