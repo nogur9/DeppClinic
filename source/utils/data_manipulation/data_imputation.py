@@ -3,10 +3,6 @@ import numpy as np
 
 
 def impute_mean_questionnaire_score(df, questionnaire_columns, reverse_questions=None):
-    """
-
-
-    """
 
     if reverse_questions is not None:
         # ToDo - implement

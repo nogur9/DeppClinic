@@ -77,6 +77,22 @@ suicidal_ideation_life_intake = [
 ER_intake = ["complaint___1", "complaint___2", "complaint___3", "complaint___4", "complaint___5", 'chameleon_suicide_er_stu']
 # time 2
 
+modcon_target = [
+    # 'c_ssrs_6',
+    #  'c_ssrs_last_visit_6',
+     'chameleon_attempt_stu',
+     # 'chameleon_behavior_stu',
+     'chameleon_psychiatric_stu',
+     'chameleon_suicide_er_stu',
+     'mfq_36',
+     # 'suicidal_behavior_last_11_clin',
+     # 'suicidal_behavior_last_12_clin',
+     # 'suicidal_behavior_last_13_clin',
+     # 'suicidal_behavior_last_14_clin',
+     # 'suicidal_behavior_last_15_clin'
+    ]
+
+
 suicidal_behavior_time2 = [
     'suicidal_behavior_last_11_clin',
     'suicidal_behavior_last_12_clin',
@@ -144,12 +160,14 @@ pathology_variables_times = {
                'ER_intake': ER_intake,
                'Psychiatric_hospitalization_intake': psych_ward},
 
-    'time2': {'suicidal_behavior_time2': suicidal_behavior_time2,
-              'nssi_time2': nssi_time2,
-              'suicidal_ideation_time2': suicidal_ideation_time2,
-              'ER_time2': ER_time2,
-              'Psychiatric_hospitalization_time2': psych_ward,
-              'suicidal_attempt_time2': suicidal_attempt_time2
+    'time2': {
+        'modcon_target': modcon_target
+        # 'suicidal_behavior_time2': suicidal_behavior_time2,
+        #       'nssi_time2': nssi_time2,
+        #       'suicidal_ideation_time2': suicidal_ideation_time2,
+        #       'ER_time2': ER_time2,
+        #       'Psychiatric_hospitalization_time2': psych_ward,
+        #       'suicidal_attempt_time2': suicidal_attempt_time2
               }
 
 }

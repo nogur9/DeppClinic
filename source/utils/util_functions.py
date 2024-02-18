@@ -1,6 +1,7 @@
 import numpy as np
 from source.utils.consts.assistment_consts import Questionnaires
 
+
 def impute_from_questionnaire(df, questionnaire_name, replacement_questionnaire):
 
     questionnaires = Questionnaires().questionnaires

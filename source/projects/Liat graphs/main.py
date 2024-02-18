@@ -4,7 +4,7 @@ import os
 # Change the current directory to the source root
 os.chdir(r'/')
 
-from dataset_creation.pipeline_functions import Columns, create_single_event_name, \
+from source.utils.further_data_processing.create_dataset_for_prediction.pipeline_functions import Columns, create_single_event_name, \
     do_imputations, save_df
 from source.utils.consts.pathology_variables import Liat_Graphs_pathology_variables_times
 from source.utils.target_variable import TargetVariable

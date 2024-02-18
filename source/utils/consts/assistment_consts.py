@@ -173,5 +173,6 @@ imputation_questionnaires = [
     {'origin': 'c_ssrs_clin', 'replacement': 'c_ssrs_stu'},
     {'origin': 'demographics_m', 'replacement': 'demographics_f'},
     {'origin': 'sci_mother', 'replacement': 'sci_father'},
-    {'origin': 'dass_m', 'replacement': 'dass_f'}
+    {'origin': 'dass_m', 'replacement': 'dass_f'},
+    {'origin': 'ecr_m', 'replacement': 'ecr_f'}
 ]

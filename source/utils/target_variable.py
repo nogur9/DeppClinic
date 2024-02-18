@@ -26,6 +26,7 @@ class TargetVariable:
         align_df = align_df[fine_columns + aligned_columns]
 
         df[self.name] = (align_df.sum(axis=1) > 0).astype(int)
+
         df.loc[df[f'ratio_of_missing_{self.name}_values'] >= 1, self.name] = np.nan
 
         return df

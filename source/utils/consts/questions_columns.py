@@ -581,6 +581,45 @@ ecr_f = [
     'ecr_35_f',
     'ecr_36_f']
 
+
+ecr_m = [
+    'ecr_1_m',
+    'ecr_2_m',
+    'ecr_3_m',
+    'ecr_4_m',
+    'ecr_5_m',
+    'ecr_6_m',
+    'ecr_7_m',
+    'ecr_8_m',
+    'ecr_9_m',
+    'ecr_10_m',
+    'ecr_11_m',
+    'ecr_12_m',
+    'ecr_13_m',
+    'ecr_14_m',
+    'ecr_15_m',
+    'ecr_16_m',
+    'ecr_17_m',
+    'ecr_18_m',
+    'ecr_19_m',
+    'ecr_20_m',
+    'ecr_21_m',
+    'ecr_22_m',
+    'ecr_23_m',
+    'ecr_24_m',
+    'ecr_25_m',
+    'ecr_26_m',
+    'ecr_27_m',
+    'ecr_28_m',
+    'ecr_29_m',
+    'ecr_30_m',
+    'ecr_31_m',
+    'ecr_32_m',
+    'ecr_33_m',
+    'ecr_34_m',
+    'ecr_35_m',
+    'ecr_36_m']
+
 trq_sf_maris_clin = [
     'trq_sf_maris_1_clin',
     'trq_sf_maris_2_clin',
@@ -679,6 +718,24 @@ erc_rc = [
     'erc_rc_4', 'erc_rc_5', 'erc_rc_6',
     'erc_rc_7', 'erc_rc_8', 'erc_rc_9',
     'erc_rc_10', 'erc_rc_11', 'erc_rc_12']
+
+bulling = [
+    'cyberbulling_1',
+    'cyberbulling_2',
+    'cyberbulling_3',
+    'cyberbulling_4',
+    'cyberbulling_5',
+    'cyberbulling_6',
+    'cyberbulling_7',
+    'cyberbulling_8',
+    'cyberbulling_9',
+    'cyberbulling_10',
+    'cyberbulling_11',
+    'bullied_1',
+    'bullied_2',
+    'bullied_3',
+    'bullied_4'
+]
 
 opening = [
     'complaint___1',
