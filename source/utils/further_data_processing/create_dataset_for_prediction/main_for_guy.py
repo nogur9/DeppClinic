@@ -9,9 +9,9 @@ import os
 
 def main(times, directory_path=None, suffix=''):
     # Change the current directory to the source root
-    os.chdir(r'/')
+    #os.chdir(r'/')
 
-    df = pd.read_csv(r"Data/postgres_db/merged_data/merged_2021_and_2022.csv", na_values=' ')
+    df = pd.read_csv(r"C:\Users\nogur\Documents\DeppClinic\Data\postgres_db\merged_data\merged_2021_and_2022.csv", na_values=' ')
     df = df.replace('chameleon_ideation_stu_2022', np.nan)
     columns = Columns()
     df = do_imputations(df)
@@ -43,7 +43,6 @@ def main(times, directory_path=None, suffix=''):
 
     # save_df(df, columns, axis='patient', profile=False, directory_path=directory_path, suffix=suffix)
     save_df(df, columns, axis='time', profile=False, directory_path=directory_path, suffix=suffix)
-
 
 
 all_times = {

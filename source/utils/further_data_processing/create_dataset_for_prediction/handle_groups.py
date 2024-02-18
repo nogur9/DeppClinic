@@ -38,7 +38,7 @@ def rename_groups(df, group_names):
 
 
 def fill_missing_groups(df, group_names):
-    filling_map = pd.read_csv(r"Data/helper_docs/group_imputations.csv")
+    filling_map = pd.read_csv(r"C:\Users\nogur\Documents\DeppClinic\Data/helper_docs/group_imputations.csv")
     inv_group_names = {v: k for k, v in group_names.items()}
     for _, row in filling_map.iterrows():
         df.loc[df['id'] == row['id'], 'group'] = row['group_name']
