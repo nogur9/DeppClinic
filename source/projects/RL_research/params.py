@@ -1,0 +1,32 @@
+file_path = r"data\DeppClinic_data.csv"
+
+QUESTIONS = ['sci_af_ca_29',
+ 'c_ssrs_5_2weeks',
+ 'c_ssrs_6',
+ 'sci_af_ca_3',
+ 'sci_af_ca_40',
+ 'age_child_pre',
+ 'sci_af_ca_3',
+ 'c_ssrs_last_visit_6',
+ 'c_ssrs_last_visit_6',
+ 'sci_af_ca_32',
+ 'sci_af_ca_17',
+ 'sci_af_ca_34',
+ 'mfq_1',
+ 'sci_af_ca_23',
+ 'chameleon_attempt_stu',
+ 'sci_af_ca_19',
+ 'sci_af_ca_17',
+ 'sci_af_ca_16',
+ 'c_ssrs_2_2weeks',
+ 'sci_af_ca_21',
+ 'suicidal_behavior_last_11_clin.1',
+ 'c_ssrs_6',
+ 'suicidal_behavior_last_12_clin.1',
+ 'sci_af_ca_26',
+ 'sci_af_ca_21',
+ 'c_ssrs_6',
+ 'c_ssrs_8_intake',
+ 'sci_af_ca_16']
+RAND_PATIENT_ID = 'S6442'
+N_EPISODES = 2000
