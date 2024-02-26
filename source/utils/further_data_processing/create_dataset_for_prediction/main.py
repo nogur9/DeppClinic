@@ -51,27 +51,27 @@ def main(times, directory_path=None, suffix=''):
         os.makedirs(directory_path)
 
     save_df(df, columns, axis='patient', profile=False, directory_path=directory_path, suffix=suffix)
-    save_df(df, columns, axis='time', profile=False, directory_path=directory_path, suffix=suffix)
+    #save_df(df, columns, axis='time', profile=False, directory_path=directory_path, suffix=suffix)
 
 
 treatment_times = {
     'Time 1': ['intake_arm_1', 'pre_treatment_arm_1', 'er_arm_1'],
     'Time 2': ['5th_session_arm_1'],
-    #'Time 3': ['followup_3month_arm_1', 'control_3month_arm_1', 'control_6month_arm_1']
+    'Time 3': ['followup_3month_arm_1', 'control_3month_arm_1', 'control_6month_arm_1']
 }
 control_times = {
     'Time 1': ['intake_arm_1', 'er_arm_1'],
     'Time 2': ['control_5weeks_arm_1'],
-   # 'Time 3': ['control_3month_arm_1', 'control_6month_arm_1']
+    'Time 3': ['control_3month_arm_1', 'control_6month_arm_1']
 }
 
 all_times = {
     'Time 1': ['intake_arm_1', 'pre_treatment_arm_1', 'er_arm_1'],
     'Time 2': ['5th_session_arm_1', 'control_5weeks_arm_1'],
-  #  'Time 3': ['followup_3month_arm_1', 'control_3month_arm_1', 'control_6month_arm_1']
+    'Time 3': ['followup_3month_arm_1', 'control_3month_arm_1', 'control_6month_arm_1']
 }
 
-main(treatment_times, r"C:\Users\nogur\Documents\DeppClinic\Data\processed_data\two_times", '_treatment')
-main(control_times, r"C:\Users\nogur\Documents\DeppClinic\Data\processed_data\two_times", '_control')
-main(all_times, r"C:\Users\nogur\Documents\DeppClinic\Data\processed_data\two_times")
+main(treatment_times, r"C:\Users\nogur\Documents\DeppClinic\Data\processed_data\three_times", '_treatment')
+main(control_times, r"C:\Users\nogur\Documents\DeppClinic\Data\processed_data\three_times", '_control')
+main(all_times, r"C:\Users\nogur\Documents\DeppClinic\Data\processed_data\three_times")
 

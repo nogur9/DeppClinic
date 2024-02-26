@@ -11,9 +11,9 @@ class Columns:
 
     def __init__(self, columns=[], id_column='id'):
 
-        info_columns = ['gender', 'redcap_event_name', 'age_child_pre']
-        self.extra_columns = []
-        default_columns = info_columns + all_questionarries + ['chameleon_attempt_stu', 'chameleon_psychiatric_stu', 'chameleon_suicide_er_stu']
+        self.info_columns = ['gender', 'redcap_event_name', 'age_child_pre']
+        self.extra_columns =  all_questionarries + ['chameleon_attempt_stu', 'chameleon_psychiatric_stu', 'chameleon_suicide_er_stu']
+        default_columns = self.info_columns
 
         self.id_column = id_column
 
@@ -138,11 +138,15 @@ def save_df(df, columns, axis='patient', profile=False, directory_path=None, suf
 
         df_intake = df[df.measurement == 'Time 1'][columns.ordered_columns_with_id]
         df_intake = df_intake.drop(pathology_variables_times['time2'], axis=1)
-        df_target = df[df.measurement == 'Time 2'][columns.ordered_columns_with_id]
-        df_target = df_target.drop(pathology_variables_times['intake'], axis=1)
+        df_target_time2 = df[df.measurement == 'Time 2'][columns.ordered_columns_with_id]
+        df_target_time2 = df_target_time2.drop(list(pathology_variables_times['intake'].keys()) + columns.info_columns, axis=1)
+        df_target_time3 = df[df.measurement == 'Time 3'][columns.ordered_columns_with_id]
+        df_target_time3 = df_target_time3.drop(list(pathology_variables_times['intake'].keys()) + columns.info_columns, axis=1)
 
-        df = pd.merge(df_intake, df_target, on='id', how='outer', suffixes=('_time1', '_time2'))
-        df = df.drop(['measurement_time1', 'measurement_time2'], axis=1)
+        df = pd.merge(df_target_time2, df_target_time3, on='id', how='outer', suffixes=('_time2', '_time3'))
+
+        df = pd.merge(df_intake, df, on='id', how='outer')
+        df = df.drop(['measurement'], axis=1)
 
         if directory_path is None:
             df.to_csv(f"data_patient_axis{suffix}.csv", index=False)
