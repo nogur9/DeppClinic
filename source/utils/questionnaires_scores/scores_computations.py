@@ -3,11 +3,11 @@ import numpy as np
 
 from source.utils.consts.subsets_of_questionnaires import sci_af_ac_factors, C_ssrs_clinician, sci_af_ca_new_questions, \
     maris_soq_sf_reverse, maris_soq_sf_normal, MAST_factors, SDQ_factors, DERS_factors, swan_factors, \
-    erc_rc_reversed_items, erc_rc_factors
+    erc_rc_reversed_items, erc_rc_factors, dass_factors
 from source.utils.consts.subsets_of_questionnaires import sdq_reverse, sdq_normal, c_ssrs_life_values_map, \
     c_ssrs_2weeks_values_map, DERS_reverse_items, wai_reversed_items, wai_factors
 from source.utils.consts.questions_columns import c_ssrs, maris_sci_sf, maris_soq_sf, MAST, DERS, wai, swan_m, \
-    sci_mother, scs_clin, sci_af_ca, ATHENS, SAS, scared, mfq, siq, erc_rc
+    sci_mother, scs_clin, sci_af_ca, ATHENS, SAS, scared, mfq, siq, erc_rc, ARI_S, ARI_P_m
 from source.utils.data_manipulation.data_imputation import impute_mean_questionnaire_score
 from source.utils.questionnaires_scores.utils import calculate_clinician_c_ssrs_individual_score, \
     calculate_intake_c_ssrs_individual_score, c_ssrs_roll_negative, calculate_c_ssrs_individual_score
@@ -229,16 +229,14 @@ def compute_ari_p_score(df, skipna=False):
     EXECUTE.
 
     """
-    # ToDo: Fix computation - wrong columns
-    ARI_P_columns = Questionnaires().questionnaires['ARI_P']['columns']
 
     # Compute the sum for ARI_P_SUM
-    df['ARI_P_SUM'] = df[ARI_P_columns].sum(axis=1, skipna=skipna)
-    df['ari_p_score'] = df[ARI_P_columns].sum(axis=1, skipna=skipna)
+    df['ARI_P_SUM'] = df[ARI_P_m].sum(axis=1, skipna=skipna)
+    df['ari_p_score'] = df[ARI_P_m].sum(axis=1, skipna=skipna)
 
-    missing_values = df[ARI_P_columns].isnull()
+    missing_values = df[ARI_P_m].isnull()
     missing_values_sum = missing_values.sum(axis=1)
-    df['ratio_of_missing_ari_p_values'] = missing_values_sum / len(ARI_P_columns)
+    df['ratio_of_missing_ari_p_values'] = missing_values_sum / len(ARI_P_m)
 
     return df, ['ARI_P_SUM', 'ari_p_score', 'ratio_of_missing_ari_p_values']
 
@@ -249,16 +247,14 @@ def compute_ari_s_score(df, skipna=False):
     EXECUTE.
 
     """
-    # ToDo: Fix computation - wrong columns
 
-    ARI_S_columns = Questionnaires().questionnaires['ARI_S']['columns']
     # Compute the sum for ARI_S_SUM
-    df['ARI_S_SUM'] = df[ARI_S_columns].sum(axis=1, skipna=skipna)
-    df['ari_s_score'] = df[ARI_S_columns].sum(axis=1, skipna=skipna)
+    df['ARI_S_SUM'] = df[ARI_S].sum(axis=1, skipna=skipna)
+    df['ari_s_score'] = df[ARI_S].sum(axis=1, skipna=skipna)
 
-    missing_values = df[ARI_S_columns].isnull()
+    missing_values = df[ARI_S].isnull()
     missing_values_sum = missing_values.sum(axis=1)
-    df['ratio_of_missing_ari_s_values'] = missing_values_sum / len(ARI_S_columns)
+    df['ratio_of_missing_ari_s_values'] = missing_values_sum / len(ARI_S)
 
     return df, ['ARI_S_SUM', 'ari_s_score', 'ratio_of_missing_ari_s_values']
 
@@ -476,8 +472,22 @@ def compute_ecr_score(df, skipna=False):
         df[f'ratio_of_missing_{key}_values'] = missing_values_sum / len(erc_rc_factors[key])
         df.loc[df[f'ratio_of_missing_{key}_values'] >= 0.99, key] = np.nan
 
-
     df = df.drop(erc_rc_reverse_columns, axis=1)
     params = list(erc_rc_factors.keys()) + ['ratio_of_missing_erc_rc_values']
+
+    return df, params
+
+
+def compute_dass_score(df, skipna=False):
+
+    for key in dass_factors.keys():
+        df[key] = df[dass_factors[key]].sum(axis=1, skipna=skipna)
+
+        missing_values = df[dass_factors[key]].isnull()
+        missing_values_sum = missing_values.sum(axis=1)
+        df[f'ratio_of_missing_{key}_values'] = missing_values_sum / len(dass_factors[key])
+        df.loc[df[f'ratio_of_missing_{key}_values'] >= 0.99, key] = np.nan
+
+    params = list(dass_factors.keys()) + ['ratio_of_missing_erc_rc_values']
 
     return df, params

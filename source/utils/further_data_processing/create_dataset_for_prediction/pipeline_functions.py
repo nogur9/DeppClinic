@@ -12,7 +12,7 @@ class Columns:
     def __init__(self, columns=[], id_column='id'):
 
         self.info_columns = ['gender', 'redcap_event_name', 'age_child_pre']
-        self.extra_columns =  all_questionarries + ['chameleon_attempt_stu', 'chameleon_psychiatric_stu', 'chameleon_suicide_er_stu']
+        self.extra_columns = all_questionarries + ['chameleon_attempt_stu', 'chameleon_psychiatric_stu', 'chameleon_suicide_er_stu']
         default_columns = self.info_columns
 
         self.id_column = id_column
@@ -20,7 +20,7 @@ class Columns:
         if len(columns):
             self.columns = columns
         else:
-            self.columns = default_columns
+            self.columns = [i for i in default_columns]
 
         self.ordered_columns = []
         self.unique_columns = set()
@@ -39,10 +39,10 @@ class Columns:
 
         self.unique_columns.update(set(items))
         self.unique_columns_with_id.update(set(items))
-
+        self.columns.extend(items)
         self.ordered_columns.extend(items)
         self.ordered_columns_with_id.extend(items)
-        self.columns.extend(items)
+
 
 
 def do_imputations(df):
@@ -137,11 +137,14 @@ def save_df(df, columns, axis='patient', profile=False, directory_path=None, suf
     if axis == 'patient':
 
         df_intake = df[df.measurement == 'Time 1'][columns.ordered_columns_with_id]
-        df_intake = df_intake.drop(pathology_variables_times['time2'], axis=1)
+        df_intake = df_intake.drop(pathology_variables_times['time2'], errors='ignore', axis=1)
+        intake_scores = [i for i in df_intake.columns if (i not in columns.info_columns) and (i != columns.id_column)and (i != 'measurement')]
+        intake_scores_rename = {i:f"{i}_intake" for i in intake_scores}
+        df_intake = df_intake.rename(intake_scores_rename, axis=1)
         df_target_time2 = df[df.measurement == 'Time 2'][columns.ordered_columns_with_id]
-        df_target_time2 = df_target_time2.drop(list(pathology_variables_times['intake'].keys()) + columns.info_columns, axis=1)
+        df_target_time2 = df_target_time2.drop(list(pathology_variables_times['intake'].keys()) + columns.info_columns, axis=1, errors='ignore')
         df_target_time3 = df[df.measurement == 'Time 3'][columns.ordered_columns_with_id]
-        df_target_time3 = df_target_time3.drop(list(pathology_variables_times['intake'].keys()) + columns.info_columns, axis=1)
+        df_target_time3 = df_target_time3.drop(list(pathology_variables_times['intake'].keys()) + columns.info_columns, axis=1, errors='ignore')
 
         df = pd.merge(df_target_time2, df_target_time3, on='id', how='outer', suffixes=('_time2', '_time3'))
 

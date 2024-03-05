@@ -374,6 +374,13 @@ erc_rc_factors = {
                          'erc_rc_11_reverse', 'erc_rc_12_reverse']
 }
 
+# dass
+
+dass_factors = {
+    'DASS_DEPRESSION': ['dass_3_m', 'dass_5_m', 'dass_10_m', 'dass_13_m','dass_16_m','dass_17_m','dass_21_m'],
+    'DASS_ANXIETY': ['dass_2_m','dass_4_m','dass_7_m','dass_9_m','dass_15_m','dass_19_m','dass_20_m'],
+    'DASS_STRESS': ['dass_1_m','dass_6_m','dass_8_m','dass_11_m','dass_12_m','dass_14_m','dass_18_m']
+}
 
 # C_ssrs maya
 """

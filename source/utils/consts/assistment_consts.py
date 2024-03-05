@@ -1,13 +1,13 @@
 from source.utils.consts.questions_columns import demographics_m, sci_mother, scs_clin, c_ssrs_clin, c_ssrs_intake, \
     c_ssrs, mfq, siq, sdq, scared, ATHENS, SAS, sci_af_ca, demographics_f, sci_father, scs_stu, c_ssrs_stu, swan_f, \
-    swan_m, DERS, wai, erc_rc, dass_m, dass_f, ARI_P_m, ARI_P_f
+    swan_m, DERS, wai, erc_rc, dass_m, dass_f, ARI_P_m, ARI_P_f, ARI_S
 
 from source.utils.consts.questions_text import intake_c_ssrs_text, c_ssrs_text, mfq_text, siq_text, sdq_text,\
     scared_text, ATHENS_text, SAS_text, sci_af_ca_text, sci_mother_text, scs_clin_text
-from source.utils.consts.subsets_of_questionnaires import swan_factors, DERS_reverse_items, DERS_factors,\
-    wai_factors, wai_reversed_items, erc_rc_factors, erc_rc_reversed_items
+from source.utils.consts.subsets_of_questionnaires import swan_factors, DERS_reverse_items, DERS_factors, \
+    wai_factors, wai_reversed_items, erc_rc_factors, erc_rc_reversed_items, dass_factors
 from source.utils.questionnaires_scores.scores_computations import compute_ders_score, compute_wai_score, \
-    compute_ecr_score
+    compute_ecr_score, compute_dass_score, compute_ari_p_score, compute_ari_s_score
 
 
 class Questionnaires:
@@ -159,6 +159,8 @@ class Questionnaires:
             "dass_m": {
                 "columns": dass_m,
                 "group": "dass",
+                'factors': dass_factors,
+                'scoring_function': compute_dass_score
             },
             "dass_f": {
                 "columns": dass_f,
@@ -168,11 +170,18 @@ class Questionnaires:
             "ARI_P_m": {
                 "columns": ARI_P_m,
                 "group": "ARI_P",
+                'scoring_function': compute_ari_p_score
             },
 
             "ARI_P_f": {
                 "columns": ARI_P_f,
                 "group": "ARI_P",
+            },
+
+            "ARI_S": {
+                "columns": ARI_S,
+                "group": "ARI_S",
+                'scoring_function': compute_ari_s_score
             },
         }
 

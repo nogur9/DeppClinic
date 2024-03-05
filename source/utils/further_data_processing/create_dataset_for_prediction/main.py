@@ -29,17 +29,17 @@ def main(times, directory_path=None, suffix=''):
     columns.add(['sciafca_timestamp'])
     df_time1, df_time2 = split_to_multiple_measurement_times(df, columns, times)
     columns.add(['measurement'])
-
-    # calculate pathology variables
-    for questionnaire_name, items in pathology_variables_times['intake'].items():
-        tv = TargetVariable(questionnaire_name, {'measurement': 'time1'}, items)
-        df_time1 = tv.calculate_value(df_time1)
-        columns.add([questionnaire_name])
-
-    for questionnaire_name, items in pathology_variables_times['time2'].items():
-        tv = TargetVariable(questionnaire_name, {'measurement': 'time2'}, items)
-        df_time2 = tv.calculate_value(df_time2)
-        columns.add([questionnaire_name])
+    #
+    # # calculate pathology variables
+    # for questionnaire_name, items in pathology_variables_times['intake'].items():
+    #     tv = TargetVariable(questionnaire_name, {'measurement': 'time1'}, items)
+    #     df_time1 = tv.calculate_value(df_time1)
+    #     columns.add([questionnaire_name])
+    #
+    # for questionnaire_name, items in pathology_variables_times['time2'].items():
+    #     tv = TargetVariable(questionnaire_name, {'measurement': 'time2'}, items)
+    #     df_time2 = tv.calculate_value(df_time2)
+    #     columns.add([questionnaire_name])
 
     df = pd.concat([df_time1, df_time2])
     df = df[list(columns.unique_columns_with_id)]
@@ -71,7 +71,7 @@ all_times = {
     'Time 3': ['followup_3month_arm_1', 'control_3month_arm_1', 'control_6month_arm_1']
 }
 
-main(treatment_times, r"C:\Users\nogur\Documents\DeppClinic\Data\processed_data\three_times", '_treatment')
-main(control_times, r"C:\Users\nogur\Documents\DeppClinic\Data\processed_data\three_times", '_control')
-main(all_times, r"C:\Users\nogur\Documents\DeppClinic\Data\processed_data\three_times")
+main(treatment_times, r"C:\Users\nogur\Documents\DeppClinic\Data\processed_data\only_final_scores", '_treatment')
+main(control_times, r"C:\Users\nogur\Documents\DeppClinic\Data\processed_data\only_final_scores", '_control')
+main(all_times, r"C:\Users\nogur\Documents\DeppClinic\Data\processed_data\only_final_scores")
 
