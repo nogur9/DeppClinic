@@ -5,7 +5,7 @@ import os
 os.chdir(r'/')
 
 from source.utils.further_data_processing.create_dataset_for_prediction.pipeline_functions import Columns, create_single_event_name, \
-    do_imputations, save_df
+    do_questionnaires_imputations, save_df
 from source.utils.consts.pathology_variables import Liat_Graphs_pathology_variables_times
 from source.utils.target_variable import TargetVariable
 
@@ -42,7 +42,7 @@ def create_dataset(event_names, path=None):
     columns = Columns()
     groups = ['group___1', 'group___2', 'group___3']
     columns.add(groups)
-    df = do_imputations(df)
+    df = do_questionnaires_imputations(df)
     for group in groups:
         df = fill_group(df, group)
     df = create_single_event_name(df, columns, event_names)

@@ -1,5 +1,5 @@
 import pandas as pd
-from source.utils.further_data_processing.create_dataset_for_prediction.pipeline_functions import Columns, do_imputations, split_two_measurement_times, compute_questions_scores, save_df
+from source.utils.further_data_processing.create_dataset_for_prediction.pipeline_functions import Columns, do_questionnaires_imputations, split_two_measurement_times, compute_questions_scores, save_df
 from source.utils.consts.pathology_variables import pathology_variables_times
 from source.utils.target_variable import TargetVariable
 from source.utils.consts.assistment_consts import Questionnaires
@@ -12,7 +12,7 @@ def main():
 
     df = pd.read_csv(r"creating_the_clinic_dataset/preprocessed_data/merged_2021_and_2022.csv", na_values=' ')
     columns = Columns()
-    df = do_imputations(df)
+    df = do_questionnaires_imputations(df)
 
     df_time1, df_time2 = split_two_measurement_times(df, columns)
     columns.add(['measurement'])

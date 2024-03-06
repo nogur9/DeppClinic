@@ -92,6 +92,20 @@ modcon_target = [
      # 'suicidal_behavior_last_15_clin'
     ]
 
+survival_target = [
+    # 'c_ssrs_6',
+    # 'c_ssrs_last_visit_6',
+    'chameleon_attempt_stu',
+    # 'chameleon_behavior_stu',
+    'mfq_36',
+    'chameleon_suicide_er_stu',
+    'chameleon_psychiatric_stu',
+    # 'suicidal_behavior_last_11_clin',
+    # 'suicidal_behavior_last_12_clin',
+    # 'suicidal_behavior_last_13_clin',
+    # 'suicidal_behavior_last_14_clin',
+    # 'suicidal_behavior_last_15_clin'
+    ]
 
 suicidal_behavior_time2 = [
     'suicidal_behavior_last_11_clin',
@@ -151,24 +165,26 @@ psych_ward = ['chameleon_psychiatric_stu']
 # grouping
 
 pathology_variables_times = {
-    'intake': {'suicidal_behavior_intake': suicidal_behavior_intake,
-               'suicide_attempt_intake': suicide_attempt_intake,
-               'nssi_intake': nssi_intake,
-               'suicidal_ideation_2weeks_intake': suicidal_ideation_2weeks_intake,
-               'suicidal_ideation_life_intake': suicidal_ideation_life_intake,
-               'self_harm_intake': self_harm_intake,
-               'ER_intake': ER_intake,
-               'Psychiatric_hospitalization_intake': psych_ward},
-
+    'intake': {
+        'suicide_attempt_intake': suicide_attempt_intake,
+        # 'suicidal_behavior_intake': suicidal_behavior_intake,
+        # 'nssi_intake': nssi_intake,
+        # 'suicidal_ideation_2weeks_intake': suicidal_ideation_2weeks_intake,
+        # 'suicidal_ideation_life_intake': suicidal_ideation_life_intake,
+        # 'self_harm_intake': self_harm_intake,
+        # 'ER_intake': ER_intake,
+        # 'Psychiatric_hospitalization_intake': psych_ward,
+    },
     'time2': {
-        'modcon_target': modcon_target,
-        'suicidal_behavior_time2': suicidal_behavior_time2,
-              'nssi_time2': nssi_time2,
-              'suicidal_ideation_time2': suicidal_ideation_time2,
-              'ER_time2': ER_time2,
-              'Psychiatric_hospitalization_time2': psych_ward,
-              'suicidal_attempt_time2': suicidal_attempt_time2
-              }
+        # 'modcon_target': modcon_target,
+        # 'suicidal_behavior_time2': suicidal_behavior_time2,
+        # 'nssi_time2': nssi_time2,
+        # 'suicidal_ideation_time2': suicidal_ideation_time2,
+        # 'ER_time2': ER_time2,
+        # 'Psychiatric_hospitalization_time2': psych_ward,
+        # 'suicidal_attempt_time2': suicidal_attempt_time2,
+        'survival_analysis_target': survival_target
+        }
 
 }
 
