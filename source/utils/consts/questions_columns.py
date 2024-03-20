@@ -867,6 +867,7 @@ chameleon = ['chameleon_follow_stu',
              'chameleon_medicine_2_stu___5',
 ]
 
+cgi = ['cgi_s_clin']
 
 all_questionarries = c_ssrs_intake + c_ssrs + \
                     c_ssrs_clin + \
@@ -895,6 +896,7 @@ all_questionarries = c_ssrs_intake + c_ssrs + \
                     wai + \
                     erc_rc + \
                     bulling + \
-                    opening + chameleon
+                    opening + \
+                    chameleon + cgi
 
 

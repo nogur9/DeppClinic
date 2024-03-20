@@ -1,5 +1,5 @@
 from source.utils.consts.pathology_variables import pathology_variables_times
-from source.utils.consts.questions_columns import all_questionarries, sci_af_ca
+from source.utils.consts.questions_columns import all_questionarries, sci_af_ca, mfq, sdq, c_ssrs_intake, siq, cgi
 from source.utils.consts.assistment_consts import imputation_questionnaires
 from source.utils.util_functions import impute_from_questionnaire
 from source.utils.data_manipulation.data_imputation import impute_from_column
@@ -9,18 +9,17 @@ import pandas as pd
 
 class Columns:
 
-    def __init__(self, columns=[], id_column='id'):
-
+    def __init__(self, columns=None, id_column='id'):
         self.info_columns = ['gender', 'redcap_event_name', 'age_child_pre']
         self.extra_columns = all_questionarries + ['chameleon_attempt_stu', 'chameleon_psychiatric_stu', 'chameleon_suicide_er_stu']
-        default_columns = self.info_columns + sci_af_ca
+        default_columns = self.info_columns + sci_af_ca + mfq + sdq + c_ssrs_intake + siq + cgi
 
         self.id_column = id_column
 
-        if len(columns):
-            self.columns = columns
-        else:
+        if columns is None:
             self.columns = [i for i in default_columns]
+        else:
+            self.columns = self.info_columns + columns
 
         self.ordered_columns = []
         self.unique_columns = set()
@@ -86,9 +85,10 @@ def split_to_multiple_measurement_times(df, columns, times):
             intake_data = event_dataset
         else:
             all_events_datasets_collection.append(event_dataset)
-
-    return intake_data, pd.concat(all_events_datasets_collection)
-
+    try:
+        return intake_data, pd.concat(all_events_datasets_collection)
+    except ValueError:
+        return intake_data, pd.DataFrame()
 
 def split_two_measurement_times(df, columns):
     time1_event = 'intake_arm_1'

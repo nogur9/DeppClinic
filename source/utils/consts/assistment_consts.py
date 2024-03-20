@@ -12,12 +12,26 @@ from source.utils.questionnaires_scores.scores_computations import compute_ders_
 
 class Questionnaires:
 
-    def __init__(self):
+    def __init__(self, questionnaires_list=None):
+        self.questionnaires_list = questionnaires_list
+        self.questionnaires = None
+        self.full_questionnaires = None
+        self._init_questionnaires()
+
+    def _init_questionnaires(self):
+        self._load_full_questionnaires()
+        if self.questionnaires_list is not None:
+            self.questionnaires = {i: self.full_questionnaires[i] for i in self.questionnaires_list}
+        else:
+            self.questionnaires = self.full_questionnaires
+
+    def _load_full_questionnaires(self):
         from source.utils.questionnaires_scores.scores_computations import compute_sas_score, \
             calculate_c_ssrs_scores_intake, calculate_c_ssrs_scores, compute_mfq_score, compute_siq_score, \
             compute_sdq_score, compute_scared_score, compute_athens_score, compute_sci_af_ac_score, \
             calculate_c_ssrs_scores_clinician, compute_scs_clin_score, compute_scs_mother_score, compute_swan_scores
-        self.questionnaires = {
+
+        self.full_questionnaires = {
             "demographics_m": {
                 "columns": demographics_m,
                 "group": "demographics",
