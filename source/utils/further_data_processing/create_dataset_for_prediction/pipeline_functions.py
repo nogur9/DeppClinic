@@ -90,6 +90,7 @@ def split_to_multiple_measurement_times(df, columns, times):
     except ValueError:
         return intake_data, pd.DataFrame()
 
+
 def split_two_measurement_times(df, columns):
     time1_event = 'intake_arm_1'
     time2_events = ['control_5weeks_arm_1', 'pre_treatment_arm_1', 'followup_3month_arm_1']
