@@ -28,7 +28,7 @@ def main(times, directory_path=None, suffix='', columns=None, calc_pathology=Tru
 
     df = pd.read_csv(r"C:\Users\nogur\Documents\DeppClinic\Data\postgres_db\merged_data\merged_2021_and_2022.csv",
                      na_values='chameleon_ideation_stu_2022', keep_default_na=True)
-
+    print(f"{df.shape = }")
     columns = Columns(columns)
     df = do_questionnaires_imputations(df)
 
@@ -95,7 +95,7 @@ all_times = {
     'post_treatment_arm_1': ['post_treatment_arm_1']
 }
 
-# main(all_times, r"C:\Users\nogur\Documents\DeppClinic\Data\processed_data\survival_analysis_20_3")
+main(all_times, r"C:\Users\nogur\Documents\DeppClinic\Data\processed_data\survival_analysis_20_3")
 
 
 single_time = {
