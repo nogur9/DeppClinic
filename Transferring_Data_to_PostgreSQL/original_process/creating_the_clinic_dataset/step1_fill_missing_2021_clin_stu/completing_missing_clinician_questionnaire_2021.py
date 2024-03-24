@@ -1,6 +1,6 @@
 import pandas as pd
 import re
-from creating_the_clinic_dataset.step2_merge_2021_2022.utils import fill_id
+from Transferring_Data_to_PostgreSQL.original_process.creating_the_clinic_dataset.step2_merge_2021_2022.utils import fill_id
 
 
 def IsClinician(row):
@@ -148,9 +148,9 @@ def should_remove_from_stu_columns(string):
 
 
 def prepare_datasets():
-    old_data = pd.read_csv(r"/Data/OriginalDataset/Schneider Depression Clinic Database.csv", na_values=' ')
-    redcap_data = pd.read_csv(r"/Data/OriginalDataset/ImmiRiskIPT2022_DATA_2023-09-03_1503.csv", na_values=' ')
-    imputation_data = pd.read_csv(r"/Data/helper_docs/Student_Clinician_data_2021.csv", na_values=' ')
+    old_data = pd.read_csv(r"C:\Users\nogur\Documents\DeppClinic\Data/OriginalDataset/Schneider Depression Clinic Database.csv", na_values=' ')
+    redcap_data = pd.read_csv(r"C:\Users\nogur\Documents\DeppClinic/Data/OriginalDataset/ImmiRiskIPT2022_DATA_2024-03-07_1135.csv", na_values=' ')
+    imputation_data = pd.read_csv(r"C:\Users\nogur\Documents\DeppClinic/Data/helper_docs/Student_Clinician_data_2021.csv", na_values=' ')
     # the warning rooted from the nan values
 
     rename_imputation_data = {

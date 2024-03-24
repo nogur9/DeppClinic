@@ -3,8 +3,8 @@ import pandas as pd
 # c_ssrs_t_2weeks_1_clin - removed from columns_to_apply_default_merge_solution
 # df = pd.read_csv('all_columns_list.csv').rename({'0': 'name'},axis=1)
 
-df = pd.read_csv(r'/Data/helper_docs/intersection_columns_list.csv').rename({'0': 'name'}, axis=1)
-df_redundant = pd.read_csv(r'/Data/helper_docs/columns_to_apply_default_merge_solution.csv')
+df = pd.read_csv(r'C:\Users\nogur\Documents\DeppClinic/Data/helper_docs/intersection_columns_list.csv').rename({'0': 'name'}, axis=1)
+df_redundant = pd.read_csv(r'C:\Users\nogur\Documents\DeppClinic/Data/helper_docs/columns_to_apply_default_merge_solution.csv')
 
 binary_1_2 = ['opening_psychothe', 'opening_medicine', 'chameleon_follow_stu', 'treatment_end_stu', 'chameleon_behavior_stu', 'chameleon_attempt_stu', 'chameleon_nssi_stu', 'chameleon_suicide_er_stu', 'chameleon_psychiatric_stu']
 

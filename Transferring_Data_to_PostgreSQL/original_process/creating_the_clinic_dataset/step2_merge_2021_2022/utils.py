@@ -31,6 +31,10 @@ def fix_wrong_record_id(df, year=2022):
     1. Replaces 'id' with 'A6735' when 'record_id' == 85.
     2. Removes the rows where 'record_id' == 550.
     3. Removes the rows where 'record_id' == 725.
+    4. Removes the rows where 'record_id' == 781.
+    5. Removes the rows where 'record_id' == 787.
+    6. Removes the rows where 'record_id' == 791.
+    7. Removes the rows where 'record_id' == 793.
 
     Parameters:
         df (pandas DataFrame): The DataFrame to be cleaned.
@@ -43,7 +47,11 @@ def fix_wrong_record_id(df, year=2022):
         df.loc[df['record_id'] == 85, 'id'] = 'A6735'
         df = df[df['record_id'] != 550]
         df = df[df['record_id'] != 725]
-    
+        df = df[df['record_id'] != 781]
+        df = df[df['record_id'] != 787]
+        df = df[df['record_id'] != 791]
+        df = df[df['record_id'] != 793]
+
     elif year == 2021:
         # df_2021[(df_2021['id'] == 'N4125') & (df_2021['redcap_event_name'] == 'intake_arm_1')]
         df = df[~((df['id'] == 'N4125') & (df['redcap_event_name'] == 'intake_arm_1') & (df['record_id'] == 328))]

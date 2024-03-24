@@ -1,6 +1,6 @@
-from creating_the_clinic_dataset.step1_fill_missing_2021_clin_stu.completing_missing_clinician_questionnaire_2021 import \
-    prepare_datasets, get_columns_range, create_columns_names_mapping, \
+from Transferring_Data_to_PostgreSQL.original_process.creating_the_clinic_dataset.step1_fill_missing_2021_clin_stu.completing_missing_clinician_questionnaire_2021 import prepare_datasets, get_columns_range, create_columns_names_mapping, \
     map_additional_column_name_to_2021_clinician_column_name, map_additional_column_name_to_2021_student_column_name
+
 import psycopg2
 import pandas as pd
 
