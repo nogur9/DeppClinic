@@ -1,12 +1,17 @@
 # Import the necessary libraries
 import numpy as np
+from catboost import CatBoostClassifier
+import warnings
+import matplotlib.pyplot as plt
+from sklearn.metrics import confusion_matrix
+import seaborn as sns
 import pandas as pd
 from sklearn.model_selection import train_test_split
 from sklearn.metrics import roc_auc_score, average_precision_score, accuracy_score, f1_score
-from catboost import CatBoostClassifier
 
-from source.projects.RL_research.params import file_path, QUESTIONS
+from source.projects.RL_research.params import file_path, QUESTIONS, N_EPISODES
 from source.projects.RL_research.runing_agent import do_interview, train_agent
+
 
 def load_data():
     df = pd.read_csv(file_path)
@@ -32,7 +37,7 @@ def load_and_split_data():
 
 
 def train_model(X_train, X_test, y_train):
-    df_train = X_train
+    df_train = X_train.copy()
     df_train["Y"] = y_train
 
     agent = train_agent(df_train.id.unique(), df_train, n_episodes=N_EPISODES)
@@ -40,13 +45,38 @@ def train_model(X_train, X_test, y_train):
     X_train = do_interview(X_train, agent).drop("id", axis=1)
     X_test = do_interview(X_test, agent).drop("id", axis=1)
 
-    model = CatBoostClassifier()
+    model = CatBoostClassifier(verbose=0, auto_class_weights=True)
     model.fit(X_train, y_train)
     return model, X_test
 
 
-def evaluate_model(model, X_test, y_test):
+"""
+Chat GPT notes:
 
+Dependency on id in do_interview: Your process relies heavily on the presence and integrity of id fields.
+ Ensure robustness by validating the uniqueness and consistency of these IDs across your data transformations.
+
+train_model Workflow Clarity: The reassignment of X_train and X_test after do_interview might be confusing.
+ It's essential to document or comment that these are transformed versions of the original datasets,
+  now enriched with insights from the RL agent.
+
+
+"""
+
+def plot_confusion_matrix(y_test, y_pred):
+    # Generate the confusion matrix
+    cm = confusion_matrix(y_test, y_pred)
+
+    # Plotting using seaborn
+    plt.figure(figsize=(10,7))
+    sns.heatmap(cm, annot=True, fmt="d", cmap="Blues")
+    plt.xlabel('Predicted Labels')
+    plt.ylabel('True Labels')
+    plt.title('Confusion Matrix')
+    plt.show()
+
+
+def evaluate_model(model, X_test, y_test):
     y_pred = model.predict(X_test)
     y_prob = model.predict_proba(X_test)[:, 1]
 
@@ -60,8 +90,14 @@ def evaluate_model(model, X_test, y_test):
     print(f"PR-AUC: {pr_auc:.4f}")
     print(f"Accuracy: {acc:.4f}")
     print(f"F1-score: {f1:.4f}")
+    plot_confusion_matrix(y_test, y_pred)
 
-def main ():
+
+def main():
+    warnings.simplefilter(action='ignore', category=FutureWarning)
     X_train, X_test, y_train, y_test = load_and_split_data()
     model, X_test = train_model(X_train, X_test, y_train)
     evaluate_model(model, X_test, y_test)
+
+
+main()
