@@ -55,6 +55,7 @@ def train_agent(training_ids, df, n_episodes):
 def do_interview(df, agent):
     interviews = []  # Collect patient info in a list
     for patient_id in df.id.unique():
+        print(f"{patient_id = }")
         env = DiagnosticEnv(df, patient_id=patient_id, questions=QUESTIONS)
         state = env.reset()
         patient_info = prediction_episode(env, agent, state)

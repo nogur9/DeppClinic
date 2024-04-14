@@ -45,7 +45,7 @@ def train_model(X_train, X_test, y_train):
     X_train = do_interview(X_train, agent).drop("id", axis=1)
     X_test = do_interview(X_test, agent).drop("id", axis=1)
 
-    model = CatBoostClassifier(verbose=0, auto_class_weights=True)
+    model = CatBoostClassifier(verbose=False, auto_class_weights='Balanced')
     model.fit(X_train, y_train)
     return model, X_test
 
@@ -60,19 +60,34 @@ train_model Workflow Clarity: The reassignment of X_train and X_test after do_in
  It's essential to document or comment that these are transformed versions of the original datasets,
   now enriched with insights from the RL agent.
 
-
 """
 
+
 def plot_confusion_matrix(y_test, y_pred):
-    # Generate the confusion matrix
     cm = confusion_matrix(y_test, y_pred)
 
-    # Plotting using seaborn
-    plt.figure(figsize=(10,7))
-    sns.heatmap(cm, annot=True, fmt="d", cmap="Blues")
-    plt.xlabel('Predicted Labels')
-    plt.ylabel('True Labels')
+    # Print the confusion matrix
+    print("Confusion Matrix:")
+    print(cm)
+
+    # Plot the confusion matrix
+    fig, ax = plt.subplots()
+    cax = ax.matshow(cm, cmap=plt.cm.Blues)
     plt.title('Confusion Matrix')
+    fig.colorbar(cax)
+
+    # Set up axes
+    ax.set_xticklabels([''] + list(np.unique(y_test)))
+    ax.set_yticklabels([''] + list(np.unique(y_test)))
+
+    # Label axes
+    plt.xlabel('Predicted')
+    plt.ylabel('True')
+
+    # Annotate each cell with the numeric value
+    for (i, j), val in np.ndenumerate(cm):
+        ax.text(j, i, f'{val}', ha='center', va='center', color='red')
+
     plt.show()
 
 
