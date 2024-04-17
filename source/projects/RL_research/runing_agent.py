@@ -20,7 +20,7 @@ def training_episode(env, agent, state, done=False):
         action = agent.choose_action(state)  # State converted to string for simplicity
         next_state, reward, done = env.step(action)
         agent.learn(state, action, reward, next_state, done=done)
-        state = next_state
+        state = next_state.copy()
 
 
 def training_loop(env, agent, n_episodes):

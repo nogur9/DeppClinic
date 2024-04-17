@@ -115,4 +115,5 @@ def main():
     evaluate_model(model, X_test, y_test)
 
 
-main()
+if __name__ == "__main__":
+    main()

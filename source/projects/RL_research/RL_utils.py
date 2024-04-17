@@ -35,7 +35,7 @@ class DiagnosticEnv(gym.Env):
         self.state[question] = answer
 
         self.counter += 1
-        is_done = self.counter >= self.max_questions
+        is_done = self.counter == self.max_questions
         if is_done and (not eval):
             reward = self.calculate_reward()
         else:
