@@ -74,7 +74,8 @@ suicidal_ideation_life_intake = [
 
 ]
 
-ER_intake = ["complaint___1", "complaint___2", "complaint___3", "complaint___4", "complaint___5", 'chameleon_suicide_er_stu']
+ER_intake = ["complaint___1", "complaint___2", "complaint___3", "complaint___4",
+             "complaint___5", 'chameleon_suicide_er_stu']
 # time 2
 
 modcon_target = [
@@ -163,7 +164,6 @@ psych_ward = ['chameleon_psychiatric_stu']
 
 
 # grouping
-
 pathology_variables_times = {
     'intake': {
         'suicide_attempt_intake': suicide_attempt_intake,
@@ -190,7 +190,6 @@ pathology_variables_times = {
 
 
 # for irit
-
 
 suicidal_ideation_life_intake_irit = [
 

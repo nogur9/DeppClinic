@@ -2,12 +2,12 @@ from source.utils.consts.pathology_variables import pathology_variables_times
 from source.utils.consts.questions_columns import all_questionarries, sci_af_ca, mfq, sdq, c_ssrs_intake, siq, cgi
 from source.utils.consts.assistment_consts import imputation_questionnaires
 from source.utils.util_functions import impute_from_questionnaire
-from source.utils.data_manipulation.data_imputation import impute_from_column
+from to_delete.data_manipulation.data_imputation import impute_from_column
 import pandas as pd
 #import pandas_profiling as pp
 
 
-class Columns:
+class SelectedQuestionnaires:
 
     def __init__(self, columns=None, id_column='id'):
         self.info_columns = ['gender', 'redcap_event_name', 'age_child_pre']

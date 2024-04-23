@@ -2,9 +2,9 @@ import pandas as pd
 import numpy as np
 from source.utils.consts.questions_columns import demographics_m
 from source.utils.consts.assistment_consts import Questionnaires
-from source.utils.further_data_processing.create_dataset_for_prediction.handle_groups import GROUPS,\
+from source.utils.data_extraction.create_dataset_for_prediction.handle_groups import GROUPS,\
     fill_group, GROUP_NAMES_MAP, rename_groups, fill_missing_groups
-from source.utils.further_data_processing.create_dataset_for_prediction.pipeline_functions import Columns, \
+from source.utils.data_extraction.create_dataset_for_prediction.pipeline_functions import SelectedQuestionnaires, \
     do_questionnaires_imputations, save_df, split_to_multiple_measurement_times, compute_questions_scores
 from source.utils.consts.pathology_variables import pathology_variables_times
 from source.utils.target_variable import TargetVariable
@@ -29,7 +29,7 @@ def main(times, directory_path=None, suffix='', columns=None, calc_pathology=Tru
     df = pd.read_csv(r"C:\Users\nogur\Documents\DeppClinic\Data\postgres_db\merged_data\merged_2021_and_2022.csv",
                      na_values='chameleon_ideation_stu_2022', keep_default_na=True)
     print(f"{df.shape = }")
-    columns = Columns(columns)
+    columns = SelectedQuestionnaires(columns)
     df = do_questionnaires_imputations(df)
 
     target_times = ['sciafca_timestamp', 'mfq_short_timestamp', 'chameleon_timestamp',

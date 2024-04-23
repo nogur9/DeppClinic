@@ -841,7 +841,6 @@ chameleon_all = ['chameleon_follow_stu',
              'chameleon_notes_stu'
 ]
 
-
 chameleon = ['chameleon_follow_stu',
              'treatment_end_stu',
              'chameleon_ideation_stu',
