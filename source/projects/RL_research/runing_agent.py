@@ -11,7 +11,7 @@ def prediction_episode(env, agent, state, done=False):
         action = agent.choose_best_action(state)  # State converted to string for simplicity
         print(f"{action = }")
         next_state, reward, done = env.step(action, eval=True)
-        state = next_state
+        state = next_state.copy()
     return state
 
 

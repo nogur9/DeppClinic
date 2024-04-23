@@ -2,7 +2,7 @@ import random
 
 
 class QLearningAgent:
-    def __init__(self, action_space, learning_rate=0.05, epsilon=0.3):
+    def __init__(self, action_space, learning_rate=0.05, epsilon=1.3):
         self.q_table = dict()  # Dictionary to store Q-values
         self.action_space = action_space
         self.learning_rate = learning_rate
