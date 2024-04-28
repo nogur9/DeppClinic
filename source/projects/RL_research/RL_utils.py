@@ -31,7 +31,7 @@ class DiagnosticEnv(gym.Env):
 
     def step(self, action, eval=False):
         question = self.question_list[action]
-        answer = self.get_value(question)
+        answer = self.get_value(question) > 0
         self.state[question] = answer
 
         self.counter += 1
