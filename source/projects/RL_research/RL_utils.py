@@ -3,7 +3,7 @@ import gym
 import numpy as np
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.metrics import average_precision_score
-
+import math
 from source.projects.RL_research.params import MAX_QUESTIONS
 
 
@@ -56,8 +56,8 @@ class DiagnosticEnv(gym.Env):
         pr_auc = average_precision_score(y_test, y_pred[:, 1])
         return pr_auc
 
-    def _prepare_test_set(self):
 
+    def _prepare_test_set(self):
         test_set_ids = self._create_test_set_ids()
 
         test_df = self.df[self.df.id.isin(test_set_ids)]
@@ -71,11 +71,22 @@ class DiagnosticEnv(gym.Env):
         pos_samples = df_without_patient.query("Y == 1")
         neg_samples = df_without_patient.query("Y == 0")
 
-        pos_samples = list(pos_samples.id.sample(1))
-        neg_samples = list(neg_samples.id.sample(9))
+        samples_sizes = self._calc_sample_sizes()
+        pos_samples = list(pos_samples.id.sample(samples_sizes["pos_size"]))
+        neg_samples = list(neg_samples.id.sample(samples_sizes["neg_size"]))
 
         test_set_ids = pos_samples + neg_samples + [self.patient_id]
         return test_set_ids
+
+    def _calc_sample_sizes(self, total_test_size=15):
+        Y = self.df["Y"].copy()
+        n_samples = Y.shape[0]
+        pos_weight = (Y.sum() / n_samples)
+        neg_weight = ((1-Y).sum() / n_samples)
+        samples_sizes = {'pos_size': math.ceil(total_test_size * pos_weight),
+                         'neg_size': math.ceil(total_test_size * neg_weight)}
+        return samples_sizes
+
 
     def create_y(self, training_df, test_df):
         X_cols = []

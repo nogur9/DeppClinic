@@ -9,7 +9,7 @@ import pandas as pd
 from sklearn.model_selection import train_test_split
 from sklearn.metrics import roc_auc_score, average_precision_score, accuracy_score, f1_score
 
-from source.projects.RL_research.params import file_path, QUESTIONS, N_EPISODES
+from source.projects.RL_research.params import file_path, QUESTIONS, N_EPISODES, VERBOSE
 from source.projects.RL_research.runing_agent import do_interview, train_agent
 
 
@@ -26,8 +26,11 @@ def load_data():
     return df
 
 
-def load_and_split_data():
-    df = load_data()
+def load_and_split_data(df=None):
+    if df is None:
+        df = load_data()
+    else:
+        df = df.copy()
 
     X = df.drop("Y", axis=1)
     y = df["Y"]
@@ -36,31 +39,18 @@ def load_and_split_data():
     return X_train, X_test, y_train, y_test
 
 
-def train_model(X_train, X_test, y_train):
+def train_model(X_train, X_test, y_train, custom_questions=None):
     df_train = X_train.copy()
     df_train["Y"] = y_train
 
-    agent = train_agent(df_train.id.unique(), df_train, n_episodes=N_EPISODES)
+    agent = train_agent(df_train.id.unique(), df_train, n_episodes=N_EPISODES, verbose=VERBOSE, custom_questions=custom_questions)
 
-    X_train = do_interview(X_train, agent).drop("id", axis=1)
-    X_test = do_interview(X_test, agent).drop("id", axis=1)
+    X_train = do_interview(X_train.copy(), agent, custom_questions=custom_questions, verbose=VERBOSE).drop("id", axis=1)
+    X_test = do_interview(X_test.copy(), agent, custom_questions=custom_questions, verbose=VERBOSE).drop("id", axis=1)
 
     model = CatBoostClassifier(verbose=False, auto_class_weights='Balanced')
     model.fit(X_train, y_train)
     return model, X_test
-
-
-"""
-Chat GPT notes:
-
-Dependency on id in do_interview: Your process relies heavily on the presence and integrity of id fields.
- Ensure robustness by validating the uniqueness and consistency of these IDs across your data transformations.
-
-train_model Workflow Clarity: The reassignment of X_train and X_test after do_interview might be confusing.
- It's essential to document or comment that these are transformed versions of the original datasets,
-  now enriched with insights from the RL agent.
-
-"""
 
 
 def plot_confusion_matrix(y_test, y_pred):
@@ -108,10 +98,10 @@ def evaluate_model(model, X_test, y_test):
     plot_confusion_matrix(y_test, y_pred)
 
 
-def main():
+def main(df=None, custom_questions=None):
     warnings.simplefilter(action='ignore', category=FutureWarning)
-    X_train, X_test, y_train, y_test = load_and_split_data()
-    model, X_test = train_model(X_train, X_test, y_train)
+    X_train, X_test, y_train, y_test = load_and_split_data(df=df)
+    model, X_test = train_model(X_train, X_test, y_train, custom_questions=custom_questions)
     evaluate_model(model, X_test, y_test)
 
 
