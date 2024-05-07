@@ -136,7 +136,7 @@ def continuous_treatment_improvement_plot(df, target, time):
 def discrete_treatment_improvement_plot(df, target_variable, time="Time 3"):
     # remove any pre-existing indices for ease of use in the D-Tale code, but this is not required
     df = df.reset_index().drop('index', axis=1, errors='ignore')
-    df.columns = [str(c) for c in df.columns]  # update columns to strings in case they are numbers
+    df.variables_to_export = [str(c) for c in df.variables_to_export]  # update columns to strings in case they are numbers
 
     chart_data = pd.concat([
         df['used_app'],
@@ -146,7 +146,7 @@ def discrete_treatment_improvement_plot(df, target_variable, time="Time 3"):
     chart_data = chart_data.query(f"""(`time` == 'Time 1') or (`time` == '{time}')""")
     chart_data = chart_data.rename(columns={'used_app': 'x'})
     chart_data_mean = chart_data.groupby(['time', 'x'], dropna=True)[[target_variable]].mean()
-    chart_data_mean.columns = [f'{target_variable}||mean']
+    chart_data_mean.variables_to_export = [f'{target_variable}||mean']
     chart_data = chart_data_mean.reset_index()
     chart_data = chart_data.dropna()
     # WARNING: This is not taking into account grouping of any kind, please apply filter associated with
@@ -226,7 +226,7 @@ class StatisticalAnalyzer:
         df = self.df.reset_index().drop('index', axis=1, errors='ignore')
         df.loc[df['used_app']==True, 'used_app'] = 'App User'
         df.loc[df['used_app']==False, 'used_app'] = 'Not used App'
-        df.columns = [str(c) for c in df.columns]  # update columns to strings in case they are numbers
+        df.variables_to_export = [str(c) for c in df.variables_to_export]  # update columns to strings in case they are numbers
 
         chart_data = pd.concat([
             df['used_app'],
@@ -236,7 +236,7 @@ class StatisticalAnalyzer:
         chart_data = chart_data.query(f"""(`time` == 'Time 1') or (`time` == '{self.time}')""")
         chart_data = chart_data.rename(columns={'used_app': 'x'})
         chart_data_mean = chart_data.groupby(['time', 'x'], dropna=True)[[self.target_variable]].mean()
-        chart_data_mean.columns = [f'{self.target_variable}||mean']
+        chart_data_mean.variables_to_export = [f'{self.target_variable}||mean']
         chart_data = chart_data_mean.reset_index()
         chart_data = chart_data.dropna()
         # WARNING: This is not taking into account grouping of any kind, please apply filter associated with
@@ -283,7 +283,7 @@ class StatisticalAnalyzer:
         chart_data = chart_data.query(f"""(`time` == '{self.time}')""")
         chart_data = chart_data.rename(columns={'used_app': 'x'})
         chart_data_mean = chart_data.groupby(['x'], dropna=True)[[self.target_variable]].mean()
-        chart_data_mean.columns = [f'{self.target_variable}||mean']
+        chart_data_mean.variables_to_export = [f'{self.target_variable}||mean']
         chart_data = chart_data_mean.reset_index()
         chart_data = chart_data.dropna()
         # WARNING: This is not taking into account grouping of any kind, please apply filter associated with

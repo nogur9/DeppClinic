@@ -61,7 +61,7 @@ def do_interview(df, agent):
         patient_info = prediction_episode(env, agent, state)
         patient_info = {question: answer for question, answer in zip(QUESTIONS, list(patient_info.values()))}
         patient_info['id'] = patient_id
-        if 'Y' in df.columns:
+        if 'Y' in df.variables_to_export:
             patient_info['Y'] = df.query(f'id == "{patient_id}"')['Y'].iloc[0]  # Use iloc[0] for first item
         interviews.append(patient_info)
 

@@ -179,9 +179,9 @@ def prepare_datasets():
 
 def get_columns_range(old_data, redcap_data, imputation_data, columns_range_mapping, is_student_data=False,
                       is_clinician_data=False):
-    old_data_column_names = list(old_data.columns)
-    redcap_data_column_names = list(redcap_data.columns)
-    imputation_data_column_names = list(imputation_data.columns)
+    old_data_column_names = list(old_data.variables_to_export)
+    redcap_data_column_names = list(redcap_data.variables_to_export)
+    imputation_data_column_names = list(imputation_data.variables_to_export)
 
     columns_range_indecies = {
         'old_data_start': old_data_column_names.index(columns_range_mapping['old_data_start_column']),

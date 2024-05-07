@@ -35,7 +35,7 @@ def is_number_within_range(target_range, number):
 
 
 def normalize_scores(df, columns=columns_need_normalization):
-    columns = [i for i in columns if i in df.columns]
+    columns = [i for i in columns if i in df.variables_to_export]
     scaler = StandardScaler()
     normalized_column_names = [f"{column}_normalized" for column in columns]
     normalized_columns = scaler.fit_transform(df[columns])

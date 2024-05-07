@@ -178,7 +178,7 @@ def intake_bar_plot(df, target_variable):
     chart_data = chart_data.rename(columns={'group': 'x'})
     chart_data_pctct = chart_data.groupby([target_variable, 'x'])[['__index__']].count()
     chart_data_pctct = chart_data_pctct / chart_data_pctct.groupby(['x']).count()
-    chart_data_pctct.columns = ['__index__|pctct']
+    chart_data_pctct.variables_to_export = ['__index__|pctct']
     chart_data = chart_data_pctct.reset_index()
     chart_data = chart_data.dropna()
 
@@ -201,7 +201,7 @@ def intake_bar_plot(df, target_variable):
     chart_data = chart_data.rename(columns={'group': 'x'})
     chart_data_pctct = chart_data.groupby([target_variable, 'x'])[['__index__']].count()
     chart_data_pctct = chart_data_pctct / chart_data_pctct.groupby(['x']).count()
-    chart_data_pctct.columns = ['__index__|pctct']
+    chart_data_pctct.variables_to_export = ['__index__|pctct']
     chart_data = chart_data_pctct.reset_index()
     chart_data = chart_data.dropna()
     # WARNING: This is not taking into account grouping of any kind, please apply filter associated with
@@ -248,7 +248,7 @@ def discrete_treatment_improvement_plot(df, target_variable, time):
     chart_data = chart_data.query(f"""(`time` == "Time 1") or (`time` == '{time}')""")
     chart_data = chart_data.sort_values(['time', 'group'])
     chart_data_mean = chart_data.groupby(['time', 'group'], dropna=True)[[target_variable]].mean()
-    chart_data_mean.columns = [f'{target_variable}||mean']
+    chart_data_mean.variables_to_export = [f'{target_variable}||mean']
     chart_data = chart_data_mean.reset_index()
     chart_data = chart_data.dropna()
 

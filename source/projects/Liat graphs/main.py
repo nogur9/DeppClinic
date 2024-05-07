@@ -4,7 +4,7 @@ import os
 # Change the current directory to the source root
 os.chdir(r'/')
 
-from source.utils.data_extraction.create_dataset_for_prediction.pipeline_functions import SelectedQuestionnaires, create_single_event_name, \
+from source.utils.data_extraction.create_dataset_for_prediction.pipeline_functions import VariablesToExport, create_single_event_name, \
     do_questionnaires_imputations, save_df
 from source.utils.consts.pathology_variables import Liat_Graphs_pathology_variables_times
 from source.utils.target_variable import TargetVariable
@@ -39,7 +39,7 @@ def fill_group(df, group):
 def create_dataset(event_names, path=None):
 
     df = pd.read_csv(r"C:\Users\nogur\Documents\DeppClinic\creating_the_clinic_dataset\preprocessed_data\merged_2021_and_2022.csv", na_values=' ')
-    columns = SelectedQuestionnaires()
+    columns = VariablesToExport()
     groups = ['group___1', 'group___2', 'group___3']
     columns.add(groups)
     df = do_questionnaires_imputations(df)

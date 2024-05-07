@@ -69,8 +69,8 @@ def fill_id(df):
 
 def format_datetime_columns(df):
     df = df.copy()
-    timestamps = [col for col in df.columns if 'timestamp' in col]
-    dates = [col for col in df.columns if 'date' in col]
+    timestamps = [col for col in df.variables_to_export if 'timestamp' in col]
+    dates = [col for col in df.variables_to_export if 'date' in col]
     
     for col in timestamps + dates:
         df[col] = pd.to_datetime(df[col], errors='coerce')
@@ -81,9 +81,9 @@ def delete_redundant_columns(df_2021, df_2022):
     df_2021 = df_2021.copy()
     df_2022 = df_2022.copy()
 
-    completion_cols_2022 = [col for col in df_2022.columns if col.endswith('complete')]
-    completion_cols_2021 = [col for col in df_2021.columns if col.endswith('complete')]
-    cols_unique_to_2021 = [col for col in df_2021.columns if (col not in df_2022.columns) and (col not in completion_cols_2021)]
+    completion_cols_2022 = [col for col in df_2022.variables_to_export if col.endswith('complete')]
+    completion_cols_2021 = [col for col in df_2021.variables_to_export if col.endswith('complete')]
+    cols_unique_to_2021 = [col for col in df_2021.variables_to_export if (col not in df_2022.variables_to_export) and (col not in completion_cols_2021)]
 
     df_2021 = df_2021.drop(completion_cols_2021, axis=1)
     df_2021 = df_2021.drop(cols_unique_to_2021, axis=1)

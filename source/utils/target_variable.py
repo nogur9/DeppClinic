@@ -3,9 +3,8 @@ import numpy as np
 
 
 class TargetVariable:
-    def __init__(self, name, info, columns, do_preprocessing=True):
+    def __init__(self, name, columns, do_preprocessing=True):
 
-        self.info = info
         self.name = name
         self.columns = columns
         self.do_preprocessing = do_preprocessing

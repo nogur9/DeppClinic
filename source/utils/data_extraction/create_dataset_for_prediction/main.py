@@ -45,6 +45,8 @@ axis = 'patient'
 
 
 # Define the measurement times based on the previous dictionary provided
+from source.utils.data_extraction.create_dataset_for_prediction.extraction_process import ExtractionProcess
+
 measurement_times = {
     'Time 1': ['intake_arm_1', 'pre_treatment_arm_1', 'er_arm_1'],
     'Time 2': ['5th_session_arm_1', 'control_5weeks_arm_1'],
@@ -76,3 +78,5 @@ input_params = InputParameters(
 
 main(input_params)
 
+
+# VariablesToExport
