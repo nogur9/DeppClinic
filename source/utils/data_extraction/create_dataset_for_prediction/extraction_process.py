@@ -21,9 +21,7 @@ class ExtractionProcess:
         self.intake = None
         self.df_time2 = None
 
-
     def run(self):
-
         self.df = pd.read_csv(self.parameters.df_path, na_values='chameleon_ideation_stu_2022', keep_default_na=True)
         self._init_columns()
         self._assign_groups()
@@ -41,7 +39,6 @@ class ExtractionProcess:
 
     def _init_columns(self):
         self.variables_to_export = VariablesToExport(questionnaires=self.parameters.questionnaires)
-
         self.variables_to_export.add(['sciafca_timestamp'])
 
     def _assign_groups(self):
@@ -75,25 +72,27 @@ class ExtractionProcess:
 
     def _calculate_questionnaires_scores(self):
         questionnaires = Questionnaires().questionnaires
-        df, columns = compute_questions_scores(self.df, questionnaires, self.variables_to_export)
+        self.df, self.variables_to_export = compute_questions_scores(self.df, questionnaires, self.variables_to_export)
 
     def _split_to_times(self):
-        if self.are_repeated_measures > 1:
-            self.intake, self.df_time2 = split_to_multiple_measurement_times(self.df, self.variables_to_export, self.parameters.measurement_times)
+        if self.are_repeated_measures:
+            self.intake, self.df_time2 = split_to_multiple_measurement_times(self.df, self.variables_to_export,
+                                                                             self.parameters.measurement_times)
             self.variables_to_export.add(['measurement'])
+            print("dsds")
         else:
             self.intake = self.df.copy()
-
+            print("sdsdsd")
     def _merge_times(self):
         df = pd.concat([self.intake, self.df_time2])
         df = df[list(self.variables_to_export.unique_columns_with_id)]
         self.df = df
 
     def _save_data(self):
-        if not os.path.exists(directory_path):
-            os.makedirs(directory_path)
+        if not os.path.exists(self.parameters.directory_path):
+            os.makedirs(self.parameters.directory_path)
 
-        save_df(df, columns, axis='patient', profile=False, directory_path=directory_path, suffix=suffix)
+        save_df(self.df, self.variables_to_export, axis='patient', directory_path= self.parameters.directory_path)
         # save_df(df, columns, axis='time', profile=False, directory_path=directory_path, suffix=suffix)
 
 

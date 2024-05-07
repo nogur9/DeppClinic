@@ -868,7 +868,7 @@ chameleon = ['chameleon_follow_stu',
 
 cgi = ['cgi_s_clin']
 
-all_questionarries = c_ssrs_intake + c_ssrs + \
+full_questionnaire_list = c_ssrs_intake + c_ssrs + \
                     c_ssrs_clin + \
                     mfq + \
                     additional_mfq + \

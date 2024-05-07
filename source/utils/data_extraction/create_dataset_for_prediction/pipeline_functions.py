@@ -1,5 +1,5 @@
 from source.utils.consts.pathology_variables import pathology_variables_times
-from source.utils.consts.questions_columns import all_questionarries, sci_af_ca, mfq, sdq, c_ssrs_intake, siq, cgi
+from source.utils.consts.questions_columns import full_questionnaire_list, sci_af_ca, mfq, sdq, c_ssrs_intake, siq, cgi
 from source.utils.consts.assistment_consts import imputation_questionnaires
 from source.utils.util_functions import impute_from_questionnaire
 from to_delete.data_manipulation.data_imputation import impute_from_column
@@ -9,17 +9,17 @@ import pandas as pd
 
 class VariablesToExport:
 
-    def __init__(self, columns=None, id_column='id'):
+    def __init__(self, questionnaires=None, id_column='id'):
         self.info_columns = ['gender', 'redcap_event_name', 'age_child_pre']
-        self.extra_columns = all_questionarries + ['chameleon_attempt_stu', 'chameleon_psychiatric_stu', 'chameleon_suicide_er_stu']
+        self.extra_columns = full_questionnaire_list + ['chameleon_attempt_stu', 'chameleon_psychiatric_stu', 'chameleon_suicide_er_stu']
         default_columns = self.info_columns + sci_af_ca + mfq + sdq + c_ssrs_intake + siq + cgi
 
         self.id_column = id_column
 
-        if columns is None:
+        if questionnaires is None:
             self.columns = [i for i in default_columns]
         else:
-            self.columns = self.info_columns + columns
+            self.columns = self.info_columns + questionnaires
 
         self.ordered_columns = []
         self.unique_columns = set()
@@ -136,22 +136,22 @@ def long_to_wide(df_intake, followup_df, useless_cols, event_col='measurement', 
 
     wide_df = df_intake
     for event in followup_df[event_col].unique():
-        subset = followup_df.loc[followup_df[event_col] == event, followup_df.variables_to_export.difference(useless_cols)]
-        subset_columns_rename = {col: f"{col}_{event}" for col in subset.variables_to_export if col != id_col}
+        subset = followup_df.loc[followup_df[event_col] == event, followup_df.columns.difference(useless_cols)]
+        subset_columns_rename = {col: f"{col}_{event}" for col in subset.columns if col != id_col}
         subset.rename(columns=subset_columns_rename, inplace=True)  # Modify subset in-place
         wide_df = pd.merge(wide_df, subset, on=id_col, how="outer")
 
     return wide_df
 
-def save_df(df, columns, axis='patient', directory_path=None, suffix=''):
+def save_df(df, columns, axis='patient', directory_path=None, suffix='', intake_name = 'Time 1'):
     if axis == 'patient':
 
-        df_intake = df[df.measurement == 'intake'][columns.ordered_columns_with_id]
+        df_intake = df[df.measurement == intake_name][columns.ordered_columns_with_id]
         df_intake = df_intake.drop(pathology_variables_times['time2'], errors='ignore', axis=1)
-        intake_scores = [i for i in df_intake.variables_to_export if (i not in columns.info_columns) and (i != columns.id_column) and (i != 'measurement')]
+        intake_scores = [i for i in df_intake.columns if (i not in columns.info_columns) and (i != columns.id_column) and (i != 'measurement')]
         intake_scores_rename = {i: f"{i}_intake" for i in intake_scores}
         df_intake = df_intake.rename(intake_scores_rename, axis=1)
-        followup_df = df[df.measurement != 'intake'][columns.ordered_columns_with_id]
+        followup_df = df[df.measurement != intake_name][columns.ordered_columns_with_id]
         useless_cols = list(pathology_variables_times['intake'].keys()) + columns.info_columns
 
         df = long_to_wide(df_intake, followup_df, useless_cols)

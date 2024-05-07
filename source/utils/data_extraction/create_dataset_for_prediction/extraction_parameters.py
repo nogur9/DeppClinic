@@ -1,3 +1,5 @@
+from source.utils.consts.questions_columns import full_questionnaire_list
+
 
 class InputParameters:
     # Set immutable default parameters as class attributes
@@ -6,7 +8,7 @@ class InputParameters:
     DEFAULT_AXIS = 'patient'
     DEFAULT_DF_PATH = r"C:\Users\nogur\Documents\DeppClinic\Data\postgres_db\merged_data\merged_2021_and_2022.csv"
 
-    def __init__(self, measurement_times, questionnaires=all_questionnaires,
+    def __init__(self, measurement_times, questionnaires=full_questionnaire_list,
                  assign_groups=True, impute_from_parallel_questionnaires=True,
                  compute_target_variable=True, calculate_questionnaires_scores=True,
                  file_name=DEFAULT_FILE_NAME, directory_path=DEFAULT_DIRECTORY_PATH,
