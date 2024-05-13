@@ -7,7 +7,7 @@ sns.set(font_scale=1.2)
 import numpy as np
 from creating_the_clinic_dataset.step2_merge_2021_2022.utils import fix_wrong_record_id, fill_id, format_datetime_columns, delete_redundant_columns, mark_inattentive_participants, fix_age, \
     delete_negative_age, fill_missing_age, fill_age
-from Transferring_Data_to_PostgreSQL.original_process.creating_the_clinic_dataset.step2_merge_2021_2022.columns_index_for_merging import columns_dict, merging_functions_by_columns_set, weird_text_columns
+from transferring_data_to_postgreSQL.original_process.creating_the_clinic_dataset.step2_merge_2021_2022.columns_index_for_merging import columns_dict, merging_functions_by_columns_set, weird_text_columns
 
 
 def impute_from_column(df, impute_to, impute_from):

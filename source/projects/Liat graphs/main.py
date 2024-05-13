@@ -4,10 +4,10 @@ import os
 # Change the current directory to the source root
 os.chdir(r'/')
 
-from source.utils.data_extraction.create_dataset_for_prediction.pipeline_functions import VariablesToExport, create_single_event_name, \
+from source.utils.create_dataset_for_prediction import VariablesToExport, create_single_event_name, \
     do_questionnaires_imputations, save_df
 from source.utils.consts.pathology_variables import Liat_Graphs_pathology_variables_times
-from source.utils.target_variable import TargetVariable
+from source.utils.classes.target_variable import TargetVariable
 
 
 def fill_group(df, group):

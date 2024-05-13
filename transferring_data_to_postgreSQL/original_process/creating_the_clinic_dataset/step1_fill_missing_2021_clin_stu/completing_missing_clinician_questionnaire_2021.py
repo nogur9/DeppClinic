@@ -1,6 +1,6 @@
 import pandas as pd
 import re
-from Transferring_Data_to_PostgreSQL.original_process.creating_the_clinic_dataset.step2_merge_2021_2022.utils import fill_id
+from transferring_data_to_postgreSQL.original_process.creating_the_clinic_dataset.step2_merge_2021_2022.utils import fill_id
 
 
 def IsClinician(row):

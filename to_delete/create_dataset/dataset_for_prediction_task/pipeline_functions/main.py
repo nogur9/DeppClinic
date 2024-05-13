@@ -1,14 +1,14 @@
 import pandas as pd
-from source.utils.data_extraction.create_dataset_for_prediction.pipeline_functions import VariablesToExport, do_questionnaires_imputations, split_two_measurement_times, compute_questions_scores, save_df
+from source.utils.create_dataset_for_prediction.pipeline_functions import VariablesToExport, do_questionnaires_imputations, split_two_measurement_times, compute_questions_scores, save_df
 from source.utils.consts.pathology_variables import pathology_variables_times
-from source.utils.target_variable import TargetVariable
+from source.utils.classes.target_variable import TargetVariable
 from source.utils.consts.assistment_consts import Questionnaires
 import os
 
 
 def main():
     # Change the current directory to the source root
-    os.chdir(r'C:\Users\nogur\Documents\DeppClinic')
+    os.chdir(r'/')
 
     df = pd.read_csv(r"creating_the_clinic_dataset/preprocessed_data/merged_2021_and_2022.csv", na_values=' ')
     columns = VariablesToExport()

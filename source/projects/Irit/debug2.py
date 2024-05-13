@@ -5,7 +5,7 @@ from Irit.psychodiagnostic_computations import compute_swan_scores, compute_sdq_
 from source.utils.consts.assistment_consts import Questionnaires
 from source.utils.consts.pathology_variables import pathology_variables_times
 from source.utils.consts import basic_info_columns
-from source.utils.target_variable import TargetVariable
+from source.utils.classes.target_variable import TargetVariable
 
 df = pd.read_csv(r"../creating_the_clinic_dataset/preprocessed_data/merged_2021_and_2022.csv")
 df = df[df['redcap_event_name'] == 'intake_arm_1']

@@ -1,13 +1,13 @@
 import pandas as pd
-import numpy as np
 
+from source.utils.classes.export_columns_manager import ExportColumnsManager
 from source.utils.consts.assistment_consts import Questionnaires
-from source.utils.data_extraction.create_dataset_for_prediction.handle_groups import GROUPS, fill_group,\
-    GROUP_NAMES_MAP, rename_groups, fill_missing_groups
-from source.utils.data_extraction.create_dataset_for_prediction.pipeline_functions import VariablesToExport, \
+from source.utils.create_dataset_for_prediction.handle_groups import GROUP_NAMES_MAP, create_decode_group_column, \
+    impute_missing_groups_data, GroupManager
+from source.utils.create_dataset_for_prediction.pipeline_functions import VariablesToExport, \
     do_questionnaires_imputations, save_df, split_to_multiple_measurement_times, compute_questions_scores
 from source.utils.consts.pathology_variables import pathology_variables_times
-from source.utils.target_variable import TargetVariable
+from source.utils.classes.target_variable import TargetVariable
 import os
 
 
@@ -16,15 +16,17 @@ class ExtractionProcess:
         self.parameters = input_parameters
         self.are_repeated_measures = len(self.parameters.measurement_times) > 1
 
-        self.variables_to_export = None
+        self.export_columns_manager = None
         self.df = None
         self.intake = None
         self.df_time2 = None
 
     def run(self):
-        self.df = pd.read_csv(self.parameters.df_path, na_values='chameleon_ideation_stu_2022', keep_default_na=True)
-        self._init_columns()
-        self._assign_groups()
+        self.df = pd.read_csv(self.parameters.df_path, na_values=self.parameters.custom_na_values,
+                              keep_default_na=True)
+        self.export_columns_manager = ExportColumnsManager(questionnaires=self.parameters.questionnaires)
+
+        self._manage_groups()
 
         if self.parameters.impute_from_parallel_questionnaires:
             self._impute_from_parallel_questionnaires()
@@ -37,15 +39,11 @@ class ExtractionProcess:
 
         self._save_data()
 
-    def _init_columns(self):
-        self.variables_to_export = VariablesToExport(questionnaires=self.parameters.questionnaires)
-        self.variables_to_export.add(['sciafca_timestamp'])
-
-    def _assign_groups(self):
-        df = self.df.copy()
-        df = rename_groups(df, GROUP_NAMES_MAP)
-        self.df = fill_missing_groups(df, GROUP_NAMES_MAP)
-        self.variables_to_export.add(['group'])
+    def _manage_groups(self):
+        group_manager = GroupManager(self.df)
+        group_manager.process()
+        self.df = group_manager.df
+        self.export_columns_manager.add(['group'])
 
     def _impute_from_parallel_questionnaires(self):
         df = self.df.copy()
@@ -79,10 +77,10 @@ class ExtractionProcess:
             self.intake, self.df_time2 = split_to_multiple_measurement_times(self.df, self.variables_to_export,
                                                                              self.parameters.measurement_times)
             self.variables_to_export.add(['measurement'])
-            print("dsds")
+
         else:
             self.intake = self.df.copy()
-            print("sdsdsd")
+
     def _merge_times(self):
         df = pd.concat([self.intake, self.df_time2])
         df = df[list(self.variables_to_export.unique_columns_with_id)]

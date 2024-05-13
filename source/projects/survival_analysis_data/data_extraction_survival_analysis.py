@@ -1,13 +1,11 @@
 import pandas as pd
-import numpy as np
 from source.utils.consts.questions_columns import demographics_m
 from source.utils.consts.assistment_consts import Questionnaires
-from source.utils.data_extraction.create_dataset_for_prediction.handle_groups import GROUPS,\
-    fill_group, GROUP_NAMES_MAP, rename_groups, fill_missing_groups
-from source.utils.data_extraction.create_dataset_for_prediction.pipeline_functions import VariablesToExport, \
+from source.utils.create_dataset_for_prediction import GROUP_NAMES_MAP, rename_groups, fill_missing_groups
+from source.utils.create_dataset_for_prediction import VariablesToExport, \
     do_questionnaires_imputations, save_df, split_to_multiple_measurement_times, compute_questions_scores
 from source.utils.consts.pathology_variables import pathology_variables_times
-from source.utils.target_variable import TargetVariable
+from source.utils.classes.target_variable import TargetVariable
 import os
 from source.utils.util_functions import impute
 

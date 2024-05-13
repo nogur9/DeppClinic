@@ -1,7 +1,7 @@
 # Define the measurement times based on the previous dictionary provided
 from source.utils.consts.questions_columns import full_questionnaire_list
-from source.utils.data_extraction.create_dataset_for_prediction.extraction_parameters import InputParameters
-from source.utils.data_extraction.create_dataset_for_prediction.extraction_process import ExtractionProcess
+from source.utils.create_dataset_for_prediction.extraction_parameters import InputParameters
+from source.utils.create_dataset_for_prediction.extraction_process import ExtractionProcess
 
 measurement_times = {
     'Time 1': ['intake_arm_1', 'pre_treatment_arm_1', 'er_arm_1'],
@@ -28,7 +28,7 @@ input_params = InputParameters(
     compute_target_variable=True,
 
     file_name='patient_data',
-    directory_path=r'C:\Users\nogur\Documents\DeppClinic\Data\processed_data\test',
+    directory_path=r'/Data/processed_data/test',
     axis='patient'
 )
 
