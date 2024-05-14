@@ -2,6 +2,7 @@ import pandas as pd
 
 from source.utils.classes.export_columns_manager import ExportColumnsManager
 from source.utils.consts.assistment_consts import Questionnaires
+from source.utils.create_dataset_for_prediction.impute import QuestionnaireImputer
 from source.utils.handle_groups import GroupManager
 from source.utils.create_dataset_for_prediction.pipeline_functions import do_questionnaires_imputations, save_df, split_to_multiple_measurement_times, compute_questions_scores
 from source.utils.consts.pathology_variables import pathology_variables_times
@@ -45,7 +46,8 @@ class ExtractionProcess:
 
     def _impute_from_parallel_questionnaires(self):
         df = self.df.copy()
-        self.df = do_questionnaires_imputations(df)
+        questionnaire_imputer = QuestionnaireImputer(self.df)
+        self.df = questionnaire_imputer.do_questionnaires_imputations(df)
 
     def _compute_all_target_variables(self):
         self._split_to_times()

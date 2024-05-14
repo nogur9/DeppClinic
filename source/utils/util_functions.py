@@ -1,46 +1,20 @@
 import numpy as np
-from source.utils.consts.assistment_consts import Questionnaires
+from source.utils.consts.assistment_consts import Questionnaires, questionnaire_imputation_map
+from source.utils.consts.assistment_consts import questionnaire_imputation_map
+from to_delete.data_manipulation.data_imputation import impute_from_column
+import pandas as pd
 
 
-def impute_from_questionnaire(df, questionnaire_name, replacement_questionnaire):
 
-    questionnaires = Questionnaires().questionnaires
-    questionnaire_columns = questionnaires[questionnaire_name]['columns']
-    replace_columns = questionnaires[replacement_questionnaire]['columns']
+def impute_events(df1, df2, columns, suffix):
+    imputed_data = pd.merge(df1, df2, on=['id'], how='outer', suffixes=('', f'_{suffix}'))
 
-    df = impute(questionnaire_columns, replace_columns, df)
-    return df
+    for column_name in columns.get_export_columns(include_id=False):
+        imputed_data = impute_from_column(imputed_data, impute_to=column_name,
+                                          impute_from=f'{column_name}_{suffix}')
 
+    duplicated_columns = [i for i in imputed_data.columns if i.endswith(f'_{suffix}')]
+    imputed_data = imputed_data.drop(duplicated_columns, axis=1)
 
-def impute(questionnaire_columns, replace_columns, df, multiple_options=False):
-
-    is_empty = df[questionnaire_columns].isna().all(axis=1)
-
-    for questionnaire_column, replace_column in zip(questionnaire_columns, replace_columns):
-        df[questionnaire_column] = np.where(np.array(is_empty), df[replace_column], df[questionnaire_column])
-        if multiple_options:
-            is_empty = df[questionnaire_columns].isna().all(axis=1)
-
-    return df
-
-
-def impute_dates(df, questionnaire_name, replacement_questionnaire):
-
-    questionnaires = Questionnaires().questionnaires
-    questionnaire_columns = questionnaires[questionnaire_name]['columns']
-    replace_columns = questionnaires[replacement_questionnaire]['columns']
-
-    is_empty = df[questionnaire_columns].isna().all(axis=1)
-
-    for questionnaire_column, replace_column in zip(questionnaire_columns, replace_columns):
-        df[questionnaire_column] = np.where(np.array(is_empty), df[replace_column], df[questionnaire_column])
-
-    return df
-
-def questionnaire_is_empty(df, questionnaire_name, impute_from, impute_to):
-    questionnaires = Questionnaires().questionnaires
-    is_empty = df[questionnaires[questionnaire_name]['columns']].isna().all(axis=1)
-    np.where(df[questionnaires[questionnaire_name]['columns']].isnull().all(axis=1), df[impute_from], df[impute_to])
-    return is_empty
-
+    return imputed_data
 

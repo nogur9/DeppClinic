@@ -1,6 +1,6 @@
 from source.utils.consts.pathology_variables import pathology_variables_times
 from source.utils.consts.questions_columns import full_questionnaire_list, sci_af_ca, mfq, sdq, c_ssrs_intake, siq, cgi
-from source.utils.consts.assistment_consts import imputation_questionnaires
+from source.utils.consts.assistment_consts import questionnaire_imputation_map
 from source.utils.util_functions import impute_from_questionnaire
 from to_delete.data_manipulation.data_imputation import impute_from_column
 import pandas as pd
