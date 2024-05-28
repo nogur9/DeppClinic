@@ -1,5 +1,4 @@
-import pandas as pd
-from source.utils.consts.questions_columns import full_questionnaire_list, sci_af_ca, mfq, sdq, c_ssrs_intake, siq, CGI
+from source.utils.consts.questions_columns import full_questionnaire_list
 
 
 class ExportColumnsManager:
@@ -9,7 +8,7 @@ class ExportColumnsManager:
     def __init__(self, questionnaires=None, id_column='id'):
         self.id_column = id_column
         self.columns = self.setup_initial_columns(questionnaires)
-        self.ordered_columns_with_id = self.setup_ordered_columns()
+        self.columns_for_extraction = self.setup_ordered_columns() #ordered columns, with the id column
 
     def setup_initial_columns(self, questionnaires):
         if questionnaires is None:
@@ -20,21 +19,29 @@ class ExportColumnsManager:
 
     def setup_ordered_columns(self):
         # Create a unique list of columns starting with id_column and avoiding duplicates
-        unique_columns = {self.id_column}  # start with id_column to ensure it is first
-        unique_columns.update(self.columns)
-        return list(unique_columns)
+        ordered_unique_columns = self._remove_duplicates([self.id_column] + self.columns)
+        return ordered_unique_columns
+
+    def _remove_duplicates(self, input_list):
+        seen = set()
+        output_list = []
+        for item in input_list:
+            if item not in seen:
+                seen.add(item)
+                output_list.append(item)
+        return output_list
 
     def add_columns(self, new_columns):
         # Add new columns ensuring no duplicates and maintaining order
-        current_set = set(self.ordered_columns_with_id)
+        current_set = set(self.columns_for_extraction)
         for column in new_columns:
             if column not in current_set:
-                self.ordered_columns_with_id.append(column)
+                self.columns_for_extraction.append(column)
                 current_set.add(column)
 
     def get_export_columns(self, include_id=True):
         # Return the ordered list of columns with duplicates removed
         if include_id:
-            return self.ordered_columns_with_id
+            return self.columns_for_extraction
         else:
-            return [i for i in self.ordered_columns_with_id if i != self.id_column]
+            return [i for i in self.columns_for_extraction if i != self.id_column]

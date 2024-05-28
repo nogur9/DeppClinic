@@ -1,9 +1,5 @@
-import numpy as np
-from source.utils.consts.assistment_consts import Questionnaires, questionnaire_imputation_map
-from source.utils.consts.assistment_consts import questionnaire_imputation_map
 from to_delete.data_manipulation.data_imputation import impute_from_column
 import pandas as pd
-
 
 
 def impute_events(df1, df2, columns, suffix):

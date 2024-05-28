@@ -1,28 +1,30 @@
 import pandas as pd
-
 from source.utils.classes.export_columns_manager import ExportColumnsManager
 from source.utils.consts.assistment_consts import Questionnaires
 from source.utils.create_dataset_for_prediction.impute import QuestionnaireImputer
+from source.utils.create_dataset_for_prediction.pipeline_functions import compute_questions_scores, \
+    split_to_multiple_measurement_times
 from source.utils.handle_groups import GroupManager
-from source.utils.create_dataset_for_prediction.pipeline_functions import do_questionnaires_imputations, save_df, split_to_multiple_measurement_times, compute_questions_scores
 from source.utils.consts.pathology_variables import pathology_variables_times
 from source.utils.classes.target_variable import TargetVariable
 import os
+
+from source.utils.save_processed_data import save_df
 
 
 class ExtractionProcess:
     def __init__(self, input_parameters):
         self.parameters = input_parameters
         self.are_repeated_measures = len(self.parameters.measurement_times) > 1
-
+        self.content_root = self.parameters.content_root
         self.export_columns_manager = None
         self.df = None
         self.intake = None
         self.df_time2 = None
 
     def run(self):
-        self.df = pd.read_csv(self.parameters.df_path, na_values=self.parameters.custom_na_values,
-                              keep_default_na=True)
+        df_path = os.path.join(self.content_root, self.parameters.df_path)
+        self.df = pd.read_csv(df_path, na_values=self.parameters.custom_na_values, keep_default_na=True)
         self.export_columns_manager = ExportColumnsManager(questionnaires=self.parameters.questionnaires)
 
         self._manage_groups()
@@ -39,15 +41,15 @@ class ExtractionProcess:
         self._save_data()
 
     def _manage_groups(self):
-        group_manager = GroupManager(self.df)
+        group_manager = GroupManager(self.df, self.content_root)
         group_manager.process()
         self.df = group_manager.df
-        self.export_columns_manager.add(['group'])
+        self.export_columns_manager.add_columns(['group'])
 
     def _impute_from_parallel_questionnaires(self):
         df = self.df.copy()
-        questionnaire_imputer = QuestionnaireImputer(self.df)
-        self.df = questionnaire_imputer.do_questionnaires_imputations(df)
+        questionnaire_imputer = QuestionnaireImputer(df)
+        self.df = questionnaire_imputer.do_questionnaires_imputations()
 
     def _compute_all_target_variables(self):
         self._split_to_times()
@@ -64,33 +66,36 @@ class ExtractionProcess:
     def _compute_single_target_variable(self, questionnaire_name, questions, df):
         df = df.copy()
         tv = TargetVariable(questionnaire_name, questions)
-        self.variables_to_export.add([questionnaire_name])
+        self.export_columns_manager.add_columns([questionnaire_name])
         df = tv.calculate_value(df)
         return df
 
     def _calculate_questionnaires_scores(self):
         questionnaires = Questionnaires().questionnaires
-        self.df, self.variables_to_export = compute_questions_scores(self.df, questionnaires, self.variables_to_export)
+        self.df, self.variables_to_export = compute_questions_scores(self.df,
+                                                                     questionnaires,
+                                                                     self.export_columns_manager)
 
     def _split_to_times(self):
         if self.are_repeated_measures:
-            self.intake, self.df_time2 = split_to_multiple_measurement_times(self.df, self.variables_to_export,
-                                                                             self.parameters.measurement_times)
-            self.variables_to_export.add(['measurement'])
+            self.intake, self.df_time2 = split_to_multiple_measurement_times(
+                                            self.df,
+                                            self.export_columns_manager,
+                                            self.parameters.measurement_times)
+            self.export_columns_manager.add_columns(['measurement'])
 
         else:
             self.intake = self.df.copy()
 
     def _merge_times(self):
         df = pd.concat([self.intake, self.df_time2])
-        df = df[list(self.variables_to_export.unique_columns_with_id)]
         self.df = df
 
     def _save_data(self):
         if not os.path.exists(self.parameters.directory_path):
             os.makedirs(self.parameters.directory_path)
 
-        save_df(self.df, self.variables_to_export, axis='patient', directory_path= self.parameters.directory_path)
+        save_df(self.df, self.export_columns_manager, axis='patient', directory_path=self.parameters.directory_path)
         # save_df(df, columns, axis='time', profile=False, directory_path=directory_path, suffix=suffix)
 
 

@@ -1,5 +1,5 @@
 import pandas as pd
-
+import os
 
 class GroupManager:
     GROUPS = ['group___1', 'group___2', 'group___3']
@@ -9,9 +9,10 @@ class GroupManager:
         '2': 'tau',  # רגיל
         '3': 'control'  # מינימלית
     }
-    GROUP_IMPUTATION_FILE = r"/Data/helper_docs/group_imputations.csv"
+    GROUP_IMPUTATION_FILE = r"Data\helper_docs\group_imputations.csv"
 
-    def __init__(self, df):
+    def __init__(self, df, content_root):
+        self.content_root = content_root
         self.df = df.copy()
 
     def decode_group_column(self):
@@ -26,7 +27,8 @@ class GroupManager:
 
     def impute_missing_groups(self):
         df = self.df.copy()
-        filling_map = pd.read_csv(self.GROUP_IMPUTATION_FILE)
+        group_imputation_file_path = os.path.join(self.content_root, self.GROUP_IMPUTATION_FILE)
+        filling_map = pd.read_csv(group_imputation_file_path)
         inv_group_names = {v: k for k, v in self.GROUP_NAMES_MAP.items()}
 
         for _, row in filling_map.iterrows():

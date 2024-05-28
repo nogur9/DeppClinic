@@ -1,11 +1,5 @@
-from source.utils.consts.pathology_variables import pathology_variables_times
-from source.utils.consts.questions_columns import full_questionnaire_list, sci_af_ca, mfq, sdq, c_ssrs_intake, siq, cgi
-from source.utils.consts.assistment_consts import questionnaire_imputation_map
-from source.utils.util_functions import impute_from_questionnaire
-from to_delete.data_manipulation.data_imputation import impute_from_column
+from source.utils.util_functions import impute_events
 import pandas as pd
-
-
 
 
 def create_single_event_name(df, columns, event_names):
@@ -20,19 +14,21 @@ def create_single_event_name(df, columns, event_names):
     return df_event_name
 
 
-def split_to_multiple_measurement_times(df, columns, times):
+def split_to_multiple_measurement_times(df, export_columns_manager, times):
     all_events_datasets_collection = []
     intake_data = None
     for time in times.keys():
         events = times[time]
 
-        event_dataset = df[df.redcap_event_name == events[0]][list(columns.get_export_columns())]
+        event_dataset = df[df.redcap_event_name == events[0]]
 
         if len(events) > 1:
 
             for event_name in events[1:]:
-                df_new_measurement = df[df.redcap_event_name == event_name][list(columns.get_export_columns())]
-                event_dataset = impute_events(event_dataset, df_new_measurement, columns, suffix=event_name)
+                df_new_measurement = df[df.redcap_event_name == event_name][list(
+                                            export_columns_manager.get_export_columns())]
+                event_dataset = impute_events(event_dataset, df_new_measurement,
+                                              export_columns_manager, suffix=event_name)
 
         event_dataset['measurement'] = time
 
@@ -64,15 +60,13 @@ def split_two_measurement_times(df, columns):
     return df_time1, df_time2
 
 
-
-
-def compute_questions_scores(df, questionnaires_map, variables_list, only_relevant=False):
+def compute_questions_scores(df, questionnaires_map, export_columns_manager, only_relevant=False):
     for questionnaire in questionnaires_map.keys():
         try:
             df, scores_columns_names = questionnaires_map[questionnaire]['scoring_function'](df)
-            variables_list.add(scores_columns_names)
+            export_columns_manager.add_columns(scores_columns_names)
         except KeyError:
             pass
 
-    return df, variables_list
+    return df, export_columns_manager
 

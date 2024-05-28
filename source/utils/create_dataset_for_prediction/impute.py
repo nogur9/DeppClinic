@@ -1,5 +1,4 @@
 import numpy as np
-
 from source.utils.consts.assistment_consts import Questionnaires
 
 
