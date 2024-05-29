@@ -20,22 +20,6 @@ class QuestionnaireImputer:
         self.df = df.copy()
         self.questionnaires = Questionnaires().questionnaires
 
-    def _impute_from_questionnaire(self, primary_questionnaire, backup_questionnaire):
-        questionnaire_columns = self.questionnaires[primary_questionnaire]['columns']
-        replace_columns = self.questionnaires[backup_questionnaire]['columns']
-        self._impute_columns(questionnaire_columns, replace_columns)
-
-    def _impute_columns(self, primary_questionnaire, backup_questionnaire, impute_single_value=False):
-        is_empty = self.df[primary_questionnaire].isna().all(axis=1)
-        for questionnaire_column, replace_column in zip(primary_questionnaire, backup_questionnaire):
-            self.df[questionnaire_column] = np.where(is_empty, self.df[replace_column], self.df[questionnaire_column])
-            if impute_single_value:
-                is_empty = self.df[primary_questionnaire].isna().all(axis=1)
-
-    def _questionnaire_is_empty(self, questionnaire_name):
-        is_empty = self.df[self.questionnaires[questionnaire_name]['columns']].isna().all(axis=1)
-        return is_empty
-
     def do_questionnaires_imputations(self):
         for questionnaire_imputation in self.questionnaire_imputation_map:
             try:
@@ -44,4 +28,14 @@ class QuestionnaireImputer:
             except KeyError:
                 pass
         return self.df
+
+    def _impute_from_questionnaire(self, primary_questionnaire, backup_questionnaire):
+        questionnaire_columns = self.questionnaires[primary_questionnaire]['columns']
+        replace_columns = self.questionnaires[backup_questionnaire]['columns']
+        is_empty = self.df[primary_questionnaire].isna().all(axis=1)
+        self._impute_columns(questionnaire_columns, replace_columns, is_empty)
+
+    def _impute_columns(self, primary_questionnaire, backup_questionnaire, is_empty):
+        for questionnaire_column, replace_column in zip(primary_questionnaire, backup_questionnaire):
+            self.df[questionnaire_column] = np.where(is_empty, self.df[replace_column], self.df[questionnaire_column])
 
