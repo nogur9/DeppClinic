@@ -4,7 +4,7 @@ from source.utils.consts.assistment_consts import Questionnaires
 from source.utils.create_dataset_for_prediction import GROUP_NAMES_MAP, rename_groups, fill_missing_groups
 from source.utils.create_dataset_for_prediction import VariablesToExport, \
     do_questionnaires_imputations, save_df, split_to_multiple_measurement_times, compute_questions_scores
-from source.utils.consts.pathology_variables import pathology_variables_times
+from source.utils.consts.predefined_pathologies import pathology_variables_times
 from source.utils.classes.target_variable import TargetVariable
 import os
 from source.utils.util_functions import impute

@@ -3,7 +3,7 @@ import pandas as pd
 from Irit.psychodiagnostic_computations import compute_swan_scores, compute_sdq_scores
 
 from source.utils.consts.assistment_consts import Questionnaires
-from source.utils.consts.pathology_variables import pathology_variables_times
+from source.utils.consts.predefined_pathologies import pathology_variables_times
 from source.utils.consts import basic_info_columns
 from source.utils.classes.target_variable import TargetVariable
 

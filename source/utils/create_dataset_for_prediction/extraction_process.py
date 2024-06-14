@@ -4,8 +4,9 @@ from source.utils.consts.assistment_consts import Questionnaires
 from source.utils.create_dataset_for_prediction.impute import QuestionnaireImputer
 from source.utils.create_dataset_for_prediction.pipeline_functions import compute_questions_scores, \
     split_to_multiple_measurement_times
+from source.utils.create_dataset_for_prediction.psychological_assessment import PsychologicalAssessment
 from source.utils.handle_groups import GroupManager
-from source.utils.consts.pathology_variables import pathology_variables_times
+from source.utils.consts.predefined_pathologies import pathology_variables_times
 from source.utils.classes.target_variable import TargetVariable
 import os
 
@@ -15,7 +16,7 @@ from source.utils.save_processed_data import save_df
 class ExtractionProcess:
     def __init__(self, input_parameters):
         self.parameters = input_parameters
-        self.are_repeated_measures = len(self.parameters.measurement_times) > 1
+        self.events_names = list(self.parameters.measurement_times.keys())
         self.content_root = self.parameters.content_root
         self.export_columns_manager = None
         self.df = None
@@ -31,6 +32,8 @@ class ExtractionProcess:
 
         if self.parameters.impute_from_parallel_questionnaires:
             self._impute_from_parallel_questionnaires()
+
+        self._split_to_times()
 
         if self.parameters.compute_target_variable:
             self._compute_all_target_variables()
@@ -52,22 +55,22 @@ class ExtractionProcess:
         self.df = questionnaire_imputer.do_questionnaires_imputations()
 
     def _compute_all_target_variables(self):
-        self._split_to_times()
 
-        for questionnaire_name, questions in pathology_variables_times['intake'].items():
+        if any(question.only_intake for question in self.pathologies):
+            assert INTAKE in self.events_names, "expect intake times"
+        if any(question.only_fu for question in self.pathologies):
+            assert len([event for event in self.events_names if event != INTAKE]) > 0, "expect follow-up times"
+
+        for questionnaire_name, questions in self.pathologies.items():
             self.intake = self._compute_single_target_variable(questionnaire_name, questions, self.intake)
 
-        if self.are_repeated_measures > 1:
-            for questionnaire_name, questions in pathology_variables_times['time2'].items():
-                self._compute_single_target_variable(questionnaire_name, questions, self.df_time2)
-
-        self._merge_times()
-
-    def _compute_single_target_variable(self, questionnaire_name, questions, df):
+    def _compute_single_target_variable(self, pathology_name, questions, df):
         df = df.copy()
-        tv = TargetVariable(questionnaire_name, questions)
-        self.export_columns_manager.add_columns([questionnaire_name])
-        df = tv.calculate_value(df)
+        tv = PsychologicalAssessment(pathology_name, questions)
+        df = tv.calculate_target_pathology(df)
+        self.export_columns_manager.add_columns([pathology_name])
+        if self.parameters.add_pathology_missing_ratio:
+            self.export_columns_manager.add_columns([f'ratio_of_missing_{pathology_name}_values'])
         return df
 
     def _calculate_questionnaires_scores(self):

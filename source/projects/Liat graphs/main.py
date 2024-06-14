@@ -6,7 +6,7 @@ os.chdir(r'/')
 
 from source.utils.create_dataset_for_prediction import VariablesToExport, create_single_event_name, \
     do_questionnaires_imputations, save_df
-from source.utils.consts.pathology_variables import Liat_Graphs_pathology_variables_times
+from source.utils.consts.predefined_pathologies import Liat_Graphs_pathology_variables_times
 from source.utils.classes.target_variable import TargetVariable
 
 

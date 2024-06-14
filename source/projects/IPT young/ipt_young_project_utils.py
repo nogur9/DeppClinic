@@ -2,7 +2,7 @@ import pingouin as pg
 import plotly.graph_objs as go
 import pandas as pd
 import os
-from source.utils.consts.pathology_variables import pathology_variables_times
+from source.utils.consts.predefined_pathologies import pathology_variables_times
 import plotly.express as px
 import statsmodels.api as sm
 from sklearn.preprocessing import OneHotEncoder, LabelEncoder, StandardScaler

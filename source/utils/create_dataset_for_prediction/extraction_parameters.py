@@ -13,7 +13,8 @@ class InputParameters:
                  assign_groups=True, impute_from_parallel_questionnaires=True,
                  compute_target_variable=True, calculate_questionnaires_scores=True,
                  file_name=DEFAULT_FILE_NAME, directory_path=DEFAULT_DIRECTORY_PATH,
-                 axis=DEFAULT_AXIS, df_path=DEFAULT_DF_PATH, custom_na_values=DEFAULT_CUSTOM_NA_VALS):
+                 axis=DEFAULT_AXIS, df_path=DEFAULT_DF_PATH, custom_na_values=DEFAULT_CUSTOM_NA_VALS,
+                 add_pathology_missing_ratio=False):
         self.measurement_times = measurement_times
         self.questionnaires = questionnaires
         self.assign_groups = assign_groups
@@ -26,5 +27,6 @@ class InputParameters:
         self.df_path = df_path
         self.custom_na_values = custom_na_values
         self.content_root = content_root
+        self.add_pathology_missing_ratio = add_pathology_missing_ratio
 
 
