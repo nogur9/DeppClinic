@@ -2,10 +2,10 @@ import pingouin as pg
 import plotly.graph_objs as go
 import pandas as pd
 import os
-from source.utils.consts.predefined_pathologies import pathology_variables_times
+from source.utils.dataset_creation.pathology_assessment.predefined_pathologies import pathology_variables_times
 import plotly.express as px
 import statsmodels.api as sm
-from sklearn.preprocessing import OneHotEncoder, LabelEncoder, StandardScaler
+from sklearn.preprocessing import LabelEncoder, StandardScaler
 
 
 def anova_test(df, target, time):

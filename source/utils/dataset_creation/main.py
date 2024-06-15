@@ -1,12 +1,13 @@
 # Define the measurement times based on the previous dictionary provided
 from source.utils.consts.questions_columns import full_questionnaire_list, c_ssrs_clin
-from source.utils.create_dataset_for_prediction.extraction_parameters import InputParameters
-from source.utils.create_dataset_for_prediction.extraction_process import ExtractionProcess
+from source.utils.consts.standard_names import INTAKE
+from source.utils.dataset_creation.dataset_creation_input_parameter import InputParameters
+from source.utils.dataset_creation.dataset_creation_process import DatasetCreationProcess
 import sys
 import os
 
 measurement_times = {
-    'Time 1': ['intake_arm_1', 'er_arm_1'],
+    INTAKE: ['intake_arm_1', 'er_arm_1'],
     'Time 2': ['5th_session_arm_1', 'control_5weeks_arm_1', 'followup_3month_arm_1',
                'control_3month_arm_1', 'control_6month_arm_1']
 
@@ -15,7 +16,7 @@ measurement_times = {
 
 def main(input_params):
     # Set the content root directory
-    extraction_process = ExtractionProcess(input_params)
+    extraction_process = DatasetCreationProcess(input_params)
     extraction_process.run()
 
 

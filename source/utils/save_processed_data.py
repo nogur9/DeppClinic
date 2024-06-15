@@ -1,4 +1,4 @@
-from source.utils.consts.predefined_pathologies import pathology_variables_times
+from source.utils.dataset_creation.pathology_assessment.predefined_pathologies import pathology_variables_times
 import pandas as pd
 
 

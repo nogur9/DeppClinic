@@ -1,16 +1,6 @@
-from source.utils.consts.predefined_pathologies import suicidal_behavior_intake, suicide_attempt_intake, nssi_intake, \
+from source.utils.dataset_creation.pathology_assessment.pathology_variable import PathologyVariable
+from source.utils.dataset_creation.pathology_assessment.predefined_pathologies import suicidal_behavior_intake, suicide_attempt_intake, nssi_intake, \
     self_harm_intake, modcon_target, survival_target, suicidal_behavior_time2, nssi_time2, suicidal_attempt_time2
-
-
-class PathologyVariable:
-    def __init__(self, name, questions, only_intake_evaluation=False, only_follow_up_evaluation=False):
-        self.name = name
-        self.questions = questions
-
-        # should we compute these variables solely on intake\ follow-up events
-        self.only_intake_evaluation = only_intake_evaluation
-        self.only_follow_up_evaluation = only_follow_up_evaluation
-
 
 PathologiesMap = {
     "suicidal_behavior_intake": PathologyVariable('suicidal_behavior', suicidal_behavior_intake,
