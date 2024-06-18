@@ -1,8 +1,7 @@
-from source.utils.util_functions import impute_events
 import pandas as pd
 
 
-def compute_questions_scores(df, questionnaires_map, export_columns_manager, only_relevant=False):
+def compute_questions_scores(df, questionnaires_map, export_columns_manager):
     for questionnaire in questionnaires_map.keys():
         try:
             df, scores_columns_names = questionnaires_map[questionnaire]['scoring_function'](df)

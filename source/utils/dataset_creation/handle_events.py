@@ -1,60 +1,39 @@
-from source.utils.util_functions import impute_events
+from source.utils.classes.export_columns_manager import ExportColumnsManager
+import numpy as np
 import pandas as pd
 
 
-def create_single_event_name(df, columns, event_names):
-
-    df_event_name = df[df.redcap_event_name == event_names[0]][list(columns.get_export_columns())]
-
-    for event_name in event_names[1:]:
-        df_new_measurement = df[df.redcap_event_name == event_name][list(columns.get_export_columns())]
-
-        df_event_name = impute_events(df_event_name, df_new_measurement, columns, suffix=event_name)
-
-    return df_event_name
+def group_by_measurment_times(df: pd.DataFrame, measurement_times: dict):
+    finished_datasets = []
+    for measurement_name, times in measurement_times.items():
+        measurement_dataset = prepare_single_dataset(df, times)
+        measurement_dataset['measurement'] = measurement_name
+        finished_datasets.append(measurement_dataset)
+    return pd.concat(finished_datasets)
 
 
-def split_to_multiple_measurement_times(df, export_columns_manager, times):
-    all_events_datasets_collection = []
-    intake_data = None
-    for time in times.keys():
-        events = times[time]
+def prepare_single_dataset(df, times):
+    events = iter(times)
+    first_event = next(events)
+    combined_dataset = df[df.redcap_event_name == first_event]
 
-        event_dataset = df[df.redcap_event_name == events[0]]
+    for event_name in events:
+        current_event_dataset = df[df.redcap_event_name == event_name]
+        combined_dataset = impute_missing_values(combined_dataset, current_event_dataset)
 
-        if len(events) > 1:
-
-            for event_name in events[1:]:
-                df_new_measurement = df[df.redcap_event_name == event_name][list(
-                                            export_columns_manager.get_export_columns())]
-                event_dataset = impute_events(event_dataset, df_new_measurement,
-                                              export_columns_manager, suffix=event_name)
-
-        event_dataset['measurement'] = time
-
-        if (time == 'intake') or (time == 'Time 1'):
-            intake_data = event_dataset
-        else:
-            all_events_datasets_collection.append(event_dataset)
-    try:
-        return intake_data, pd.concat(all_events_datasets_collection)
-    except ValueError:
-        return intake_data, pd.DataFrame()
+    return combined_dataset
 
 
-def split_two_measurement_times(df, columns):
-    time1_event = 'intake_arm_1'
-    time2_events = ['control_5weeks_arm_1', 'pre_treatment_arm_1', 'followup_3month_arm_1']
+def impute_missing_values(primary_df, backup_df):
+    primary_df = primary_df.copy()
+    backup_df = backup_df.copy()
 
-    df_time1 = df[df.redcap_event_name == time1_event][columns.get_export_columns()]
-    df_time2 = df[df.redcap_event_name == time2_events[0]][columns.get_export_columns()]
+    merged_df = pd.merge(primary_df, backup_df, on='id', how='outer', suffixes=('', f'_backup'))
 
-    for event_name in time2_events[1:]:
-        df_new_measurement = df[df.redcap_event_name == event_name][columns.get_export_columns()]
+    for column in [i for i in primary_df.columns if i != 'id']:
+        merged_df[column] = np.where(merged_df[column].isna(), merged_df[f'{column}_backup'], merged_df[column])
 
-        df_time2 = impute_events(df_time2, df_new_measurement, columns, suffix=event_name)
+    merged_df.drop(columns=[col for col in merged_df.columns if col.endswith(f'_backup')], inplace=True)
 
-    df_time1['measurement'] = 'time1'
-    df_time2['measurement'] = 'time2'
+    return merged_df
 
-    return df_time1, df_time2

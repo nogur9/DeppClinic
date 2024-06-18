@@ -2,13 +2,13 @@ from source.utils.consts.questions_columns import full_questionnaire_list
 
 
 class ExportColumnsManager:
-    INFO_COLUMNS = ['gender', 'redcap_event_name', 'age_child_pre']
+    INFO_COLUMNS = ['gender', 'age_child_pre'] #redcap_event_name has no meaning since we are using measurement times
     TIME_COLUMNS = ['sciafca_timestamp']
 
     def __init__(self, questionnaires=None, id_column='id'):
         self.id_column = id_column
         self.columns = self.setup_initial_columns(questionnaires)
-        self.columns_for_extraction = self.setup_ordered_columns() #ordered columns, with the id column
+        self.columns_for_extraction = self.setup_ordered_columns()  #ordered columns, with the id column
 
     def setup_initial_columns(self, questionnaires):
         if questionnaires is None:

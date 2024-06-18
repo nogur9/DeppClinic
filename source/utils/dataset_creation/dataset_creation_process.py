@@ -2,15 +2,15 @@ import pandas as pd
 from source.utils.classes.export_columns_manager import ExportColumnsManager
 from source.utils.consts.assistment_consts import Questionnaires
 from source.utils.consts.standard_names import INTAKE
+from source.utils.dataset_creation.handle_events import group_by_measurment_times
 from source.utils.dataset_creation.impute import QuestionnaireImputer
 from source.utils.dataset_creation.pathology_assessment.pathologies_map import PathologiesMap
-from source.utils.dataset_creation.pipeline_functions import compute_questions_scores, \
-    split_to_multiple_measurement_times
+from source.utils.dataset_creation.pipeline_functions import compute_questions_scores
 from source.utils.dataset_creation.pathology_assessment.psychological_assessment import PsychologicalAssessment
 from source.utils.dataset_creation.groups import GroupManager
 import os
 
-from source.utils.save_processed_data import save_df
+from source.utils.dataset_creation.save_processed_data import save_results
 
 
 class DatasetCreationProcess:
@@ -36,7 +36,7 @@ class DatasetCreationProcess:
         if self.parameters.impute_from_parallel_questionnaires:
             self._impute_from_parallel_questionnaires()
 
-        self._split_to_times()
+        self._sort_to_measurement_times()
 
         if self.parameters.compute_target_variable:
             self._compute_pathology_variables()
@@ -65,7 +65,7 @@ class DatasetCreationProcess:
             assert len(non_intake_events) > 0, "expect follow-up times"
 
         for pathology in self.pathologies:
-            self.intake = self._compute_single_pathology(pathology, self.intake)
+            self.df = self._compute_single_pathology(pathology, self.df)
 
     def _compute_single_pathology(self, pathology, df):
         df = df.copy()
@@ -74,7 +74,7 @@ class DatasetCreationProcess:
         self.export_columns_manager.add_columns([pathology.name])
 
         if self.parameters.add_pathology_missing_ratio:
-            self.export_columns_manager.add_columns([f'ratio_of_missing_{pathology_name}_values'])
+            self.export_columns_manager.add_columns([f'ratio_of_missing_{pathology.name}_values'])
 
         return df
 
@@ -84,26 +84,21 @@ class DatasetCreationProcess:
                                                                      questionnaires,
                                                                      self.export_columns_manager)
 
-    def _split_to_times(self):
-        if self.are_repeated_measures:
-            self.intake, self.df_time2 = split_to_multiple_measurement_times(
-                                            self.df,
-                                            self.export_columns_manager,
-                                            self.parameters.measurement_times)
-            self.export_columns_manager.add_columns(['measurement'])
-
-        else:
-            self.intake = self.df.copy()
-
-    def _merge_times(self):
-        df = pd.concat([self.intake, self.df_time2])
+    def _sort_to_measurement_times(self):
+        df = self.df.copy()
+        df = group_by_measurment_times(df, self.parameters.measurement_times)
+        self.export_columns_manager.add_columns(['measurement'])
         self.df = df
 
     def _save_data(self):
-        if not os.path.exists(self.parameters.directory_path):
-            os.makedirs(self.parameters.directory_path)
+        dir_path = self._create_directory(self.content_root, self.parameters.directory_path)
+        save_results(self.df, self.export_columns_manager, axis='patient', directory_path=dir_path)
 
-        save_df(self.df, self.export_columns_manager, axis='patient', directory_path=self.parameters.directory_path)
-        # save_df(df, columns, axis='time', profile=False, directory_path=directory_path, suffix=suffix)
+    @staticmethod
+    def _create_directory(root, path):
+        dir_path = os.path.join(root, path)
+        if not os.path.exists(dir_path):
+            os.makedirs(dir_path)
+        return dir_path
 
 
