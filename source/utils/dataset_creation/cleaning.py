@@ -3,7 +3,6 @@ import pandas as pd
 
 
 def remove_invalid_values(df, valid_values, filtered_columns):
-
     for column in filtered_columns:
         df.loc[~df[column].isin(valid_values), column] = np.nan
 

@@ -1,6 +1,7 @@
 import pandas as pd
 import os
 
+
 class GroupManager:
     GROUPS = ['group___1', 'group___2', 'group___3']
     GROUP_NAMES_MAP = {

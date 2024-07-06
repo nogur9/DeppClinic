@@ -1,10 +1,9 @@
 # Define the measurement times based on the previous dictionary provided
-from source.utils.consts.questions_columns import full_questionnaire_list, c_ssrs_clin
+from source.utils.consts.questions_columns import c_ssrs_clin
 from source.utils.consts.standard_names import INTAKE
 from source.utils.dataset_creation.dataset_creation_input_parameter import InputParameters
 from source.utils.dataset_creation.dataset_creation_process import DatasetCreationProcess
-import sys
-import os
+
 
 measurement_times = {
     INTAKE: ['intake_arm_1', 'er_arm_1'],

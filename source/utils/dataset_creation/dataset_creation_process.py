@@ -7,10 +7,9 @@ from source.utils.dataset_creation.impute import QuestionnaireImputer
 from source.utils.dataset_creation.pathology_assessment.pathologies_map import PathologiesMap
 from source.utils.dataset_creation.pipeline_functions import compute_questions_scores
 from source.utils.dataset_creation.pathology_assessment.psychological_assessment import PsychologicalAssessment
+from source.utils.dataset_creation.save_processed_data import save_results
 from source.utils.dataset_creation.groups import GroupManager
 import os
-
-from source.utils.dataset_creation.save_processed_data import save_results
 
 
 class DatasetCreationProcess:
