@@ -1,15 +1,14 @@
 import pandas as pd
 from source.utils.classes.export_columns_manager import ExportColumnsManager
-from source.utils.consts.assistment_consts import Questionnaires
 from source.utils.consts.standard_names import INTAKE
 from source.utils.dataset_creation.handle_events import group_by_measurment_times
 from source.utils.dataset_creation.impute import QuestionnaireImputer
 from source.utils.dataset_creation.pathology_assessment.pathologies_map import PathologiesMap
-from source.utils.dataset_creation.pipeline_functions import compute_questions_scores
 from source.utils.dataset_creation.pathology_assessment.psychological_assessment import PsychologicalAssessment
 from source.utils.dataset_creation.save_processed_data import save_results
 from source.utils.dataset_creation.groups import GroupManager
 import os
+from source.utils.scores.compute_scores_handler import ComputeScoresHandler
 
 
 class DatasetCreationProcess:
@@ -28,7 +27,10 @@ class DatasetCreationProcess:
     def run(self):
         df_path = os.path.join(self.content_root, self.parameters.df_path)
         self.df = pd.read_csv(df_path, na_values=self.parameters.custom_na_values, keep_default_na=True)
-        self.export_columns_manager = ExportColumnsManager(questionnaires=self.parameters.questionnaires)
+        if self.parameters.include_individual_questions:
+            self.export_columns_manager = ExportColumnsManager(questionnaires=self.parameters.questionnaires_map)
+        else:
+            self.export_columns_manager = ExportColumnsManager()
 
         self._manage_groups()
 
@@ -78,10 +80,10 @@ class DatasetCreationProcess:
         return df
 
     def _calculate_questionnaires_scores(self):
-        questionnaires = Questionnaires().questionnaires
-        self.df, self.variables_to_export = compute_questions_scores(self.df,
-                                                                     questionnaires,
-                                                                     self.export_columns_manager)
+        compute_scores_handler = ComputeScoresHandler(self.parameters.questionnaires_map)
+
+        self.df, self.export_columns_manager = compute_scores_handler.compute_questionnaires_scores(
+            self.df, self.export_columns_manager)
 
     def _sort_to_measurement_times(self):
         df = self.df.copy()

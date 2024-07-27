@@ -7,7 +7,7 @@ PathologiesMap = {
                                             only_intake_evaluation=True),
     "suicide_attempt_intake": PathologyVariable('suicide_attempt', suicide_attempt_intake,
                                             only_intake_evaluation=True),
-    "NSSI_intake":PathologyVariable('NSSI', nssi_intake,
+    "NSSI_intake": PathologyVariable('NSSI', nssi_intake,
                                             only_intake_evaluation=True),
     "self_harm_intake": PathologyVariable('self_harm', self_harm_intake,
                                             only_intake_evaluation=True),

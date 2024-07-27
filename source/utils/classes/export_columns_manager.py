@@ -1,4 +1,5 @@
-from source.utils.consts.questions_columns import full_questionnaire_list
+from source.utils.consts.questions_columns import all_of_the_questionnaires
+from source.utils.questionnaire.questionnaires_map import QuestionnairesMap
 
 
 class ExportColumnsManager:
@@ -11,9 +12,9 @@ class ExportColumnsManager:
         self.columns_for_extraction = self.setup_ordered_columns()  #ordered columns, with the id column
 
     def setup_initial_columns(self, questionnaires):
-        if questionnaires is None:
-            # Define the default columns using class-level constants
-            return self.INFO_COLUMNS + self.TIME_COLUMNS + full_questionnaire_list
+        if type(questionnaires) is QuestionnairesMap:
+            questionnaires_columns = questionnaires.get_columns()
+            return self.INFO_COLUMNS + self.TIME_COLUMNS + questionnaires_columns
         else:
             return self.INFO_COLUMNS + self.TIME_COLUMNS + questionnaires
 

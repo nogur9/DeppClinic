@@ -49,6 +49,8 @@ def convert_long_to_wide(df_intake, followup_df, columns):
         rename_map = {col: f"{col}_{measurement}" for col in current_measurement_dataset.columns if col != columns.id_column}
         current_measurement_dataset.rename(columns=rename_map, inplace=True)  # Modify subset in-place
         merged_df = pd.merge(merged_df, current_measurement_dataset, on=columns.id_column, how="outer")
+        new_columns = [f"{col}_{measurement}" for col in columns.columns_for_extraction if f"{col}_{measurement}" in merged_df.columns]
+        columns.add_columns(new_columns)
 
     return merged_df
 

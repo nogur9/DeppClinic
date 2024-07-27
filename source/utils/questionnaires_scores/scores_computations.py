@@ -2,7 +2,7 @@ import numpy as np
 from source.utils.consts.subsets_of_questionnaires import sci_af_ac_factors, C_ssrs_clinician, sci_af_ca_new_questions, \
     maris_soq_sf_reverse, maris_soq_sf_normal, MAST_factors, SDQ_factors, DERS_factors, swan_factors, \
     erc_rc_reversed_items, erc_rc_factors, dass_factors
-from source.utils.consts.subsets_of_questionnaires import sdq_reverse, sdq_normal, c_ssrs_life_values_map, \
+from source.utils.consts.subsets_of_questionnaires import sdq_reverse, c_ssrs_life_values_map, \
     c_ssrs_2weeks_values_map, DERS_reverse_items, wai_reversed_items, wai_factors
 from source.utils.consts.questions_columns import c_ssrs, maris_sci_sf, maris_soq_sf, MAST, DERS, wai, swan_m, \
     sci_mother, scs_clin, sci_af_ca, ATHENS, SAS, scared, mfq, siq, erc_rc, ARI_S, ARI_P_m
@@ -12,9 +12,6 @@ from source.utils.questionnaires_scores.cssrs import calculate_clinician_c_ssrs_
 
 
 def compute_sdq_score(df, skipna=False):
-    """
-    add subscales
-    """
 
     sdq_reverse_columns = [f"{i}_reverse" for i in sdq_reverse]
 
@@ -35,22 +32,7 @@ def compute_sdq_score(df, skipna=False):
 
 
 def compute_mfq_score(df, skipna=False):
-    """
-    SPSS code, I think it's wrong therefore it's doing sum of our mfq columns
 
-    ****QUALTRICS****
-    **MFQ_SUM**
-
-    COMPUTE MFQ_SUM=SUM(MFQ_1,MFQ_2,MFQ_3,MFQ_4,MFQ_5,MFQ_6,MFQ_7,MFQ_8,MFQ_9,MFQ_10,MFQ_11,MFQ_12,MFQ_13,MFQ_14,MFQ_15,MFQ_16,
-        MFQ_17,MFQ_18,MFQ_19,MFQ_20,MFQ_21,MFQ_22,MFQ_23,MFQ_24,MFQ_25,MFQ_26,MFQ_27,MFQ_28,MFQ_29,MFQ_30,MFQ_31,MFQ_32,MFQ_33).
-    EXECUTE.
-
-    ****REDCAP****
-    **MFQ_SUM (SHORT VER.)**
-
-    COMPUTE MFQ_SUM=SUM(MFQ_1,MFQ_2,MFQ_5,MFQ_7,MFQ_8,MFQ_14,MFQ_21,MFQ_23,MFQ_24,MFQ_27,MFQ_28,MFQ_30,MFQ_31).
-    EXECUTE.
-    """
 
     df['mfq_score'] = df[mfq].sum(axis=1, skipna=skipna)
 
@@ -63,13 +45,6 @@ def compute_mfq_score(df, skipna=False):
 
 
 def compute_siq_score(df):
-    """
-    spss code:
-
-    COMPUTE SIQ_SUM=SUM(SIQ_1,SIQ_2,SIQ_3,SIQ_4,SIQ_5,SIQ_6,SIQ_7,SIQ_8,SIQ_9,SIQ_10,SIQ_11,SIQ_12,SIQ_13,SIQ_14,SIQ_15).
-    EXECUTE.
-
-    """
 
     df['siq_score'] = df[siq].sum(axis=1, skipna=False)
 
@@ -81,13 +56,7 @@ def compute_siq_score(df):
 
 
 def compute_scared_score(df, skipna=False):
-    """
-    COMPUTE SCARED_SUM=SUM(SCARED_1,SCARED_2,SCARED_3,SCARED_4,SCARED_5,SCARED_6,SCARED_7,SCARED_8,SCARED_9,SCARED_10,
-        SCARED_11,SCARED_12,SCARED_13,SCARED_14,SCARED_15,SCARED_16,SCARED_17,SCARED_18,SCARED_19,SCARED_20,SCARED_21,SCARED_22,
-        SCARED_23,SCARED_24,SCARED_25,SCARED_26,SCARED_27,SCARED_28,SCARED_29,SCARED_30,SCARED_31,SCARED_32,SCARED_33,SCARED_34,
-        SCARED_35,SCARED_36,SCARED_37,SCARED_38,SCARED_39,SCARED_40,SCARED_41).
-    EXECUTE.
-    """
+
     df['scared_score'] = df[scared].sum(axis=1, skipna=skipna)
 
     missing_values = df[scared].isnull()
@@ -98,19 +67,7 @@ def compute_scared_score(df, skipna=False):
 
 
 def compute_sas_score(df, skipna=False):
-    """
 
-    RECODE SAS_1,SAS_2,SAS_3,SAS_4,SAS_5,SAS_6,SAS_7,SAS_8,SAS_9,SAS_10,SAS_11,SAS_12,SAS_13,SAS_14,SAS_15,SAS_16,SAS_17,
-        SAS_18,SAS_19,SAS_20,SAS_21,SAS_22,SAS_23 (1=1) (2=2) (3=3) (4=4) (5=5) (6=6).
-    EXECUTE.
-
-    COMPUTE SAS_MEAN=MEAN(SAS_1,SAS_2,SAS_3,SAS_4,SAS_5,SAS_6,SAS_7,SAS_8,SAS_9,SAS_10,
-        SAS_11,SAS_12,SAS_13,SAS_14,SAS_15,SAS_16,SAS_17,SAS_18,SAS_19,SAS_20,SAS_21,SAS_22,
-        SAS_23).
-    EXECUTE.
-
-
-    """
     df['sas_score'] = df[SAS].mean(axis=1, skipna=skipna)
 
     missing_values = df[SAS].isnull()
@@ -121,13 +78,7 @@ def compute_sas_score(df, skipna=False):
 
 
 def compute_athens_score(df, skipna=False):
-    """
 
-    COMPUTE
-    ATHENS_SUM=SUM(athens_1,athens_2,athens_3,athens_4,athens_5,athens_6,athens_7,athens_8).
-    EXECUTE.
-
-    """
     df['athens_score'] = df[ATHENS].sum(axis=1, skipna=skipna)
 
     missing_values = df[ATHENS].isnull()
@@ -178,26 +129,7 @@ def compute_scs_mother_score(df, skipna=False):
 
 
 def compute_mast_score(df, skipna=False):
-    """
-    *********************************************MAST*********************************************
 
-    COMPUTE MAST_AL=MEAN(MAST_1,MAST_5,MAST_6,MAST_13,MAST_18,MAST_19,MAST_25,MAST_28).
-    VARIABLE LABELS  MAST_AL 'MAST_AL'.
-    EXECUTE.
-
-    COMPUTE MAST_RL=MEAN(MAST_2,MAST_9,MAST_14,MAST_15,MAST_16,MAST_21,MAST_30).
-    VARIABLE LABELS  MAST_RL 'MAST_RL'.
-    EXECUTE.
-
-    COMPUTE MAST_AD=MEAN(MAST_8,MAST_17,MAST_22,MAST_23,MAST_26,MAST_27,MAST_29).
-    VARIABLE LABELS  MAST_AD 'MAST_AD'.
-    EXECUTE.
-
-    COMPUTE MAST_RD=MEAN(MAST_3,MAST_4,MAST_7,MAST_10,MAST_11,MAST_12,MAST_20,MAST_24).
-    VARIABLE LABELS  MAST_RD 'MAST_RD'.
-    EXECUTE.
-
-    """
     # Compute mean for MAST_AL
     df['MAST_AL'] = df[MAST_factors['MAST_AL']].mean(axis=1, skipna=skipna)
 
@@ -221,12 +153,6 @@ def compute_mast_score(df, skipna=False):
 
 
 def compute_ari_p_score(df, skipna=False):
-    """
-
-    COMPUTE ARI_P_SUM=SUM(ari_p_1,ari_p_2,ari_p_3,ari_p_4,ari_p_5,ari_p_6).
-    EXECUTE.
-
-    """
 
     # Compute the sum for ARI_P_SUM
     df['ARI_P_SUM'] = df[ARI_P_m].sum(axis=1, skipna=skipna)

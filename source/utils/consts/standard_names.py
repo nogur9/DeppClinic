@@ -1,4 +1,4 @@
 # ToDo - change to enums
 
-INTAKE = "Intake"
+INTAKE = "Baseline"
 

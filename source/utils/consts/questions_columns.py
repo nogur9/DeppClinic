@@ -868,34 +868,34 @@ chameleon = ['chameleon_follow_stu',
 
 cgi = ['cgi_s_clin']
 
-full_questionnaire_list = c_ssrs_intake + c_ssrs + \
-                    c_ssrs_clin + \
-                    mfq + \
-                    additional_mfq + \
-                    siq + \
-                    sdq + \
-                    scared + \
-                    ATHENS + \
-                    SAS + \
-                    sci_af_ca + \
-                    scs_clin + \
-                    sci_mother + \
-                    ARI_S + \
-                    ARI_P_m + \
-                    MAST + \
-                    maris_sci_sf + \
-                    maris_soq_sf + \
-                    demographics_m + \
-                    swan_m + \
-                    dass_m + \
-                    ecr_m + \
-                    trq_sf_maris_clin + \
-                    screening_form + \
-                    DERS + \
-                    wai + \
-                    erc_rc + \
-                    bulling + \
-                    opening + \
-                    chameleon + cgi
+all_of_the_questionnaires = c_ssrs_intake + c_ssrs + \
+                            c_ssrs_clin + \
+                            mfq + \
+                            additional_mfq + \
+                            siq + \
+                            sdq + \
+                            scared + \
+                            ATHENS + \
+                            SAS + \
+                            sci_af_ca + \
+                            scs_clin + \
+                            sci_mother + \
+                            ARI_S + \
+                            ARI_P_m + \
+                            MAST + \
+                            maris_sci_sf + \
+                            maris_soq_sf + \
+                            demographics_m + \
+                            swan_m + \
+                            dass_m + \
+                            ecr_m + \
+                            trq_sf_maris_clin + \
+                            screening_form + \
+                            DERS + \
+                            wai + \
+                            erc_rc + \
+                            bulling + \
+                            opening + \
+                            chameleon + cgi
 
 
