@@ -15,7 +15,8 @@ class InputParameters:
                  compute_target_variable=True, calculate_questionnaires_scores=True,
                  file_name=DEFAULT_FILE_NAME, directory_path=DEFAULT_DIRECTORY_PATH,
                  axis=DEFAULT_AXIS, df_path=DEFAULT_DF_PATH, custom_na_values=DEFAULT_CUSTOM_NA_VALS,
-                 add_pathology_missing_ratio=False, pathologies=DEFAULT_PATHOLOGIES, include_individual_questions = True):
+                 add_pathology_missing_ratio=False, pathologies=DEFAULT_PATHOLOGIES,
+                 include_individual_questions=True, include_app_data=False):
 
         self.measurement_times = measurement_times
         self.questionnaires_map = questionnaires_map
@@ -32,5 +33,6 @@ class InputParameters:
         self.add_pathology_missing_ratio = add_pathology_missing_ratio
         self.pathologies = pathologies
         self.include_individual_questions = include_individual_questions
+        self.include_app_data = include_app_data
 
 

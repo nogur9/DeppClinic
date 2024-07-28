@@ -32,13 +32,16 @@ class ExportColumnsManager:
                 output_list.append(item)
         return output_list
 
-    def add_columns(self, new_columns):
+    def add_columns(self, new_columns, is_info=False):
+
         # Add new columns ensuring no duplicates and maintaining order
         current_set = set(self.columns_for_extraction)
         for column in new_columns:
             if column not in current_set:
                 self.columns_for_extraction.append(column)
                 current_set.add(column)
+        if is_info:
+            self.INFO_COLUMNS.extend(new_columns)
 
     def get_export_columns(self, include_id=True):
         # Return the ordered list of columns with duplicates removed

@@ -32,6 +32,9 @@ class DatasetCreationProcess:
         else:
             self.export_columns_manager = ExportColumnsManager()
 
+        if self.parameters.include_app_data:
+            self.add_app_data()
+
         self._manage_groups()
 
         if self.parameters.impute_from_parallel_questionnaires:
@@ -103,3 +106,14 @@ class DatasetCreationProcess:
         return dir_path
 
 
+    def add_app_data(self):
+
+        def used_app(x):
+            app_ids = pd.read_csv(r"../../../Data/helper_docs/APP_patient_ids.csv")
+            if x['id'] in list(app_ids['patient_id']):
+                return True
+            else:
+                return False
+
+        self.df['did_used_app'] = self.df.apply(used_app, axis=1)
+        self.export_columns_manager.add_columns(['did_used_app'], is_info=True)

@@ -13,7 +13,16 @@ class SDQScorer(QuestionnaireScorer):
 
 class MFQScorer(QuestionnaireScorer):
     def __init__(self, mfq_columns=mfq):
-        super().__init__('mfq', mfq_columns, missing_threshold=0.99)
+        super().__init__('mfq', mfq_columns)
 
     def _calculate_aggregated_score(self, df, columns):
         return df[columns].sum(axis=1, skipna=True)
+
+
+class SIQScorer(QuestionnaireScorer):
+    def __init__(self, siq_columns=siq):
+        super().__init__('siq', siq_columns)
+
+    def _calculate_aggregated_score(self, df, columns):
+        return df[columns].sum(axis=1)
+
