@@ -13,10 +13,10 @@ def main(input_params):
 
 
 # Create an instance of InputParameters with custom and default values
-questionnaires_map = QuestionnairesMap(['sdq'])
 input_params = InputParameters(
     measurement_times=measurement_times,
-    questionnaires_map=questionnaires_map,
+    questionnaires_for_scoring=['sdq'],
+    indicator_questionnaires=['mfq'],
     assign_groups=True,
     impute_from_parallel_questionnaires=True,
     calculate_questionnaires_scores=True,

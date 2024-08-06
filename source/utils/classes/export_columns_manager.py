@@ -1,4 +1,4 @@
-from source.utils.consts.questions_columns import all_of_the_questionnaires
+from source.utils.consts.standard_names import ID_COLUMN
 from source.utils.questionnaire.questionnaires_map import QuestionnairesMap
 
 
@@ -6,7 +6,7 @@ class ExportColumnsManager:
     INFO_COLUMNS = ['gender', 'age_child_pre'] #redcap_event_name has no meaning since we are using measurement times
     TIME_COLUMNS = ['sciafca_timestamp']
 
-    def __init__(self, questionnaires=None, id_column='id'):
+    def __init__(self, questionnaires=None, id_column=ID_COLUMN):
         self.id_column = id_column
         self.columns = self.setup_initial_columns(questionnaires)
         self.columns_for_extraction = self.setup_ordered_columns()  #ordered columns, with the id column

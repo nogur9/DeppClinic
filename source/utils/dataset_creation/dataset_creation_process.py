@@ -1,39 +1,44 @@
 import pandas as pd
 from source.utils.classes.export_columns_manager import ExportColumnsManager
 from source.utils.consts.standard_names import INTAKE
+from source.utils.dataset_creation.dataset_creation_input_parameter import InputParameters
 from source.utils.dataset_creation.handle_events import group_by_measurment_times
 from source.utils.dataset_creation.impute import QuestionnaireImputer
 from source.utils.dataset_creation.pathology_assessment.pathologies_map import PathologiesMap
 from source.utils.dataset_creation.pathology_assessment.psychological_assessment import PsychologicalAssessment
+from source.utils.dataset_creation.patient_counter import PatientCounter
 from source.utils.dataset_creation.save_processed_data import save_results
 from source.utils.dataset_creation.groups import GroupManager
 import os
+
+from source.utils.questionnaire.questionnaires_map import QuestionnairesMap
 from source.utils.scores.compute_scores_handler import ComputeScoresHandler
 
 
 class DatasetCreationProcess:
-    def __init__(self, input_parameters):
+    def __init__(self, input_parameters: InputParameters):
         self.parameters = input_parameters
+        self.export_columns_manager = None
+        self.df = None
+        self._init_params()
 
+    def _init_params(self):
         self.events_names = list(self.parameters.measurement_times.keys())
         self.content_root = self.parameters.content_root
         self.pathologies = [PathologiesMap[i] for i in self.parameters.pathologies]
-
-        self.export_columns_manager = None
-        self.df = None
-        self.intake = None
-        self.df_time2 = None
+        self.questionnaires_map = QuestionnairesMap(self.parameters.questionnaires_for_scoring +
+                                                    self.parameters.indicator_questionnaires)
+        if self.parameters.include_individual_questions:
+            self.export_columns_manager = ExportColumnsManager(questionnaires=self.questionnaires_map)
+        else:
+            self.export_columns_manager = ExportColumnsManager()
 
     def run(self):
         df_path = os.path.join(self.content_root, self.parameters.df_path)
         self.df = pd.read_csv(df_path, na_values=self.parameters.custom_na_values, keep_default_na=True)
-        if self.parameters.include_individual_questions:
-            self.export_columns_manager = ExportColumnsManager(questionnaires=self.parameters.questionnaires_map)
-        else:
-            self.export_columns_manager = ExportColumnsManager()
 
         if self.parameters.include_app_data:
-            self.add_app_data()
+            self._add_app_data()
 
         self._manage_groups()
 
@@ -45,8 +50,11 @@ class DatasetCreationProcess:
         if self.parameters.compute_target_variable:
             self._compute_pathology_variables()
 
-        if self.parameters.calculate_questionnaires_scores:
+        if self.parameters.calculate_questionnaires_scores or len(self.parameters.indicator_questionnaires):
             self._calculate_questionnaires_scores()
+
+        if len(self.parameters.indicator_questionnaires):
+            self._count_patients()
 
         self._save_data()
 
@@ -83,7 +91,7 @@ class DatasetCreationProcess:
         return df
 
     def _calculate_questionnaires_scores(self):
-        compute_scores_handler = ComputeScoresHandler(self.parameters.questionnaires_map)
+        compute_scores_handler = ComputeScoresHandler(self.questionnaires_map)
 
         self.df, self.export_columns_manager = compute_scores_handler.compute_questionnaires_scores(
             self.df, self.export_columns_manager)
@@ -105,9 +113,15 @@ class DatasetCreationProcess:
             os.makedirs(dir_path)
         return dir_path
 
+    def _count_patients(self):
+        dir_path = self._create_directory(self.content_root, self.parameters.directory_path)
+        patient_counter = PatientCounter(self.parameters.indicator_questionnaires,
+                                         self.parameters.measurement_times,
+                                         self.parameters.overlapping_counting)
+        patient_counter.count(self.df)
+        patient_counter.export(directory_path=dir_path)
 
-    def add_app_data(self):
-
+    def _add_app_data(self):
         def used_app(x):
             app_ids = pd.read_csv(r"../../../Data/helper_docs/APP_patient_ids.csv")
             if x['id'] in list(app_ids['patient_id']):

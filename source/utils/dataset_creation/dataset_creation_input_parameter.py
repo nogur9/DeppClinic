@@ -10,16 +10,16 @@ class InputParameters:
     DEFAULT_CUSTOM_NA_VALS = ['chameleon_ideation_stu_2022']
     DEFAULT_PATHOLOGIES = ["suicidal_behavior_intake", "suicide_attempt_intake", "NSSI_intake"]
 
-    def __init__(self, measurement_times, content_root, questionnaires_map=QuestionnairesMap(),
+    def __init__(self, measurement_times, content_root, questionnaires_for_scoring=None,
                  assign_groups=True, impute_from_parallel_questionnaires=True,
                  compute_target_variable=True, calculate_questionnaires_scores=True,
                  file_name=DEFAULT_FILE_NAME, directory_path=DEFAULT_DIRECTORY_PATH,
                  axis=DEFAULT_AXIS, df_path=DEFAULT_DF_PATH, custom_na_values=DEFAULT_CUSTOM_NA_VALS,
                  add_pathology_missing_ratio=False, pathologies=DEFAULT_PATHOLOGIES,
-                 include_individual_questions=True, include_app_data=False):
+                 include_individual_questions=True, include_app_data=False,
+                 indicator_questionnaires=None, overlapping_counting=True):
 
         self.measurement_times = measurement_times
-        self.questionnaires_map = questionnaires_map
         self.assign_groups = assign_groups
         self.impute_from_parallel_questionnaires = impute_from_parallel_questionnaires
         self.compute_target_variable = compute_target_variable
@@ -34,5 +34,6 @@ class InputParameters:
         self.pathologies = pathologies
         self.include_individual_questions = include_individual_questions
         self.include_app_data = include_app_data
-
-
+        self.questionnaires_for_scoring = questionnaires_for_scoring
+        self.indicator_questionnaires = indicator_questionnaires
+        self.overlapping_counting = overlapping_counting
