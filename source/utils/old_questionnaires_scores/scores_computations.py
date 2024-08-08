@@ -6,8 +6,8 @@ from source.utils.consts.subsets_of_questionnaires import sdq_reverse, c_ssrs_li
     c_ssrs_2weeks_values_map, DERS_reverse_items, wai_reversed_items, wai_factors
 from source.utils.consts.questions_columns import c_ssrs, maris_sci_sf, maris_soq_sf, MAST, DERS, wai, swan_m, \
     sci_mother, scs_clin, sci_af_ca, ATHENS, SAS, scared, mfq, siq, erc_rc, ARI_S, ARI_P_m
-from source.utils.questionnaires_scores.utils import impute_mean_questionnaire_score
-from source.utils.questionnaires_scores.cssrs import calculate_clinician_c_ssrs_individual_score, \
+from source.utils.old_questionnaires_scores.utils import impute_mean_questionnaire_score
+from source.utils.old_questionnaires_scores.cssrs import calculate_clinician_c_ssrs_individual_score, \
     calculate_intake_c_ssrs_individual_score, c_ssrs_roll_negative, calculate_c_ssrs_individual_score
 
 

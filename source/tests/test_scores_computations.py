@@ -1,6 +1,6 @@
 import unittest
 import pandas as pd
-from source.utils.questionnaires_scores import get_max_index, calculate_c_ssrs_individual_score
+from source.utils.old_questionnaires_scores import get_max_index, calculate_c_ssrs_individual_score
 
 
 class TestGetMaxIndex(unittest.TestCase):

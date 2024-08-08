@@ -1,7 +1,7 @@
 import pingouin as pg
 import pandas as pd
 import os
-from source.utils.dataset_creation.pathology_assessment.predefined_pathologies import pathology_variables_times
+from source.utils.pathology_assessment import pathology_variables_times
 import statsmodels.api as sm
 from sklearn.preprocessing import LabelEncoder, StandardScaler
 import plotly.graph_objs as go

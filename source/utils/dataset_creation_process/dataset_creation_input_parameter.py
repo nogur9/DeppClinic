@@ -1,7 +1,7 @@
 from source.utils.questionnaire.questionnaires_map import QuestionnairesMap
 
 
-class InputParameters:
+class InputParametersForDatasetCreationProcess:
     # Set immutable default parameters as class attributes
     DEFAULT_FILE_NAME = 'patient_data'
     DEFAULT_DIRECTORY_PATH = r'Data/processed_data/only_final_scores'

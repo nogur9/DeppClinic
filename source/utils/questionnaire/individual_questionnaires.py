@@ -1,4 +1,4 @@
-from source.utils.questionnaire.questionnaire import QuestionnaireScorer
+from source.utils.questionnaire.questionnaire_scorer import QuestionnaireScorer
 from source.utils.consts.subsets_of_questionnaires import *
 from source.utils.consts.questions_columns import *
 

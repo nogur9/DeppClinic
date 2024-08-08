@@ -2,7 +2,7 @@ import pandas as pd
 import numpy as np
 
 from source.utils.consts.standard_names import INTAKE
-from source.utils.dataset_creation.pathology_assessment.pathology_variable import PathologyVariable
+from source.utils.pathology_assessment.pathology_variable import PathologyVariable
 
 
 class PsychologicalAssessment:

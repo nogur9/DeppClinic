@@ -6,8 +6,8 @@ os.chdir(r'/')
 
 from source.utils.dataset_creation import VariablesToExport, create_single_event_name, \
     do_questionnaires_imputations, save_df
-from source.utils.dataset_creation.pathology_assessment.predefined_pathologies import Liat_Graphs_pathology_variables_times
-from source.utils.classes.target_variable import TargetVariable
+from source.utils.pathology_assessment import Liat_Graphs_pathology_variables_times
+from source.utils.old_questionnaires_scores.target_variable import TargetVariable
 
 
 def fill_group(df, group):

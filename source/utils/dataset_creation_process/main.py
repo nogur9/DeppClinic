@@ -1,9 +1,7 @@
 # Define the measurement times based on the previous dictionary provided
-from source.utils.consts.baseline_followup_definition import measurement_times
-from source.utils.consts.questions_columns import c_ssrs_clin
-from source.utils.dataset_creation.dataset_creation_input_parameter import InputParameters
-from source.utils.dataset_creation.dataset_creation_process import DatasetCreationProcess
-from source.utils.questionnaire.questionnaires_map import QuestionnairesMap
+from source.utils.consts.measurement_times import measurement_times
+from source.utils.dataset_creation_process.dataset_creation_input_parameter import InputParametersForDatasetCreationProcess
+from source.utils.dataset_creation_process.dataset_creation_process import DatasetCreationProcess
 
 
 def main(input_params):
@@ -13,7 +11,7 @@ def main(input_params):
 
 
 # Create an instance of InputParameters with custom and default values
-input_params = InputParameters(
+input_parameters_for_dataset_creation_process = InputParametersForDatasetCreationProcess(
     measurement_times=measurement_times,
     questionnaires_for_scoring=['sdq'],
     indicator_questionnaires=['mfq'],
@@ -28,4 +26,4 @@ input_params = InputParameters(
     content_root=r"C:\Users\nogur\Documents\DeppClinic",
 )
 
-main(input_params)
+main(input_parameters_for_dataset_creation_process)

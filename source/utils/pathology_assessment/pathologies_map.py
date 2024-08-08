@@ -1,5 +1,5 @@
-from source.utils.dataset_creation.pathology_assessment.pathology_variable import PathologyVariable
-from source.utils.dataset_creation.pathology_assessment.predefined_pathologies import suicidal_behavior_intake, suicide_attempt_intake, nssi_intake, \
+from source.utils.pathology_assessment.pathology_variable import PathologyVariable
+from source.utils.pathology_assessment.predefined_pathologies import suicidal_behavior_intake, suicide_attempt_intake, nssi_intake, \
     self_harm_intake, modcon_target, survival_target, suicidal_behavior_time2, nssi_time2, suicidal_attempt_time2
 
 PathologiesMap = {

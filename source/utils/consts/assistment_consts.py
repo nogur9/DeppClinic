@@ -6,7 +6,7 @@ from source.utils.consts.unused.questions_text import intake_c_ssrs_text, c_ssrs
     scared_text, ATHENS_text, SAS_text, sci_af_ca_text, sci_mother_text, scs_clin_text
 from source.utils.consts.subsets_of_questionnaires import swan_factors, DERS_reverse_items, DERS_factors, \
     wai_factors, wai_reversed_items, erc_rc_factors, erc_rc_reversed_items, dass_factors
-from source.utils.questionnaires_scores.scores_computations import compute_ders_score, compute_wai_score, \
+from source.utils.old_questionnaires_scores.scores_computations import compute_ders_score, compute_wai_score, \
     compute_ecr_score, compute_dass_score, compute_ari_p_score, compute_ari_s_score
 
 
@@ -26,7 +26,7 @@ class Questionnaires:
             self.questionnaires = self.full_questionnaires
 
     def _load_full_questionnaires(self):
-        from source.utils.questionnaires_scores.scores_computations import compute_sas_score, \
+        from source.utils.old_questionnaires_scores.scores_computations import compute_sas_score, \
             calculate_c_ssrs_scores_intake, calculate_c_ssrs_scores, compute_mfq_score, compute_siq_score, \
             compute_sdq_score, compute_scared_score, compute_athens_score, compute_sci_af_ac_score, \
             calculate_c_ssrs_scores_clinician, compute_scs_clin_score, compute_scs_mother_score, compute_swan_scores
