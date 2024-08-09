@@ -1,6 +1,9 @@
 import pandas as pd
 import numpy as np
 
+from source.utils.consts.standard_names import TIMESTAMP_COLUMN_NAME
+
+
 class TimestampCreator:
     """
     this happening before splitting into measurement times
@@ -11,11 +14,11 @@ class TimestampCreator:
                     'chameleon_suicide_er_date_stu', 'chameleon_psychiatric_date_stu',
                     'opening_child_pre_timestamp', 'cssrs_timestamp', 'siq_timestamp']
 
+    def __init__(self, timestamp_column=TIMESTAMP_COLUMN_NAME):
+        self.timestamp_column = timestamp_column
 
-    def __init__(self, timestamp_column = TIMESTAMP_COLUMN_NAME):
+    def get(self, df: pd.DataFrame):
         pass
-
-    def get(self, df:pd.DataFrame):
 
     @staticmethod
     def convert_datetime(date_str):
