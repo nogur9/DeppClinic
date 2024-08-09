@@ -16,6 +16,7 @@ import os
 
 from source.utils.questionnaire.questionnaires_map import QuestionnairesMap
 from source.utils.scores.compute_scores_handler import ComputeScoresHandler
+from source.utils.utils.timestamp_creator import TimestampCreator
 
 
 class DatasetCreationProcess:
@@ -42,6 +43,9 @@ class DatasetCreationProcess:
 
         if self.parameters.include_app_data:
             self._add_app_data()
+
+        if self.parameters.calculate_timestamps:
+            self._calculate_timestamps()
 
         self._manage_groups()
 
@@ -134,3 +138,7 @@ class DatasetCreationProcess:
 
         self.df['did_used_app'] = self.df.apply(used_app, axis=1)
         self.export_columns_manager.add_columns(['did_used_app'], is_info=True)
+
+    def _calculate_timestamps(self):
+        timestamp_creator = TimestampCreator()
+        self.df = timestamp_creator.get(self.df)

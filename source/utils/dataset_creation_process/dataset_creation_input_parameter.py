@@ -17,7 +17,8 @@ class InputParametersForDatasetCreationProcess:
                  axis=DEFAULT_AXIS, df_path=DEFAULT_DF_PATH, custom_na_values=DEFAULT_CUSTOM_NA_VALS,
                  add_pathology_missing_ratio=False, pathologies=DEFAULT_PATHOLOGIES,
                  include_individual_questions=True, include_app_data=False,
-                 indicator_questionnaires=None, overlapping_counting=True):
+                 indicator_questionnaires=None, overlapping_counting=True,
+                 calculate_timestamps=True):
 
         self.measurement_times = measurement_times
         self.assign_groups = assign_groups
@@ -37,4 +38,4 @@ class InputParametersForDatasetCreationProcess:
         self.questionnaires_for_scoring = questionnaires_for_scoring
         self.indicator_questionnaires = indicator_questionnaires
         self.overlapping_counting = overlapping_counting
-
+        self.calculate_timestamps = calculate_timestamps
