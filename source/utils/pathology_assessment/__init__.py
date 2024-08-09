@@ -1,0 +1,2 @@
+class PathologiesMap:
+    pass

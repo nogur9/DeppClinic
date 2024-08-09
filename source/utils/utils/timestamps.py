@@ -1,7 +1,10 @@
 import pandas as pd
-
+import numpy as np
 
 class TimestampCreator:
+    """
+    this happening before splitting into measurement times
+    """
     INTAKE_TIMESTAMPS = ['opening_timestamp', 'mfq_short_timestamp', 'complaint_date']
 
     FOLLOWUP_TIMESTAMPS = ['sciafca_timestamp', 'mfq_short_timestamp', 'chameleon_timestamp',
@@ -9,8 +12,10 @@ class TimestampCreator:
                     'opening_child_pre_timestamp', 'cssrs_timestamp', 'siq_timestamp']
 
 
-    def __init__(self):
+    def __init__(self, timestamp_column = TIMESTAMP_COLUMN_NAME):
         pass
+
+    def get(self, df:pd.DataFrame):
 
     @staticmethod
     def convert_datetime(date_str):
@@ -36,4 +41,15 @@ class TimestampCreator:
 
             except AttributeError:
                 return pd.NaT
+
+    def impute(self, questionnaire_columns, replace_columns, df, multiple_options=False):
+
+        is_empty = df[questionnaire_columns].isna().all(axis=1)
+
+        for questionnaire_column, replace_column in zip(questionnaire_columns, replace_columns):
+            df[questionnaire_column] = np.where(np.array(is_empty), df[replace_column], df[questionnaire_column])
+            if multiple_options:
+                is_empty = df[questionnaire_columns].isna().all(axis=1)
+
+        return df
 

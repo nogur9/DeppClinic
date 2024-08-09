@@ -14,7 +14,7 @@ def main(input_params):
 input_parameters_for_dataset_creation_process = InputParametersForDatasetCreationProcess(
     measurement_times=measurement_times,
     questionnaires_for_scoring=['sdq'],
-    indicator_questionnaires=['mfq'],
+    indicator_questionnaires=['mfq', 'sdq'],
     assign_groups=True,
     impute_from_parallel_questionnaires=True,
     calculate_questionnaires_scores=True,

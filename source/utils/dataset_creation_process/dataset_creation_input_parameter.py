@@ -37,3 +37,4 @@ class InputParametersForDatasetCreationProcess:
         self.questionnaires_for_scoring = questionnaires_for_scoring
         self.indicator_questionnaires = indicator_questionnaires
         self.overlapping_counting = overlapping_counting
+

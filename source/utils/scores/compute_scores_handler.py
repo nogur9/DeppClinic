@@ -1,5 +1,5 @@
-from source.utils.classes.export_columns_manager import ExportColumnsManager
 from source.utils.questionnaire.questionnaires_map import QuestionnairesMap
+from source.utils.utils.export_columns_manager import ExportColumnsManager
 
 
 class ComputeScoresHandler:

@@ -1,13 +1,16 @@
 import pandas as pd
-from source.utils.classes.export_columns_manager import ExportColumnsManager
+
+from source.utils.pathology_assessment.pathologies_map import PathologiesMap
+from source.utils.pathology_assessment.psychological_assessment import PsychologicalAssessment
+from source.utils.utils.export_columns_manager import ExportColumnsManager
 from source.utils.consts.standard_names import INTAKE
-from source.utils.dataset_creation_process.dataset_creation_input_parameter import InputParameters
-from source.utils.dataset_creation.handle_events import group_by_measurment_times
+from source.utils.dataset_creation_process.dataset_creation_input_parameter import InputParametersForDatasetCreationProcess
+from source.utils.utils.functions.handle_events import group_by_measurment_times
+from source.utils.utils.functions.save_processed_data import save_results
+
 from source.utils.utils.questionnaire_imputer import QuestionnaireImputer
-from source.utils.pathology_assessment import PathologiesMap
-from source.utils.pathology_assessment import PsychologicalAssessment
 from source.utils.utils.patient_counter import PatientCounter
-from source.utils.dataset_creation.save_processed_data import save_results
+
 from source.utils.utils.groups_manager import GroupManager
 import os
 
@@ -16,7 +19,7 @@ from source.utils.scores.compute_scores_handler import ComputeScoresHandler
 
 
 class DatasetCreationProcess:
-    def __init__(self, input_parameters: InputParameters):
+    def __init__(self, input_parameters: InputParametersForDatasetCreationProcess):
         self.parameters = input_parameters
         self.export_columns_manager = None
         self.df = None
