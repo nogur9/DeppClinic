@@ -409,7 +409,7 @@ sci_father = [
     'sci_p_15_f'
 ]
 
-ARI_S = ['ari_s_1', 'ari_s_2', 'ari_s_3', 'ari_s_4', 'ari_s_5', 'ari_s_6']
+ARI_S = ['ari_s_1', 'ari_s_2', 'ari_s_3', 'ari_s_4', 'ari_s_5', 'ari_s_6', 'ari_s_7']
 
 ARI_P_m = ['ari_p_1_m', 'ari_p_2_m', 'ari_p_3_m', 'ari_p_4_m', 'ari_p_5_m', 'ari_p_6_m']
 
@@ -868,6 +868,25 @@ chameleon = ['chameleon_follow_stu',
 
 cgi = ['cgi_s_clin']
 
+piu_cyberbulling = ['piu_1', 'piu_2', 'piu_3', 'piu_4', 'piu_5', 'piu_6',
+                    'cyberbulling_1', 'cyberbulling_2',	'cyberbulling_3', 'cyberbulling_4',
+                    'cyberbulling_5', 'cyberbulling_6', 'cyberbulling_7', 'cyberbulling_8',
+                    'cyberbulling_9', 'cyberbulling_10', 'cyberbulling_11',
+                    'bullied_1', 'bullied_2', 'bullied_3', 'bullied_4']
+
+erq_ca = ['erq_ca_1', 'erq_ca_2', 'erq_ca_3', 'erq_ca_4', 'erq_ca_5',
+          'erq_ca_6', 'erq_ca_7', 'erq_ca_8', 'erq_ca_9', 'erq_ca_10']
+
+cts = ['cts_c_1', 'cts_c_2', 'cts_c_3', 'cts_c_4', 'cts_c_4_1']
+
+dshi_pre = ['dshi_pre_1', 'dshi_pre_2', 'dshi_pre_3', 'dshi_pre_4', 'dshi_pre_5', 'dshi_pre_6']
+
+dshi_post = ['dshi_post_1', 'dshi_post_2', 'dshi_post_3', 'dshi_post_4', 'dshi_post_5', 'dshi_post_6']
+
+inq = ['inq_1', 'inq_2', 'inq_3', 'inq_4', 'inq_5', 'inq_6', 'inq_7', 'inq_8',
+       'inq_9', 'inq_10', 'inq_11', 'inq_12', 'inq_13', 'inq_14', 'inq_15']
+
+
 all_of_the_questionnaires = c_ssrs_intake + c_ssrs + \
                             c_ssrs_clin + \
                             mfq + \
@@ -896,6 +915,12 @@ all_of_the_questionnaires = c_ssrs_intake + c_ssrs + \
                             erc_rc + \
                             bulling + \
                             opening + \
-                            chameleon + cgi
-
+                            chameleon + \
+                            cgi + \
+                            piu_cyberbulling + \
+                            erq_ca + \
+                            cts + \
+                            dshi_pre + \
+                            dshi_post + \
+                            inq
 

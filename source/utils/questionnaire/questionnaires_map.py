@@ -21,6 +21,24 @@ class QuestionnairesMap:
         self.all_of_the_questionnaires = {
             "sdq": SDQScorer(),
             "mfq": MFQScorer(),
+            "siq": SIQScorer(),
+            "piu": PIUScorer(),
+            "erq-ca": ErqCaScorer(),
+            "cts": CTSScorer(),
+            "dshi-pre": DshiPreScorer(),
+            "dshi-post": DshiPostScorer(),
+            "inq": INQScorer(),
+            "mast": MASTScorer(),
+            "ders": DERSScorer(),
+            "athens": AthensScorer(),
+            'ari-s': AriSScorer(),
+            'erc-rc': ErcRcScorer(),
+            'sas': SasScorer(),
+            'scared': ScaredScorer(),
+            'sci_af_ca': Sci_af_ca_Scorer(),
+            "maris_sci_sf": Maris_sci_sf_Scorer(),
+            "c_ssrs_intake": C_ssrs_intake_Scorer(),
+
             # Add other questionnaires similarly...
         }
 

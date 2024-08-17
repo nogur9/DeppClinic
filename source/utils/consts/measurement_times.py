@@ -7,6 +7,10 @@ measurement_times = {
 
 }
 
+modcon_measurement_times = {
+    INTAKE: ['intake_arm_1', 'pre_treatment_arm_1', 'er_arm_1'],
+    'FollowUp': ['5th_session_arm_1', 'control_5weeks_arm_1'],
+}
 
 r"""
 

@@ -75,18 +75,19 @@ suicidal_ideation_life_intake = [
 # Only Follow-up Evaluations
 
 modcon_target = [
-    # 'c_ssrs_6',
-    #  'c_ssrs_last_visit_6',
-     'chameleon_attempt_stu',
-     # 'chameleon_behavior_stu',
-     'chameleon_psychiatric_stu',
+    'chameleon_attempt_stu',
+    'chameleon_psychiatric_stu',
      'chameleon_suicide_er_stu',
      'mfq_36',
-     # 'suicidal_behavior_last_11_clin',
-     # 'suicidal_behavior_last_12_clin',
-     # 'suicidal_behavior_last_13_clin',
-     # 'suicidal_behavior_last_14_clin',
-     # 'suicidal_behavior_last_15_clin'
+
+    # 'c_ssrs_6',
+    #  'c_ssrs_last_visit_6',
+    # 'chameleon_behavior_stu',
+    # 'suicidal_behavior_last_11_clin',
+    # 'suicidal_behavior_last_12_clin',
+    # 'suicidal_behavior_last_13_clin',
+    # 'suicidal_behavior_last_14_clin',
+    # 'suicidal_behavior_last_15_clin'
     ]
 
 survival_target = [

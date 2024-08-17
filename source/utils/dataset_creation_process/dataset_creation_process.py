@@ -3,7 +3,7 @@ import pandas as pd
 from source.utils.pathology_assessment.pathologies_map import PathologiesMap
 from source.utils.pathology_assessment.psychological_assessment import PsychologicalAssessment
 from source.utils.utils.export_columns_manager import ExportColumnsManager
-from source.utils.consts.standard_names import INTAKE
+from source.utils.consts.standard_names import INTAKE, TIMESTAMP_COLUMN_NAME
 from source.utils.dataset_creation_process.dataset_creation_input_parameter import InputParametersForDatasetCreationProcess
 from source.utils.utils.functions.handle_events import group_by_measurment_times
 from source.utils.utils.functions.save_processed_data import save_results
@@ -30,7 +30,7 @@ class DatasetCreationProcess:
         self.events_names = list(self.parameters.measurement_times.keys())
         self.content_root = self.parameters.content_root
         self.pathologies = [PathologiesMap[i] for i in self.parameters.pathologies]
-        self.questionnaires_map = QuestionnairesMap(self.parameters.questionnaires_for_scoring +
+        self.questionnaires_map = QuestionnairesMap(self.parameters.questionnaires +
                                                     self.parameters.indicator_questionnaires)
         if self.parameters.include_individual_questions:
             self.export_columns_manager = ExportColumnsManager(questionnaires=self.questionnaires_map)
@@ -47,7 +47,8 @@ class DatasetCreationProcess:
         if self.parameters.calculate_timestamps:
             self._calculate_timestamps()
 
-        self._manage_groups()
+        if self.parameters.assign_groups:
+            self._manage_groups()
 
         if self.parameters.impute_from_parallel_questionnaires:
             self._impute_from_parallel_questionnaires()
@@ -69,7 +70,7 @@ class DatasetCreationProcess:
         group_manager = GroupManager(self.df, self.content_root)
         group_manager.process()
         self.df = group_manager.df
-        self.export_columns_manager.add_columns(['group'])
+        self.export_columns_manager.add_columns(['group'], is_info=True)
 
     def _impute_from_parallel_questionnaires(self):
         df = self.df.copy()
@@ -142,3 +143,4 @@ class DatasetCreationProcess:
     def _calculate_timestamps(self):
         timestamp_creator = TimestampCreator()
         self.df = timestamp_creator.get(self.df)
+        self.export_columns_manager.add_columns([TIMESTAMP_COLUMN_NAME], is_info=True)

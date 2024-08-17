@@ -13,11 +13,13 @@ class PsychologicalAssessment:
 
         self.pathology = pathology
         self.preprocess = preprocess
+        self.columns_to_preprocess = []
+        self.original_columns = None
 
     def calculate_target_pathology(self, df):
         df = self._calculate_missing_values(df)
-        columns_to_preprocess = self._identify_columns_to_preprocess()
-        processed_df = self._preprocess_columns(df, columns_to_preprocess)
+        self.columns_to_preprocess = self._identify_columns_to_preprocess()
+        processed_df = self._preprocess_columns(df, self.columns_to_preprocess)
         df[self.pathology.name] = (processed_df.sum(axis=1) > 0).astype(int)
         self._drop_irrelevant_values(df)
         return df
@@ -36,12 +38,15 @@ class PsychologicalAssessment:
 
     def _preprocess_columns(self, df, columns_to_preprocess):
         processed_df = df.copy()
-        aligned_columns = [f"{col}_align" for col in columns_to_preprocess]
-        processed_df[aligned_columns] = processed_df[columns_to_preprocess].replace({2: 0, 3: 0})
-        return processed_df[self.pathology.questions + aligned_columns]
+        self.original_columns = processed_df[columns_to_preprocess]
+        processed_df[columns_to_preprocess] = processed_df[columns_to_preprocess].replace({2: 0, 3: 0})
+        return processed_df[self.pathology.questions]
 
     def _drop_irrelevant_values(self, df):
         df.loc[df[f'ratio_of_missing_{self.pathology.name}_values'] >= 1, self.pathology.name] = np.nan
+
+        if len(self.columns_to_preprocess) > 0:
+            df[self.columns_to_preprocess] = self.original_columns
 
         if self.pathology.only_intake_evaluation:
             df.loc[df['measurement'] != INTAKE, self.pathology.name] = np.nan

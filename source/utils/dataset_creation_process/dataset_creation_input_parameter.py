@@ -10,7 +10,7 @@ class InputParametersForDatasetCreationProcess:
     DEFAULT_CUSTOM_NA_VALS = ['chameleon_ideation_stu_2022']
     DEFAULT_PATHOLOGIES = ["suicidal_behavior_intake", "suicide_attempt_intake", "NSSI_intake"]
 
-    def __init__(self, measurement_times, content_root, questionnaires_for_scoring=None,
+    def __init__(self, measurement_times, content_root, questionnaires=None,
                  assign_groups=True, impute_from_parallel_questionnaires=True,
                  compute_target_variable=True, calculate_questionnaires_scores=True,
                  file_name=DEFAULT_FILE_NAME, directory_path=DEFAULT_DIRECTORY_PATH,
@@ -18,7 +18,7 @@ class InputParametersForDatasetCreationProcess:
                  add_pathology_missing_ratio=False, pathologies=DEFAULT_PATHOLOGIES,
                  include_individual_questions=True, include_app_data=False,
                  indicator_questionnaires=None, overlapping_counting=True,
-                 calculate_timestamps=True):
+                 calculate_timestamps=False):
 
         self.measurement_times = measurement_times
         self.assign_groups = assign_groups
@@ -35,7 +35,7 @@ class InputParametersForDatasetCreationProcess:
         self.pathologies = pathologies
         self.include_individual_questions = include_individual_questions
         self.include_app_data = include_app_data
-        self.questionnaires_for_scoring = questionnaires_for_scoring
-        self.indicator_questionnaires = indicator_questionnaires
+        self.questionnaires = questionnaires or []
+        self.indicator_questionnaires = indicator_questionnaires or []
         self.overlapping_counting = overlapping_counting
         self.calculate_timestamps = calculate_timestamps
