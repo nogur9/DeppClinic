@@ -21,6 +21,7 @@ class QuestionnairesMap:
         self.all_of_the_questionnaires = {
             "sdq": SDQScorer(),
             "mfq": MFQScorer(),
+            "additional_mfq": Additional_MFQ_Scorer(),
             "siq": SIQScorer(),
             "piu": PIUScorer(),
             "erq-ca": ErqCaScorer(),
@@ -38,6 +39,7 @@ class QuestionnairesMap:
             'sci_af_ca': Sci_af_ca_Scorer(),
             "maris_sci_sf": Maris_sci_sf_Scorer(),
             "c_ssrs_intake": C_ssrs_intake_Scorer(),
+            "maris_soq_sf": Maris_soq_sf_Scorer(),
 
             # Add other questionnaires similarly...
         }

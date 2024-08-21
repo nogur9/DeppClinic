@@ -83,7 +83,7 @@ class ErcRcScorer(QuestionnaireScorer):
 
 
 class SasScorer(QuestionnaireScorer):
-    def __init__(self, sas_columns=erc_rc):
+    def __init__(self, sas_columns=SAS):
         super().__init__('sas', sas_columns)
 
 
@@ -106,3 +106,12 @@ class C_ssrs_intake_Scorer(QuestionnaireScorer):
     def __init__(self, c_ssrs_intake_columns=c_ssrs_intake):
         super().__init__('c_ssrs_intake', c_ssrs_intake_columns)
 
+
+class Additional_MFQ_Scorer(QuestionnaireScorer):
+    def __init__(self, additional_mfq_columns=additional_mfq):
+        super().__init__('additional_mfq', additional_mfq_columns)
+
+
+class Maris_soq_sf_Scorer(QuestionnaireScorer):
+    def __init__(self, maris_soq_sf_columns=maris_soq_sf):
+        super().__init__('maris_soq_sf', maris_soq_sf_columns)

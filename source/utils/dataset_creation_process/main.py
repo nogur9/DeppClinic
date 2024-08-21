@@ -15,13 +15,17 @@ input_parameters_for_dataset_creation_process = InputParametersForDatasetCreatio
     measurement_times=modcon_measurement_times,
     impute_from_parallel_questionnaires=True,
 
-    questionnaires=['mfq', 'siq', 'sdq',
+    questionnaires=['mfq', 'additional_mfq', 'siq',
+                    'sdq', 'maris_soq_sf',
                     'piu', "erq-ca", "cts",
                     'dshi-pre', 'dshi-post',
                     'inq', 'mast', "ders",
                     "athens", 'ari-s', 'erc-rc',
                     'sas', 'scared', 'sci_af_ca',
-                    "maris_sci_sf", "c_ssrs_intake"
+                    "maris_sci_sf", "c_ssrs_intake",
+
+
+
                     ],
 
     include_individual_questions=True,
@@ -31,7 +35,7 @@ input_parameters_for_dataset_creation_process = InputParametersForDatasetCreatio
     pathologies=['MODCON'],
 
 
-    file_name='Modcon_data_15-8',
+    file_name='Modcon_data_21-8',
     directory_path=r'Data\processed_data\test',
     axis='patient',
     content_root=r"C:\Users\nogur\Documents\DeppClinic",
